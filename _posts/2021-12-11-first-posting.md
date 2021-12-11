@@ -1,10 +1,8 @@
 ---
-layout: post
+layout: posts
 title: First Post
 category: 포스팅 연습
 garbage: 의미없음
-author_profile: true
-sidebar_main: true
 ---
 
 This is an H1
