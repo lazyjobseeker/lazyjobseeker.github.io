@@ -3,6 +3,8 @@ layout: post
 title: First Post
 category: 포스팅 연습
 garbage: 의미없음
+author_profile: true
+sidebar_main: true
 ---
 
 This is an H1
@@ -12,10 +14,15 @@ This is an H2
 -------------
 
 # This is a H1
+
 ## This is a H2
+
 ### This is a H3
+
 #### This is a H4
+
 ##### This is a H5
+
 ###### This is a H6
 
 Blockquote start
