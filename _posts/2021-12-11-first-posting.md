@@ -2,16 +2,16 @@
 layout: posts
 title: First Post
 category: 포스팅 연습
-published: false
+published: true
 ---
 
-지킬 (Jekyll) 블로그 구조
+example
 =============
-지킬 블로그 구조
+example
 -------------
 
 # This is a H1
-
+`inline` codeblock should work for you.
 ## This is a H2
 
 ### This is a H3
