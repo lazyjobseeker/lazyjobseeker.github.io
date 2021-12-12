@@ -2,10 +2,10 @@
 layout: posts
 title: First Post
 category: 포스팅 연습
-garbage: 의미없음
+published: false
 ---
 
-This is an H1
+지킬 (Jekyll) 블로그 구조
 =============
 
 This is an H2
@@ -38,8 +38,8 @@ Codeblocks
 
 for x in range(0, 10):
     print(x)
-    
-    
+
+
 ```
 
 * * *
