@@ -280,19 +280,7 @@ defaults:
   # _posts
   - scope:
       path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: # true
-      share: true
-      related: true
-      sidebar:
-        nav: "docs"
-  - scope:
-      path: ""
-      type: home
+      type: "posts"
     values:
       layout: single
       author_profile: true
