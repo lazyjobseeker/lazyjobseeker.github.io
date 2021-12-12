@@ -7,8 +7,7 @@ published: false
 
 지킬 (Jekyll) 블로그 구조
 =============
-
-This is an H2
+지킬 블로그 구조
 -------------
 
 # This is a H1
