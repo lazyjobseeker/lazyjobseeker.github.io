@@ -1,15 +1,19 @@
 ---
 layout: posts
 title: First Post
-category: 포스팅 연습
+category: practice
 published: true
 last_modified_at: 2021-12-13 22:18:00 +0900
 ---
 
-지킬 포스트
-=============
+Jekyll 블로그 만들기
+===
+
 example
--------------
+---
+
+
+
 
 # This is a H1
 `inline` codeblock should work for you.
