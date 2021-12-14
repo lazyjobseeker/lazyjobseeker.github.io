@@ -7,6 +7,3 @@
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 @import "custom/fonts";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Noto+Serif+KR&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto&display=swap');
