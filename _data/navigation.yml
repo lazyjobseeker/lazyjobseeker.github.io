@@ -15,7 +15,7 @@ docs:
   - title: Investment
     children:
       - title: "Quant Strategy"
-        url: /docs/quick-start-guide/
+        url: /docs/quant_strategy/
 
   - title: Programming
     children:
