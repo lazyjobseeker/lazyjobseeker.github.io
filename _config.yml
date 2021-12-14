@@ -289,11 +289,12 @@ defaults:
       comments: # true
       share: true
       related: true
-
+      sidebar:
+        nav: "docs"
   # _docs
   - scope:
-      path: ""
-      type: docs
+      path: "_docs"
+      type: category
     values:
       layout: single
       read_time: true
