@@ -281,7 +281,7 @@ defaults:
   # _posts
   - scope:
       path: ""
-      type: "posts"
+      type: posts
     values:
       layout: single
       author_profile: true
@@ -289,5 +289,17 @@ defaults:
       comments: # true
       share: true
       related: true
+      sidebar:
+        nav: "docs"
+  # _docs
+  - scope:
+      path: ""
+      type: docs
+    values:
+      layout: category
+      read_time: false
+      author_profile: true
+      share: true
+      comments: false
       sidebar:
         nav: "docs"
