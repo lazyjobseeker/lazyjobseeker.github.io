@@ -12,46 +12,22 @@ main:
   #   url: /sitemap/
 
 docs:
-  - title: Getting Started
+  - title: Investment
     children:
-      - title: "Quick-Start Guide"
+      - title: "Quant Strategy"
         url: /docs/quick-start-guide/
-      - title: "Structure"
-        url: /docs/structure/
-      - title: "Installation"
-        url: /docs/installation/
-      - title: "Upgrading"
-        url: /docs/upgrading/
 
-  - title: Customization
+  - title: Programming
     children:
       - title: "Configuration"
         url: /docs/configuration/
-      - title: "Navigation"
-        url: /docs/navigation/
-      - title: "UI Text"
-        url: /docs/ui-text/
-      - title: "Authors"
-        url: /docs/authors/
-      - title: "Layouts"
-        url: /docs/layouts/
 
-  - title: Content
+  - title: Technology
     children:
       - title: "Working with Posts"
         url: /docs/posts/
-      - title: "Working with Pages"
-        url: /docs/pages/
-      - title: "Working with Collections"
-        url: /docs/collections/
-      - title: "Helpers"
-        url: /docs/helpers/
-      - title: "Utility Classes"
-        url: /docs/utility-classes/
 
   - title: Extras
     children:
-      - title: "Stylesheets"
+      - title: "Drafts"
         url: /docs/stylesheets/
-      - title: "JavaScript"
-        url: /docs/javascript/
