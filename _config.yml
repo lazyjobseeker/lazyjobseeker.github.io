@@ -293,10 +293,10 @@ defaults:
         nav: "docs"
   # _docs
   - scope:
-      path: ""
-      type: docs
+      path: "_docs"
+      type:
     values:
-      layout: single
+      layout: category
       author_profile: true
       read_time: true
       comments: # true
