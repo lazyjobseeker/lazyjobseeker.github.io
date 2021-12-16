@@ -19,13 +19,15 @@ docs:
 
   - title: Programming
     children:
-      - title: "Configuration"
-        url: /docs/configuration/
+      - title: "C++"
+        url: /docs/C++/
+      - title: "Python"
+        url: /docs/Python/
 
   - title: Technology
     children:
-      - title: "Working with Posts"
-        url: /docs/posts/
+      - title: "Batteries"
+        url: /docs/batteries/
 
   - title: Extras
     children:
