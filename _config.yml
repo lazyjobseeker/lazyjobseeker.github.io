@@ -294,8 +294,9 @@ defaults:
   # _docs
   - scope:
       path: "_docs"
+      type: pages
     values:
-      layout: category
+      layout: single
       author_profile: true
       read_time: true
       comments: # true
