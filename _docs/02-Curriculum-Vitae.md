@@ -8,8 +8,6 @@ permalink: /docs/curriculum_vitae/
 
 # Publications (International)
 
-<li value=34>
-Effects of Photochemical Oxidation of the Carbonaceous Additives on Li-S Cell Performance
+34-. Effects of Photochemical Oxidation of the Carbonaceous Additives on Li-S Cell Performance
 
 J Park, J Moon, K Kim, V Ri, <b>S Lee</b>, BH Hong, YE Sung, C Kim,<sup>*</sup> and EJ Cairns<sup>*</sup>
-</li>
