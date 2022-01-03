@@ -12,6 +12,13 @@ main:
   #   url: /sitemap/
 
 docs:
+  - title: Sangheon Lee
+    children:
+      - title: "About"
+        url: /docs/about/
+      - title: "Curriculum Vitae"
+        url: /docs/curriculum_vitae/
+        
   - title: Investment
     children:
       - title: "Quant Strategy"
