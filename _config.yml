@@ -275,6 +275,8 @@ compress_html:
   ignore:
     envs: development
 
+collections:
+  - publications
 
 # Defaults
 defaults:
