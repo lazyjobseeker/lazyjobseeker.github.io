@@ -9,10 +9,10 @@ permalink: /docs/curriculum_vitae/
 ## Publications (International)
 
 {% for pub in site.publications %}
-  ## {{ pub.title }}
+  <h2> {{ pub.title }} </h2>
   {% for author in pub.authors %}
-    {% if author.role == "me" %}
-      {{ author.first_name }} {{ author.last_name }}
+    {% if author.me == true %}
+      <b><u> {{ author.first_name }}, {{ author.last_name }} </u></b>
     {% endif %}
   {% endfor %}
 {% endfor %}

@@ -15,7 +15,8 @@ authors:
   role: contributing
 - first_name: Sangheon
   last_name: Lee
-  role: me
+  role: contributing
+  me: true
 - first_name: Byung Hee
   last_name: Hong
   role: contributing
