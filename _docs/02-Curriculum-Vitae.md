@@ -12,7 +12,25 @@ permalink: /docs/curriculum_vitae/
   <h2> {{ pub.title }} </h2>
   {% for author in pub.authors %}
     {% if author.me == true %}
-      <b><u> {{ author.first_name }}, {{ author.last_name }} </u></b>
+      <b><u> {{ author.first_name }} - {{ author.last_name }} </u></b>,
+      {% if author.role == "first_equally" %}
+        <sup>+</sup>
+        {% if author.correspondence == true %}
+          <sup>,*</sup>
+        {% endif %}
+      {% elsif author.correspondence == true %}
+        <sup>*</sup>
+      {% endif %}
+    {% else %}
+      {{ author.first_name }} - {{ author.last_name }},
+      {% if author.role == "first_equally" %}
+        <sup>+</sup>
+        {% if author.correspondence == true %}
+          <sup>,*</sup>
+        {% endif %}
+      {% elsif author.correspondence == true %}
+        <sup>*</sup>
+      {% endif %}
     {% endif %}
   {% endfor %}
 {% endfor %}

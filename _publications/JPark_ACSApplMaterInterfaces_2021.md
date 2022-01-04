@@ -25,10 +25,12 @@ authors:
   role: contributing
 - first_name: Chunjoong
   last_name: Kim
-  role: corresponding
+  role: contributing
+  correspondence: true
 - first_name: Elton J.
   last_name: Cairns
-  role: corresponding
+  role: contributing
+  correspondence: true
 journal: ACS Applied Materials and Interfaces
 journal_abbr: ACS Appl. Mater. Interfaces
 year: 2021
