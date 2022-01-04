@@ -14,7 +14,7 @@ permalink: /docs/curriculum_vitae/
     {% if author.me == true %}
       <b><u> {{ author.first_name }} {{ author.last_name }} </u></b>,
     {% else %}
-      {{ author.first_name }} - {{ author.last_name }},
+      {{ author.first_name }} {{ author.last_name }},
     {% endif %}
     {% if author.role == "first_equally" %}
       <sup>+</sup>
