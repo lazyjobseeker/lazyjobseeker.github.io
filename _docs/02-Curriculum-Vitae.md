@@ -14,7 +14,7 @@ permalink: /docs/curriculum_vitae/
     {% for author in pub.authors %}
       {% assign name = author.first_name %}
       {% if author.me == true %}
-        {% assign name = {{ name | prepend: "<b>" | append: "</b>" }} %}
+        {% assign name = {{ name | prepend: "AAA" | append: "BBB" }} %}
       {% endif %}
       {{ name }}
     {% endfor %}
