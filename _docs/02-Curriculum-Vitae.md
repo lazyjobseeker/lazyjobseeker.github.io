@@ -10,6 +10,11 @@ permalink: /docs/curriculum_vitae/
 
 {% for pub in site.publications %}
   <font size = 4>{{ pub.title }}</font>
+  <font size = 3>
+    {% for author in pub.authors %}
+      {{ author.first_name }}
+    {% endfor %}
+  </font>
 {% endfor %}
 
 <!--
