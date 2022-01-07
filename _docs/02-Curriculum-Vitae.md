@@ -8,15 +8,6 @@ permalink: /docs/curriculum_vitae/
 
 <h2> Publications (International) </h2>
 
-{% for pub in site.publications %}
-  <font size = 4>{{ pub.title }}</font>
-  <font size = 3>
-    {% for author in pub.authors %}
-      {% assign name = author.first_name %}
-      {{ name }}
-    {% endfor %}
-  </font>
-{% endfor %}
 
 <!--
   {% if author.me == true %}
