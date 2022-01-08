@@ -16,6 +16,11 @@ permalink: /docs/curriculum_vitae/
       {% if author.me == true %}
         {% capture name %} {{ name | rstrip | prepend: "<b><u>" | append: "</u></b>" }} {% endcapture %}
       {% endif %}
+      {% if author.last_author == true %}
+        {% capture name %} {{ name | rstrip | prepend: "and "}} {% endcapture %}
+      {% else %}
+        {% capture name %} {{ name | rstrip | append: ", " }} {% endcapture %}
+      {% endif %}
       {% if author.role == "first_equally" %}
         {% capture name %} {{ name | rstrip | append: "<sup>+</sup>" }} {% endcapture %}
         {% if author.correspondence == true %}
@@ -25,12 +30,6 @@ permalink: /docs/curriculum_vitae/
         {% capture name %} {{ name | rstrip | append: "<sup>*</sup>" }} {% endcapture %}
       {% endif %}
       {{ name | rstrip }}
-      {% if author == pub.authors[pub.authors.size-1] %}
-      {% elsif author == pub.authors[pub.authors.size-2] %}
-        {{ ", and " | lstrip}} 
-      {% else %}
-        {{ ", " | lstrip}}
-      {% endif %}
     {% endfor %}
     
   </font>
