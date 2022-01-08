@@ -7,7 +7,7 @@ permalink: /docs/curriculum_vitae/
 ---
 
 <h2> Publications (International) </h2>
-{% assign counter = site.publications.size + 1 %}
+{% assign counter = site.publications.size %}
 {% for pub in site.publications %}
   <font size = 4>
     {% decrement counter -%}
@@ -38,6 +38,8 @@ permalink: /docs/curriculum_vitae/
     {{ pub.volume | prepend: "<b>" | append: "</b>" -}}
     {% if pub.issue != false %}
       {{- pub.issue | prepend: "(" | append: ")," -}}
+    {% else %}
+      {{- "," -}}
     {% endif %}
     {% if pub.page_start != false %}
       {{- pub.page_start -}}
