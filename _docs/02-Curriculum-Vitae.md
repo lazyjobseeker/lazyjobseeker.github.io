@@ -31,6 +31,7 @@ permalink: /docs/curriculum_vitae/
       {% endif %}
       {{ name | rstrip }}
     {% endfor %}
+    <!--
     {{ pub.journal_title_abbr | prepend: "<br><i><u>" | append: "</u></i>" }}
     {{ pub.volume | lstrip | prepend: "<b>" | append: "</b>" } | rstrip }}
     {% if pub.issue != false %}
@@ -45,21 +46,6 @@ permalink: /docs/curriculum_vitae/
       {{ pub.art_no | lstrip | rstrip | prepend: ", " }}
     {% endif %}
     {{ pub.year | lstrip | rstrip | prepend: "(" | append: ")" }}
+    -->
   </font>
 {% endfor %}
-
-<!--
-  {% if author.me == true %}
-    <b><u> {{ author.first_name }} {{ author.last_name }} </u></b>,
-  {% else %}
-    {{ author.first_name }} {{ author.last_name }},
-  {% endif %}
-  {% if author.role == "first_equally" %}
-    <sup>+</sup>
-    {% if author.correspondence == true %}
-      <sup>,*</sup>
-    {% endif %}
-  {% elsif author.correspondence == true %}
-    <sup>*</sup>
-  {% endif %}
--->
