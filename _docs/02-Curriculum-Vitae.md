@@ -8,6 +8,7 @@ permalink: /docs/curriculum_vitae/
 
 <h2> Publications (International) </h2>
 {% assign counter = site.publications.size %}
+{{ counter }}
 {% for pub in site.publications %}
   <font size = 4>
     {% capture pub_num %} {% decrement counter -%} {% endcapture %}
