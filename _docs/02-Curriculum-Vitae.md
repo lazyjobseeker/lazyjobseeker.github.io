@@ -11,7 +11,7 @@ permalink: /docs/curriculum_vitae/
 {% for pub in site.publications %}
   <font size = 4>
     {% capture pub_num %} {% decrement counter -%} {% endcapture %}
-    {{ counter | append: "." | append: pub.title | append: "<br>" }}
+    {{ pub_num | append: ". " | append: pub.title | append: "<br>" }}
   </font>
   <font size = 3>
     {% for author in pub.authors %}
@@ -50,5 +50,6 @@ permalink: /docs/curriculum_vitae/
       {{- pub.art_no -}}
     {% endif %}
     {{ pub.year | prepend: "(" | append: ")" -}} {{ "; DOI: " | append: pub.doi }}
+    {{- "<br>" -}}
   </font>
 {% endfor %}
