@@ -36,9 +36,9 @@ permalink: /docs/curriculum_vitae/
       {{ pub.issue | lstrip | rstrip | prepend: "(" | append: ")" }}
     {% endif %}
     {% if pub.page_start != false %}
-      {{ pub.page_start | lstrip | rstrip | prepend: ", "}}
+      {{ pub.page_start | lstrip | prepend: ", " | rstrip }}
       {% if pub.page_end != false %}
-        {{ pub.page_end | lstrip | rstrip | prepend: "-" }}
+        {{ pub.page_end | rstrip | prepend: "-" | lstrip }}
       {% endif %}
     {% elsif pub.art_no != false %}
       {{ pub.art_no | lstrip | rstrip | prepend: ", " }}
