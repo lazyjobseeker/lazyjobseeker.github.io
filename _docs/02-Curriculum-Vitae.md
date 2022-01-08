@@ -28,7 +28,7 @@ permalink: /docs/curriculum_vitae/
       {% elsif author.correspondence == true %}
         {% capture name %} {{- name | append: "<sup>*</sup>" -}} {% endcapture %}
       {% endif %}
-      {{ name }}
+      {{ name -}}
     {% endfor %}
     {{ pub.journal_title_abbr | prepend: "<br><i><u>" | append: "</u></i>" }}
     {{ pub.volume | prepend: "<b>" | append: "</b>" }}
