@@ -16,7 +16,7 @@ authors:
 - first_name: Sangheon
   last_name: Lee
   role: contributing
-  me: true
+  is_me: true
 - first_name: Byung Hee
   last_name: Hong
   role: contributing
