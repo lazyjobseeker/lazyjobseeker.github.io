@@ -16,7 +16,7 @@ permalink: /docs/curriculum_vitae/
         {% capture name %} {{- name | prepend: "<b><u>" | append: "</u></b>" -}} {% endcapture %}
       {% endif %}
       {% if author.last_author == true %}
-        {% capture name %} {{- name | prepend: "and" -}} {% endcapture %}
+        {% capture name %} {{- name | prepend: "and " }} {% endcapture %}
       {% else %}
         {% capture name %} {{- name | append: "," -}} {% endcapture %}
       {% endif %}
