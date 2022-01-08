@@ -40,7 +40,7 @@ permalink: /docs/curriculum_vitae/
       {{- pub.issue | prepend: "(" | append: ")" -}}
     {% endif %}
     {% if pub.page_start != false %}
-      {{- pub.page_start | prepend: "," -}}
+      {{- pub.page_start | prepend: ", " -}}
       {% if pub.page_end != false %}
         {{- pub.page_end | prepend: "-" -}}
       {% endif %}
