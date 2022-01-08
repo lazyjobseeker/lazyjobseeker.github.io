@@ -34,7 +34,11 @@ permalink: /docs/curriculum_vitae/
     {{ pub.journal_title | prepend: "<br><i><u>" | append: "</u></i>" }}
     {{ pub.volume | lstrip | rstrip | prepend: "<b>" | append: "</b>" }}
     {{ pub.issue | lstrip | rstrip | prepend: "(" | append: ")" }}
-    {{ pub.page_start }}
+    {% if pub.page_start != false %}
+      {{ pub.page_start }}
+    {% elsif pub.art_no != false %}
+      {{ pub.art_no }}
+    {% endif %}
     {{ pub.year | lstrip | rstrip | prepend: "(" | append: ")" }}
     
   </font>
