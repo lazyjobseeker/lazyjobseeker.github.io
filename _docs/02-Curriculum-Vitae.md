@@ -8,11 +8,10 @@ permalink: /docs/curriculum_vitae/
 
 <h2> Publications (International) </h2>
 {% assign counter = site.publications.size %}
-{{ counter }}
 {% for pub in site.publications %}
   <font size = 4>
     {% capture pub_num %} {% decrement counter -%} {% endcapture %}
-    {{ pub_num | append: ". " | append: pub.title | append: "<br>" }}
+    {{ pub_num | prepend: "[" | append: "] " | append: pub.title | append: "<br>" }}
   </font>
   <font size = 3>
     {% for author in pub.authors %}
@@ -51,6 +50,6 @@ permalink: /docs/curriculum_vitae/
       {{- pub.art_no -}}
     {% endif %}
     {{ pub.year | prepend: "(" | append: ")" -}} {{ "; DOI: " | append: pub.doi }}
-    {{- "<br>" -}}
+    {{- "<br><br>" -}}
   </font>
 {% endfor %}
