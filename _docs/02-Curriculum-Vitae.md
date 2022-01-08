@@ -12,7 +12,7 @@ permalink: /docs/curriculum_vitae/
   <font size = 4><b>
     {% assign counter = counter | minus: 1 %}
     {{ counter | append: ". " | append: pub.title | append: "<br>" }}
-  </font></b>
+  </b></font>
   <font size = 3>
     {% for author in pub.authors %}
       {% capture name %} {{- author.first_name }} {{ author.last_name -}} {% endcapture %}
