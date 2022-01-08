@@ -33,7 +33,7 @@ authors:
   correspondence: true
   last_author: true
 journal_title: ACS Applied Materials and Interfaces
-journal_abbr: ACS Appl. Mater. Interfaces
+journal_title_abbr: ACS Appl. Mater. Interfaces
 year: 2021
 volume: 13
 issue: 35
