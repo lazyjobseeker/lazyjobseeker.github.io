@@ -31,14 +31,14 @@ permalink: /docs/curriculum_vitae/
       {{ name }}
     {% endfor %}
     {{ pub.journal_title_abbr | prepend: "<br><i><u>" | append: "</u></i>" }}
-    {{ pub.volume | prepend: "<b>" | append: "</b>" }}
+    {{- pub.volume | prepend: "<b>" | append: "</b>" -}}
     {% if pub.issue != false %}
-      {{ pub.issue | prepend: "(" | append: ")" }}
+      {{- pub.issue | prepend: "(" | append: ")" -}}
     {% endif %}
     {% if pub.page_start != false %}
       {{- pub.page_start | prepend: ", " -}}
       {% if pub.page_end != false %}
-        {{ pub.page_end | prepend: "-" }}
+        {{- pub.page_end | prepend: "-" -}}
       {% endif %}
     {% elsif pub.art_no != false %}
       {{ pub.art_no | prepend: ", " }}
