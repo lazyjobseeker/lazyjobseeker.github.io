@@ -33,10 +33,10 @@ permalink: /docs/curriculum_vitae/
     {{ pub.journal_title_abbr | prepend: "<br><i><u>" | append: "</u></i>" }}
     {{ pub.volume | lstrip | prepend: "<b>" | append: "</b>" | rstrip }}
     {% if pub.issue != false %}
-      {{ pub.issue | lstrip | rstrip | prepend: "(" | append: ")" }}
+      {{ pub.issue | lstrip | prepend: "(" | append: ")" | rstrip }}
     {% endif %}
     {% if pub.page_start != false %}
-      {{ pub.page_start | lstrip | prepend: ", " | rstrip }}
+      {{ pub.page_start | prepend: ", " | lstrip | rstrip }}
       {% if pub.page_end != false %}
         {{ pub.page_end | rstrip | prepend: "-" | lstrip }}
       {% endif %}
