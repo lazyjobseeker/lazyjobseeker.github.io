@@ -27,11 +27,12 @@ permalink: /docs/curriculum_vitae/
       {{ name | rstrip }}
       {% if author == pub.authors[pub.authors.size-1] %}
       {% elsif author == pub.authors[pub.authors.size-2] %}
-        {{ ", and " }} 
+        {{ ", and " | lstrip}} 
       {% else %}
-        {{ ", " }}
+        {{ ", " | lstrip}}
       {% endif %}
     {% endfor %}
+    
   </font>
 {% endfor %}
 
