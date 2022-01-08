@@ -34,7 +34,7 @@ permalink: /docs/curriculum_vitae/
       {% endif %}
       {{ name }}
     {% endfor %}
-    {{ pub.journal_title_abbr | prepend: "<br><i><u>" | append: "</u></i>" }}
+    {{ pub.journal_title | prepend: "<br><i><u>" | append: "</u></i>" }}
     {{ pub.volume | prepend: "<b>" | append: "</b>" -}}
     {% if pub.issue != false %}
       {{- pub.issue | prepend: "(" | append: ")," -}}
