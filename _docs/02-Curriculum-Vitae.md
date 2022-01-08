@@ -7,11 +7,10 @@ permalink: /docs/curriculum_vitae/
 ---
 
 <h2> Publications (International) </h2>
-{% assign counter = site.publications.size %}
+{% for counter in (1..site.publications.size) reversed %}
 {% for pub in site.publications %}
   <font size = 4>
-    {% capture pub_num %} {% decrement counter %} {% endcapture %}
-    {{ pub_num | prepend: "[" | append: "] " | append: pub.title | append: "<br>" }}
+    {{ counter | prepend: "[" | append: "] " | append: pub.title | append: "<br>" }}
   </font>
   <font size = 3>
     {% for author in pub.authors %}
