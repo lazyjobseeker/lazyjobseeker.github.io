@@ -16,9 +16,9 @@ permalink: /docs/curriculum_vitae/
         {% capture name %} {{- name | prepend: "<b><u>" | append: "</u></b>" -}} {% endcapture %}
       {% endif %}
       {% if author.last_author == true %}
-        {% capture name %} {{ name | prepend: "and "}} {% endcapture %}
+        {% capture name %} {{- name | prepend: "and" -}} {% endcapture %}
       {% else %}
-        {% capture name %} {{ name | append: ", " }} {% endcapture %}
+        {% capture name %} {{- name | append: "," -}} {% endcapture %}
       {% endif %}
       {% if author.role == "first_equally" %}
         {% capture name %} {{- name | append: "<sup>+</sup>" -}} {% endcapture %}
@@ -28,7 +28,7 @@ permalink: /docs/curriculum_vitae/
       {% elsif author.correspondence == true %}
         {% capture name %} {{- name | append: "<sup>*</sup>" -}} {% endcapture %}
       {% endif %}
-      {{ name -}}
+      {{ name }}
     {% endfor %}
     {{ pub.journal_title_abbr | prepend: "<br><i><u>" | append: "</u></i>" }}
     {{ pub.volume | prepend: "<b>" | append: "</b>" }}
