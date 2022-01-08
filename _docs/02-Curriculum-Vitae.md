@@ -18,11 +18,19 @@ permalink: /docs/curriculum_vitae/
       {% endif %}
       {% if author.role == "first_equally" %}
         {% capture name %} {{ name | append: "<sup>+</sup>" }} {% endcapture %}
+        {% if author.correspondence == true %}
+          {% capture name %} {{ name | rstrip | append: "<sup>,*</sup>" }} {% endcapture %}
+        {% endif %}
+      {% elsif author.correspondence == true %}
+        {% capture name %} {{ name | append: "<sup>*</sup>" }} {% endcapture %}
       {% endif %}
-      {% if author.correspondence == true %}
-        {% capture name %} {{ name | rstrip | append: "<sup>*</sup>" }} {% endcapture %}
+      {{ name | rstrip }}
+      {% if author == pub.authors[pub.authors.size-1] %}
+      {% elsif author == pub.authors[pub.authors.size-2] %}
+        {{ ", and " }} 
+      {% else %}
+        {{ ", " }}
       {% endif %}
-      {{ name }}
     {% endfor %}
   </font>
 {% endfor %}
