@@ -8,7 +8,7 @@ permalink: /docs/curriculum_vitae/
 
 <h2> Publications (International) </h2>
 {% for pub in site.publications %}
-  <font size = 4> {{ site.publications.size | append: "." }} {{ pub.title | append: "<br>" }}</font>
+  <font size = 4> {{ site.publications.size | prepend: "[" | append: "]" }} {{ pub.title | append: "<br>" }}</font>
   <font size = 3>
     {% for author in pub.authors %}
       {% capture name %} {{- author.first_name }} {{ author.last_name -}} {% endcapture %}
