@@ -1,5 +1,6 @@
 ---
 title: "An Aromatic Diamine Molecule as the A-Site Solute for Highly Durable and Efficient Perovskite Solar Cells"
+authors:
 - first_name: Jinhyun
   last_name: Kim
   role: first
