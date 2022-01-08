@@ -1,5 +1,5 @@
 ---
-title: Nitrogen-Doped Graphene Quantum Dots: Sulfiphilic Additives for the High-Performance Li-S Cells
+title: "Nitrogen-Doped Graphene Quantum Dots: Sulfiphilic Additives for the High-Performance Li-S Cells"
 authors:
 - first_name: Jungjin
   last_name: Park
