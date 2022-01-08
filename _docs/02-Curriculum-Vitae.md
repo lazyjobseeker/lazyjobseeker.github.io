@@ -10,7 +10,7 @@ permalink: /docs/curriculum_vitae/
 {% assign counter = site.publications.size %}
 {% for pub in site.publications %}
   <font size = 4>
-    {% capture pub_num %} {% decrement counter -%} {% endcapture %}
+    {% capture pub_num %} {% decrement counter %} {% endcapture %}
     {{ pub_num | prepend: "[" | append: "] " | append: pub.title | append: "<br>" }}
   </font>
   <font size = 3>
