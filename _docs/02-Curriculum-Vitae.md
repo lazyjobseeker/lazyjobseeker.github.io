@@ -29,7 +29,7 @@ permalink: /docs/curriculum_vitae/
       {% elsif author == pub.authors[pub.authors.size-2] %}
         {{ ", and " }} 
       {% else %}
-        {{ ", " }}
+        {{- ", " -}}
       {% endif %}
     {% endfor %}
   </font>
