@@ -11,9 +11,9 @@ permalink: /docs/curriculum_vitae/
   <font size = 4>{{ pub.title | append: "<br>" | prepend: ". " | prepend: site.publications.size }}</font>
   <font size = 3>
     {% for author in pub.authors %}
-      {% capture name %} {{ author.first_name }} {{ author.last_name }} {% endcapture %}
+      {% capture name %} {{- author.first_name }} {{ author.last_name -}} {% endcapture %}
       {% if author.is_me == true %}
-        {% capture name %} {{ name | prepend: "<b><u>" | append: "</u></b>" }} {% endcapture %}
+        {% capture name %} {{- name | prepend: "<b><u>" | append: "</u></b>" -}} {% endcapture %}
       {% endif %}
       {% if author.last_author == true %}
         {% capture name %} {{ name | prepend: "and "}} {% endcapture %}
