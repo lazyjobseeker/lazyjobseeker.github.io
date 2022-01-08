@@ -9,12 +9,18 @@ permalink: /docs/curriculum_vitae/
 <h2> Publications (International) </h2>
 
 {% for pub in site.publications %}
-  <font size = 4>{{ pub.title }}</font>
+  <font size = 4>{{ pub.title | append: "<br>" }}</font>
   <font size = 3>
     {% for author in pub.authors %}
-      {% assign name = author.first_name %}
+      {% capture name %} {{ author.first_name }} {{ author.last_name }} {% endcapture %}
       {% if author.me == true %}
-        {% assign name = {{ name | prepend: "AAA" | append: "BBB" }} %}
+        {% capture name %} {{ name | prepend: "<b><u>" | append: "</u></b>" }} {% endcapture %}
+      {% endif %}
+      {% if author.role == "first_equally" %}
+        {% capture name %} {{ name | append: "<sup>+</sup>" }} {% endcapture %}
+      {% endif %}
+      {% if author.correspondence == true %}
+        {% capture name %} {{ name | rstrip | append: "<sup>*</sup>" }} {% endcapture %}
       {% endif %}
       {{ name }}
     {% endfor %}

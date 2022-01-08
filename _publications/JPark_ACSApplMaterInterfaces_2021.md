@@ -31,7 +31,7 @@ authors:
   last_name: Cairns
   role: contributing
   correspondence: true
-journal: ACS Applied Materials and Interfaces
+journal_title: ACS Applied Materials and Interfaces
 journal_abbr: ACS Appl. Mater. Interfaces
 year: 2021
 volume: 13
