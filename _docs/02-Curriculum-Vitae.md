@@ -14,7 +14,7 @@ permalink: /docs/curriculum_vitae/
     {% for author in pub.authors %}
       {% capture name %} {{ author.first_name }} {{ author.last_name }} {% endcapture %}
       {% if author.me == true %}
-        {% capture name %} {{ name | prepend: "<b><u>" | append: "</u></b>" }} {% endcapture %}
+        {% capture name %} {{ name | rstrip | prepend: "<b><u>" | append: "</u></b>" }} {% endcapture %}
       {% endif %}
       {% if author.role == "first_equally" %}
         {% capture name %} {{ name | rstrip | append: "<sup>+</sup>" }} {% endcapture %}
