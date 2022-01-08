@@ -45,7 +45,7 @@ permalink: /docs/curriculum_vitae/
         {{- pub.page_end | prepend: "-" -}}
       {% endif %}
     {% elsif pub.art_no != false %}
-      {{ pub.art_no | prepend: ", " }}
+      {{- pub.art_no | prepend: ", " -}}
     {% endif %}
     {{ pub.year | prepend: "(" | append: ")" -}} {{ "; DOI: " | append: pub.doi }}
   </font>
