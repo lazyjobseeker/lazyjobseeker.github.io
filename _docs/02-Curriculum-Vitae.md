@@ -21,12 +21,12 @@ permalink: /docs/curriculum_vitae/
         {% capture name %} {{ name | append: ", " }} {% endcapture %}
       {% endif %}
       {% if author.role == "first_equally" %}
-        {% capture name %} {{ name | append: "<sup>+</sup>" }} {% endcapture %}
+        {% capture name %} {{- name | append: "<sup>+</sup>" -}} {% endcapture %}
         {% if author.correspondence == true %}
-          {% capture name %} {{ name | append: "<sup>,*</sup>" }} {% endcapture %}
+          {% capture name %} {{- name | append: "<sup>,*</sup>" -}} {% endcapture %}
         {% endif %}
       {% elsif author.correspondence == true %}
-        {% capture name %} {{ name | append: "<sup>*</sup>" }} {% endcapture %}
+        {% capture name %} {{- name | append: "<sup>*</sup>" -}} {% endcapture %}
       {% endif %}
       {{ name }}
     {% endfor %}
