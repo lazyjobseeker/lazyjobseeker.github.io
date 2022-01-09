@@ -6,7 +6,13 @@ last_modified_at: 2022-01-03 20:00:04 +0900
 permalink: /docs/curriculum_vitae/
 ---
 
-<h2> Publications (International) </h2>
+<h2> EDUCATION & CAREER </h2>
+<font size = 4> Bachelor of Science (B.S) </font>
+  <font size = 3> Seoul National University </font>
+  
+
+
+<h2> PUBLICATIONS </h2>
 {% assign counter = site.publications.size | plus: 1 %}
 {% for pub in site.publications reversed %}
   <font size = 4><b>
