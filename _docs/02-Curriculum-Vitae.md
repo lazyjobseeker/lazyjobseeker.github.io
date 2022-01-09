@@ -6,6 +6,8 @@ last_modified_at: 2022-01-03 20:00:04 +0900
 permalink: /docs/curriculum_vitae/
 ---
 
+===
+
 <h2> EDUCATION & CAREER </h2>
 <font size = 4> {{ "<b>Samsung Electronics</b>" | append: "<br>" }} </font>
 <font size = 3>
@@ -26,6 +28,8 @@ permalink: /docs/curriculum_vitae/
 {{ "Department of Mathematical Sciences" | append: "<br>" }}
 {{ "Seoul National University, Seoul, Republic of Korea"}}
 </font>
+
+===
 
 <h2> PUBLICATIONS </h2>
 {% assign counter = site.publications.size | plus: 1 %}
