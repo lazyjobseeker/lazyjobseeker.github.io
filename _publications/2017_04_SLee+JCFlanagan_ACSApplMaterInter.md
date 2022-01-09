@@ -1,5 +1,5 @@
 ---
-title: "Route to Improving Photovoltaics Based on CdSe/CdSe<sub><i>x</i></sub>Te<sub><i>1-x</i></sub> Type-II Heterojunction Nanorods: The Effect of Morphology and Cosensitization on Carrier Recombination and Transport"
+title: "Route to Improving Photovoltaics Based on CdSe/CdSe<sub>x</sub>Te<sub>1-x</sub> Type-II Heterojunction Nanorods: The Effect of Morphology and Cosensitization on Carrier Recombination and Transport"
 authors:
 - first_name: Sangheon
   last_name: Lee

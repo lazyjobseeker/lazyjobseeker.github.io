@@ -1,5 +1,5 @@
 ---
-title: "Insights on the Delithiation/Lithiation Reactions of Li<sub><i>x</i></sub>Mn<sub>0.8</sub>Fe<sub>0.2</sub>PO<sub>4</sub> Mesocrystals in Li<sup>+</sup> Batteries by <i>in situ</i> Techniques"
+title: "Insights on the Delithiation/Lithiation Reactions of Li<sub>x</sub>Mn<sub>0.8</sub>Fe<sub>0.2</sub>PO<sub>4</sub> Mesocrystals in Li<sup>+</sup> Batteries by <i>in situ</i> Techniques"
 authors:
 - first_name: Sungun
   last_name: Wi
