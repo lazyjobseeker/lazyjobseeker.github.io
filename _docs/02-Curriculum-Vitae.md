@@ -7,8 +7,10 @@ permalink: /docs/curriculum_vitae/
 ---
 
 <h2> EDUCATION & CAREER </h2>
-<font size = 4> Bachelor of Science (B.S) </font>
-  <font size = 3> Seoul National University </font>
+<font size = 4>
+  {{ "(2009 Mar - 2013 Feb) Bachelor of Science (B.S)" | append: "<br>" }}
+</font>
+> <font size = 3><b> Seoul National University </b></font>
   
 
 
