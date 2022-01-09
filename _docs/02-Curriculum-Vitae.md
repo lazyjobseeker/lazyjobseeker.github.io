@@ -36,7 +36,11 @@ permalink: /docs/curriculum_vitae/
 {% for pub in site.publications reversed %}
   <font size = 4><b>
     {% assign counter = counter | minus: 1 %}
-    {{ counter | append: ". " | append: pub.title | append: "<br>" }}
+    {% if counter < 10 %}
+      {{ counter | prepend: "0" | append: ". " | append: pub.title | append: "<br>" }}
+    {% else %}
+      {{ counter | append: ". " | append: pub.title | append: "<br>" }}
+    {% endif %}
   </b></font>
   <font size = 3>
     {% for author in pub.authors %}
