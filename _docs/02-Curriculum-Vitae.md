@@ -8,9 +8,15 @@ permalink: /docs/curriculum_vitae/
 
 <h2> EDUCATION & CAREER </h2>
 <font size = 4>
-  {{ "(2009 Mar - 2013 Feb) Bachelor of Science (B.S)" | append: "<br>" }}
+  {{ "<b>Bachelor of Science (B.S)</b> (2009 Mar - 2013 Feb)" | append: "<br>" }}
 </font>
-> <font size = 3><b> Seoul National University </b></font>
+<font size = 3>
+  <b> Seoul National University </b>
+  Department of Materials Science and Engineering
+  Department of Mathematical Sciences
+  Seoul National University, Seoul, Republic of Korea
+</font>
+
   
 
 
