@@ -7,15 +7,21 @@ permalink: /docs/curriculum_vitae/
 ---
 
 <h2> EDUCATION & CAREER </h2>
+<font size = 4> {{ "<b>Samsung Electronics</b>" | append: "<br>" }} </font>
+<font size = 3>
+<div style = "text-align: right"> (Mar. 2019 - Current) </div> 
+{{ "Advanced Battery Lab., Mobile eXperience (MX) Division" | append: "<br>" }}
+{{ "Samsung Electronics, Suwon, Republic of Korea"}}
+</font>
 <font size = 4> {{ "<b>Doctor of Philosophy (Ph.D.) - Seoul National University</b>" | append: "<br>" }} </font>
 <font size = 3>
-<div style = "text-algin: right"> Mar. 2013 - Feb. 2019 </div> 
+<div style = "text-align: right"> (Mar. 2013 - Feb. 2019) </div> 
 {{ "Department of Materials Science and Engineering" | append: "<br>" }}
 {{ "Seoul National University, Seoul, Republic of Korea"}}
 </font>
 <font size = 4> {{ "<b>Bachelor of Science (B.S.) - Seoul National University</b>" | append: "<br>" }} </font>
 <font size = 3>
-<div style = "text-algin: right"> Mar. 2009 - Feb. 2013 </div> 
+<div style = "text-align: right"> (Mar. 2009 - Feb. 2013) </div> 
 {{ "Department of Materials Science and Engineering" | append: "<br>" }}
 {{ "Department of Mathematical Sciences" | append: "<br>" }}
 {{ "Seoul National University, Seoul, Republic of Korea"}}
