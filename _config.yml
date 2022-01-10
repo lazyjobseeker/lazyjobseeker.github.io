@@ -277,6 +277,7 @@ compress_html:
 
 collections:
   - publications
+  - career
 
 # Defaults
 defaults:
