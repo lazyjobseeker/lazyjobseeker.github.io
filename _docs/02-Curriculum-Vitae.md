@@ -7,7 +7,7 @@ permalink: /docs/curriculum_vitae/
 ---
 
 <h2> 🎓 EDUCATION & CAREER </h2>
-<div style = "float: left">
+<div style = "float: left; margin-bottom: 50px">
   {% for career in site.career reversed %}
       <div style = "width: 60%; float: left"><font size = 4><b> {{- career.affiliation -}} </b></font></div>
       <div style = "text-align: right; width: 40%; float: right">
@@ -23,7 +23,6 @@ permalink: /docs/curriculum_vitae/
       </div>
   {% endfor %}
 </div>
-{{ "<br><br>" }}
 <h2> 📚 PUBLICATIONS </h2>
 <div style = "float: left">
   {% assign counter = site.publications.size | plus: 1 %}
