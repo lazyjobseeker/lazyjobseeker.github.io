@@ -9,10 +9,10 @@ permalink: /docs/curriculum_vitae/
 <h2> 🎓 EDUCATION & CAREER </h2>
 {% for career in site.career reversed %}
   <div style = "width: 60%; float: left"><font size = 4><b> {{- career.affiliation -}} </b></font></div>
-  <div style = "text-align: right; width: 40%; float: right"><font size = 2>
-    {{ career.started | prepend: "(" | append: " - " | append: career.ended | append: ")"}}
-  </font></div>
-  <div>
+  <div style = "text-align: right; width: 40%; float: right">
+    <font size = 2> {{ career.started | prepend: "(" | append: " - " | append: career.ended | append: ")"}} </font>
+  </div>
+  <div style = "float: left">
     <font size = 3>
       {% for pos in career.history %}
         {{- pos.department | append: "<br>" -}}
