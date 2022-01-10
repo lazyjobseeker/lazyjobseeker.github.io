@@ -1,6 +1,6 @@
 ---
 layout: category
-title: Curriculum Vitae
+title: CURRICULUM VITAE
 category: Sangheon Lee
 last_modified_at: 2022-01-03 20:00:04 +0900
 permalink: /docs/curriculum_vitae/
@@ -23,11 +23,7 @@ permalink: /docs/curriculum_vitae/
       </div>
   {% endfor %}
 </div>
-
-<br>
-<br>
-<br>
-
+{{ "<br><br>" }}
 <h2> 📚 PUBLICATIONS </h2>
 <div style = "float: left">
   {% assign counter = site.publications.size | plus: 1 %}
