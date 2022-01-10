@@ -12,12 +12,14 @@ permalink: /docs/curriculum_vitae/
   <div style = "text-align: right; width: 40%; float: right"><font size = 2>
     {{ career.started | prepend: "(" | append: " - " | append: career.ended | append: ")"}}
   </font></div>
-  <font size = 3>
-    {% for pos in career.history %}
-      {{- pos.department | append: "<br>" -}}
-    {% endfor %}
-    {{ career.site | append: "<br><br>" }}
-  </font>
+  <div>
+    <font size = 3>
+      {% for pos in career.history %}
+        {{- pos.department | append: "<br>" -}}
+      {% endfor %}
+      {{ career.site | append: "<br><br>" }}
+    </font>
+  </div>
 {% endfor %}
 
 <h2> 📚 PUBLICATIONS </h2>
