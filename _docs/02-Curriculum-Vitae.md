@@ -22,7 +22,7 @@ permalink: /docs/curriculum_vitae/
         </font>
       </div>
   {% endfor %}
-</div>
+</div><br>
 
 <h2> 📚 PUBLICATIONS </h2>
 <div style = "float: left">
