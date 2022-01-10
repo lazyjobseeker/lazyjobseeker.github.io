@@ -23,7 +23,11 @@ permalink: /docs/curriculum_vitae/
       </div>
   {% endfor %}
 </div>
-<br><br>
+
+<br>
+<br>
+<br>
+
 <h2> 📚 PUBLICATIONS </h2>
 <div style = "float: left">
   {% assign counter = site.publications.size | plus: 1 %}
