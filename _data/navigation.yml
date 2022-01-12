@@ -32,7 +32,6 @@ docs:
     children:
       - title: "Batteries"
         url: /docs/batteries/
-    children:
       - title: "Investment"
         url: /docs/quant_strategy/
 
