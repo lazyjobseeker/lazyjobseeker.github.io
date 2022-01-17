@@ -9,6 +9,8 @@ last_modified_at: 2021-12-13 22:18:00 +0900
 Jekyll 블로그 만들기
 ===
 
+`in_line` code blocks
+
 [Jekyll 공식 doc](https://jekyllrb.com/)
 
 ## 테마 적용
