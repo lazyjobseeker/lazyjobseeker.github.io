@@ -4,28 +4,17 @@ layout: archive
 
 {{ content }}
 
-
-{% for category in site.categories %}
-  {{ category[0] }}
-  {{ category[1].size }}
-{% endfor %}
-
-<!--
 {% assign categories_max = 0 %}
 {% for category in site.categories %}
-  {% if category[1].size > categories_max %}
-    {% assign categories_max = category[1].size %}
-  {% endif %}
+  {% if category[0] == "Drafts" %} {% assign categories_max = category[1].size %} {% endif %}
 {% endfor %}
 
 <ul class="taxonomy__index">
   {% for i in (1..categories_max) reversed %}
-    {% for category in site.categories %}caat
-      {% if category[1].size == i %}
+    {% for category in site.categories %}
+      {% if category[0] == "Drafts" %}
         <li>
-          <a href="#{{ category[0] | slugify }}">
-            <strong>{{ category[0] }}</strong> <span class="taxonomy__count">{{ i }}</span>
-          </a>
+          <strong>{{ category[0] }}</strong> <span class="taxonomy__count">{{ category[1].size }}</span>
         </li>
       {% endif %}
     {% endfor %}
@@ -35,7 +24,7 @@ layout: archive
 {% assign entries_layout = page.entries_layout | default: 'list' %}
 {% for i in (1..categories_max) reversed %}
   {% for category in site.categories %}
-    {% if category[1].size == i %}
+    {% if category[0] == "Drafts" %}
       <section id="{{ category[0] | slugify | downcase }}" class="taxonomy__section">
         <h2 class="archive__subtitle">{{ category[0] }}</h2>
         <div class="entries-{{ entries_layout }}">
@@ -47,5 +36,3 @@ layout: archive
       </section>
     {% endif %}
   {% endfor %}
-{% endfor %}
---!>
