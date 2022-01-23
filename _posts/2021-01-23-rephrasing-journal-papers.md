@@ -1,11 +1,8 @@
----
 layout: posts
 title: PAPERS-DIGEST
-category: practice
-published: false
-last_modified_at: 2022-01-17 20:00:00 +0900
----
-
+category: drafts
+published: true
+last_modified_at: 2022-01-23 20:44:00 +2044
 
 Yan Li, Xiang Liu, Li Wang, Xuning Feng, Dongsheng Ren, Yu Wu, Guiliang Xu, Languang Lu, Junxian Hou, Weifeng Zhang, Yongling Wang, Wenqian Xu, Yang Ren, Zaifa Wang, Jianyu Huang, Xiangfeng Meng, Xuebing Han, Hewu Wang, Xiangming He, Zonghai Chen, Khalil Amine, and Minggao Ouyang
 Thermal Runaway Mechanism of Lithium-Ion Battery with LiNi<sub>0.8</sub>Mn<sub>0.1</sub>Co<sub>0.1</sub>O<sub>2</sub> Cathode Materials
