@@ -1,5 +1,5 @@
 ---
-layout: categories
+layout: categories_draft
 title: DRAFTS
 category: Extras
 permalink: /docs/drafts/
