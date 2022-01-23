@@ -17,6 +17,12 @@ permalink: /docs/curriculum_vitae/
         <font size = 3>
           {% for pos in career.history %}
             {{- pos.department | append: "<br>" -}}
+            {% if pos.job %}
+              {{- pos.job | append: "<br>" -}}
+              {% for dscr in pos.job_dscrs %}
+                {{- dscr | append: "<br>" -}}
+              {% endfor %}
+            {% endif %}
           {% endfor %}
           {{ career.site | append: "<br><br>" }}
         </font>
