@@ -20,7 +20,7 @@ permalink: /docs/curriculum_vitae/
             {% if pos.job != "NA" %}
               {{- pos.job | prepend: ">" | markdownify | append: "<br>" -}}
               {% for dscr in pos.job_dscrs %}
-                {{- dscr | prepend: ">" | markdownify | append: "<br>" -}}
+                {{- dscr | prepend: ">>" | markdownify | append: "<br>" -}}
               {% endfor %}
             {% endif %}
           {% endfor %}
