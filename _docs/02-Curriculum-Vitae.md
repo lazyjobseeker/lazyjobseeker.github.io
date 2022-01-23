@@ -18,9 +18,9 @@ permalink: /docs/curriculum_vitae/
           {% for pos in career.history %}
             {{- pos.department | append: "<br>" -}}
             {% if pos.job != "NA" %}
-              {{- pos.job | prepend: ">" | markdownify -}}
+              {{- pos.job | prepend: "> " | append: "<br>" -}}
               {% for dscr in pos.job_dscrs %}
-                {{- dscr | prepend: ">>" | markdownify -}}
+                {{- dscr | prepend: "  - " | append: "<br>" -}}
               {% endfor %}
             {% endif %}
           {% endfor %}
