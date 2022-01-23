@@ -20,7 +20,7 @@ layout: archive
 
 <ul class="taxonomy__index">
   {% for i in (1..categories_max) reversed %}
-    {% for category in site.categories %}
+    {% for category in site.categories %}caat
       {% if category[1].size == i %}
         <li>
           <a href="#{{ category[0] | slugify }}">
