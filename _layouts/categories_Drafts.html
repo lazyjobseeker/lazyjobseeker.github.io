@@ -14,7 +14,7 @@ layout: archive
     {% for category in site.categories %}
       {% if category[0] == "Drafts" %}
         <li>
-          <strong>{{ category[0] }}</strong> <span class="taxonomy__count">{{ category[1].size }}</span>
+          <span class="taxonomy__count">{{ category[1].size }}</span> <strong>" items"</strong> 
         </li>
       {% endif %}
     {% endfor %}

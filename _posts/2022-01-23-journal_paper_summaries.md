@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: PAPERS-DIGEST
+title: JOURNAL PAPER SUMMARIES
 category: Drafts
 published: true
 last_modified_at: 2022-01-23 20:59:00 +2044
