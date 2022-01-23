@@ -7,7 +7,7 @@ history:
     job: "NA"
   - department: "- Department of Materials Science and Engineering"
     job: "NA"
-  - department: "- Mathematical Sciences"
+  - department: "- Department of Mathematical Sciences"
     job: "NA"
 site: "Seoul National University, Seoul, Republic of Korea"
 ---
