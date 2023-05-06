@@ -1,0 +1,36 @@
+# main links
+main:
+  # - title: "Quick-Start Guide"
+  #  url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+  # - title: "About"
+  #   url: https://mmistakes.github.io/minimal-mistakes/about/
+  - title: "Categories"
+    url: /posts-by-categories/
+  - title: "Tags"
+    url: /posts-by-tags/
+  # - title: "Sample Collections"
+  #   url: /collection-archive/
+  # - title: "Sitemap"
+  #   url: /sitemap/
+
+docs:
+  - title: Sangheon Lee
+    children:
+
+      - title: "Curriculum Vitae"
+        url: /docs/curriculum_vitae/
+#      - title: "About"
+#        url: /docs/about/
+#  - title: Interests
+#    children:
+#      - title: "Programming"
+#        url: /docs/programming/
+#      - title: "Batteries"
+#        url: /docs/batteries/
+#      - title: "Investment"
+#        url: /docs/quant_strategy/
+
+#   - title: Extras
+#     children:
+#       - title: "Posts"
+#         url: /posts/

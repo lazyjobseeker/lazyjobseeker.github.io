@@ -1,0 +1,44 @@
+---
+layout: archive
+---
+
+{{ content }}
+
+{% assign categories_max = 0 %}
+{% for category in site.categories %}
+  {% if category[0] == "Drafts" %} {% assign categories_max = category[1].size %} {% endif %}
+{% endfor %}
+
+{% if categories_max <= 1 %}
+  {% assign item_note = "item" %}
+{% else %}
+  {% assign item_note = "items" %}
+{% endif %}
+
+<ul class="taxonomy__index">
+  {% for i in (1..categories_max) reversed %}
+    {% for category in site.categories %}
+      {% if category[0] == "Drafts" %}
+        <li>
+          <span class="taxonomy__count">{{ category[1].size }}</span> <strong> {{- item_note -}} </strong>
+        </li>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+</ul>
+
+{% assign entries_layout = page.entries_layout | default: 'list' %}
+{% for i in (1..categories_max) reversed %}
+  {% for category in site.categories %}
+    {% if category[0] == "Drafts" %}
+      <section id="{{ category[0] | slugify | downcase }}" class="taxonomy__section">
+        <div class="entries-{{ entries_layout }}">
+          {% for post in category.last %}
+            {% include archive-single.html type=entries_layout %}
+          {% endfor %}
+        </div>
+        <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+      </section>
+    {% endif %}
+  {% endfor %}
+{% endfor %}
