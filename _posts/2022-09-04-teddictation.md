@@ -4,7 +4,7 @@ toc_sticky: true
 title: Week 37, 2022
 category: Diary
 tag: Language
-published: true
+published: false
 last_modified_at: 2022-09-13 23:18:00 +2044
 ---
 

@@ -6,7 +6,7 @@ category: Diary
 tags:
   - Everyday Life
   - Language
-published: true
+published: false
 last_modified_at: 2022-10-03 01:39:00 +2044
 ---
 
