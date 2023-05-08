@@ -2,9 +2,9 @@
 toc: true
 toc_sticky: true
 title: Obsidian으로 블로그 포스팅 환경 만들기
-category: category
+category: programming
 tags:
-  - tag
+  - devlog
 published: true
 last_modified_at: 2023-05-07 11:17:13 +2044
 use_math: true
