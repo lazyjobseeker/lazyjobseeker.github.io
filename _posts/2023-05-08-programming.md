@@ -2,7 +2,7 @@
 toc: true
 toc_sticky: true
 title: "[Git] 저장소 커밋 히스토리 모두 삭제하기"
-category: Programming
+categories: Programming
 tags:
   - devlog
 published: true

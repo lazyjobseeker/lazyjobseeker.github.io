@@ -2,7 +2,7 @@
 toc: true
 toc_sticky: true
 title: 첫 포스팅
-category: Programming
+categories: Programming
 tags:
   - C++
 published: true
