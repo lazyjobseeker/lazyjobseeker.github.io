@@ -22,7 +22,7 @@ class Pikachu:
     def __init__(self):
         self.level = 1
         self.hit_point = 100
-        self.attack = 20
+        self.atk = 20
 ```
 
 이 클래스는 `레벨`, `체력(히트포인트 혹은 HP)`, `공격력`의 세 가지 속성을 가지고 있다.  `__init__`은 파이썬 예약어로 `생성자`라고 하며, 인스턴스를 생성할 때 최초로 실행되는 함수이다.  클래스에 종속되어 오직 해당 클래스의 인스턴스를 통해서만 호출될 수 있는 함수들을 `메서드`라고 한다.  따라서 \__init__은 메서드이다.
@@ -33,7 +33,7 @@ class Pikachu:
 a = Pikachu()
 ```
 
-위의 코드는 a라는 이름으로 피카츄의 인스턴스 한 마리를 생성한다.  이후 '피카츄 설계도' 코드의 모든 self 자리에는 a를 똑같이 쓸 수 있다.  갓 만든 피카츄 a에 대해  `a.level`은 1이고, `a.hit_point`는 100이며, `a.attack`은 20이다.  피카츄가 갖는 세 가지 속성인 level과 hit_point, attack은 피카츄의 `인스턴스 변수`들이 된다.
+위의 코드는 a라는 이름으로 피카츄의 인스턴스 한 마리를 생성한다.  이후 '피카츄 설계도' 코드의 모든 self 자리에는 a를 똑같이 쓸 수 있다.  갓 만든 피카츄 a에 대해  `a.level`은 1이고, `a.hit_point`는 100이며, `a.atk`은 20이다.  피카츄가 갖는 세 가지 속성인 level과 hit_point, attack은 피카츄의 `인스턴스 변수`들이 된다.
 
 ###  메서드 작성하기 (1)
 
@@ -43,7 +43,7 @@ class Pikachu:
     def __init__(self):
         self.level = 1
         self.hit_point = 100
-        self.attack = 20
+        self.atk = 20
         
     def get_damaged(self, damage):
         self.hit_point -= damage
@@ -80,7 +80,7 @@ class Pikachu:
         self.hit_point -= damage
         
     def attack(self, other_pikachu):
-        other_pikachu.get_damaged(self.attack)
+        other_pikachu.get_damaged(self.atk)
 ```
 
 attack 메서드는 다른 피카츄 (other_pikachu)를 인수로 받도록 작성되었다.  우리는 피카츄 클래스의 정의로부터 피카츄의 인스턴스가 get_damaged 메서드를 실행할 수 있다는 것을 알고 있다.  따라서 attack 메서드는 다른 피카츄(other_pikachu)를 인수로 받아 그 피카츄에 종속된 get_damaged를 호출함으로써 하나의 피카츄 객체가 다른 피카츄 객체를 공격 (HP를 낮추는 동작)을 할 수 있도록 정의되었다.  other_pikachu가 입을 피해량은 attack을 호출한 피카츄의 공격력(self.attack) 인스턴스 변수를 참조하여 결정된다.
