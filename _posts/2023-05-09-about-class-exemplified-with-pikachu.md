@@ -1,7 +1,7 @@
 ---
 toc: true
 toc_sticky: true
-title: 파이썬 클래스 작성하기
+title: "파이썬 클래스 작성하기"
 category: Programming
 tags:
   - python
