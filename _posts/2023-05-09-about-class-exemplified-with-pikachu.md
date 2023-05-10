@@ -1,17 +1,15 @@
 ---
 toc: true
 toc_sticky: true
-title: 23-05-09-180951
-category: category
+title: 파이썬 클래스 작성하기
+category: Programming
 tags:
-  - tag
+  - python
 published: true
 last_modified_at: 2023-05-09 18:09 +2044
 use_math: true
 ---
 
-## 클래스
----
 ### 클래스, 인스턴스, 생성자
 
 `클래스`는 데이터와 기능을 묶어서 처리하기 위한 개념이다.  어떤 클래스를 정의하고 나면 그 클래스의 `인스턴스`를 생성할 수 있다.  동일한 클래스의 서로 다른 인스턴스들이 독립적으로 존재하면서 상호작용하거나 그렇지 않을 수 있다.
