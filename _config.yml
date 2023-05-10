@@ -16,9 +16,9 @@ minimal_mistakes_skin    : "contrast" # "default", "air", "aqua", "contrast", "d
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Sangheon's Workspace"
+title                    : "BLABLA LABLABL"
 title_separator          : "-"
-subtitle                 : "Something good would happen!" # site tagline that appears below site title in masthead
+subtitle                 : "잡다한 낙서장" # site tagline that appears below site title in masthead
 name                     : "Sangheon Lee"
 description              : "My little workspace."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -28,7 +28,7 @@ teaser                   : # path of fallback teaser image, e.g. "/assets/images
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
-words_per_minute         : 200
+words_per_minute         : 300
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
   disqus:
@@ -104,7 +104,7 @@ analytics:
 author:
   name             : "Sangheon Lee"
   avatar           : "/assets/images/bio-photo-221010-0200.png"
-  bio              : "A working sloth."
+  bio              : "일하는 나무늘보"
   location         : "Republic of Korea"
   email            :
   links:
