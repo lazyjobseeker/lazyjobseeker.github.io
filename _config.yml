@@ -16,9 +16,9 @@ minimal_mistakes_skin    : "dirt" # "default", "air", "aqua", "contrast", "dark"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "BLABLA LABLABL"
+title                    : "나불나불 끄적끄적"
 title_separator          : "-"
-subtitle                 : "잡다한 낙서장" # site tagline that appears below site title in masthead
+subtitle                 : "나무그늘 아래서 완생을 꿈꾸는 나무늘보" # site tagline that appears below site title in masthead
 name                     : "Sangheon Lee"
 description              : "My little workspace."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -104,7 +104,7 @@ analytics:
 author:
   name             : "Sangheon Lee"
   avatar           : "/assets/images/bio-photo-221010-0200.png"
-  bio              : "일하는 나무늘보"
+  bio              : "일하는 중입니다!"
   location         : "Republic of Korea"
   email            :
   links:
