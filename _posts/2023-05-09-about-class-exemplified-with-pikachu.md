@@ -6,7 +6,7 @@ category: Programming
 tags:
   - python
 published: true
-last_modified_at: 2023-05-12 01:11:00 +2044
+last_modified_at:
 use_math: true
 ---
 
