@@ -1,15 +1,15 @@
 ---
 toc: true
 toc_sticky: true
-title: "파이썬 사용자 정의 클래스 (Class) 만들고 사용하기"
+title: "파이썬 클래스(Class) 만들고 사용하기"
 category: Programming
 tags:
   - python
 published: true
-last_modified_at: 2023-05-12 07:27:46 UTC+09:00
 use_math: true
 date_created:
 created_at: 2023-05-10 06:59:45 UTC+09:00
+last_modified_at: 2023-05-12 07:43:00 UTC+09:00
 ---
 
 클래스의 구성 요소들을 살펴보고 사용자 정의 클래스를 작성하여 사용해 본다
