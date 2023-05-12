@@ -9,7 +9,7 @@ published: true
 use_math: true
 date_created:
 created_at: 2023-05-12 07:43:00 UTC+09:00
-last_modified_at: 2023-05-13 02:45:18 UTC+09:00
+last_modified_at: 2023-05-13 02:56:25 UTC+09:00
 ---
 
 만들어 둔 클래스를 상속하여 새로운 파생 클래스를 만드는 방법을 알아본다.
@@ -86,28 +86,24 @@ Pikachu 클래스와 Bulbasaur 클래스에 각각 `attack` 메서드를 구현�
 
 ```python
 class Pikachu:
-
     def __init__(self):
         self.level = 1
         self.hit_point = 100
         self.atk = 20
-        self.def = 10
-        
+        self.block = 10
     def attack(self, target):
-        target.hit_point -= (self.atk - target.def)
+        target.hit_point -= (self.atk - target.block)
 
 class Bulbasaur:
-
     def __init__(self):
         self.level = 1
         self.hit_point = 120
         self.atk = 15
-
     def attack(self, target):
         target.hit_point
 ```
 
-`attack` 메서드를 호출하여 상대를 공격할 때 무조건 공격자의 `atk`만큼의 피해를 주는 전투 시스템이 너무 밋밋해서, 방어력을 나타내는 `def`를 새로운 속성으로 추가해 주었다.  이제 피카츄 객체가 `target`을 공격하더라도 (attack 메서드 호출), 피카츄 객체는 자신의 `atk` 변수 값에서 `target`의 `def`변수만큼의 값을 뺀 만큼의 피해만 입힐 수 있다.
+`attack` 메서드를 호출하여 상대를 공격할 때 무조건 공격자의 `atk`만큼의 피해를 주는 전투 시스템이 너무 밋밋해서, 방어력을 나타내는 `block`을 새로운 속성으로 추가해 주었다.  이제 피카츄 객체가 `target`을 공격하더라도 (attack 메서드 호출), 피카츄 객체는 자신의 `atk` 변수 값에서 `target`의 `block`변수만큼의 값을 뺀 만큼의 피해만 입힐 수 있다.
 
 하지만 이 변경은 정상적으로 동작하지 않는다.
 
@@ -115,13 +111,12 @@ class Bulbasaur:
 >>> a = Pichachu()
 >>> b = Bulbasaur()
 >>> a.attack(b)
-AttributeError: 'Bulbasaur' object has no attribute 'def'
-
+AttributeError: 'Bulbasaur' object has no attribute 'block'
 ```
 
-`attack` 메서드는 이상해씨 클래스의 인스턴스 b를 인자로 받아, `b.hit_point`의 값을 `a.atk-b.def` 만큼 낮추는 동작을 하려고 한다.  하지만 이상해씨 클래스의 설계에는 아직 def라는 객체변수가 추가되지 않았기 때문에, `b.def`는 존재하지 않고 AttributeError를 유발한다.
+`attack` 메서드는 이상해씨 클래스의 인스턴스 b를 인자로 받아, `b.hit_point`의 값을 `a.atk-b.block` 만큼 낮추는 동작을 하려고 한다.  하지만 이상해씨 클래스의 설계에는 아직 block이라는 객체변수가 추가되지 않았기 때문에, `b.block`은 존재하지 않고 AttributeError를 유발한다.
 
-물론 피카츄 클래스에 def 객체변수를 추가하고 attack 메서드의 명세를 변경했다면, 이상해씨 클래스에도 같은 변경을 가하는 것이 당연히 자연스럽지 않느냐고 할 수 있다.  정말로 그렇다.  하지만 문제는 이 작업을 위해 실제로 두 포켓몬의 클래스 명세에 한 줄씩을 추가하고 (def 변수 선언), attack 메서드의 HP 손실 계산 부분까지 포함해 클래스당 두 줄씩을 직접 손봐야 했다는 것이다.  총 네 줄의 코드를 변경한 것인데, 포켓몬이 200종류가 있다면 꼼짝없이 200마리 포켓몬 클래스를 각각 다 수정해 주어야 한다.
+물론 피카츄 클래스에 block 객체변수를 추가하고 attack 메서드의 명세를 변경했다면, 이상해씨 클래스에도 같은 변경을 가하는 것이 당연히 자연스럽지 않느냐고 할 수 있다.  정말로 그렇다.  하지만 문제는 이 작업을 위해 실제로 두 포켓몬의 클래스 명세에 한 줄씩을 추가하고 (block 변수 선언), attack 메서드의 HP 손실 계산 부분까지 포함해 클래스당 두 줄씩을 직접 손봐야 했다는 것이다.  총 네 줄의 코드를 변경한 것인데, 포켓몬이 200종류가 있다면 꼼짝없이 200마리 포켓몬 클래스를 각각 다 수정해 주어야 한다.
 
 이 지점에서 클래스 상속(inheritence)을 적용할 수 있다.  모든 포켓몬 클래스를 개별적으로 작성하는 대신, 공통된 요소를 묶어 관리할 수 있는 템플릿을 만들고 그 템플릿으로부터 개별 포켓몬 클래스들을 얻도록 하는 것이다.
 
@@ -129,12 +124,10 @@ AttributeError: 'Bulbasaur' object has no attribute 'def'
 
 ```python
 class Pokemon:
-
     def __init__(self):
         self.level = 1
         self.hit_point = 100
         self.atk = 20
-        
     def attack(self, target):
         target.hit_point -= self.atk
 ```
@@ -143,7 +136,6 @@ class Pokemon:
 
 ```python
 class Pikachu(Pokemon):
-
     def __init__(self):
         super(Pikachu, self).__init__()
 ```
@@ -246,9 +238,9 @@ class Pokemon:
         self.level = 1
         self.hit_point = 100
         self.atk = 20
-        self.def = 10 # 방어력 속성을 추가하고 모든 포켓몬의 방어력 기본값을 10으로 한다
+        self.block = 10 # 방어력 속성을 추가하고 모든 포켓몬의 방어력 기본값을 10으로 한다
     def attack(self, target):
-        target.hit_point -= (self.atk - target.def) # 상대의 방어력만큼 감소된 피해만 입힐 수 있다.
+        target.hit_point -= (self.atk - target.block) # 상대의 방어력만큼 감소된 피해만 입힐 수 있다.
 
 class Pikachu(Pokemon):
     def __init__(self):
@@ -259,7 +251,7 @@ class Bulbasaur(Pokemon):
         super(Pikachu, self).__init__()
         self.hit_point = 120
         self.atk = 15
-        self.def = 15 # 이상해씨는 방어력도 피카츄와는 다르게 설정하고 싶다
+        self.block = 15 # 이상해씨는 방어력도 피카츄와는 다르게 설정하고 싶다
         
 ```
 
@@ -286,16 +278,16 @@ class Pokemon:
         self.level = 1
         self.hit_point = 100
         self.atk = 20
-        self.def = 10 # 방어력 속성을 추가하고 모든 포켓몬의 방어력 기본값을 10으로 한다
+        self.block = 10 # 방어력 속성을 추가하고 모든 포켓몬의 방어력 기본값을 10으로 한다
     def attack(self, target):
-        target.hit_point -= (self.atk - target.def) # 상대의 방어력만큼 감소된 피해만 입힐 수 있다.
+        target.hit_point -= (self.atk - target.block) # 상대의 방어력만큼 감소된 피해만 입힐 수 있다.
 
 class Pikachu(Pokemon):
     def __init__(self):
         super(Pikachu, self).__init__()
     def attack(self):
         # 피카츄의 공격은 상대의 방어력을 무시한다!
-        target.hit_point -= self.atk
+        target.hit_point -= self.block
         
 class Bulbasaur(Pokemon):
     def __init__(self):
@@ -305,7 +297,7 @@ class Bulbasaur(Pokemon):
         self.def = 15
     def attack(self):
         # 이상해씨의 공격은 이상해씨의 방어력만큼의 피해를 추가로 입힌다!
-        target.hit_point -= (self.atk + self.def - target.def)
+        target.hit_point -= (self.atk + self.block - target.block)
         
 ```
 

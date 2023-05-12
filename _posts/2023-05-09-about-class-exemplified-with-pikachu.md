@@ -9,7 +9,7 @@ published: true
 use_math: true
 date_created:
 created_at: 2023-05-10 06:59:45 UTC+09:00
-last_modified_at: 2023-05-12 13:29:16 UTC+09:00
+last_modified_at: 2023-05-13 02:57:05 UTC+09:00
 ---
 
 클래스의 구성 요소들을 살펴보고 사용자 정의 클래스를 작성하여 사용해 본다
@@ -24,7 +24,6 @@ last_modified_at: 2023-05-12 13:29:16 UTC+09:00
 
 ```python
 class Pikachu:
-
     def __init__(self):
         self.level = 1
         self.hit_point = 100
@@ -49,7 +48,6 @@ Pikachu라는 이름으로 피카츄를 만들기 위한 클래스를 작성해�
 
 ```python
 >>> a = Pikachu()
-
 >>> print(a.level)
 1
 >>> print(a.hit_point)
@@ -92,12 +90,10 @@ Pikachu는 내가 실체화하고 싶은 피카츄라는 존재를 지칭하거�
 
 ```python
 class Pikachu:
-
     def __init__(self):
         self.level = 1
         self.hit_point = 100
         self.atk = 20
-        
     def get_damaged(self, damage):
         self.hit_point -= damage
 ```
@@ -139,15 +135,12 @@ class Pikachu:
 
 ```python
 class Pikachu:
-
     def __init__(self):
         self.level = 1
         self.hit_point = 100
         self.atk = 20
-        
     def get_damaged(self, damage):
         self.hit_point -= damage
-        
     def attack(self, other_pikachu):
         other_pikachu.get_damaged(self.atk)
 ```
@@ -189,16 +182,13 @@ class Pikachu:
 
 ```python
 class Pikachu:
-
     def __init__(self):
         self.level = 1
         self.hit_point = 100
         self.atk = 20
         self.is_in_monsterball = false
-        
     def get_damaged(self, damage):
         self.hit_point -= damage
-        
     def attack(self, other_pikachu):
         other_pikachu.get_damaged(self.atk)
         
