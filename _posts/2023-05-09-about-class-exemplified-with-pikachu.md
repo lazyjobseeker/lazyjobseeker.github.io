@@ -1,7 +1,7 @@
 ---
 toc: true
 toc_sticky: true
-title: "파이썬 클래스(Class) 만들고 사용하기"
+title: "파이썬 클래스 만들고 사용하기"
 category: Programming
 tags:
   - python
@@ -9,7 +9,7 @@ published: true
 use_math: true
 date_created:
 created_at: 2023-05-10 06:59:45 UTC+09:00
-last_modified_at: 2023-05-12 10:44:22 UTC+09:00
+last_modified_at: 2023-05-12 13:29:16 UTC+09:00
 ---
 
 클래스의 구성 요소들을 살펴보고 사용자 정의 클래스를 작성하여 사용해 본다
@@ -36,7 +36,7 @@ Pikachu라는 이름으로 피카츄를 만들기 위한 클래스를 작성해�
 이 설계도를 이용하여 실제 피카츄를 만드는 방법은 아래와 같다.  아래의 코드는 a라는 변수명을 갖는 피카츄 한 마리를 만들어 낸다.
 
 ```python
->>>a = Pikachu()
+>>> a = Pikachu()
 ```
 
 `__init__` 은 어떤 클래스의 `인스턴스`를 생성할 때 최초로 호출(실행)되는 함수이다.  이것을 `생성자`라고 한다.
@@ -48,13 +48,13 @@ Pikachu라는 이름으로 피카츄를 만들기 위한 클래스를 작성해�
 이제 피카츄 한 마리를 만들어 속성들을 확인해 보자.
 
 ```python
->>>a = Pikachu()
+>>> a = Pikachu()
 
->>>print(a.level)
+>>> print(a.level)
 1
->>>print(a.hit_point)
+>>> print(a.hit_point)
 100
->>>print(a.atk)
+>>> print(a.atk)
 20
 ```
 
@@ -111,8 +111,8 @@ class Pikachu:
 그러면 damage 인수에는 정수 10을 넣기로 한다면, 아래와 같이 하면 될까?
 
 ```python
->>>a = Pikachu()
->>>a.get_damaged(a, 10) # self는 대명사이니 a로 바꾸었다. damage는 10을 넣기로 한다.
+>>> a = Pikachu()
+>>> a.get_damaged(a, 10) # self는 대명사이니 a로 바꾸었다. damage는 10을 넣기로 한다.
 ```
 
 그렇지 않다.  get_damaged를 호출하는 데 필요한 `self` 인수는 . 앞에 놓인 a에 의해 주어진 것으로 보고, 괄호 안에는 `self`를 제외한 인수(들), 이 경우에는 damage 인수만을 넘겨 주면 된다.
@@ -120,11 +120,11 @@ class Pikachu:
 즉, 아래와 같이 된다.
 
 ```python
->>>a = Pikachu() # a는 Pikachu 클래스의 인스턴스
->>>print(a.hit_point) # a 피카츄의 HP를 확인
+>>> a = Pikachu() # a는 Pikachu 클래스의 인스턴스
+>>> print(a.hit_point) # a 피카츄의 HP를 확인
 100
->>>a.get_damaged(10) # Pikachu 객체 a가 get_damaged 메서드를 호출 (damage=10)
->>>print(a.hit_point)
+>>> a.get_damaged(10) # Pikachu 객체 a가 get_damaged 메서드를 호출 (damage=10)
+>>> print(a.hit_point)
 90
 ```
 
@@ -157,31 +157,31 @@ class Pikachu:
 이제 피카츄 두 마리를 만들고, 한 녀석이 다른 녀석을 공격하도록 해 보자.  몸통박치기!
 
 ```python
->>>a = Pikachu() # 피카츄 클래스의 인스턴스 a를 만들었다.
->>>b = Pikachu() # 또 다른 피카츄 객체 b를 만들었다.
+>>> a = Pikachu() # 피카츄 클래스의 인스턴스 a를 만들었다.
+>>> b = Pikachu() # 또 다른 피카츄 객체 b를 만들었다.
 
 # 체력을 확인해 보자
->>>print(a.hit_point)
+>>> print(a.hit_point)
 100
->>>print(b.hit_point)
+>>> print(b.hit_point)
 100
 
 # a 피카츄의 몸통박치기!
->>>a.attack(b)
+>>> a.attack(b)
 
 # HP를 확인해 보자
->>>print(a.hit_point)
+>>> print(a.hit_point)
 100
->>>print(b.hit_point)
+>>> print(b.hit_point)
 80
 
 # a 피카츄는 흥에 취한 나머지 상태이상에 빠져 스스로를 공격했다...
 >>>a.attack(a)
 
 # 막상막하의 대결이 되었다
->>>print(a.hit_point)
+>>> print(a.hit_point)
 80
->>>print(b.hit_point)
+>>> print(b.hit_point)
 80
 ```
 
@@ -223,12 +223,12 @@ class Pikachu:
 마지막으로 `retrieve` 메서드를 만들어 피카츄를 몬스터볼로 회수하기로 했다.  나만의 피카츄를 한 마리 만들어 몬스터볼로 집어넣어 주고 다음 장으로 넘어가도록 하자.
 
 ```python
->>>my_pikachu = Pikachu()
->>>my_pikachu.level_up()
+>>> my_pikachu = Pikachu()
+>>> my_pikachu.level_up()
 피카츄는 레벨 2가 되었다!
 피카츄의 HP: 120
 피카츄의 공격력: 21
->>>my_pikachu.retrieve()
+>>> my_pikachu.retrieve()
 피카츄, 돌아와!
 피카츄는 몬스터볼로 돌아왔다!
 ```
