@@ -9,7 +9,7 @@ published: true
 use_math: true
 date_created:
 created_at: 2023-05-12 07:43:00 UTC+09:00
-last_modified_at: 2023-05-13 02:56:25 UTC+09:00
+last_modified_at: 2023-05-13 03:16:51 UTC+09:00
 ---
 
 만들어 둔 클래스를 상속하여 새로운 파생 클래스를 만드는 방법을 알아본다.
@@ -20,7 +20,6 @@ last_modified_at: 2023-05-13 02:56:25 UTC+09:00
 
 ```python
 class Pikachu(self):
-
     def __init__(self):
         self.level = 1
         self.hit_point = 100
@@ -33,7 +32,6 @@ class Pikachu(self):
 
 ```python
 class Bulbasaur(self):
-
     def __init__(self):
         self.level = 1
         self.hit_point = 120
@@ -46,22 +44,18 @@ Bulbasaur 클래스는 높은 기본 HP를 갖는 대신 낮은 공격력 수치
 
 ```python
 class Pikachu(self):
-
     def __init__(self):
         self.level = 1
         self.hit_point = 100
         self.atk = 20
-        
     def attack(self, target):
         target.hit_point -= self.atk  
 
 class Bulbasaur(self):
-
     def __init__(self):
         self.level = 1
         self.hit_point = 120
         self.atk = 15
-
     def attack(self, target):
         target.hit_point -= self.atk
 ```
