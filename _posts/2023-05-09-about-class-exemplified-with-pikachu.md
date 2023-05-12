@@ -9,7 +9,7 @@ published: true
 use_math: true
 date_created:
 created_at: 2023-05-10 06:59:45 UTC+09:00
-last_modified_at: 2023-05-12 10:32:36 UTC+09:00
+last_modified_at: 2023-05-12 10:35:15 UTC+09:00
 ---
 
 클래스의 구성 요소들을 살펴보고 사용자 정의 클래스를 작성하여 사용해 본다
@@ -130,7 +130,7 @@ class Pikachu:
 
 10의 데미지를 받은 피카츄의 HP가 90이 되었다.
 
-**self를 인수로 갖지 않는 메서드** 클래스 내부에 정의되어 있으면서도 self 인수를 갖지 않는 메서드를 만들 수 있다.  우선은 self를 인수로 받는 경우만 다루기로 한다.  관심이 있다면 '정적 메서드 (static method)'와 '클래스 메서드 (class method)'를 검색해 보자.
+**self를 인수로 갖지 않는 메서드:** 클래스 내부에 정의되어 있으면서도 self 인수를 갖지 않는 메서드를 만들 수 있다.  우선은 self를 인수로 받는 경우만 다루기로 한다.  관심이 있다면 '정적 메서드 (static method)'와 '클래스 메서드 (class method)'를 검색해 보자.
 {: .notice--info}
 
 ### 메서드 (2) - 몸통박치기!
