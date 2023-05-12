@@ -163,12 +163,14 @@ class Pikachu(Pokemon):
 
 즉 `a = Pikachu()`를 실행하면 가장 처음 호출되는 super(Pikachu, a).\__init__()는 슈퍼클래스인 Pokemon의 생성자를 호출하는 명령이지만 -super(Pikachu, self)라고 쓰여 있지만, self는 대명사일 뿐이고 실제 동작에서는 생성된 인스턴스를 대입해 주어야 한다고 했다!-, 실제로는 슈퍼클래스 Pokemon의 인스턴스가 아닌 파생클래스 Pikachu의 인스턴스 a를 조작하는 작업을 수행한다.  결국  `super()`의 역할은 특정 파생 클래스 객체의 슈퍼클래스에 접근하여, 슈퍼클래스의 메서드를 이용해 파생클래스 객체를 조작하는 것이다.
 
-**super()는 슈퍼클래스의 인스턴스를 반환하지 않는다: ** super(Pikachu, a).\__init__()의 형태를 살펴보면 마치 super(Pikachu, a)가 반환하는 객체가 \__init__() 메서드를 실행하고 있는 것처럼 보인다.  만일 `A = Pokemon()`을 호출하여 Pokemon 클래스의 인스턴스 A를 만들었다면, A.\__init__()과 같은 형태로 Pokemon 클래스의 메서드 __init__()을 호출할 수 있을 것이다.  그러면 super(Pikachu, a)와 A가 똑같이 Pokemon 클래스의 메서드를 실행할 수 있으므로, A가 Pokemon 클래스의 인스턴스이듯이 super(Pikachu, a) 또한 Pokemon 클래스의 인스턴스라고 생각할 수도 있을 것이다.
+**super()는 슈퍼클래스의 인스턴스를 반환하지 않는다: ** super(Pikachu, a).\__init__()의 형태를 살펴보면 마치 super(Pikachu, a)가 반환하는 객체가 \__init__() 메서드를 실행하고 있는 것처럼 보인다.  만일 `A = Pokemon()`을 호출하여 Pokemon 클래스의 인스턴스 A를 만들었다면, A.\__init__()과 같은 형태로 Pokemon 클래스의 메서드 \__init__()을 호출할 수 있을 것이다.  그러면 super(Pikachu, a)와 A가 똑같이 Pokemon 클래스의 메서드를 실행할 수 있으므로, A가 Pokemon 클래스의 인스턴스이듯이 super(Pikachu, a) 또한 Pokemon 클래스의 인스턴스라고 생각할 수도 있을 것이다.
 하지만 super(Pikachu, a)는 `A = Pokemon()`구문을 실행하여 얻어지는 Pokemon 객체 A와는 성격이 다르다.
+{: .notice--warning}
+
 ```python
 import python
 ```
-{: .notice--warning}
+
 
 super()는 Pikachu 클래스 밖에서도 사용할 수 있는데, 이 경우에는 super(파생클래스, 파생클래스의 인스턴스) 와 같은 형태로 호출되어야 한다.  예컨대 Pokemon 클래스를 상속한 파생클래스 Pikachu의 인스턴스 a가 이미 생성되어 있다고 할 때 super(Pikachu, a)와 같이 쓸 수 있다.
 
