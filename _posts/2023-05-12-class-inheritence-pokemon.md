@@ -9,7 +9,7 @@ published: true
 use_math: true
 date_created:
 created_at: 2023-05-12 07:43:00 UTC+09:00
-last_modified_at: 2023-05-13 03:16:51 UTC+09:00
+last_modified_at: 2023-05-13 23:05:39 UTC+09:00
 ---
 
 만들어 둔 클래스를 상속하여 새로운 파생 클래스를 만드는 방법을 알아본다.
@@ -279,9 +279,6 @@ class Pokemon:
 class Pikachu(Pokemon):
     def __init__(self):
         super(Pikachu, self).__init__()
-    def attack(self):
-        # 피카츄의 공격은 상대의 방어력을 무시한다!
-        target.hit_point -= self.block
         
 class Bulbasaur(Pokemon):
     def __init__(self):
@@ -302,8 +299,8 @@ class Bulbasaur(Pokemon):
 >>> b = Bulbarsaur()
 >>> a.attack(b) # 피카츄의 공격!
 >>> print(b.hit_point)
-100 # 120-20
+115 # 120-(20-15); 피카츄의 공격은 Pokemon 클래스에 정의된 기본 공격이다.
 >>> b.attack(a) # 이상해씨의 반격!
 >>> print(a.hit_point)
-80 # 100-(15+15-10)
+80 # 100-(15+15-10); 이상해씨는 자신의 방어력만큼 추가 피해를 준다!
 ```

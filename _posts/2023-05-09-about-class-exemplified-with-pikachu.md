@@ -9,7 +9,7 @@ published: true
 use_math: true
 date_created:
 created_at: 2023-05-10 06:59:45 UTC+09:00
-last_modified_at: 2023-05-13 02:57:05 UTC+09:00
+last_modified_at: 2023-05-13 23:05:31 UTC+09:00
 ---
 
 클래스의 구성 요소들을 살펴보고 사용자 정의 클래스를 작성하여 사용해 본다
