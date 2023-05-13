@@ -16,7 +16,6 @@ main:
 docs:
   - title: Sangheon Lee
     children:
-
       - title: "Curriculum Vitae"
         url: /docs/curriculum_vitae/
 #      - title: "About"
