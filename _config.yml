@@ -106,7 +106,7 @@ author:
   avatar           : # "/assets/images/bio-photo-221010-0200.png"
   bio              : "일하는 중입니다!"
   location         : "Republic of Korea"
-  email            : "diadee1990@gmail.com"
+  email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
