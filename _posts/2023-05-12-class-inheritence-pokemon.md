@@ -9,7 +9,7 @@ published: true
 use_math: true
 date_created:
 created_at: 2023-05-12 07:43:00 UTC+09:00
-last_modified_at: 2023-05-14 00:25:06 UTC+09:00
+last_modified_at: 2023-05-14 00:35:34 UTC+09:00
 ---
 
 만들어 둔 클래스를 상속하여 새로운 파생 클래스를 만드는 방법을 알아본다.
@@ -245,7 +245,6 @@ class Bulbasaur(Pokemon):
         self.hit_point = 120
         self.atk = 15
         self.block = 15 # 이상해씨는 방어력도 피카츄와는 다르게 설정하고 싶다
-        
 ```
 
 수정된 코드는 피카츄 클래스와 이상해씨 클래스에서 attack 메서드를 추가/수정하지 않았지만 아래와 같이 잘 작동한다.
@@ -288,7 +287,6 @@ class Bulbasaur(Pokemon):
     def attack(self):
         # 이상해씨의 공격은 이상해씨의 방어력만큼의 피해를 추가로 입힌다!
         target.hit_point -= (self.atk + self.block - target.block)
-        
 ```
 
 오버라이딩된 메서드는 파생클래스에서 재정의된 방식대로 작동한다.  상황에 따라 상속과 오버라이딩을 적절히 활용하여 유연하게 클래스들을 설계할 수 있다.
