@@ -9,7 +9,7 @@ published: true
 use_math: true
 date_created:
 created_at: 2023-05-10 06:59:45 UTC+09:00
-last_modified_at: 2023-05-13 23:05:31 UTC+09:00
+last_modified_at: 2023-05-14 00:25:15 UTC+09:00
 ---
 
 클래스의 구성 요소들을 살펴보고 사용자 정의 클래스를 작성하여 사용해 본다
@@ -169,7 +169,7 @@ class Pikachu:
 80
 
 # a 피카츄는 흥에 취한 나머지 상태이상에 빠져 스스로를 공격했다...
->>>a.attack(a)
+>>> a.attack(a)
 
 # 막상막하의 대결이 되었다
 >>> print(a.hit_point)

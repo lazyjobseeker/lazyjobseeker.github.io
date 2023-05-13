@@ -9,7 +9,7 @@ published: true
 use_math: true
 date_created:
 created_at: 2023-05-12 07:43:00 UTC+09:00
-last_modified_at: 2023-05-13 23:56:07 UTC+09:00
+last_modified_at: 2023-05-14 00:25:06 UTC+09:00
 ---
 
 만들어 둔 클래스를 상속하여 새로운 파생 클래스를 만드는 방법을 알아본다.
@@ -208,7 +208,6 @@ class Bulbasaur(Pokemon):
         super(Pikachu, self).__init__()
         self.hit_point = 120
         self.atk = 15
-        
 ```
 
 피카츄와 이상해씨 모두 Pokemon 클래스를 상속하고 있으며, 상속에 의해 구성된 파생 클래스들은 기본적으로 슈퍼클래스의 메서드를 그대로 사용할 수 있다.  즉 위 코드에서 피카츄 클래스와 이상해씨 클래스 각각의 구현에는 attack 메서드가 빠져 있지만, 이들의 인스턴스들은 여전히 슈퍼클래스 Pokemon에 구현된 대로 attack 메서드를 호출하여 사용할 수 있다.  그리고 이상해씨 클래스의 경우에는 피카츄와 다른 HP와 공격력을 갖도록 설계했던 이전 컨셉을 유지하기 위해, 슈퍼클래스 생성자 호출 이후 hit_point와 atk 변수 값을 재지정해 주었다.
