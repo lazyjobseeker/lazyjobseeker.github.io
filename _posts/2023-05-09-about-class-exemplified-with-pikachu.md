@@ -9,7 +9,7 @@ published: true
 use_math: true
 date_created:
 created_at: 2023-05-10 06:59:45 UTC+09:00
-last_modified_at: 2023-05-14 12:26:32 UTC+09:00
+last_modified_at: 2023-05-14 12:28:35 UTC+09:00
 ---
 
 클래스의 구성 요소들을 살펴보고 사용자 정의 클래스를 작성하여 사용해 봅시다.
@@ -151,7 +151,7 @@ class Pikachu:
 
 `attack` 메서드는 Pikachu 클래스의 다른 인스턴스 (other_pikachu)를 인수로 받도록 작성되었습니다.  other_pikachu 인수로 반드시 Pikachu 클래스의 인스턴스만을 넘겨 주기로 약속하면, 우리는 other_pikachu 객체가 hit_point 인스턴스 변수를 가질 뿐만 아니라 get_damaged 메서드를 호출할 수도 있다는 것을 보장할 수 있을 것입니다.
 
-따라서 공격당할 Pikachu 클래스의 인스턴스 (other_pikachu)를 인수로 받아, other_pikachu 종속된 `get_damaged`를 호출함으로써 HP를 낮추는 방식으로 attack 메서드를 구현하였습니다.  other_pikachu가 입을 피해량은 attack을 호출한 Pikachu 클래스의 인스턴스가 갖는 공격력(self.atk) 수치 만큼이 되도록 하였습니다.
+따라서 공격당할 Pikachu 클래스의 인스턴스 (other_pikachu)를 인수로 받아, other_pikachu 인스턴스에 종속된 `get_damaged`를 호출함으로써 other_pikachu 인스턴스의 hit_point 변수 값을 낮추는 방식으로 attack 메서드를 구현하였습니다.  other_pikachu가 입을 피해량은 attack을 호출한 Pikachu 클래스의 인스턴스가 갖는 공격력(self.atk) 수치 만큼이 되도록 하였습니다.
 
 이제 피카츄 두 마리를 만들고, 한 녀석이 다른 녀석을 공격하도록 해 봅시다.  몸통박치기!
 
