@@ -1,14 +1,44 @@
 ---
 toc: true
 toc_sticky: true
-title: "옵시디언(Obsidian) 으로 블로그 포스팅 환경 만들기"
-categories: Programming
+title: "블로그 포스팅 도구들"
+category: Programming
 tags:
   - devlog
 published: true
-last_modified_at: 2023-05-07 11:17:13 +2044
 use_math: true
+date_created:
+created_at: 2023-05-07 11:17:13 UTC+09:00
+last_modified_at: 2023-05-16 13:05:45 UTC+09:00
 ---
+
+깃허브 블로그 포스팅을 위해 사용하고 있는 도구들입니다.
+
+## 옵시디언 (Obsidian)
+
+마크다운 파일 (*.md) 편집을 위한 기본 에디터로는 **옵시디언(Obsidian)**을 사용하고 있습니다.  모바일 기기 (스마트폰과 태블릿)와 PC에서 모두 이용 가능하고, 유료 기능을 이용하지 않더라도 서드파티 플러그인을 이용해서 저장소간 동기화를 유지할 수 있습니다.
+
+다른 매력 포인트는 기본적으로 $LaTeX$ 스타일 수식 렌더링을 지원한다는 점입니다.  인라인 수식을 입력하려면 $ 으로, 블록 수식을 입력하려면 $$ 으로 수식 양 쪽을 감싸는 일반적인 MathJax 스타일 렌더링을 위한 입력 방식을 사용합니다. 
+\$z^2 = \sqrt{x^2+y^2}$
+
+
+### Advanced Tables
+
+### Excalidraw
+
+### Linter
+
+### Periodic Notes
+
+### Remotely Save
+
+### Obsidian Git
+
+
+
+
+## 스펙 에디터 (Spck Editor)
+
 
 ## 옵시디언
 
