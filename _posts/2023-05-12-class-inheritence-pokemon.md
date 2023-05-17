@@ -9,7 +9,7 @@ published: true
 use_math: true
 date_created:
 created_at: 2023-05-12 07:43:00 UTC+09:00
-last_modified_at: 2023-05-16 07:39:02 UTC+09:00
+last_modified_at: 2023-05-17 19:02:41 UTC+09:00
 ---
 
 만들어 둔 클래스를 상속하여 새로운 클래스를 만드는 방법을 알아 봅시다.
@@ -324,7 +324,7 @@ class Bulbasaur(Pokemon):
 
 ### 오버라이딩
 
-만일 이상해씨의 경우에는 attack 메서드가 상대 포켓몬의 HP에 피해를 입히는 메커니즘을 다르게 구현하고 싶다고 생각해 봅시다.  예를 들어 이상해씨가 상대 포켓몬을 공격할 때는, 이상해씨의 방어력만큼 추가 피해를 닙힐 수 있게 하고 싶습니다.
+만일 이상해씨의 경우에는 attack 메서드가 상대 포켓몬의 HP에 피해를 입히는 메커니즘을 다르게 구현하고 싶다고 생각해 봅시다.  예를 들어 이상해씨가 상대 포켓몬을 공격할 때는, 이상해씨의 방어력만큼 추가 피해를 입힐 수 있게 하고 싶습니다.
 
 이런 경우에는 슈퍼클래스에 정의된 attack 메서드를 Bulbasaur 클래스에서 다른 내용으로 재정의해 주면 됩니다.
 
@@ -340,11 +340,11 @@ class Pokemon:
 
 class Pikachu(Pokemon):
     def __init__(self):
-        super(Pikachu, self).__init__()
+        super().__init__()
         
 class Bulbasaur(Pokemon):
     def __init__(self):
-        super(Pikachu, self).__init__()
+        super().__init__()
         self.hit_point = 120
         self.atk = 15
         self.def = 15
@@ -403,11 +403,11 @@ class Pokemon:
 
 class Pikachu(Pokemon):
     def __init__(self):
-        super(Pikachu, self).__init__()
+        super().__init__()
         
 class Bulbasaur(Pokemon):
     def __init__(self):
-        super(Pikachu, self).__init__()
+        super().__init__()
         self.hit_point = 120
         self.atk = 15
         self.def = 15
