@@ -7,9 +7,8 @@ tags:
   - python
 published: true
 use_math: true
-date_created:
 created_at: 2023-05-12 07:43:00 UTC+09:00
-last_modified_at: 2023-05-17 19:02:41 UTC+09:00
+last_modified_at: 2023-05-18 22:18:08 UTC+09:00
 ---
 
 만들어 둔 클래스를 상속하여 새로운 클래스를 만드는 방법을 알아 봅시다.
