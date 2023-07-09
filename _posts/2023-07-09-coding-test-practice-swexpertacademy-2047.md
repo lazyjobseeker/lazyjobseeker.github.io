@@ -5,11 +5,14 @@ title: "[2047] 신문 헤드라인 (D1)"
 category: Programming
 tags:
   - C++
+  - "SW Expert Academy"
 published: true
 use_math: true
 created_at: 2023-07-09 19:19:48 UTC+09:00
-last_modified_at: 2023-07-09 19:21:36 UTC+09:00
+last_modified_at: 2023-07-09 19:30:57 UTC+09:00
 ---
+
+신문 헤드라인 (D1)
 
 ```c++
 #include<iostream>
