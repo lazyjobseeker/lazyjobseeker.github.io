@@ -7,5 +7,5 @@ entries_layout: grid
 classes: wide
 author_profile: true
 sidebar:
-  nav: "docs"
+  nav: "programming"
 ---
