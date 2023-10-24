@@ -9,7 +9,7 @@ main:
   - title: "Tags"
     url: /posts-by-tags/
   - title: "Programming"
-    url: /programming/
+    url: /posts-programming/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
