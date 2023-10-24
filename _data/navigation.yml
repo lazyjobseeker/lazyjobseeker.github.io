@@ -8,6 +8,8 @@ main:
     url: /posts-by-categories/
   - title: "Tags"
     url: /posts-by-tags/
+  - title: "Programming"
+    url: /programming/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
