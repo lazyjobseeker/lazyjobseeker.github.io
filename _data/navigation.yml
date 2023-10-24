@@ -13,6 +13,14 @@ main:
   # - title: "Sitemap"
   #   url: /sitemap/
 
+programming:
+  - title: "Coding Test"
+    children:
+      - title: "SW Expert Academy"
+        url: /docs/curriculum_vitae/
+      - title: "C++"
+      - title: "JAVA"
+
 docs:
   - title: Sangheon Lee
     children:
