@@ -1,6 +1,6 @@
 ---
 title: Programming
-layout: tag
+layout: category
 permalink: /posts-programming/
 collection: posts
 entries_layout: grid
