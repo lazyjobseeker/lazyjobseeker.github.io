@@ -6,7 +6,7 @@ collection: posts
 entries_layout: grid
 classes: wide
 author_profile: true
-taxonomy: programming
+taxonomy: Programming
 sidebar:
   nav: "programming"
 ---

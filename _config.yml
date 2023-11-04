@@ -18,14 +18,14 @@ minimal_mistakes_skin    : "dirt" # "default", "air", "aqua", "contrast", "dark"
 locale                   : "en-US"
 title                    : "나불나불 끄적끄적"
 title_separator          : "-"
-subtitle                 : "완생을 꿈꾸는 나무늘보 기록장" # site tagline that appears below site title in masthead
+subtitle                 : "꽤 부지런한 나무늘보" # site tagline that appears below site title in masthead
 name                     : "Sangheon Lee"
 description              : "My little workspace."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/images/logo.png"
+logo                     : "/assets/images/logo_bradypodida.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 300
