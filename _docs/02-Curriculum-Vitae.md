@@ -7,13 +7,13 @@ permalink: /docs/curriculum_vitae/
 ---
 
 <h2> 🎓 EDUCATION & CAREER </h2>
-<div style = "float: left; margin-bottom: 50px">
+<div style = "margin-bottom: 50px">
   {% for career in site.career reversed %}
-      <div style = "width: 60%; float: left"><font size = 4><b> {{- career.title -}} </b></font></div>
-      <div style = "text-align: right; width: 40%; float: right">
-        <font size = 2> {{ career.started | prepend: "(" | append: " - " | append: career.ended | append: ")"}} </font>
+      <div><font size = 4><b> {{- career.title -}} </b></font></div>
+      <div>
+        <font size = 2><b> Period: </b> {{ career.started | append: " - " | append: career.ended}}</font>
       </div>
-      <div style = "float: left">
+      <div>
         <font size = 3>
           {% for pos in career.history %}
             {{- pos.department | append: "<br>" -}}
@@ -30,7 +30,7 @@ permalink: /docs/curriculum_vitae/
   {% endfor %}
 </div>
 <h2> 📚 PUBLICATIONS </h2>
-<div style = "float: left">
+<div>
   {% assign counter = site.publications.size | plus: 1 %}
   {% for pub in site.publications reversed %}
       <font size = 4><b>
