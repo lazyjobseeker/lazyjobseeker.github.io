@@ -49,6 +49,8 @@
   line-height: initial;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.3em; // Default: N/A
+  word-break: auto-phrase; // Default: N/A
 
   a[rel="permalink"]::before {
     content: '';
@@ -150,7 +152,7 @@
 }
 
 .grid__item {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 
   @include breakpoint($small) {
     float: left;
@@ -211,7 +213,7 @@
 
   .archive__item-title {
     margin-top: 0.5em;
-    font-size: $type-size-5;
+    font-size: 0.9em; //font-size: $type-size-5;
   }
 
   .archive__item-excerpt {

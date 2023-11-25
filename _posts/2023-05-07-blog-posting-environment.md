@@ -2,13 +2,15 @@
 toc: true
 toc_sticky: true
 title: "블로그 포스팅 도구들"
-category: Programming
+categories: Programming
 tags:
   - devlog
 published: true
 use_math: true
 created_at: 2023-05-07 11:17:13 UTC+09:00
 last_modified_at: 2023-05-18 22:17:58 UTC+09:00
+header:
+  teaser: /assets/images/uncategorized-teaser-2.png
 ---
 
 깃허브 블로그 포스팅을 위해 사용하고 있는 도구들입니다.

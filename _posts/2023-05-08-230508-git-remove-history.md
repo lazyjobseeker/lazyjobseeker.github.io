@@ -8,6 +8,8 @@ tags:
 published: true
 last_modified_at: 2023-05-08 19:37:26 +2044
 use_math: true
+header:
+  teaser: /assets/images/software-teaser-scm.png
 ---
 
 https://stackoverflow.com/questions/13716658/how-to-delete-all-commit-history-in-github

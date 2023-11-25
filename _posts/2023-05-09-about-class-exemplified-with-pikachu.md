@@ -2,13 +2,15 @@
 toc: true
 toc_sticky: true
 title: "[Python] 클래스 기본 개념"
-category: Programming
+categories: Programming
 tags:
   - python
 published: true
 use_math: true
 created_at: 2023-05-10 06:59:45 UTC+09:00
 last_modified_at: 2023-05-18 22:17:45 UTC+09:00
+header:
+  teaser: /assets/images/python-teaser-basicconcepts.png
 ---
 
 파이썬 클래스(Class) 의 구성 요소들을 살펴보고 사용자 정의 클래스를 작성하여 사용해 봅시다.

@@ -10,6 +10,8 @@ published: true
 use_math: true
 created_at: 2023-07-09 19:19:48 UTC+09:00
 last_modified_at: 2023-07-09 19:30:57 UTC+09:00
+header:
+  teaser: /assets/images/algorithm-teaser-codingtest.png
 ---
 
 신문 헤드라인 (D1)

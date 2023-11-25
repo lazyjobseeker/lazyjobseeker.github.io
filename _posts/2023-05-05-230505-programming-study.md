@@ -8,6 +8,8 @@ tags:
 published: true
 last_modified_at: 2023-05-05 20:40:00 +2044
 use_math: true
+header:
+  teaser: /assets/images/uncategorized-teaser-1.png
 ---
 
 블로그를 하고 싶다고 계속 생각은 하고 있었지만 실행력이 없어 미루기만 하다가 첫 글을 써 보기로 한다.  MBTI가 ISFJ인 아내는 네이버 블로그를 꾸준히 계속 하고 있는데 조회수가 늘어 가는 모습이 멋지다.
