@@ -11,7 +11,7 @@ permalink: /docs/curriculum_vitae/
   {% for career in site.career reversed %}
       <div><font size = 4><b> {{- career.title -}} </b></font></div>
       <div>
-        <font size = 2><b> Period: </b> {{ career.started | append: " - " | append: career.ended}}</font>
+        <font size = 2><b> {{ career.started | append: " - " | append: career.ended}} </b></font>
       </div>
       <div>
         <font size = 3>
