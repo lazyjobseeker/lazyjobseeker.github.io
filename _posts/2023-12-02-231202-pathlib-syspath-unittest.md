@@ -1,6 +1,4 @@
 ---
-created_at: 2023-12-02 02:04:33 UTC+09:00
-last_modified_at: 2023-12-02 02:04:37 UTC+09:00
 toc: true
 toc_sticky: true
 title: "pathlib과 sys를 사용해 ModuleNotFoundError 해결하기"
@@ -9,6 +7,8 @@ tags:
   - python
 published: true
 use_math: true
+created_at: 2023-12-02 02:04:33 UTC+09:00
+last_modified_at: 2023-12-02 02:04:37 UTC+09:00
 header:
   teaser: /assets/images/uncategorized-teaser-4.png
 ---
