@@ -25,7 +25,6 @@ mathlibrary
  ├─ __init__.py
  ├─ math.py
  └─ test.py
-
 ```
 
 ### 1.1 테스트할 코드 만들기
