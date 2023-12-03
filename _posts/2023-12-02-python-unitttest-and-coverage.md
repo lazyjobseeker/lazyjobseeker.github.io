@@ -86,7 +86,7 @@ if __name__ == '__main__':
 이제 `test.py`를 실행해 보면, 5개의 테스트가 수행되고 그 중 몇 개나 성공했는지 알 수 있습니다.
 
 ```
-PS D:\repositories\devlog_codes> python test.py
+PS D:\repositories\devlog_codes>python test.py
 .....
 ----------------------------------------------------------------------
 Ran 5 tests in 0.001s
