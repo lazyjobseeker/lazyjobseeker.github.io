@@ -141,7 +141,7 @@ for %%i in (*) do (
 그러나 cmd에서의 for문을 **%변수명%**꼴의 변수와 쓰게 되면 for 루프가 진행되는 동안 변수 업데이트의 결과가 실시간으로 반영되지 않습니다. 이를 방지하기 위해 **지연된 확장**을 사용하는데, 구체적으로는 setlocal EnableDelayedExpansion을 추가해 주고 변수 참조는 %변수명%꼴 대신 !변수명! 을 사용합니다.
 
 ```
-setlocal EnableDelayedExpansion을
+setlocal EnableDelayedExpansion
 for %%i in (*) do (
   set var=%%i
   echo !var!
