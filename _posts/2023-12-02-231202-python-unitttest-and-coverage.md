@@ -7,8 +7,8 @@ tags:
   - python
 published: true
 use_math: true
-created_at: 2023-12-01 13:45:54 UTC+09:00
-last_modified_at: 2023-12-01 13:45:58 UTC+09:00
+created_at: 2023-12-01 13:45:54 +09:00
+last_modified_at: 2023-12-01 13:45:58 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: "파이썬에서 unittest 라이브러리를 사용하여 작성된 코드를 테스트하고 coverage패키지를 이용하여 코드 커버리지를 확인하는 방법"

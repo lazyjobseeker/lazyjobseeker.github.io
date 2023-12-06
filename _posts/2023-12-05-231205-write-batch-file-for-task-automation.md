@@ -7,8 +7,8 @@ tags:
   - windows
 published: true
 use_math: true
-created_at: 2023-12-05 00:00:00 UTC+09:00
-last_modified_at: 2023-12-05 00:00:00 UTC+09:00
+created_at: 2023-12-05 00:00:00 +09:00
+last_modified_at: 2023-12-05 00:00:00 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-8.png
 excerpt: "윈도우즈 환경에서 반복 작업을 자동화할 수 있도록 배치 파일을 작성하고 활용하는 방법"
