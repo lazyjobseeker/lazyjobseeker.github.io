@@ -183,7 +183,7 @@ class Dog:
 
 이 경우에도 위와 마찬가지로, ModuleNotFoundError는 발생하지 않고 정상적으로 my_dog.bark()를 호출하여 짖게 만들 수 있습니다 (물론 **Waloo**라고 짖습니다!). 그러나 my_dog.color 변수에 접근하려고 하면 AttributeError가 발생합니다.
 
-#### 새로운 메서드를 추가
+#### 새로운 메서드를 추가한 경우
 
 이번에는 새로운 메서드를 추가해 보겠습니다.
 
