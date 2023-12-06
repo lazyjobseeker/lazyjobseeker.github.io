@@ -157,7 +157,7 @@ for %%i in (*) do (
 (example.bat)
 
 @echo off
-set Hello %1
+echo Hello %1
 ```
 
 example.bat을 실행할 때 추가 파라미터를 넘기면 아래와 같이 됩니다.
