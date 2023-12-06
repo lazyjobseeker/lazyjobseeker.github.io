@@ -59,7 +59,7 @@ import pickle
 from dog import Dog
 
 my_dog = Dog() # 개 한 마리 만들기
-my_dog.bark()
+my_dog.bark() # 짖어!
 with open('pickled-dog', 'wb') as f:
     pickle.dump(my_dog, f)
 
