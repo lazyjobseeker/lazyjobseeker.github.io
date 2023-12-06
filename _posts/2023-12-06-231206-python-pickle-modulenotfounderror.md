@@ -8,8 +8,8 @@ tags:
   - pickle
 published: true
 use_math: true
-created_at: 2023-12-05 13:35:24 +09:00
-last_modified_at: 2023-12-06 15:47:33 +09:00
+created_at: 2023-12-05 13:35:24 UTC+09:00
+last_modified_at: 2023-12-06 15:47:33 UTC+09:00
 header:
   teaser: /assets/images/uncategorized-teaser-1.png
 excerpt: "python의 직렬화 모듈 pickle 사용상의 주의점과 ModuleNotFoundError 발생 시 해결 방법"
