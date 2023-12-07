@@ -64,6 +64,7 @@ std::vector<char[]> words;
 ```cpp
 for (int i=0; i<3; ++i) {
     char word[] = {0};
+    cin >> word;
     words.push_back(word);
 }
 ```
