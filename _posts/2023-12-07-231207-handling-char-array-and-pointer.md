@@ -1,7 +1,7 @@
 ---
 toc: true
 toc_sticky: true
-title: char array들을 원소르 갖는 vector 만들기
+title: char array들을 원소로 갖는 vector 만들기
 category: Programming
 tags:
   - C++
@@ -45,7 +45,7 @@ v.push_back(test);
 
 ### vector<char []>는 정의할 수 없다
 
-위 글 이외에도 비슷한 질문과 답변을 다룬 그래도 
+위 글 이외에도 비슷한 질문과 답변을 다룬 많은 포스트와 질의응답들에서 배열을 벡터의 원소로 쓰는 것은 불가능하다고 했습니다. 하지만 저는 무식했기 때문에 일단 어떻게든 될 거라고 생각하고 되는 대로 코드를 만들어 보았습니다.
 
 가장 처음 시도한 방법은 위의 StackOverflow 질문자의 방법과 비슷했습니다. 보통 문자열을 char array 형태로 취급할 때 아래
 
