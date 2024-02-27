@@ -4,9 +4,9 @@ main:
   #  url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  - title: "Categories"
+  - title: "📚"  #"Categories"
     url: /posts-by-categories/
-  - title: "Tags"
+  - title: "️🏷"#"Tags"
     url: /posts-by-tags/
   # - title: "Programming"
   #   url: /posts-programming/
