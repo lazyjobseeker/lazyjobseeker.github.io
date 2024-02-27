@@ -1,24 +1,24 @@
 ---
 toc: true
 toc_sticky: true
-title: Electrochemistry
+title: "Electrochemical Methods: Fundamentals and Applications (3rd Ed.) - Chapter 1"
 category: Electrochemistry
 tags:
   - Electrochemistry
 published: true
 use_math: true
 created_at: 2024-02-27 00:30:11 +09:00
-last_modified_at: 2024-02-27 23:49:19 +09:00
+last_modified_at: 2024-02-28 00:01:39 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-4.png
-excerpt: 전기화학 개념 정리
+excerpt: "Allen J. Bard의 <Electrochemical Methods: Fundamentals and Applications (3rd Ed.)> 요약 정리 - 챕터 1"
 ---
 
-## 전극 과정 (Electrode Process)
+## 전극 과정
 
 실험적으로, 하나의 계면을 분리하여 다루는 것은 불가능하다.  다룰 수 있는 것은 여러 개의 계면으로 구성된 **전기화학 셀**이다.
 
-### 전기화학 셀의 구조 표기 (Shorthand Notation for Electrochemical Cell)
+### 전기화학 셀의 구조 표기
 
 - 슬래시(/)는 서로 다른 상 사이의 경계(phase boundary)를 나타낸다.
 - 콤마(,)로 구분하여 나열된 요소들은 동일한 상 내에 같이 존재한다.
@@ -29,13 +29,13 @@ $$\ce{Zn/Zn^2,Cl-/AgCl/Ag}$$
 
 $$\ce{Pt/H2/H+,Cl-/AgCl/Ag}$$
 
-### 계면 포텐셜의 차이와 셀 포텐셜 (Interfacial Potential Difference and Cell Potential)
+### 계면 포텐셜의 차이와 셀 포텐셜
 
 **셀 포텐셜(cell potential)**은 전기화학 셀이 외부에 일을 할 수 있는 능력을 나타내는 척도이며, 셀 내의 전도 경로상에 있는 모든 계면 포텐셜의 합으로 계산할 수 있다.
 
 상의 경계에서는 급격한 포텐셜의 변화가 발생한다.  이는 곧 상의 경계에는 큰 전계가 발생한다는 것을 의미한다.  이로 인해 상 경계 좌우로는 전자의 에너지 크기에 차이가 발생하며, 이는 전자 전이의 방향과 속도를 결정한다.
 
-### 작동전극, 기준전극 (Working Electrode & Reference Electrode)
+### 작동전극, 기준전극
 
 전기화학 셀의 분석에서 관심(분석)의 대상이 되는 전극을 **작동전극(Working Electrode)**이라고 한다.  작동전극은 외부에서 인가되는 전압과 무관하게 동일한 계면 전위차를 유지할 수 있도록 설계된 **기준전극(Reference Electrode)**과 쌍을 이룬다.
 
@@ -43,9 +43,9 @@ $$\ce{Pt/H2/H+,Cl-/AgCl/Ag}$$
 
 작동전극의 포텐셜을 (-) 방향으로 증가시키면, 작동전극의 전자들은 더 높은 에너지를 가지게 된다.  충분한 에너지를 얻은 전자들은 전해액의 빈 에너지 준위들로 전이할 수 있게 된다.  이에 따라, 작동전극에서 전해액 방향으로 **환원 전류 (reduction current)**가 발생한다.  반대의 경우를 생각하면, 작동전극의 포텐셜이 (+) 방향으로 충분히 증가했을 때는 전해액에서 작동전극의 방향으로 **산화 전류 (oxidation current)**가 발생한다.
 
-### 몇 가지 기준전극 (Some Reference Electrodes)
+### 몇 가지 기준전극
 
-#### 표준수소전극 (SHE, NHE)
+#### 표준수소전극
 
 표준수소전극(Standard/Normal Hydrogen Electrode)의 셀 표기는 다음과 같다.
 
@@ -59,7 +59,7 @@ $$\ce{Hg/Hg2Cl2/KCl(saturated in water)}$$
 
 SCE의 셀 포텐셜은 25도에서 NHE 대비 +0.244 V 이다.
 
-#### 은/염화은 전극 (Ag/AgCl Electrode)
+#### 은/염화은 전극
 
 은-염화은(Ag-AgCl) 전극의 셀 표기는 다음과 같다
 
@@ -67,7 +67,7 @@ $$\ce{Ag/AgCl/KCl(saturated in water)}$$
 
 이 기준전극의 셀 포텐셜은 25도에서 NHE 대비 +0.197 V 이다.
 
-### 배경 전류-포텐셜 곡선 (Background $i$-$E$ Curve)
+### 배경 전류-포텐셜 곡선
 
 전기화학 셀에서 특정 산화/환원 쌍의 반응을 분석하고자 할 때는, 배경 전류-포텐셜 곡선 (background $i$-$E$ curve)에 대한 분석이 선행되어야 한다.  작동전극의 전위를 -(+) 방향으로 조정하다 보면 원치 않는 환원(산화)전류가 크게 상승하는 지점이 발생하며, 이러한 영역에서는 분석하고자 하는 레독스 쌍에 대한 정보를 얻기 어렵다.
 
@@ -91,11 +91,11 @@ $$\ce{Hg/H^+(1 M),Br^-(1 M)/AgBr/Ag}$$
 - 전해액에 오직 산화종(oxidized form)만 존재하는 경우, OCP는 배경산화전류가 발생하기 시작하는 전위와 가장 환원되기 쉬운 산화종의 환원반응이 시작되는 전위 사이에 존재한다.
 - 전해액에 오직 환원종(reduced form)만 존재하는 경우, OCP는 배경환원전류가 발생하기 시작하는 전위와 가장 산화되기 쉬운 환원종의 산화반응이 시작되는 전위 사이에 존재한다.
 
-### 패러데이 과정과 비-패러데이 과정 (Faradaic and Nonfaradaic Process)
+### 패러데이 과정과 비-패러데이 과정
 
 계면에서의 전하 이동을 수반하는 전극 반응을 **패러데이 과정(Faradaic Process)**, 그렇지 않은 경우 **비패러데이 과정(Nonfaradaic Process)**이라고 한다.
 
-### 이상분극전극과 이상비분극전극 (Ideally Polarizable & Nonpolarizable Electrode)
+### 이상분극전극과 이상비분극전극
 
 실제 패러데이 과정이 발생하는 전위가 열역학적으로 예상되는 평형 전위로부터 벗어나는 것을 **분극(polarization)**이라고 하고, 열역학적 평형 전위와 실제 전극과정 전위 사이의 차이를 **과전위(overpotential)**라고 한다.
 
