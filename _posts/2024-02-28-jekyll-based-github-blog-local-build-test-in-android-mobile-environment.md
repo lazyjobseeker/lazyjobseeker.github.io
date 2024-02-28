@@ -1,7 +1,7 @@
 ---
 toc: true
 toc_sticky: true
-title: "안드로이드 태블릿 환경에서 깃허브 블로그 로컬 빌드하기"
+title: "안드로이드 스마트폰 및 태블릿 환경에서 Jekyll 기반 깃허브 블로그 로컬 빌드하기"
 category: Programming
 tags:
   - Jekyll
@@ -10,7 +10,7 @@ tags:
 published: true
 use_math: true
 created_at: 2024-02-28 10:25:00 +09:00
-last_modified_at: 2024-02-28 12:04:28 +09:00
+last_modified_at: 2024-02-28 12:10:51 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: "Jekyll로 작성된 Github 블로그를 모바일 환경에서 로컬 빌드하기"
