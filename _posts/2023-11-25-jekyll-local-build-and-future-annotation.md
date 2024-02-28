@@ -9,8 +9,8 @@ tags:
   - "Minimal Mistakes"
 published: true
 use_math: true
-created_at: 2023-11-25 13:28:00 UTC+09:00
-last_modified_at: 2023-11-25 13:28:00 UTC+09:00
+created_at: 2023-11-25 13:28:00 +09:00
+last_modified_at: 2024-02-28 10:15:47 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-3.png
 excerpt: "Jekyll 블로그를 로컬 PC에서 미리보기 하는 방법, python에서 작성한 클래스 내에서 해당 클래스에 대한 타입 힌팅(type hinting)을 사용하기 위해 __future__ 모듈을 사용하는 방법"
@@ -30,7 +30,7 @@ PC에 Ruby를 설치한다 ([**Ruby 설치**](https://rubyinstaller.org/download
 D:\repositories\lazyjobseeker.github.io>bundle exec jekyll serve
 ```
 
-아래와 같은 에러가 발생하면, 하라는 대로 `bundle install`을 실행해 주면 된다.  내 리포지토리에서 알아서 의존성 정보를 확인하고 필요한 `gem` 파일들을 설치한다.
+특정 `gem` 파일이 존재하지 않아 실행할 수 없다는 메시지가 발생할 수 있는데, 하라는 대로 `bundle install`을 실행해 주면 된다.  내 리포지토리에서 알아서 의존성 정보를 확인하고 필요한 `gem` 파일들을 설치한다.
 
 `gem`은 Ruby에서 사용하는 플러그인들이며, `bundle install` 명령은 이 명령이 실행된 루트 디렉토리의 `Gemfile` 파일에서 어떤 `gem` 파일들이 필요한지 확인하고 설치를 진행한다.
 
