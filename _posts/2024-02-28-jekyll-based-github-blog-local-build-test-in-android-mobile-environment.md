@@ -10,13 +10,13 @@ tags:
 published: true
 use_math: true
 created_at: 2024-02-28 10:25:00 +09:00
-last_modified_at: 2024-02-28 12:10:51 +09:00
+last_modified_at: 2024-02-28 17:15:45 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: "Jekyll로 작성된 Github 블로그를 모바일 환경에서 로컬 빌드하기"
 ---
 
-Ruby와 Jekyll을 설치하면 로컬 PC 환경에서 서버를 구동하여 깃허브 블로그가 어떻게 렌더링될지 확인할 수 있습니다.  이런 환경을 노트 PC에 구축해 둔다면 어디서든 자유롭게 포스트를 수정하고 레포지토리에 push할 수 있겠지만, 여의치 않다면 태블릿이나 스마트폰 등 모바일 환경을 활용하고 싶다는 생각이 들 수 있습니다.  안드로이드 태블릿(갤럭시 탭 7 FE)에서 Jekyll 정적 블로그를 로컬 빌드하기 위해 필요했던 내용들을 아래에 정리합니다.
+Ruby와 Jekyll을 설치하면 로컬 PC 환경에서 서버를 구동하여 깃허브 블로그가 어떻게 렌더링될지 확인할 수 있습니다.  이런 환경을 노트 PC에 구축해 둔다면 어디서든 자유롭게 포스트를 수정하고 레포지토리에 push할 수 있겠지만, 여의치 않다면 태블릿이나 스마트폰 등 모바일 환경을 활용하고 싶다는 생각이 들 수 있습니다.  안드로이드 태블릿(갤럭시 노트 10+ 및 갤럭시 탭 7 FE)에서 Jekyll 정적 블로그를 로컬 빌드하기 위해 필요했던 내용들을 아래에 정리합니다.
 
 ## F-Droid 앱 스토어 및 Termux 설치
 
@@ -78,7 +78,7 @@ pkg install ruby
 ```bash
 cd ~/storage/shared/repos/lazyjobseeker.github.io
 bundle install
-bundle exec jekyll serve --baseurl ''
+bundle exec jekyll serve
 To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
 Configuration file: /storage/emulated/0/repos/lazyjobseeker.github.io/_config.yml
             Source: /storage/emulated/0/repos/lazyjobseeker.github.io
@@ -92,6 +92,11 @@ Configuration file: /storage/emulated/0/repos/lazyjobseeker.github.io/_config.ym
   Server running... press ctrl-c to stop.
 ```
 
+`bundle exec jekyll serve`를 실행할 때 아래와 같이 추가 옵션을 주지 않으면 css 디자인이 깨진다는 포스트도 있었지만, 저의 경우에는 필요하지 않았습니다.  서버는 구동되지만 렌더링된 결과가 이상하다면 아래를 실행해 보는 것도 좋겠습니다.
+
+```bash
+bundle exec jekyll serve --baseurl ''
+```
 
 ## 문제 해결
 
@@ -101,19 +106,29 @@ Configuration file: /storage/emulated/0/repos/lazyjobseeker.github.io/_config.ym
 
 `nokogiri`는 Ruby에서 XML과 HTML을 다루기 용이하게 하는 API들을 제공하는 라이브러리입니다.  `bundle install`로 의존성 gem들을 설치하는 과정에서, 다른 모든 gem들은 문제없이 설치가 가능한데 nokogiri는 설치에 실패했다는 메시지와 함께 진행이 불가능한 문제가 있었습니다.
 
-몇 가지 패키지를 추가로 설치하여 해결되었다는 [스택오버플로우 포스트](https://stackoverflow.com/questions/71294580/nokogiri-1-13-3-gem-install-failure-termux)가 있었고 이를 따르는 것으로 해결되었습니다.
+몇 가지 패키지를 추가로 설치하여 해결되었다는 [**스택오버플로우 포스트**](https://stackoverflow.com/questions/71294580/nokogiri-1-13-3-gem-install-failure-termux) 가 있었고 이를 따르는 것으로 해결되었습니다.  어떤 포스트에서는 패키지 업데이트를 하라는 권고가 있었습니다.
+
+정확히 어떤 지침을 따라야 해결되는 것인지 알 수가 없어서, 모두 진행했습니다.
 
 ```bash
+# 패키지 업데이트 및 업그레이드
+pkg update
+pkg upgrade
+# 패키지 추가 설치
 pkg install pkg-config
 pkg install binutils
 pkg install gumbo-parser
 pkg install libxslt
+pkg install libxml2
+pkg install build-essential --no-install-recommends
+# gem 추가 설치
+gem install pkg-config
 ```
 
-한 번에 설치해도 됩니다.
+그런 다음, `bundle install` 대신 아래 명령으로 nokogiri gem을 직접 설치하면 정상적으로 설치됩니다.
 
 ```bash
-pkg install pkg-config binutils gumbo-parser libxslt
+gem install nokogiri --platform=ruby -- --use-system-libraries
 ```
 
 ### bundle exec jekyll serve 실행 시 권한 없음
@@ -161,14 +176,14 @@ bundle show jekyll
 /data/data/com.termux/files/usr/lib/ruby/gems/3.2.0/gems/jekyll-3.9.5/lib/jekyll/utils/platforms.rb
 ```
 
-위와 같이 특정할 수 있었습니다.
+위와 같이 특정할 수 있었습니다.  이 문제는 제가 가지고 있는 스마트폰과 태블릿에서 모두 발생했고, 위 조치로 동일하게 해결 되었습니다.
 
 ## 깃허브 블로그 리포지토리의 로컬 저장소를 Obsidian vault로 연동
 
-원래 태블릿에서는 포스트 수정과 git 작업을 동시에 하기 위해 파일 수정과 일부 git 기능을 모두 지원하는 **스펙 에디터(spck editor)**를 사용하고 있었습니다.  스펙 에디터의 마크다운 편집 및 프리뷰 기능이 **옵시디언**에 미치지 못해 항상 아쉬웠지만, 스펙 에디터의 git 기능으로 클론해 온 리포지토리는 스펙 에디터의 어플리케이션 데이터 영역에 저장되도록 되어 있어서, 이 저장소의 위치를 옵시디언 저장소(vault)로 설정할 방법이 없었습니다.  이로 인해 스펙 에디터에서 관리하는 파일들을 옵시디언에서 직접 불러들여 수정할 방법이 없었고, 어쩔 수 없이 옵시디언에서 작성한 포스트를 스펙 에디터에서 붙여넣고 commit-push하는 방법을 사용하고 있었습니다.
+원래 태블릿에서는 포스트 수정과 git 작업을 동시에 하기 위해 파일 수정 기능과 함께 git의 일부 기능을 기본적으로 지원하는 **스펙 에디터(spck editor)**를 사용하고 있었습니다.  스펙 에디터의 마크다운 편집 및 프리뷰 기능은 **옵시디언**에 비하면 아쉽지만, git 기능을 사용할 수 있는 장점 때문에 사용해 왔습니다.
+
+항상 셋업하고 싶었던 모바일 블로그 포스팅 환경은 스펙 에디터에서 `git clone` 명령으로 로컬 저장소에 복제해 온 레포지토리를 옵시디언 저장소(Vault)로 지정하여, 실제 포스트 작성과 수정은 옵시디언에서 처리하고 커밋과 푸시만 스펙 에디터로 진행하는 것이었습니다.  옵시디언에도 **Obsidian Git**이라는 커뮤니티 플러그인이 있어 git 기능을 사용할 수 있지만 안정성이 크게 떨어져서 사용하지 않고 있었고, 스펙 에디터에서 모바일 단말로 클론해온 로컬 저장소는 옵시디언에서 접근할 수 없는 위치(스펙 에디터의 앱 내부 저장소)에 있어서, 어쩔 수 없이 마크다운 편집과 프리뷰는 옵시디언으로 작업한 다음 스펙 에디터는 git 관련 처리에만 사용하고 있었습니다.
 
 하지만 Termux로 git을 설치하고 git을 이용해 어느 앱이든 접근 가능한 스토리지 영역에 리포지토리를 클론할 수 있게 되었기 때문에, 클론해온 리포지토리의 태블릿 내부 저장 위치를 옵시디언 vault로 직접 지정하여 포스트를 직접 작성하고 수정할 수 있게 되었습니다.
 
-옵시디언의 <Manage Vaults> -> <Open Folder as Vault> 메뉴로 접근하여, Termux에서 git으로 클론한 저장소 위치를 Vault로 직접 지정했습니다.  포스팅을 위한 마크다운 파일만 수정할 목적이기 때문에, 전체 저장소가 아닌 `_posts` 폴더만을 타겟으로 지정했습니다.  옵시디언에서 Vault의 이름을 바꾸면 대상 디렉토리의 이름 자체가 바뀌기 때문에 Vault의 이름을 새로 짓지는 않고 _posts인 채로 두었습니다.
-
-옵시디언 Vault로 지정된 디렉토리에는 옵시디언 관련 디렉토리와 파일들이 `.obsidian` 폴더로 추가되기 때문에, 필요한 경우 `.gitignore`에서 이 파일들을 추적하지 않도록 설정해 주어야 할 것입니다.
+옵시디언의 **Manage Vaults** -> **Open Folder as Vault** 메뉴로 접근하여, Termux에서 git으로 클론한 저장소 위치를 Vault로 직접 지정했습니다.  포스팅을 위한 마크다운 파일만 수정할 목적이기 때문에, 전체 저장소가 아닌 `_posts` 폴더만을 타겟으로 지정했습니다.  주의할 점은 옵시디언에서 Vault의 이름을 바꾸면 대상 디렉토리의 이름 자체가 바뀌기 때문에, 별로 보기에 좋지 않더라도 이렇게 만든 Vault의 이름은 `_posts`인 채로 유지해야 한다는 점입니다.  또한 옵시디언 Vault로 지정된 디렉토리에는 옵시디언 관련 설정들을 저장하는`.obsidian` 폴더가 새로 생성되기 때문에, git이 이 파일들을 추적하기를 원하지 않는다면 `.gitignore`에서 이 파일들을 추적하지 않도록 설정해 주어야 합니다.
