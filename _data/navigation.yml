@@ -6,7 +6,7 @@ main:
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   - title: "📚"
     url: /posts-by-categories/
-  - title: "️🗂"
+  - title: "️📚"
     url: /posts-by-tags/
   # - title: "Programming"
   #   url: /posts-programming/
