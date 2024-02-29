@@ -15,7 +15,7 @@ $indent-var: 1.3em !default;
 /* system typefaces */
 $serif: "NanumSquareNeo-Variable", "Noto Serif", "Noto Serif KR", serif !default; // Georgia, Times, serif !default;
 $sans-serif: -apple-system, BlinkMacSystemFont, "NanumSquareNeo-Variable", sans-serif !default; // "NanumSquareNeo-Variable"
-$monospace: "Consolas", "D2Coding", "NanumSquareNeo-Variable", monospace !default;
+$monospace: monospace, "Consolas", "D2Coding", "NanumSquareNeo-Variable" !default;
 
 /* sans serif typefaces */
 $sans-serif-narrow: $sans-serif !default;
@@ -154,9 +154,9 @@ $max-width: $x-large !default;
    Grid
    ========================================================================== */
 
-$right-sidebar-width-narrow: 240px !default;
-$right-sidebar-width: 260px !default;
-$right-sidebar-width-wide: 280px !default;
+$right-sidebar-width-narrow: 200px !default; //240
+$right-sidebar-width: 300px !default; //260
+$right-sidebar-width-wide: 400px !default; //280
 
 /*
    Other
