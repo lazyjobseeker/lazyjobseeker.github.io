@@ -10,7 +10,7 @@ tags:
 published: true
 use_math: true
 created_at: 2024-02-28 10:25:00 +09:00
-last_modified_at: 2024-02-29 14:04:05 +09:00
+last_modified_at: 2024-02-29 16:20:20 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: "Jekyll로 작성된 Github 블로그를 안드로이드 스마트폰 및 태블릿 모바일 단말 환경에서 빌드하는 방법"
@@ -55,13 +55,15 @@ git config --global user.email 'honggildong@example.com'
 이 작업은 진행하지 않아도 상관 없지만, 레포지토리를 클론하기 전에 진행해 두는 편이 좋습니다.
 
 - Termux 터미널에서 현재 모바일 기기의 SSH 키를 생성 ([참고](https://www.lainyzine.com/ko/article/creating-ssh-key-for-github/))
-```bash
-#openssh 패키지 설치
-pkg install openssh
-ssh-keygen -t ed25519 -C <클론해 올 레포지토리에 등록된 이메일 주소>
-cat ~/.ssh/id_ed25519.pub
-#cat 명령으로 출력되는 키 값을 Ctrl+C로 복사
-```
+
+  ```bash
+  #openssh 패키지 설치
+  pkg install openssh
+  ssh-keygen -t ed25519 -C <클론해 올 레포지토리에 등록된 이메일 주소>
+  cat ~/.ssh/id_ed25519.pub
+  #cat 명령으로 출력되는 키 값을 Ctrl+C로 복사
+  ```
+
 - 생성된 SSH 키를 클론해 올 레포지토리에 등록 ([참고](https://www.lainyzine.com/ko/article/creating-ssh-key-for-github/))
 	- Github 사이트로 이동
 	- 우상단의 프로필을 클릭하여 드롭다운 메뉴에서 Settings로 이동
@@ -76,11 +78,11 @@ Termux 터미널에서 Git을 이용하여 변경사항을 푸시하려고 할 �
 - `cd` 커맨드를 이용해 위에서 만든 디렉토리로 이동합니다.
 - `git clone` 커맨드를 이용해 레포지토리를 클론합니다.
 
-```bash
-mkdir ~/storage/shared/repos
-cd ~/storage/shared/repos
-git clone https://github.com/lazyjobseeker/lazyjobseeker.github.io.git
-```
+  ```bash
+  mkdir ~/storage/shared/repos
+  cd ~/storage/shared/repos
+  git clone https://github.com/lazyjobseeker/lazyjobseeker.github.io.git
+  ```
 
 ## Ruby 설치
 
