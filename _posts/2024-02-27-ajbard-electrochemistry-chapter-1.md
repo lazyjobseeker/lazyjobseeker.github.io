@@ -1,17 +1,17 @@
 ---
 toc: true
 toc_sticky: true
-title: "Electrochemical Methods: Fundamentals and Applications (3rd Ed.) - Chapter 1"
+title: "Bard 전기화학 3판 - Ch. 1"
 category: Electrochemistry
 tags:
   - Electrochemistry
 published: true
 use_math: true
 created_at: 2024-02-27 00:30:11 +09:00
-last_modified_at: 2024-02-28 00:01:39 +09:00
+last_modified_at: 2024-02-29 13:11:25 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-4.png
-excerpt: "Allen J. Bard의 <Electrochemical Methods: Fundamentals and Applications (3rd Ed.)> 요약 정리 - 챕터 1"
+excerpt: "Allen J. Bard의 <Electrochemical Methods: Fundamentals and Applications (3rd Ed.)> 챕터 1 정리"
 ---
 
 ## 전극 과정
