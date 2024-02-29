@@ -75,6 +75,8 @@ body {
   a {
     color: $text-color;
     text-decoration: none;
+    font-family: $page-h1-title; // Default: No attribute;
+    font-weight: normal; // Default: No attribute;
   }
 
   & + .page__meta {
@@ -89,8 +91,10 @@ body {
 
 .page__content {
   h2 {
+    font-family: $page-h2-title; // Default: No attribute;
+    font-weight: normal; // Default: No attribute;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 2px solid $border-color; // Default: 1px solid $border-color;
   }
   
   p {

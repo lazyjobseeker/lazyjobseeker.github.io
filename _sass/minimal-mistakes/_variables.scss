@@ -13,9 +13,15 @@ $paragraph-indent: false !default; // true, false (default)
 $indent-var: 1.3em !default;
 
 /* system typefaces */
-$serif: "NanumSquareNeo-Variable", "Noto Serif", "Noto Serif KR", serif !default; // Georgia, Times, serif !default;
-$sans-serif: -apple-system, BlinkMacSystemFont, "NanumSquareNeo-Variable", sans-serif !default; // "NanumSquareNeo-Variable"
-$monospace: monospace, "Consolas", "D2Coding", "NanumSquareNeo-Variable" !default;
+$base-font: 'NanumSquareNeo-Variable';
+$serif: $base-font, "Noto Serif", "Noto Serif KR", serif !default; // Georgia, Times, serif !default;
+$sans-serif: $base-font, -apple-system, BlinkMacSystemFont, sans-serif !default; // "NanumSquareNeo-Variable"
+$monospace: monospace, "Consolas", $base-font !default;
+$masthead-site-title: 'S-CoreDream-7ExtraBold';
+$masthead-site-subtitle: 'S-CoreDream-6Bold';
+$archive-title: 'S-CoreDream-4Regular';
+$page-h1-title: 'S-CoreDream-6Bold';
+$page-h2-title: 'S-CoreDream-6Bold';
 
 /* sans serif typefaces */
 $sans-serif-narrow: $sans-serif !default;

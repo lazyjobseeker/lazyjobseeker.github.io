@@ -45,7 +45,8 @@
 
 .archive__item-title {
   margin-bottom: 0.25em;
-  font-family: $sans-serif-narrow;
+  font-family: $archive-title; // Default: $sans-serif-narrow;
+  font-weight: normal; // Default: No attribute;
   line-height: initial;
   overflow: hidden;
   text-overflow: ellipsis;
