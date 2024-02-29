@@ -10,7 +10,7 @@ tags:
 published: true
 use_math: true
 created_at: 2024-02-28 10:25:00 +09:00
-last_modified_at: 2024-02-29 13:09:00 +09:00
+last_modified_at: 2024-02-29 14:04:05 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: "Jekyll로 작성된 Github 블로그를 안드로이드 스마트폰 및 태블릿 모바일 단말 환경에서 빌드하는 방법"
@@ -49,6 +49,27 @@ pkg install git
 git config --global user.name 'Hong Gil Dong'
 git config --global user.email 'honggildong@example.com'
 ```
+
+### SSH Key 생성 및 Github 레포지토리에 등록
+
+이 작업은 진행하지 않아도 상관 없지만, 레포지토리를 클론하기 전에 진행해 두는 편이 좋습니다.
+
+- Termux 터미널에서 현재 모바일 기기의 SSH 키를 생성 ([참고](https://www.lainyzine.com/ko/article/creating-ssh-key-for-github/))
+```bash
+#openssh 패키지 설치
+pkg install openssh
+ssh-keygen -t ed25519 -C <클론해 올 레포지토리에 등록된 이메일 주소>
+cat ~/.ssh/id_ed25519.pub
+#cat 명령으로 출력되는 키 값을 Ctrl+C로 복사
+```
+- 생성된 SSH 키를 클론해 올 레포지토리에 등록 ([참고](https://www.lainyzine.com/ko/article/creating-ssh-key-for-github/))
+	- Github 사이트로 이동
+	- 우상단의 프로필을 클릭하여 드롭다운 메뉴에서 Settings로 이동
+	- SSH and GPG Keys 메뉴로 이동
+	- New SSH Key 버튼 클릭하고 앞에서 복사한 SSH 키 붙여넣기
+
+Termux 터미널에서 Git을 이용하여 변경사항을 푸시하려고 할 때 깃허브 아이디와 비밀번호를 묻는 절차가 있는데, 이 과정을 설정 파일 등으로 만들어 놓고 생략할 수 있는 방법이 없는 것 같습니다.  위 과정을 진행한 뒤 레포지토리를 클론해 오면 변경사항을 푸시할 때 자격 증명 과정을 생략할 수 있습니다.
+
 ### 레포지토리 클론(clone)
 
 - `mkdir` 커맨드로 로컬 저장소에 적당한 디렉토리를 만듭니다.
