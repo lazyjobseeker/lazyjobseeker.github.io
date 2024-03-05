@@ -1,0 +1,17 @@
+[
+  {
+    "question": "Big Black Bread",
+    "choices": ["ki-ka", "Paris", "Nairobi", "Ontario"],
+    "correct": 0
+  },
+  {
+    "question": "Phanta Rey Gumba Mey",
+    "choices": ["Ivan", "The", "Black", "Bear"],
+    "correct": 2
+  },
+  {
+    "question": "Worldly Races",
+    "choices": ["Asian", "African", "European", "Oceanian"],
+    "correct": 1
+  }
+]
