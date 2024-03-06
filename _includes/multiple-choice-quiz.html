@@ -1,0 +1,14 @@
+{% assign qId = "quiz" | append: include.quizNum %}
+<div class="quiz-container" id="{{ qId }}" >
+  <div class="quiz-title"> Sample Quiz {{ include.quizNum | plus: 1 }} </div>
+  <div class="quiz">
+    <p class="quiz-text">Quiz Text</p>
+    <div class="choices">
+      <button class="choice" onclick="checkAnswer({{ include.quizNum }}, 0)">A1</button>
+      <button class="choice" onclick="checkAnswer({{ include.quizNum }}, 1)">A2</button>
+      <button class="choice" onclick="checkAnswer({{ include.quizNum }}, 2)">A3</button>
+      <button class="choice" onclick="checkAnswer({{ include.quizNum }}, 3)">A4</button>
+    </div>
+    <p class="feedback"></p>
+  </div>
+</div>
