@@ -1,7 +1,7 @@
 ---
 toc: true
 toc_sticky: true
-title: "pickle 사용 시 ModuleNotFoundError 해결하기"
+title: "pickle 관련 오류 조치 방법"
 category: Programming
 tags:
   - python
@@ -9,17 +9,17 @@ tags:
 published: true
 use_math: true
 created_at: 2023-12-05 13:35:24 +09:00
-last_modified_at: 2023-12-06 15:47:33 +09:00
+last_modified_at: 2024-03-06 18:11:13 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-1.png
-excerpt: "python의 직렬화 모듈 pickle 사용상의 주의점과 ModuleNotFoundError 발생 시 해결 방법"
+excerpt: "python의 직렬화 모듈 pickle 사용 시 ModuleNotFoundError가 발생하는 경우 해결 방법"
 ---
-
-## pickle과 ModuleNotFoundError
 
 `pickle`은 파이썬에서 **객체 직렬화**를 위해 사용하는 모듈로, 파이썬 객체를 바이너리 파일로 저장하고 불러오기 위해 사용될 수 있습니다.
 
 자료와 함수들을 특정한 구조로 정규화하여 다루기 위해 클래스를 디자인한 뒤 해당 클래스를 프로젝트 내에서 사용하다 보면, *"이 인스턴스는 저장해 뒀다가 나중에 불러와서 사용하고 싶다!"*고 생각하게 되는 시점이 오게 됩니다. 그리고 실제로 pickle은 이런 경우에 사용할 수 있는 가장 강력한 도구 중 하나입니다.
+
+## pickle과 ModuleNotFoundError
 
 하지만 프로젝트 코드는 계속 변경되기 마련이고, pickle을 이용해 바이너리 파일로 저장해 두었던 파일이 어느 순간 아래와 같은 오류와 함께 읽을 수 없게 되는 경우가 발생합니다.
 
