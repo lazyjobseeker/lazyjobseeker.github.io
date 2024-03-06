@@ -1,7 +1,7 @@
 ---
 toc: true
 toc_sticky: true
-title: "모바일 환경에서 Jekyll 블로그 로컬 빌드하기"
+title: "모바일에서 Jekyll 블로그 로컬 빌드하기"
 category: Programming
 tags:
   - Jekyll
@@ -10,7 +10,7 @@ tags:
 published: true
 use_math: true
 created_at: 2024-02-28 10:25:00 +09:00
-last_modified_at: 2024-02-29 16:20:20 +09:00
+last_modified_at: 2024-03-06 12:46:35 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: "Jekyll로 작성된 Github 블로그를 안드로이드 스마트폰 및 태블릿 모바일 단말 환경에서 빌드하는 방법"
