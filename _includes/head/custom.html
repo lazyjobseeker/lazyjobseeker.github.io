@@ -1,5 +1,7 @@
 <!-- start custom head snippets -->
-
+{% if page.quiz_file %}
+  <script> var jsonpath = '{{ page.quiz_file }}'; </script>
+{% endif %}
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 
 <!-- end custom head snippets -->
