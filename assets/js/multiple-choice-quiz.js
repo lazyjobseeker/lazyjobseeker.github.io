@@ -6,7 +6,20 @@ async function loadJson() {
   .then((response) => response.json());
 }
 
-function showQuestion() {
+function showQuiz() {
+  const quizForms = document.querySelectorAll(".quiz-container");
+  loadJson()
+  .then((json) => {
+    quizForms.forEach((quizForm, qIdx) => {
+      quizForm.querySelector(".quiz-text").textContent = json[qIdx].question;
+      var quizId = "quiz"+qIdx;
+      var choices = document.getElementById(quizId).querySelectorAll(".choice");
+      choices.forEach((choice, cIdx) => {
+        choice.textContent = json[qIdx].choices[cIdx];
+      });
+    });
+  });
+  /*
   const questionText = document.getElementById("question-text");
   const choices = document.querySelectorAll(".choice");
   const feedback = document.getElementById("feedback");
@@ -17,18 +30,22 @@ function showQuestion() {
       choice.textContent = json[currentQuestion].choices[index];
     });
   });
+  */
 }
 
-function checkAnswer(selected) {
-  const feedback = document.getElementById("feedback");
+function checkAnswer(quizNum, selected) {
+  var quizId = "quiz"+quizNum;
+  const feedback = document
+  .getElementById(quizId)
+  .querySelector('.feedback');
   loadJson()
   .then((json) => {
-    if (selected === json[currentQuestion].correct) {
+    if (selected === json[quizNum].correct) {
       feedback.textContent = "Correct!";
-      correctAnswers++;
     } else {
       feedback.textContent = "Incorrect!";
     }
+    /*
     setTimeout(() =>{
       currentQuestion++;
       if (currentQuestion < json.length) {
@@ -38,11 +55,12 @@ function checkAnswer(selected) {
         quizContainer.innerHTML = `<p>You got ${correctAnswers} out of ${json.length} questions.</p>`;        
       }
     }, 2000);
+    */
   });
 }
 
 try {
-  showQuestion();
+  showQuiz();
 } catch (err) {
   window.alert(err.stack);
 }
