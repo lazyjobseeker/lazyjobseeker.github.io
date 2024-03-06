@@ -11,7 +11,7 @@ tags:
 published: true
 use_math: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-06 14:18:53 +09:00
+last_modified_at: 2024-03-06 14:30:58 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: "Jekyll 기반 정적 블로그에 Javascript로 사지선다 문제 넣기"
@@ -26,15 +26,15 @@ quiz_file: /assets/json/quiz_example.json
 
 포스트의 Front Matter에 문제들이 저장된 `.json` 파일의 위치를 명시합니다.  마크다운으로 포스트를 작성할 때는 Liquid 문법의 `include`를 이용해 원하는 위치에 문제를 배치합니다.
 
-포스트 본문에 사지선다 퀴즈를 노출하려면, 우선 문제들이 포함된 `.json` 파일을 작성하고 파일 경로를 `quiz_file` 변수로 제공[^2]합니다.
-
-[^2]: <https://blog.sverrirs.com/2016/10/jekyll-passing-post-variables-to-includes.html>
+포스트 본문에 사지선다 퀴즈를 노출하려면, 우선 문제들이 포함된 `.json` 파일을 작성하고 파일 경로를 `quiz_file` 변수로 YAML Front Matter에 제공합니다.
 
 ```bash
 quiz_file: /assets/json/quiz_example.json
 ```
 
-그리고 포스트 본문에 아래와 같은 태그를 입력하면, 입력한 위치에 퀴즈 정보를 담은 폼이 생성되고, 선택지 버튼을 클릭하여 풀어볼 수 있습니다. `quizNum`은 JSON 파일에 정의된 문제들 중 몇 번 문제를 표시할지를 지정합니다.
+그리고 포스트 본문에 아래와 같은 태그[^2]를 입력하면, 입력한 위치에 퀴즈 정보를 담은 폼이 생성되고, 선택지 버튼을 클릭하여 풀어볼 수 있습니다. `quizNum`은 JSON 파일에 정의된 문제들 중 몇 번 문제를 표시할지를 지정합니다.
+
+[^2]: <https://blog.sverrirs.com/2016/10/jekyll-passing-post-variables-to-includes.html>
 
 ```html
 {% raw %}{% include multiple-choice-quiz.html quizNum=1 %}{% endraw %}
