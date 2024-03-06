@@ -1,0 +1,10 @@
+[
+  {
+    "question": "example.dat 파일의 권한을 rwxrw---- 로 변경하기 위해 실행해야 하는 명령은?",
+    "choices": ["chmod 143 example.dat",
+                "chmod 760 example.dat",
+                "chmod 640 example.dat",
+                "chmod 254 example.dat"],
+    "correct": 1
+  }
+]
