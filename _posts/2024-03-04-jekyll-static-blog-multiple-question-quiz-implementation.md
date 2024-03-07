@@ -122,8 +122,8 @@ JSON 형식을 이용해 문제 정보를 담은 파일을 만들고, HTML 및 C
 
 .quiz-title{
   margin: 1em 0 0.5em 0;
-  font-size: $type-size-4;
-  font-family: $page-h2-title;
+  font-size: $type-size-4; // 환경에 맞게 바꾸어 줍니다.
+  font-family: $page-h2-title; // 환경에 맞게 바꾸어 줍니다.
 }
 
 .choices{
