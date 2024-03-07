@@ -5,6 +5,7 @@
                 "chmod 760 example.dat",
                 "chmod 640 example.dat",
                 "chmod 254 example.dat"],
-    "correct": 1
+    "correct": 1,
+    "explanations": ["","","",""]
   }
 ]

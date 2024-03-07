@@ -35,15 +35,16 @@ function showQuiz() {
 
 function checkAnswer(quizNum, selected) {
   var quizId = "quiz"+quizNum;
+  var explanation = "";
   const feedback = document
   .getElementById(quizId)
   .querySelector('.feedback');
   loadJson()
   .then((json) => {
     if (selected === json[quizNum].correct) {
-      feedback.textContent = "Correct!";
+      feedback.innerHTML = "<b>정답!</b><br>" + json[quizNum].explanations[selected];
     } else {
-      feedback.textContent = "Incorrect!";
+      feedback.innerHTML = "<b>오답!</b><br>" + json[quizNum].explanations[selected];
     }
     /*
     setTimeout(() =>{
