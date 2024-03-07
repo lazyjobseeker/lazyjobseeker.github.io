@@ -1,20 +1,20 @@
 ---
 toc: true
 toc_sticky: true
-title: "깃허브 블로그에 사지선다 문제 넣기"
+title: "자바스크립트로 객관식 문제 만들기"
 category: Programming
 tags:
-  - Jekyll
   - "Minimal Mistakes"
+  - Jekyll
   - "Github Blog"
   - Javascript
 published: true
 use_math: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-06 14:30:58 +09:00
+last_modified_at: 2024-03-07 15:03:29 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-5.png
-excerpt: "Jekyll 기반 정적 블로그에 Javascript로 사지선다 문제 넣기"
+  teaser: /assets/images/uncategorized-teaser-6.png
+excerpt: "Javascript를 이용하여 Github Pages 및 Jekyll 기반 정적 블로그 포스트의 원하는 위치에 사지선다형 객관식 문제를 추가해 봅니다"
 quiz_file: /assets/json/quiz_example.json
 ---
 

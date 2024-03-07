@@ -1,7 +1,7 @@
 ---
 toc: true
 toc_sticky: true
-title: "모바일에서 Jekyll 블로그 로컬 빌드하기"
+title: "모바일 환경에서 깃허브 블로그 관리하기"
 category: Programming
 tags:
   - Jekyll
@@ -10,10 +10,10 @@ tags:
 published: true
 use_math: true
 created_at: 2024-02-28 10:25:00 +09:00
-last_modified_at: 2024-03-06 12:46:35 +09:00
+last_modified_at: 2024-03-07 14:59:28 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-5.png
-excerpt: "Jekyll로 작성된 Github 블로그를 안드로이드 스마트폰 및 태블릿 모바일 단말 환경에서 빌드하는 방법"
+excerpt: "Github Pages와 Jekyll 기반으로 작성된 블로그를 스마트폰 및 태블릿 등 모바일 환경에서 Git을 이용해 형상관리하고 로컬 빌드 산출물을 확인하는 방법을 정리합니다"
 ---
 
 Ruby와 Jekyll을 설치하면 로컬 PC 환경에서 서버를 구동하여 깃허브 블로그가 어떻게 렌더링될지 확인할 수 있습니다.  이런 환경을 노트 PC에 구축해 둔다면 어디서든 자유롭게 포스트를 수정하고 레포지토리에 push할 수 있겠지만, 여의치 않다면 태블릿이나 스마트폰 등 모바일 환경을 활용하고 싶다는 생각이 들 수 있습니다.  안드로이드 태블릿(갤럭시 노트 10+ 및 갤럭시 탭 7 FE)에서 Jekyll 정적 블로그를 로컬 빌드하기 위해 필요했던 내용들을 아래에 정리합니다.
