@@ -50,27 +50,29 @@ JSON 형식을 이용해 문제 정보를 담은 파일을 만들고, HTML 및 C
 
 ## 문제 만들기 (JSON)
 
-문제는 `.json` 형식으로, `/assets` 폴더에 `/json` 하위 폴더를 추가하여 저장해 주었습니다.  파일은 하나의 JSON 배열을 포함하고 있으며 배열의 원소들은 질문(question), 선택지(choices), 정답(correct)으로 구성된 JSON 데이터들입니다.
+문제는 `.json` 형식으로, `/assets` 폴더에 `/json` 하위 폴더를 추가하여 저장해 주었습니다.  파일은 하나의 JSON 배열을 포함하고 있으며 배열의 원소들은 질문(question), 선택지(choices), 정답(correct), 각 선택지를 클릭하면 보여질 설명(explanations)으로 구성된 JSON 데이터들입니다.
 
-아래 파일을 `/assets/json/example_quiz.json`으로 저장합니다.  물론, 입맛에 맞게 수정해도 됩니다.
+아래 파일을 `/assets/json/example_quiz.json`으로 저장합니다.
 
 ```json
-
 [
   {
     "question": "다음 중 성격이 다른 하나는?",
     "choices": ["손흥민", "리오넬 메시", "오타니 쇼헤이", "위르겐 클린스만"],
-    "correct": 2
+    "correct": 2,
+    "explanations": ["", "", "손흥민과 메시, 클린스만은 모두 축구 선수입니다. 오타니는 야구 선수입니다.", ""] 
   },
   {
     "question": "반짝반짝 ______",
     "choices": ["피 땀 눈물", "작은 별", "톰과 제리", "마동석"],
-    "correct": 1
+    "correct": 1,
+    "explanations": ["반짝반짝 <b>피 땀 눈물</b>은 조금 이상한 것 같아요...", "반짝반짝은 <b>작은 별</b>이죠", "반짝반짝 <b>톰과 제리</b>는 조금 이상한 것 같아요...", "반짝반짝 <b>마동석</b>은 조금 이상한 것 같아요..."] 
   },
   {
-    "question": "서유기에 등장하지 않는 인물?",
+    "question": "서유기에 등장하지 않는 인물은?",
     "choices": ["사오정", "저팔계", "손오공", "크리링"],
-    "correct": 3
+    "correct": 3,
+    "explanations": ["", "", "", ""]
   }
 ]
 ```
@@ -94,7 +96,9 @@ JSON 형식을 이용해 문제 정보를 담은 파일을 만들고, HTML 및 C
       <button class="choice" onclick="checkAnswer({% raw %}{{ include.quizNum }}{% endraw %}, 2)">3rd Option</button>
       <button class="choice" onclick="checkAnswer({% raw %}{{ include.quizNum }}{% endraw %}, 3)">4th Option</button>
     </div>
-    <p class="feedback"></p>
+    <div class="feedback-container">
+      <p class="feedback"></p>
+    </div>
   </div>
 </div>
 {% endhighlight %}
@@ -112,14 +116,14 @@ JSON 형식을 이용해 문제 정보를 담은 파일을 만들고, HTML 및 C
   margin: 1em 0 1em 0;
   padding: 0.1em 1em 0.1em 1em;
   background-color: #cccccc;
-  border-radius: 20px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .quiz-title{
   margin: 1em 0 0.5em 0;
-  font-size: $type-size-4; // 환경에 맞게 바꾸어 줍니다
-  font-family: $page-h2-title; // 환경에 맞게 바꾸어 줍니다
+  font-size: $type-size-4;
+  font-family: $page-h2-title;
 }
 
 .choices{
@@ -140,6 +144,16 @@ JSON 형식을 이용해 문제 정보를 담은 파일을 만들고, HTML 및 C
 
 .choice:hover {
   background-color: #2980b9;
+}
+
+.feedback-container {
+  width: 100%;
+  margin: 1em 0 1em 0;
+  padding: 0 0.5em 0 0.5em;
+
+  p {
+    margin: 0 0 0 0;
+  }
 }
 {% endhighlight %}
 
@@ -198,15 +212,16 @@ HTML을 작성할 때 최상위 컨테이너인 `quiz_container` 요소에 유�
 {% highlight javascript linenos %}
 function checkAnswer(quizNum, selected) {
   var quizId = "quiz"+quizNum;
+  var explanation = "";
   const feedback = document
   .getElementById(quizId)
   .querySelector('.feedback');
   loadJson()
   .then((json) => {
     if (selected === json[quizNum].correct) {
-      feedback.textContent = "Correct!";
+      feedback.innerHTML = "<b>정답!</b><br>" + json[quizNum].explanations[selected];
     } else {
-      feedback.textContent = "Incorrect!";
+      feedback.innerHTML = "<b>오답!</b><br>" + json[quizNum].explanations[selected];
     }
   });
 }
