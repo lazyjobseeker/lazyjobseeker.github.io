@@ -5,8 +5,9 @@ title: 첫 포스팅
 categories: Programming
 tags:
   - C++
-published: true
-last_modified_at: 2023-05-05 20:40:00 +2044
+published: false
+created_at: 2024-02-29 14:23:05 +09:00
+last_modified_at: 2024-03-07 15:15:53 +09:00
 use_math: true
 header:
   teaser: /assets/images/uncategorized-teaser-1.png
