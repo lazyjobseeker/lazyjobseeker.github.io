@@ -9,9 +9,8 @@ tags:
   - "Github Blog"
   - Javascript
 published: false
-use_math: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-08 00:42:33 +09:00
+last_modified_at: 2024-03-09 15:26:36 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: "차트 그리기"
