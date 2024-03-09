@@ -9,7 +9,7 @@ tags:
   - kinetics
 published: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-09 15:35:12 +09:00
+last_modified_at: 2024-03-09 15:41:02 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-7.png
 excerpt: 속도상수와 반응좌표-자유에너지 도식을 통한 버틀러-볼머 식(Butler-Volmer Equation)의 유도 과정 및 이해
@@ -162,9 +162,9 @@ $$\ce{O + e <<=>[k_f][k_b] R} \tag{4}$$
   var graph1 = board.create('functiongraph', [function(x){return gibbs(1.5, x+2);}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'red'});
   var graph2 = board.create('functiongraph', [function(x){return gibbs(1.5, x+2)+1;}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'red', dash:2});
   var graph3 = board.create('functiongraph', [function(x){return gibbs(1.5, -1*(x-2));}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'blue'}); 
-  var line1 = board.create('line', [[-3.5, 2.38], [3.5, 2.38]], {straightFirst:false, straightLast: false, strokeWidth:1, dash:2})
-  var line2 = board.create('line', [[-2.4, 1.88], [2.4, 1.88]], {straightFirst:false, straightLast: false, strokeWidth:1,  dash:2})
-  var line3 = board.create('line', [[-1.5, 1.38], [1.5, 1.38]], {straightFirst:false, straightLast: false, strokeWidth:1,  dash:2})
+  var line1 = board.create('line', [[-3.5, 2.38], [3.5, 2.38]], {straightFirst:false, straightLast: false, strokeWidth:1, dash:2, fixed: true})
+  var line2 = board.create('line', [[-2.4, 1.88], [2.4, 1.88]], {straightFirst:false, straightLast: false, strokeWidth:1,  dash:2, fixed: true})
+  var line3 = board.create('line', [[-1.5, 1.38], [1.5, 1.38]], {straightFirst:false, straightLast: false, strokeWidth:1,  dash:2, fixed: true})
   var arrow1 = board.create('arrow', [[-2.8, 1], [-2.8, 2.38]], {fixed:true, strokeWidth:1});
   var textG0c = board.create('text', [-3.95, 1.5, "ΔG<sup>&#8225;</sup><sub>0c</sub>"], {fontSize:16, fixed:true});
   var arrow2 = board.create('arrow', [[-2.2, 0], [-2.2, 1.88]], {fixed:true, strokeWidth:1});
