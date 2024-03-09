@@ -1,7 +1,14 @@
 <!-- start custom head snippets -->
+<!-- To add quiz in a post -->
 {% if page.quiz_file %}
   <script> var jsonpath = '{{ page.quiz_file }}'; </script>
 {% endif %}
+
+<!-- To enable JSX mathematical plotting -->
+<link href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/assets/js/custom-math-functions.js"></script>
+
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 
 <!-- end custom head snippets -->
