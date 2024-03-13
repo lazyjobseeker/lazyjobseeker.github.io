@@ -9,7 +9,7 @@ tags:
   - kinetics
 published: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-13 18:11:26 +09:00
+last_modified_at: 2024-03-13 18:36:33 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-8.png
 excerpt: 구조불변성 전자 교환 반응의 반응속도를 자유에너지 관점에서 설명하는 마커스 모델 (Marcus model) 정리
@@ -37,7 +37,7 @@ $$G^{0}_{R}(q)=(k/2)(q-q_R)^2+\Delta G^0 \tag{3}$$
 {% include jsx-graph.html jxgNo=jxgNo width=300 height=300 %}
 <script>
 function draw() {
-  var brd = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4.5, 4, 4.5, -0.5], axis:false, showCopyright:false, showNavigation:false});
+  var brd = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4.5, 4, 4.5, -0.5], axis:false, showCopyright:false, showNavigation:false, zoom:{enabled: false}, pan:{enabled: false}});
   var kO = 0.5;
   var kR = 0.5;
   var qO = -1.5;
@@ -130,7 +130,7 @@ $$\Delta G^\Dagger_f=\frac{\lambda}{4}\left(1+\frac{\Delta G_0}{\lambda}\right)^
 {% include jsx-graph.html jxgNo=jxgNo width=300 height=300 %}
 <script>
 function draw2() {
-  var brd = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4.5, 4, 4.5, -0.5], axis:false, showCopyright:false, showNavigation:false});
+  var brd = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4.5, 4, 4.5, -0.5], axis:false, showCopyright:false, showNavigation:false, zoom:{enabled: false}, pan:{enabled: false}});
   var kO = 0.4;
   var kR = 0.4;
   var qO = -1.2;

@@ -9,7 +9,7 @@ tags:
   - kinetics
 published: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-11 00:42:35 +09:00
+last_modified_at: 2024-03-13 18:37:59 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-7.png
 excerpt: 속도상수와 반응좌표-자유에너지 도식을 통한 버틀러-볼머 식(Butler-Volmer Equation)의 유도 과정 및 이해
@@ -39,7 +39,7 @@ $$\ce{O + e <=>[k_f][k_b] R} \tag{2}$$
 {% include jsx-graph.html jxgNo=jxgNo width=300 height=300 %}
 
 <script>
-  var board = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4, 4, 4, -1], axis:false, showCopyright:false, showNavigation:false});
+  var board = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4, 4, 4, -1], axis:false, showCopyright:false, showNavigation:false, zoom:{enabled: false}, pan:{enabled: false}});
   var gibbsO = board.create('functiongraph', [function(x){return gibbs(1.5, x+2);}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'red'});
   var gibbsR = board.create('functiongraph', [function(x){return gibbs(1.5, -1*(x-2));}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'blue'});
   var textR = board.create('text', [2.3, -0.5, "R"], {fontSize:16, fixed:true});
@@ -69,7 +69,7 @@ $$\ce{O + e <=>[k_f][k_b] R} \tag{2}$$
 {% include jsx-graph.html jxgNo=jxgNo width=300 height=300 %}
 
 <script>
-  var board = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4, 4, 4, -1], axis:false, showCopyright:false, showNavigation:false});
+  var board = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4, 4, 4, -1], axis:false, showCopyright:false, showNavigation:false, zoom:{enabled: false}, pan:{enabled: false}});
   var gibbsO = board.create('functiongraph', [function(x){return gibbs(1.5, x+2)+0.5;}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'red'});
   var gibbsR = board.create('functiongraph', [function(x){return gibbs(1.5, -1*(x-2));}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'blue'});
   var textR = board.create('text', [2.3, -0.5, "R"], {fontSize:16, fixed:true});
@@ -105,7 +105,7 @@ $$\ce{O + e <=>>[k_f][k_b] R} \tag{3}$$
 {% include jsx-graph.html jxgNo=jxgNo width=300 height=300 %}
 
 <script>
-  var board = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4, 4, 4, -1], axis:false, showCopyright:false, showNavigation:false});
+  var board = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4, 4, 4, -1], axis:false, showCopyright:false, showNavigation:false, zoom:{enabled: false}, pan:{enabled: false}});
   var gibbsO = board.create('functiongraph', [function(x){return gibbs(1.5, x+2);}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'red'});
   var gibbsR = board.create('functiongraph', [function(x){return gibbs(1.5, -1*(x-2))+0.5;}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'blue'});
   var textR = board.create('text', [2.3, -0.5, "R"], {fontSize:16, fixed:true});
@@ -156,7 +156,7 @@ $$\ce{O + e <<=>[k_f][k_b] R} \tag{4}$$
 {% include jsx-graph.html jxgNo=jxgNo width=300 height=300 %}
 
 <script>
-  var board = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4, 4, 4, -1], axis:false, showCopyright:false, showNavigation:false});
+  var board = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4, 4, 4, -1], axis:false, showCopyright:false, showNavigation:false, zoom:{enabled: false}, pan:{enabled: false}});
   var textR = board.create('text', [2.3, -0.5, "R"], {fontSize:16, fixed:true});
   var textO = board.create('text', [-3, -0.5, "O+e<sup>-</sup>"], {fontSize:16, fixed:true});
   var graph1 = board.create('functiongraph', [function(x){return gibbs(1.5, x+2);}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'red'});
