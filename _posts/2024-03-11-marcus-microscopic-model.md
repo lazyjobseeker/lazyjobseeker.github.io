@@ -4,15 +4,15 @@ toc_sticky: true
 title: 마커스 전자 교환 모델
 category: Electrochemistry
 tags:
-  - Butler-Volmer
-  - Electrode
+  - "electron transfer"
+  - "Marcus model"
   - kinetics
-published: false
+published: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-13 11:16:49 +09:00
+last_modified_at: 2024-03-13 18:11:26 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-7.png
-excerpt: 속도상수와 반응좌표-자유에너지 도식을 통한 버틀러-볼머 식(Butler-Volmer Equation)의 유도 과정 및 이해
+  teaser: /assets/images/uncategorized-teaser-8.png
+excerpt: 구조불변성 전자 교환 반응의 반응속도를 자유에너지 관점에서 설명하는 마커스 모델 (Marcus model) 정리
 ---
 
 ## 요약
@@ -23,20 +23,18 @@ excerpt: 속도상수와 반응좌표-자유에너지 도식을 통한 버틀러
 
 마커스 모델의 반응좌표 - 자유에너지 도식을 살펴봅시다.  산화종과 환원종이 전자 하나를 교환하는 단순한 반응을 생각합니다.
 
-$$\ce{O + e -> R} \tag(1)$$
+$$\ce{O + e -> R} \tag{1}$$
 
 이 때, 반응물(산화종)과 생성물(환원종)의 자유에너지를 반응좌표상에 아래와 같은 이차함수 꼴로 각각 나타낼 수 있다고 합시다.
 
-$$G^{0}_{O}(q)=(k/2)(q-q_O)^2 \tag(2)$$
+$$G^{0}_{O}(q)=(k/2)(q-q_O)^2 \tag{2}$$
 
-$$G^{0}_{R}(q)=(k/2)(q-q_R)^2+\Delta G^0 \tag(3)$$
+$$G^{0}_{R}(q)=(k/2)(q-q_R)^2+\Delta G^0 \tag{3}$$
 
-
-
-
+그러면 전체적인 반응 도식을 아래와 같이 그릴 수 있습니다.
 
 {% assign jxgNo = 0 %}
-{% include jsx-graph.html jxgNo=jxgNo width=400 height=400 %}
+{% include jsx-graph.html jxgNo=jxgNo width=300 height=300 %}
 <script>
 function draw() {
   var brd = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4.5, 4, 4.5, -0.5], axis:false, showCopyright:false, showNavigation:false});
@@ -83,7 +81,7 @@ function draw() {
   brd.create('text', [-4.3, 0.65, "G<sub>R</sub><sup>0</sup>(q<sub>R</sub>)"], {fontSize:16, fixed:true});
   brd.create('text', [-1.7, 1.26, "ΔG<sub>f</sub><sup>&#8225</sup>"], {fontSize:16, fixed:true});
   brd.create('text', [1.06, 1.26, "ΔG<sub>b</sub><sup>&#8225</sup>"], {fontSize:16, fixed:true});
-  brd.create('text', [-2.8, 0.4, "F(E-E<sub>eq</sub>)"], {fontSize:16, fixed:true});
+  brd.create('text', [-2.8, 0.4, "ΔG<sub>0</sub>"], {fontSize:16, fixed:true});
   brd.create('text', [-3, 1.6, "O + e"], {fontSize:16, fixed:true});
   brd.create('text', [3.2, 1.6, "R"], {fontSize:16, fixed:true});
   brd.create('text', [1.76, 1.82, "λ"], {fontSize:16, fixed:true});
@@ -91,12 +89,45 @@ function draw() {
 draw();
 </script>
 
-## 마르쿠스 반전 영역
+주요 변수들의 의미는 다음과 같습니다.
 
-아래 그림을 살펴 봅시다.  초기 상태에서 이 반응은 정반응의 활성화 에너지가 역반응의 활성화 에너지보다 높습니다.  정반응의 속도상수를 높이고 싶다고 생각해 봅시다.  슬라이더를 살짝 위로 끌어 보면, 정반응의 활성화 에너지($\Delta G^\Dagger_{f}$)가 낮아지는 것을 알 수 있습니다.  정반응의 활성화에너지가 낮아졌으므로, 정반응의 속도상수가 증가하며 정반응이 가속됩니다.
+- $q_O$ : 반응물의 안정 상태 좌표
+- $q_R$ : 생성물의 안정 상태 좌표
+- $q^\Dagger$ : 반응 발생 좌표
+- $\Delta G^\Dagger_f$ : 정반응의 활성화에너지
+- $\Delta G^\Dagger_b$ : 역반응의 활성화에너지
+
+정반응($\ce{O + e -> R}$)의 진행 경로를 생각해 봅시다.  반응물은 안정 상태($q_O$)에서 출발하여, $\Delta G^\Dagger_f$만큼의 에너지 장벽을 넘고 나면 $q^\Dagger$에 도달할 수 있습니다.  이후 전자를 획득하여 반응물($R$)이 되고, 반응물 안정 상태($q_R$)에 도달합니다.
+
+가장 먼저, 전자 교환이 발생하는 반응 좌표 $q^\Dagger$의 위치는 아래와 같이 계산됩니다.
+
+$$q^\Dagger =\frac{q_R+q_O}{2}+\frac{\Delta G_0}{k(q_R-q_O)}\tag{4}$$ 
+
+$G_O(q_O)=0$으로 약속하면, 정반응의 활성화에너지를 다음과 같이 쓸 수 있게 됩니다.
+
+$$\Delta G^\Dagger_f=\frac{k(q_R-q_O)^2}{8}\left[1+\frac{2\Delta G_0}{k(q_R-q_O)
+^2}\right]^2 \tag{5}$$
+
+## 재구성 에너지
+
+재구성 에너지(reorganization energy)를 아래와 같이 정의합니다.
+
+$$\lambda = \frac{k}{2}(q_R-q_O)^2\tag{6}$$
+
+그러면 **식 5**는 아래와 같이 정리됩니다.
+
+$$\Delta G^\Dagger_f=\frac{\lambda}{4}\left(1+\frac{\Delta G_0}{\lambda}\right)^2 \tag{7}$$
+
+재구성 에너지는 안정한 상태에 있는 반응물의 구조($q_O$)를 **전자 이동 없이** 안정한 상태의 생성물($q_R$)과 같은 형태로 왜곡하기 위해 필요한 에너지의 크기입니다.
+
+## 마커스 반전 영역
+
+아래 그림을 살펴 봅시다.  초기 상태에서 이 반응은 정반응의 활성화 에너지가 역반응의 활성화 에너지보다 높습니다.
+
+정반응의 속도상수를 높이고 싶다고 생각해 봅시다.  슬라이더를 살짝 위로 끌어 보면, 정반응의 활성화 에너지($\Delta G^\Dagger_{f}$)가 낮아지는 것을 알 수 있습니다.  정반응의 활성화에너지가 낮아졌으므로, 정반응의 속도상수가 증가하며 정반응이 가속됩니다.
 
 {% assign jxgNo = 1 %}
-{% include jsx-graph.html jxgNo=jxgNo width=400 height=400 %}
+{% include jsx-graph.html jxgNo=jxgNo width=300 height=300 %}
 <script>
 function draw2() {
   var brd = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4.5, 4, 4.5, -0.5], axis:false, showCopyright:false, showNavigation:false});
@@ -145,4 +176,4 @@ draw2();
 
 전극 반응의 관점에서 생각하면, 슬라이더를 끌어올리는 것은 과전압을 가하여 작동전극의 전자들이 갖는 에너지를 높이는 것과 같습니다.  에너지가 높은 전자들이 산화종의 빈 에너지 준위를 찾아 들어가 산화종을 환원시킬 것이므로, 전압을 높여 줄수록 정반응이 가속될 것이라는 예상에 정합한 것 같습니다.
 
-하지만 슬라이더를 끌어올리다 보면, 어느 시점부터는 정반응의 활성화 에너지가 오히려 다시 증가하기 시작합니다.  즉, 어떤 반응을 가속하기 위해 작동전극의 전위를 한 방향으로 조절할 때, 반응속도가 전위 변화에 따라 무한히 가속될 것으로 기대할 수 없으며, 어느 시점 이후로는 오히려 속도상수의 감소가 관찰되는 반전 구간(inverted region)에 진입하게 됩니다.  이러한 구간을 마르쿠스 반전 영역(Marcus inverted region)이라고 합니다.
+하지만 슬라이더를 끌어올리다 보면, 어느 시점부터는 정반응의 활성화 에너지가 오히려 다시 증가하기 시작합니다.  즉, 어떤 반응을 가속하기 위해 작동전극의 전위를 한 방향으로 조절할 때, 반응속도가 전위 변화에 따라 무한히 가속될 것으로 기대할 수 없으며, 어느 시점 이후로는 오히려 속도상수의 감소가 관찰되는 반전 영역(inverted region)에 진입하게 됩니다.  이러한 구간을 **마커스 반전 영역(Marcus inverted region)**이라고 합니다.
