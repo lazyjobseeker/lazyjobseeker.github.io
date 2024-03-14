@@ -1,0 +1,45 @@
+<script>
+function draw2() {
+  var brd = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4.5, 4, 4.5, -0.5], axis:false, showCopyright:false, showNavigation:false, zoom:{enabled: false}, pan:{enabled: false}});
+  var kO = 0.4;
+  var kR = 0.4;
+  var qO = -1.2;
+  var qR = 1.2;
+  var GO = brd.create('slider', [[-3.5, 0],[-3.5, 3.2], [0, 0, 3.2]]);
+  var GR = 0.5;
+  var offset = 0.3;
+  function marcusO(x) {return (kO/2)*parabola(x-qO) + GO.Value();}
+  function marcusR(x) {return (kR/2)*parabola(x-qR) + GR;}
+  function pX() {return (qR+qO)/2 + (GR-GO.Value())/(kO*(qR-qO));}
+  function lX() {return pX();}
+  function lY() {return Math.min(marcusO(lX()), marcusR(lX()));}
+  function rX() {return pX();}
+  function rY() {return Math.min(marcusO(rX()), marcusR(rX()));}
+  function bY() {return lY()+(rY()-lY())*(pX()-lX())/(rX()-lX());}
+  function pY() {return 0.7*marcusO(pX())+0.3*bY(); }
+  var p = brd.create('point', [function(){ return pX();}, function(){return pY();}], {visible:false});
+  var pO = brd.create('point', [function(){return lX();}, function(){return lY();}], {visible:false});
+  var pR = brd.create('point', [function(){return rX();}, function(){return rY();}], {visible:false});
+  brd.create('functiongraph', [function(x){return marcusO(x);}, -5.5, 5.5],{strokeColor:'red', dash:2});
+  brd.create('functiongraph', [function(x){return marcusR(x);}, -5.5, 5.5],{strokeColor:'red', dash:2});
+  brd.create('functiongraph', [function(x){return marcusO(x);}, -5.5, function() { return lX() ;}],{strokeColor:'red', strokeWidth:2});
+  brd.create('functiongraph', [function(x){return marcusR(x);}, function() { return rX() ;}, 5.5],{strokeColor:'red', strokeWidth:2});
+  
+  function O_eq_left() {return Math.min(qO, pX());}
+  function O_eq_right() {return Math.max(qO, pX());}
+  function R_eq_left() {return Math.min(qR, pX());}
+  function R_eq_right() {return Math.max(qR, pX());}
+  
+  brd.create('functiongraph', [function(x){return marcusO(x);}, function() { return O_eq_left() ;}, function() { return O_eq_right() ;}],{strokeColor:'blue', strokeWidth:3});
+  brd.create('functiongraph', [function(x){return marcusR(x);}, function() { return R_eq_left() ;}, function() { return R_eq_right() ;}],{strokeColor:'blue', strokeWidth:3});
+  brd.create('line', [[-1, function() {return marcusO(pX());}], [1, function() {return marcusO(pX());}]], {straightFirst:true, straightLast:true, fixed:true, strokeWidth:1, dash:2});
+  brd.create('line', [[-1, function() {return marcusO(qO);}], [1, function() {return marcusO(qO);}]], {straightFirst:true, straightLast:true, fixed:true, strokeWidth:1, dash:2});
+  brd.create('line', [[-1, function() {return marcusR(qR);}], [1, function() {return marcusR(qR);}]], {straightFirst:true, straightLast:true, fixed:true, strokeWidth:1, dash:2});
+  brd.create('arrow', [[qO, function() {return marcusO(qO);}], [qO, function() {return marcusO(pX());}]], { fixed:true, strokeWidth:2});
+  brd.create('arrow', [[qR, function() {return marcusR(qR);}], [qR, function() {return marcusR(pX());}]], { fixed:true, strokeWidth:2});
+  
+  brd.create('text', [qR+0.3, function() {return (marcusR(pX())+marcusR(qR))/2;}, "ΔG<sub>b</sub><sup>&#8225</sup>"], {fontSize:16, fixed:true});
+  brd.create('text', [qO-1, function() {return (marcusO(pX())+marcusO(qO))/2;}, "ΔG<sub>f</sub><sup>&#8225</sup>"], {fontSize:16, fixed:true});
+}
+draw2();  
+</script>

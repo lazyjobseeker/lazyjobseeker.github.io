@@ -33,61 +33,7 @@ $$G^{0}_{R}(q)=(k/2)(q-q_R)^2+\Delta G^0 \tag{3}$$
 
 그러면 전체적인 반응 도식을 아래와 같이 그릴 수 있습니다.
 
-{% assign jxgNo = 0 %}
-{% include jsx-graph.html jxgNo=jxgNo width=300 height=300 %}
-<script>
-function draw() {
-  var brd = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4.5, 4, 4.5, -0.5], axis:false, showCopyright:false, showNavigation:false, zoom:{enabled: false}, pan:{enabled: false}});
-  var kO = 0.5;
-  var kR = 0.5;
-  var qO = -1.5;
-  var qR = 1.5;
-  var GO = 0.8;
-  var GR = 0.5;
-  var offset = 0.2;
-  var pivot = -0.23;
-  var left = pivot-offset;
-  var right = pivot+offset;
-  function marcusO(x) {return (kO/2)*parabola(x-qO) + GO;}
-  function marcusR(x) {return (kR/2)*parabola(x-qR) + GR;}
-  var intersect = marcusO(pivot) - 0.05;
-  brd.create('functiongraph', [function(x){return marcusO(x);}, -5.5, 5.5],{strokeColor:'red', dash:2});
-  brd.create('functiongraph', [function(x){return marcusR(x);}, -5.5, 5.5],{strokeColor:'red', dash:2});
-  brd.create('point', [0, 0]);
-  brd.create('functiongraph', [function(x){return marcusO(x);}, -5.5, left],{strokeColor:'red', strokeWidth:3});
-  brd.create('functiongraph', [function(x){return marcusR(x);}, right, 5.5],{strokeColor:'red', strokeWidth:3});
-  var p = brd.create('point', [pivot, intersect], {visible:false});
-  var pO = brd.create('point', [left, marcusO(left)], {visible:false});
-  var pR = brd.create('point', [right, marcusR(right)], {visible:false});
-  brd.create('spline', [pO, p, pR], {strokeColor:'red', strokeWidth:3});
-  brd.create('line', [[qO, 0], [qO, marcusO(qO)]], {straightFirst:false, straightLast:false, fixed:true, strokeWidth:1, dash:2});
-  brd.create('line', [[qR, 0], [qR, marcusO(qR)]], {straightFirst:false, straightLast:false, fixed:true, strokeWidth:1, dash:2});
-  brd.create('line', [[pivot, 0], p], {straightFirst:false, straightLast:false, fixed:true, strokeWidth:1, dash:2});
-  brd.create('line', [[qO-1, marcusO(qO)], [qR+1, marcusO(qO)]], {straightFirst:true, straightLast:false, fixed:true, strokeWidth:1, dash:2});
-  brd.create('line', [[qR-1, marcusR(qR)], [qR, marcusR(qR)]], {straightFirst:true, straightLast:false, fixed:true, strokeWidth:1, dash:2});
-  brd.create('line', [[pivot-1, intersect], [qR+1, intersect]], {straightFirst:true, straightLast:false, fixed:true, strokeWidth:1, dash:2});
-  brd.create('line', [[qR-0.3, marcusO(qR)], [qR+0.3, marcusO(qR)]], {straightFirst:false, straightLast:false, fixed:true, strokeWidth:1, dash:2});
-  
-  brd.create('arrow', [[qO-0.5, marcusO(qO)], [qO-0.5, marcusR(qR)]], {fixed:true, strokeWidth:2});
-  brd.create('arrow', [[qR+0.5, marcusO(qR)], [qR+0.5, marcusO(qO)]], {fixed:true, strokeWidth:2});
-  brd.create('arrow', [[qO, marcusO(qO)], [qO, intersect]], {fixed:true, strokeWidth:2});
-  brd.create('arrow', [[qR, marcusR(qR)], [qR, intersect]], {fixed:true, strokeWidth:2});
-  
-  brd.create('text', [-1.66, -0.27, "q<sub>O</sub>"], {fontSize:16, fixed:true});
-  brd.create('text', [1.38, -0.27, "q<sub>R</sub>"], {fontSize:16, fixed:true});
-  brd.create('text', [-0.23, -0.27, "q<sub>&#8225;</sub>"], {fontSize:16, fixed:true});
-  brd.create('text', [-4.3, 1.25, "G<sup>&#8225</sup>"], {fontSize:16, fixed:true});
-  brd.create('text', [-4.3, 0.95, "G<sub>O</sub><sup>0</sup>(q<sub>O</sub>)"], {fontSize:16, fixed:true});
-  brd.create('text', [-4.3, 0.65, "G<sub>R</sub><sup>0</sup>(q<sub>R</sub>)"], {fontSize:16, fixed:true});
-  brd.create('text', [-1.7, 1.26, "ΔG<sub>f</sub><sup>&#8225</sup>"], {fontSize:16, fixed:true});
-  brd.create('text', [1.06, 1.26, "ΔG<sub>b</sub><sup>&#8225</sup>"], {fontSize:16, fixed:true});
-  brd.create('text', [-2.8, 0.4, "ΔG<sub>0</sub>"], {fontSize:16, fixed:true});
-  brd.create('text', [-3, 1.6, "O + e"], {fontSize:16, fixed:true});
-  brd.create('text', [3.2, 1.6, "R"], {fontSize:16, fixed:true});
-  brd.create('text', [1.76, 1.82, "λ"], {fontSize:16, fixed:true});
-}
-draw();
-</script>
+{% include jsxgraph.html graphName="240314-marcus-0" jxgNo=0 width=300 height=300 caption="반응좌표-자유에너지 도식"%}
 
 주요 변수들의 의미는 다음과 같습니다.
 
@@ -126,53 +72,7 @@ $$\Delta G^\Dagger_f=\frac{\lambda}{4}\left(1+\frac{\Delta G_0}{\lambda}\right)^
 
 정반응의 속도상수를 높이고 싶다고 생각해 봅시다.  슬라이더를 살짝 위로 끌어 보면, 정반응의 활성화 에너지($\Delta G^\Dagger_{f}$)가 낮아지는 것을 알 수 있습니다.  정반응의 활성화에너지가 낮아졌으므로, 정반응의 속도상수가 증가하며 정반응이 가속됩니다.
 
-{% assign jxgNo = 1 %}
-{% include jsx-graph.html jxgNo=jxgNo width=300 height=300 %}
-<script>
-function draw2() {
-  var brd = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4.5, 4, 4.5, -0.5], axis:false, showCopyright:false, showNavigation:false, zoom:{enabled: false}, pan:{enabled: false}});
-  var kO = 0.4;
-  var kR = 0.4;
-  var qO = -1.2;
-  var qR = 1.2;
-  var GO = brd.create('slider', [[-3.5, 0],[-3.5, 3.2], [0, 0, 3.2]]);
-  var GR = 0.5;
-  var offset = 0.3;
-  function marcusO(x) {return (kO/2)*parabola(x-qO) + GO.Value();}
-  function marcusR(x) {return (kR/2)*parabola(x-qR) + GR;}
-  function pX() {return (qR+qO)/2 + (GR-GO.Value())/(kO*(qR-qO));}
-  function lX() {return pX();}
-  function lY() {return Math.min(marcusO(lX()), marcusR(lX()));}
-  function rX() {return pX();}
-  function rY() {return Math.min(marcusO(rX()), marcusR(rX()));}
-  function bY() {return lY()+(rY()-lY())*(pX()-lX())/(rX()-lX());}
-  function pY() {return 0.7*marcusO(pX())+0.3*bY(); }
-  var p = brd.create('point', [function(){ return pX();}, function(){return pY();}], {visible:false});
-  var pO = brd.create('point', [function(){return lX();}, function(){return lY();}], {visible:false});
-  var pR = brd.create('point', [function(){return rX();}, function(){return rY();}], {visible:false});
-  brd.create('functiongraph', [function(x){return marcusO(x);}, -5.5, 5.5],{strokeColor:'red', dash:2});
-  brd.create('functiongraph', [function(x){return marcusR(x);}, -5.5, 5.5],{strokeColor:'red', dash:2});
-  brd.create('functiongraph', [function(x){return marcusO(x);}, -5.5, function() { return lX() ;}],{strokeColor:'red', strokeWidth:2});
-  brd.create('functiongraph', [function(x){return marcusR(x);}, function() { return rX() ;}, 5.5],{strokeColor:'red', strokeWidth:2});
-  
-  function O_eq_left() {return Math.min(qO, pX());}
-  function O_eq_right() {return Math.max(qO, pX());}
-  function R_eq_left() {return Math.min(qR, pX());}
-  function R_eq_right() {return Math.max(qR, pX());}
-  
-  brd.create('functiongraph', [function(x){return marcusO(x);}, function() { return O_eq_left() ;}, function() { return O_eq_right() ;}],{strokeColor:'blue', strokeWidth:3});
-  brd.create('functiongraph', [function(x){return marcusR(x);}, function() { return R_eq_left() ;}, function() { return R_eq_right() ;}],{strokeColor:'blue', strokeWidth:3});
-  brd.create('line', [[-1, function() {return marcusO(pX());}], [1, function() {return marcusO(pX());}]], {straightFirst:true, straightLast:true, fixed:true, strokeWidth:1, dash:2});
-  brd.create('line', [[-1, function() {return marcusO(qO);}], [1, function() {return marcusO(qO);}]], {straightFirst:true, straightLast:true, fixed:true, strokeWidth:1, dash:2});
-  brd.create('line', [[-1, function() {return marcusR(qR);}], [1, function() {return marcusR(qR);}]], {straightFirst:true, straightLast:true, fixed:true, strokeWidth:1, dash:2});
-  brd.create('arrow', [[qO, function() {return marcusO(qO);}], [qO, function() {return marcusO(pX());}]], { fixed:true, strokeWidth:2});
-  brd.create('arrow', [[qR, function() {return marcusR(qR);}], [qR, function() {return marcusR(pX());}]], { fixed:true, strokeWidth:2});
-  
-  brd.create('text', [qR+0.3, function() {return (marcusR(pX())+marcusR(qR))/2;}, "ΔG<sub>b</sub><sup>&#8225</sup>"], {fontSize:16, fixed:true});
-  brd.create('text', [qO-1, function() {return (marcusO(pX())+marcusO(qO))/2;}, "ΔG<sub>f</sub><sup>&#8225</sup>"], {fontSize:16, fixed:true});
-}
-draw2();  
-</script>
+{% include jsxgraph.html graphName="240314-marcus-1" jxgNo=1 width=300 height=300 caption="반응물 자유에너지 상승에 따른 $\Delta G^\Dagger_f$ 변화"%}
 
 전극 반응의 관점에서 생각하면, 슬라이더를 끌어올리는 것은 과전압을 가하여 작동전극의 전자들이 갖는 에너지를 높이는 것과 같습니다.  에너지가 높은 전자들이 산화종의 빈 에너지 준위를 찾아 들어가 산화종을 환원시킬 것이므로, 전압을 높여 줄수록 정반응이 가속될 것이라는 예상에 정합한 것 같습니다.
 

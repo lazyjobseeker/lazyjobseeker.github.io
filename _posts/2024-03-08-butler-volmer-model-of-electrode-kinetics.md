@@ -35,61 +35,13 @@ $$\ce{O + e <=>[k_f][k_b] R} \tag{2}$$
 
 이 반응에서 반응 좌표(reaction coordinate)에 따른 자유에너지의 변화를 도시해 보겠습니다.  산화종과 환원종 모두, 안정 상태에서 이탈함에 따라 자유에너지는 점차 상승하고, 특정 반응 좌표에 도달했을 때 (그림 1, 점 $A$)) 산화 혹은 환원 반응이 발생합니다.
 
-{% assign jxgNo = 0 %}
-{% include jsx-graph.html jxgNo=jxgNo width=300 height=300 %}
-
-<script>
-  var board = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4, 4, 4, -1], axis:false, showCopyright:false, showNavigation:false, zoom:{enabled: false}, pan:{enabled: false}});
-  var gibbsO = board.create('functiongraph', [function(x){return gibbs(1.5, x+2);}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'red'});
-  var gibbsR = board.create('functiongraph', [function(x){return gibbs(1.5, -1*(x-2));}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'blue'});
-  var textR = board.create('text', [2.3, -0.5, "R"], {fontSize:16, fixed:true});
-  var textO = board.create('text', [-3, -0.5, "O+e<sup>-</sup>"], {fontSize:16, fixed:true});
-  var textG0c = board.create('text', [-3.7, 1, "ΔG<sup>&#8225;</sup><sub>0c</sub>"], {fontSize:16, fixed:true});
-  var textG0a = board.create('text', [2.6, 1, "ΔG<sup>&#8225;</sup><sub>0a</sub>"], {fontSize:16, fixed:true});
-  var p2 = board.create('point', [0, 1.91], {name: 'A', size:2, fixed:true});
-  var p3 = board.create('point', [-3, 1.91], {visible:false, fixed:true});
-  var p4 = board.create('point', [3, 1.91], {visible:false, fixed:true});
-  var line1 = board.create('line', [p3, p4], {straightFirst:false, straightLast: false, dash:2});
-  var p5 = board.create('point', [-2.5, 0], {visible:false, fixed:true});
-  var p6 = board.create('point', [-2.5, 1.91], {visible:false, fixed:true});
-  var line2 = board.create('arrow', [p5, p6], {straightFirst:false, straightLast: false, dash:2});
-  var p7 = board.create('point', [2.5, 0], {visible:false, fixed:true});
-  var p8 = board.create('point', [2.5, 1.91], {visible:false, fixed:true});
-  var line3 = board.create('arrow', [p7, p8], {straightFirst:false, straightLast: false, dash:2});
-</script>
-
-**그림 1**
-{: .text-center}
+{% include jsxgraph.html graphName="240314-butlervolmer-0" jxgNo=0 width=300 height=300 caption="반응좌표-자유에너지 도식 (1)"%}
 
 안정 상태에 있는 산화종과 환원종의 자유에너지가 동일하다면, 정반응이 일어나기 위해 필요한 자유에너지 변화량($\Delta G^\Dagger_{0c}$)과 역반응이 일어나기 위해 필요한 자유에너지 변화량($\Delta G^\Dagger_{0a}$)이 동일합니다.
 
 정반응과 역반응이 일어나기 위해 극복해야 하는 에너지 차이가 동일하기 때문에, 두 반응의 속도는 동일합니다.
 
-{% assign jxgNo = 1 %}
-{% include jsx-graph.html jxgNo=jxgNo width=300 height=300 %}
-
-<script>
-  var board = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4, 4, 4, -1], axis:false, showCopyright:false, showNavigation:false, zoom:{enabled: false}, pan:{enabled: false}});
-  var gibbsO = board.create('functiongraph', [function(x){return gibbs(1.5, x+2)+0.5;}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'red'});
-  var gibbsR = board.create('functiongraph', [function(x){return gibbs(1.5, -1*(x-2));}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'blue'});
-  var textR = board.create('text', [2.3, -0.5, "R"], {fontSize:16, fixed:true});
-  var textO = board.create('text', [-3, -0.5, "O+e<sup>-</sup>"], {fontSize:16, fixed:true});
-  var textG0c = board.create('text', [-3.7, 1, "ΔG<sup>&#8225;</sup><sub>0c</sub>"], {fontSize:16, fixed:true});
-  var textG0a = board.create('text', [2.6, 1, "ΔG<sup>&#8225;</sup><sub>0a</sub>"], {fontSize:16, fixed:true});
-  var p2 = board.create('point', [-0.15, 2.15], {name: 'A', size:2, fixed:true});
-  var p3 = board.create('point', [-3, 2.15], {visible:false, fixed:true});
-  var p4 = board.create('point', [3, 2.15], {visible:false, fixed:true});
-  var line1 = board.create('line', [p3, p4], {straightFirst:false, straightLast: false, dash:2});
-  var p5 = board.create('point', [-2.5, 0.5], {visible:false, fixed:true});
-  var p6 = board.create('point', [-2.5, 2.15], {visible:false, fixed:true});
-  var line2 = board.create('arrow', [p5, p6], {straightFirst:false, straightLast: false, dash:2});
-  var p7 = board.create('point', [2.5, 0], {visible:false, fixed:true});
-  var p8 = board.create('point', [2.5, 2.15], {visible:false, fixed:true});
-  var line3 = board.create('arrow', [p7, p8], {straightFirst:false, straightLast: false, dash:2});
-</script>
-
-**그림 2**
-{: .text-center}
+{% include jsxgraph.html graphName="240314-butlervolmer-1" jxgNo=1 width=300 height=300 caption= "반응좌표-자유에너지 도식 (2)"%}
 
 ## 자유에너지 차이에 따른 반응속도 변화
 
@@ -101,31 +53,7 @@ $$\ce{O + e <=>>[k_f][k_b] R} \tag{3}$$
 
 한편 아래의 **그림 3**은 반대의 경우를 나타냅니다.
 
-{% assign jxgNo = 2 %}
-{% include jsx-graph.html jxgNo=jxgNo width=300 height=300 %}
-
-<script>
-  var board = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4, 4, 4, -1], axis:false, showCopyright:false, showNavigation:false, zoom:{enabled: false}, pan:{enabled: false}});
-  var gibbsO = board.create('functiongraph', [function(x){return gibbs(1.5, x+2);}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'red'});
-  var gibbsR = board.create('functiongraph', [function(x){return gibbs(1.5, -1*(x-2))+0.5;}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'blue'});
-  var textR = board.create('text', [2.3, -0.5, "R"], {fontSize:16, fixed:true});
-  var textO = board.create('text', [-3, -0.5, "O+e<sup>-</sup>"], {fontSize:16, fixed:true});
-  var textG0c = board.create('text', [-3.7, 1, "ΔG<sup>&#8225;</sup><sub>0c</sub>"], {fontSize:16, fixed:true});
-  var textG0a = board.create('text', [2.6, 1, "ΔG<sup>&#8225;</sup><sub>0a</sub>"], {fontSize:16, fixed:true});
-  var p2 = board.create('point', [0.15, 2.15], {name: 'A', size:2, fixed:true});
-  var p3 = board.create('point', [-3, 2.15], {visible:false, fixed:true});
-  var p4 = board.create('point', [3, 2.15], {visible:false, fixed:true});
-  var line1 = board.create('line', [p3, p4], {straightFirst:false, straightLast: false, dash:2});
-  var p5 = board.create('point', [-2.5, 0], {visible:false, fixed:true});
-  var p6 = board.create('point', [-2.5, 2.15], {visible:false, fixed:true});
-  var line2 = board.create('arrow', [p5, p6], {straightFirst:false, straightLast: false, dash:2});
-  var p7 = board.create('point', [2.5, 0.5], {visible:false, fixed:true});
-  var p8 = board.create('point', [2.5, 2.15], {visible:false, fixed:true});
-  var line3 = board.create('arrow', [p7, p8], {straightFirst:false, straightLast: false, dash:2});
-</script>
-
-**그림 3**
-{: .text-center}
+{% include jsxgraph.html graphName="240314-butlervolmer-2" jxgNo=2 width=300 height=300 caption="반응좌표-자유에너지 도식 (3)" %}
 
 반응속도의 크기가 다르다는 것을 표시하기 위해 아래와 같이 쓸 수 있습니다.
 
@@ -152,40 +80,7 @@ $$\ce{O + e <<=>[k_f][k_b] R} \tag{4}$$
 - $ \Delta G^\Dagger_{0c} -\Delta G^\Dagger_c = -F\alpha\Delta E  $
 - $ \Delta G^\Dagger_{0a} - \Delta G^\Dagger_a = (1-\alpha)F\Delta E $
 
-{% assign jxgNo = 3 %}
-{% include jsx-graph.html jxgNo=jxgNo width=300 height=300 %}
-
-<script>
-  var board = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', {boundingbox: [-4, 4, 4, -1], axis:false, showCopyright:false, showNavigation:false, zoom:{enabled: false}, pan:{enabled: false}});
-  var textR = board.create('text', [2.3, -0.5, "R"], {fontSize:16, fixed:true});
-  var textO = board.create('text', [-3, -0.5, "O+e<sup>-</sup>"], {fontSize:16, fixed:true});
-  var graph1 = board.create('functiongraph', [function(x){return gibbs(1.5, x+2);}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'red'});
-  var graph2 = board.create('functiongraph', [function(x){return gibbs(1.5, x+2)+1;}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'red', dash:2});
-  var graph3 = board.create('functiongraph', [function(x){return gibbs(1.5, -1*(x-2));}, -3.5, 3.5],{name:'Gibbs', withLabel:false, strokeColor:'blue'}); 
-  var line1 = board.create('line', [[-3.5, 2.38], [3.5, 2.38]], {straightFirst:false, straightLast: false, strokeWidth:1, dash:2, fixed: true})
-  var line2 = board.create('line', [[-2.4, 1.88], [2.4, 1.88]], {straightFirst:false, straightLast: false, strokeWidth:1,  dash:2, fixed: true})
-  var line3 = board.create('line', [[-1.5, 1.38], [1.5, 1.38]], {straightFirst:false, straightLast: false, strokeWidth:1,  dash:2, fixed: true})
-  var arrow1 = board.create('arrow', [[-2.8, 1], [-2.8, 2.38]], {fixed:true, strokeWidth:1});
-  var textG0c = board.create('text', [-3.95, 1.5, "ΔG<sup>&#8225;</sup><sub>0c</sub>"], {fontSize:16, fixed:true});
-  var arrow2 = board.create('arrow', [[-2.2, 0], [-2.2, 1.88]], {fixed:true, strokeWidth:1});
-  var textGc = board.create('text', [-3.2, 0.3, "ΔG<sup>&#8225;</sup><sub>c</sub>"], {fontSize:16, fixed:true});
-  var arrow3 = board.create('arrow', [[2.6, 0], [2.6, 2.38]], {fixed:true, strokeWidth:1});
-  var textG0a = board.create('text', [2.65, 1.5, "ΔG<sup>&#8225;</sup><sub>0a</sub>"], {fontSize:16, fixed:true});
-  var arrow4 = board.create('arrow', [[2.2, 0], [2.2, 1.88]], {fixed:true, strokeWidth:1});
-  var textGa = board.create('text', [1.2, 1, "ΔG<sup>&#8225;</sup><sub>a</sub>"], {fontSize:16, fixed:true});
-  var arrow5 = board.create('arrow', [[-0.34, 2.39], [-0.34, 1.39]], {fixed:true, strokeColor:'red', strokeWidth:2});
-  var textDeltaE = board.create('text', [-0.22, 1.1, "FΔE"], {color: 'red', fontSize:16, fixed:true});
-  var points1 = [[0,1.38],[0,1.88],[2.2,1.88],[2.2,1.38]];
-  var poly1 = board.create('polygon', points1, {color:'pink', hasInnerPoints:true, withLines:false, vertices:{visible:false}});
-  var points2 = [[0,1.88],[0,2.38],[2.2,2.38],[2.2,1.88]];
-  var poly2 = board.create('polygon', points2, {hasInnerPoints:true, withLines:false, vertices:{visible:false}});
-  var textAlpha = board.create('text', [0.4, 2.13, "(1-α)FΔE"], {fontSize:16, fixed:true});
-  var textOneMinusAlpha = board.create('text', [0.4, 1.64, "αFΔE"], {fontSize:16, fixed:true});
-  // var p1 = board.create('point', [-2.8, 1]);
-</script>
-
-**그림 4**
-{: .text-center}
+{% include jsxgraph.html graphName="240314-butlervolmer-3" jxgNo=3 width=300 height=300 caption="포텐셜 변화에 따른 반응좌표-자유에너지 도식"%}
 
 즉, 반응물에 가한 $\Delta E$만큼의 전기 포텐셜 변화는 특정 비율($\alpha$)만큼은 반응물의 자유에너지 변화에 기여하고, 나머지($1-\alpha$)만큼의 비율은 생성물의 자유에너지 변화에 기여합니다. 이것이 버틀러-볼머 식의 공식화로 연결되는 주요한 관찰입니다.
 
