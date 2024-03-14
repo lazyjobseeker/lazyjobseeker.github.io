@@ -1,0 +1,6 @@
+<div id="{{ 'jxg' | append: include.jxgNo }}" class="jxgbox" style="width:{{include.width}}px; height:{{include.height}}px; margin:auto"></div>
+{% assign jxgNo = include.jxgNo %}
+{% include jsxgraphs/{{ include.graphName | append: ".html"}} %}
+
+**그림 {{ include.jxgNo | plus: 1 }}.** {{ include.caption }}
+{: .text-center}
