@@ -9,7 +9,7 @@ tags:
   - kinetics
 published: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-13 18:37:59 +09:00
+last_modified_at: 2024-03-14 16:40:59 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-7.png
 excerpt: 속도상수와 반응좌표-자유에너지 도식을 통한 버틀러-볼머 식(Butler-Volmer Equation)의 유도 과정 및 이해
@@ -41,11 +41,11 @@ $$\ce{O + e <=>[k_f][k_b] R} \tag{2}$$
 
 정반응과 역반응이 일어나기 위해 극복해야 하는 에너지 차이가 동일하기 때문에, 두 반응의 속도는 동일합니다.
 
-{% include jsxgraph.html graphName="240314-butlervolmer-1" jxgNo=1 width=300 height=300 caption= "반응좌표-자유에너지 도식 (2)"%}
-
 ## 자유에너지 차이에 따른 반응속도 변화
 
-앞의 예시에서는 반응물과 생성물이 안정 상태에서 갖는 자유에너지가 동일했습니다.  그렇지 않은 경우에는 상황이 조금 달라집니다.  예를 들어 위 **그림 2**와 같은 경우, 정반응(산화)가 역반응(환원)보다 일어나기 쉽습니다.
+앞의 예시에서는 반응물과 생성물이 안정 상태에서 갖는 자유에너지가 동일했습니다.  그렇지 않은 경우에는 상황이 조금 달라집니다.  예를 들어 아래 **그림 2**와 같은 경우, 정반응(산화)가 역반응(환원)보다 일어나기 쉽습니다.
+
+{% include jsxgraph.html graphName="240314-butlervolmer-1" jxgNo=1 width=300 height=300 caption= "반응좌표-자유에너지 도식 (2)"%}
 
 아래와 같이 써 주면, 정반응이 역반응보다 빠르다는 것을 표현할 수 있습니다.
 
@@ -63,7 +63,7 @@ $$\ce{O + e <<=>[k_f][k_b] R} \tag{4}$$
 
 이제 버틀러-볼머 식의 유도를 시작해 봅시다.  아래 **그림 4**에서, 외부에서 전압을 인가하기 이전 산화종의 포텐셜이 <font color='red'>빨간색 점선</font>이었다고 하겠습니다.  이 경우 전체 반응은 정반응(환원)이 우세한 상태로 그림 2의 경우와 같습니다.
 
-이제 어떠한 방법, 예를 들어 외부 전원을 이용하여 $ \Delta E $만큼의 기전력을 가하여, 산화종의 포텐셜을 $F\Delta E$만큼 (-) 방향으로 움직였다고 합시다.  이에 따라 반응좌표에서 산화종의 포텐셜 곡선은 <font color='red'>빨간색 실선</font>이 되었고,정반응과 역반응의 활성화에너지는 각각 $\Delta G^\Dagger_{0c} \rightarrow \Delta G^\Dagger_{c}$, $\Delta G^\Dagger_{0a} \rightarrow \Delta G^\Dagger_{a}$로 변동하였습니다.
+이제 어떠한 방법, 예를 들어 외부 전원을 이용하여 $ \Delta E $만큼의 기전력을 가하여, 산화종의 포텐셜을 $F\Delta E$만큼 (-) 방향으로 움직였다고 합시다.  이에 따라 반응좌표에서 산화종의 포텐셜 곡선은 <font color='red'>빨간색 실선</font>이 되었고,정반응과 역반응의 활성화에너지는 각각 $\Delta G^\ddagger_{0c} \rightarrow \Delta G^\ddagger_{c}$, $\Delta G^\ddagger_{0a} \rightarrow \Delta G^\ddagger_{a}$로 변동하였습니다.
 
 **주의!**  일반적으로 자유에너지가 화학종 1몰에 대한 값으로 기술되기 때문에, 자유에너지의 총 변화량을 나타내기 위해 $\Delta E$에 패러데이 상수($F$)를 곱해 주었습니다.
 {: .notice--info}
@@ -72,13 +72,13 @@ $$\ce{O + e <<=>[k_f][k_b] R} \tag{4}$$
 
 이 관계를 계산하기 위해 **그림 4**를 한 번 더 관찰해 보면, 다음과 같은 사실을 알 수 있습니다:
 
-- $ F\Delta E + \Delta G^\Dagger_{0c} = \Delta G^\Dagger_c + (1-\alpha)F\Delta E $
-- $ \Delta G^\Dagger_{a} + (1-\alpha)F\Delta E =  \Delta G^\Dagger_{0a} $
+- $F\Delta E + \Delta G^\ddagger_{0c} = \Delta G^\ddagger_c + (1-\alpha)F\Delta E$
+- $\Delta G^\ddagger_{a} + (1-\alpha)F\Delta E =  \Delta G^\ddagger_{0a}$
 
 각각을 아래와 같이 다시 정리할 수 있습니다.
 
-- $ \Delta G^\Dagger_{0c} -\Delta G^\Dagger_c = -F\alpha\Delta E  $
-- $ \Delta G^\Dagger_{0a} - \Delta G^\Dagger_a = (1-\alpha)F\Delta E $
+- $\Delta G^\ddagger_{0c} -\Delta G^\ddagger_c = -F\alpha\Delta E$
+- $\Delta G^\ddagger_{0a} - \Delta G^\ddagger_a = (1-\alpha)F\Delta E$
 
 {% include jsxgraph.html graphName="240314-butlervolmer-3" jxgNo=3 width=300 height=300 caption="포텐셜 변화에 따른 반응좌표-자유에너지 도식"%}
 
@@ -88,19 +88,19 @@ $$\ce{O + e <<=>[k_f][k_b] R} \tag{4}$$
 
 정반응:
 
-$$ k_f = A_f e^{-{\Delta G^\Dagger_{c}}/{RT}} $$
+$$ k_f = A_f e^{-{\Delta G^\ddagger_{c}}/{RT}} $$
 
-$$ = A_f e^{-{(\Delta G^\Dagger_{0c} - \alpha F\Delta E)}/{RT}} $$
+$$ = A_f e^{-{(\Delta G^\ddagger_{0c} - \alpha F\Delta E)}/{RT}} $$
 
-$$ = A_f e^{-\Delta G^\Dagger_{0c}/{RT}} e^{\alpha F\Delta E/{RT}} \tag{5} $$
+$$ = A_f e^{-\Delta G^\ddagger_{0c}/{RT}} e^{\alpha F\Delta E/{RT}} \tag{5} $$
 
 역반응:
 
-$$ k_b = A_b e^{-{\Delta G^\Dagger_{a}}/{RT}} $$
+$$ k_b = A_b e^{-{\Delta G^\ddagger_{a}}/{RT}} $$
 
-$$ = A_b e^{-(\Delta G^\Dagger_{0a} + {(1-\alpha)}F\Delta E)} $$
+$$ = A_b e^{-(\Delta G^\ddagger_{0a} + {(1-\alpha)}F\Delta E)} $$
 
-$$ = A_b e^{-\Delta G^\Dagger_{0a}/{RT}} e^{-{(1-\alpha) F\Delta E}/{RT}} \tag{6} $$
+$$ = A_b e^{-\Delta G^\ddagger_{0a}/{RT}} e^{-{(1-\alpha) F\Delta E}/{RT}} \tag{6} $$
 
 이제 반응물과 생성물의 농도를 각각 $ C_O $와 $ C_R $로 쓰기로 하고, 반응전류의 크기를 나타내는 아래 식에 위에서 구한 $ k_f $와 $ k_b $를 대입하면 버틀러-볼머 식이 완성됩니다.
 

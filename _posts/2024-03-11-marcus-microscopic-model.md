@@ -9,7 +9,7 @@ tags:
   - kinetics
 published: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-13 18:36:33 +09:00
+last_modified_at: 2024-03-14 13:43:47 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-8.png
 excerpt: 구조불변성 전자 교환 반응의 반응속도를 자유에너지 관점에서 설명하는 마커스 모델 (Marcus model) 정리
@@ -39,19 +39,19 @@ $$G^{0}_{R}(q)=(k/2)(q-q_R)^2+\Delta G^0 \tag{3}$$
 
 - $q_O$ : 반응물의 안정 상태 좌표
 - $q_R$ : 생성물의 안정 상태 좌표
-- $q^\Dagger$ : 반응 발생 좌표
-- $\Delta G^\Dagger_f$ : 정반응의 활성화에너지
-- $\Delta G^\Dagger_b$ : 역반응의 활성화에너지
+- $q^\ddagger$ : 반응 발생 좌표
+- $\Delta G^\ddagger_f$ : 정반응의 활성화에너지
+- $\Delta G^\ddagger_b$ : 역반응의 활성화에너지
 
-정반응($\ce{O + e -> R}$)의 진행 경로를 생각해 봅시다.  반응물은 안정 상태($q_O$)에서 출발하여, $\Delta G^\Dagger_f$만큼의 에너지 장벽을 넘고 나면 $q^\Dagger$에 도달할 수 있습니다.  이후 전자를 획득하여 반응물($R$)이 되고, 반응물 안정 상태($q_R$)에 도달합니다.
+정반응($\ce{O + e -> R}$)의 진행 경로를 생각해 봅시다.  반응물은 안정 상태($q_O$)에서 출발하여, $\Delta G^\ddagger_f$만큼의 에너지 장벽을 넘고 나면 $q^\ddagger$에 도달할 수 있습니다.  이후 전자를 획득하여 반응물($R$)이 되고, 반응물 안정 상태($q_R$)에 도달합니다.
 
-가장 먼저, 전자 교환이 발생하는 반응 좌표 $q^\Dagger$의 위치는 아래와 같이 계산됩니다.
+가장 먼저, 전자 교환이 발생하는 반응 좌표 $q^\ddagger$의 위치는 아래와 같이 계산됩니다.
 
-$$q^\Dagger =\frac{q_R+q_O}{2}+\frac{\Delta G_0}{k(q_R-q_O)}\tag{4}$$ 
+$$q^\ddagger =\frac{q_R+q_O}{2}+\frac{\Delta G_0}{k(q_R-q_O)}\tag{4}$$ 
 
 $G_O(q_O)=0$으로 약속하면, 정반응의 활성화에너지를 다음과 같이 쓸 수 있게 됩니다.
 
-$$\Delta G^\Dagger_f=\frac{k(q_R-q_O)^2}{8}\left[1+\frac{2\Delta G_0}{k(q_R-q_O)
+$$\Delta G^\ddagger_f=\frac{k(q_R-q_O)^2}{8}\left[1+\frac{2\Delta G_0}{k(q_R-q_O)
 ^2}\right]^2 \tag{5}$$
 
 ## 재구성 에너지
@@ -62,7 +62,7 @@ $$\lambda = \frac{k}{2}(q_R-q_O)^2\tag{6}$$
 
 그러면 **식 5**는 아래와 같이 정리됩니다.
 
-$$\Delta G^\Dagger_f=\frac{\lambda}{4}\left(1+\frac{\Delta G_0}{\lambda}\right)^2 \tag{7}$$
+$$\Delta G^\ddagger_f=\frac{\lambda}{4}\left(1+\frac{\Delta G_0}{\lambda}\right)^2 \tag{7}$$
 
 재구성 에너지는 안정한 상태에 있는 반응물의 구조($q_O$)를 **전자 이동 없이** 안정한 상태의 생성물($q_R$)과 같은 형태로 왜곡하기 위해 필요한 에너지의 크기입니다.
 
@@ -70,9 +70,9 @@ $$\Delta G^\Dagger_f=\frac{\lambda}{4}\left(1+\frac{\Delta G_0}{\lambda}\right)^
 
 아래 그림을 살펴 봅시다.  초기 상태에서 이 반응은 정반응의 활성화 에너지가 역반응의 활성화 에너지보다 높습니다.
 
-정반응의 속도상수를 높이고 싶다고 생각해 봅시다.  슬라이더를 살짝 위로 끌어 보면, 정반응의 활성화 에너지($\Delta G^\Dagger_{f}$)가 낮아지는 것을 알 수 있습니다.  정반응의 활성화에너지가 낮아졌으므로, 정반응의 속도상수가 증가하며 정반응이 가속됩니다.
+정반응의 속도상수를 높이고 싶다고 생각해 봅시다.  슬라이더를 살짝 위로 끌어 보면, 정반응의 활성화 에너지($\Delta G^\ddagger_{f}$)가 낮아지는 것을 알 수 있습니다.  정반응의 활성화에너지가 낮아졌으므로, 정반응의 속도상수가 증가하며 정반응이 가속됩니다.
 
-{% include jsxgraph.html graphName="240314-marcus-1" jxgNo=1 width=300 height=300 caption="반응물 자유에너지 상승에 따른 $\Delta G^\Dagger_f$ 변화"%}
+{% include jsxgraph.html graphName="240314-marcus-1" jxgNo=1 width=300 height=300 caption="반응물 자유에너지 상승에 따른 $\Delta G^\ddagger_f$ 변화"%}
 
 전극 반응의 관점에서 생각하면, 슬라이더를 끌어올리는 것은 과전압을 가하여 작동전극의 전자들이 갖는 에너지를 높이는 것과 같습니다.  에너지가 높은 전자들이 산화종의 빈 에너지 준위를 찾아 들어가 산화종을 환원시킬 것이므로, 전압을 높여 줄수록 정반응이 가속될 것이라는 예상에 정합한 것 같습니다.
 
