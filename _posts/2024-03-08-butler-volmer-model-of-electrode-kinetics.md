@@ -9,7 +9,7 @@ tags:
   - kinetics
 published: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-14 16:40:59 +09:00
+last_modified_at: 2024-03-15 10:10:52 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-7.png
 excerpt: 속도상수와 반응좌표-자유에너지 도식을 통한 버틀러-볼머 식(Butler-Volmer Equation)의 유도 과정 및 이해
@@ -37,7 +37,7 @@ $$\ce{O + e <=>[k_f][k_b] R} \tag{2}$$
 
 {% include jsxgraph.html graphName="240314-butlervolmer-0" jxgNo=0 width=300 height=300 caption="반응좌표-자유에너지 도식 (1)"%}
 
-안정 상태에 있는 산화종과 환원종의 자유에너지가 동일하다면, 정반응이 일어나기 위해 필요한 자유에너지 변화량($\Delta G^\Dagger_{0c}$)과 역반응이 일어나기 위해 필요한 자유에너지 변화량($\Delta G^\Dagger_{0a}$)이 동일합니다.
+안정 상태에 있는 산화종과 환원종의 자유에너지가 동일하다면, 정반응이 일어나기 위해 필요한 자유에너지 변화량($\Delta G^\ddagger_{0c}$)과 역반응이 일어나기 위해 필요한 자유에너지 변화량($\Delta G^\ddagger_{0a}$)이 동일합니다.
 
 정반응과 역반응이 일어나기 위해 극복해야 하는 에너지 차이가 동일하기 때문에, 두 반응의 속도는 동일합니다.
 
