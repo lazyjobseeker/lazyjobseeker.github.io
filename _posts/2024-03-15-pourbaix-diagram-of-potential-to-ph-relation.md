@@ -11,7 +11,7 @@ tags:
   - kinetics
 published: true
 created_at: 2024-03-15 09:24:59 +09:00
-last_modified_at: 2024-03-18 14:44:29 +09:00
+last_modified_at: 2024-03-18 16:08:05 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-8.png
 excerpt: 포베 다이어그램(Pourbaix diagram)으로 불리는 전위-산도(Potential-pH) 도표를 그리는 방법 및 읽는 방법에 대해 정리합니다.
@@ -58,7 +58,7 @@ $$E = E^0 - 0.059 \left( \frac{q}{n} \right) \text{pH} \tag{5}$$
 
 먼저 환원 반응의 반응식은 아래와 같이 주어집니다.
 
-$$\ce{H+ + e- <=> 1/2H2} \qquad (E^0 = \text{0.0V vs. NHE}) \tag{6}$$
+$$\ce{H+ + e- <=> 1/2H2} \newline (E^0 = \text{0.0V vs. NHE}) \tag{6}$$
 
 이 반응에 대한 네른스트 식은 $(5)$를 참고하여 아래와 같이 정리됩니다.
 
@@ -66,7 +66,7 @@ $$E = 0.0 - 0.059\text{pH} \tag{7}$$
 
 다음으로, 산화 반응의 반응식은 아래와 같이 주어집니다.
 
-$$\ce{O2 + 4H+ + 4e- <=> 2H2O} \qquad (E^0 =\text{1.229V vs. NHE}) \tag{8}$$
+$$\ce{O2 + 4H+ + 4e- <=> 2H2O} \newline (E^0 =\text{1.229V vs. NHE}) \tag{8}$$
 
 이 반응에 대한 네른스트 식 역시 $(5)$를 참고하여 아래와 같이 정리됩니다.
 
@@ -100,9 +100,9 @@ $$E = E^0 - 0.059(q/n)\text{pH} \tag{9} = E^0$$
 
 이는 $y=k$꼴이며, 표준환원전위를 지나는 수평선으로 표시됩니다.  위 **그림 2**에 나타낸 철의 포베 다이어그램에서 두 수평선은 각각 아래의 반응들을 나타냅니다.
 
-$$\ce{Fe^2+ + 2e <=> Fe} \qquad (E^0 = \text{-0.44V vs. NHE}) \tag{A, 11}$$
+$$\ce{Fe^2+ + 2e <=> Fe} \newline (E^0 = \text{-0.44V vs. NHE}) \tag{A, 11}$$
 
-$$\ce{Fe^3+ + e <=> Fe^2+} \qquad (E^0 = \text{0.77V vs. NHE}) \tag{B, 12}$$
+$$\ce{Fe^3+ + e <=> Fe^2+} \newline (E^0 = \text{0.77V vs. NHE}) \tag{B, 12}$$
 
 ### 3.2. 전자가 관여하지 않는 반응 (수직선)
 
@@ -119,7 +119,14 @@ $$K_\text{w} = a_\ce{H+} a_\ce{OH-} = 10^{-14} \tag{15}$$
 
 $a_\ce{Fe^{3+}}=1$로 두면, 아래와 같습니다.
 
-$$-\log a_\ce{H+}=-\log \left( 10^{-14}×\left(4×10^{-38}\right)^{-1/3} \right) = 1.53 \tag{16}$$
+$$
+\begin{aligned}
+-\log a_\ce{H+}
+&=-\log \left( 10^{-14}×\left(4×10^{-38}\right)^{-1/3} \right)\newline
+&= 1.53\newline
+\end{aligned}
+\tag{16}
+$$
 
 따라서, 반응 $(13)$을 나타내는 반응평형선은 $\text{pH} = 1.53$입니다.
 

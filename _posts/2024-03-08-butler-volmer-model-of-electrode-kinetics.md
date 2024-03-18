@@ -9,7 +9,7 @@ tags:
   - kinetics
 published: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-15 10:10:52 +09:00
+last_modified_at: 2024-03-18 16:09:52 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-7.png
 excerpt: 속도상수와 반응좌표-자유에너지 도식을 통한 버틀러-볼머 식(Butler-Volmer Equation)의 유도 과정 및 이해
@@ -116,4 +116,4 @@ $$ k_b = k_0 e^{-{(1-\alpha) F(E-E_{eq})}/{RT}} \tag{9} $$
 
 **식 8**과 **식 9**를 **식 7**에 대입하고 정리하면, 일반적으로 알려진 버틀러-볼머 식을 얻게 됩니다.  아래 식에서 $ f = F/{RT} $ 입니다.
 
-$$ i = FAk_0(C_O e^{\alpha f(E-E_{eq})} - C_R e^{-(1-\alpha) f(E- E_{eq})}) \tag{10} $$
+$$\begin{aligned}i = &FAk_0(C_O e^{\alpha f(E-E_{eq})}\newline&- C_R e^{-(1-\alpha) f(E- E_{eq})})\end{aligned} \tag{10} $$
