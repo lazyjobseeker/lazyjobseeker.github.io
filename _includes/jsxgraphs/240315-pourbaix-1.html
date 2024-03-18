@@ -3,28 +3,38 @@
     var brdAttr = dBrdAttr;
     brdAttr["boundingbox"] = [-2, 1.5, 14, -2];
     var brd = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', brdAttr);
-    brd.create('point', [0,0]);
     brd.create('axis', [[0,-1.5], [14,-1.5]]);
     brd.create('axis', [[0,-1.5], [0,1.5]]);
     brd.create('functiongraph',
-      [(x) => 0-0.059*x, -3, 17], {
-      strokeColor:'red', dash:2 });
-    brd.create('functiongraph',
-      [(x) => 1.229-0.059*x, -3, 17], {
-      strokeColor:'red', dash:2 });
-    brd.create('functiongraph',
       [(x) => 0.77, -3, 17], {
-      strokeColor:'blue', dash:2 });
+        strokeColor:'blue', dash:2 });
     brd.create('functiongraph',
       [(x) => -0.44, -3, 17], {
-      strokeColor:'blue', dash:2 });
-    brd.create('text', [2.37, -0.03, "A"], dFontAttr);
-    brd.create('text', [2.37, 1.21, "B"], dFontAttr);
+        strokeColor:'blue', dash:2 });
+    brd.create('line', 
+      [[1.53, -1.88], [1.53, 1.88]], {
+        strokeWidth:1, strokeColor: 'blue', dash:2, fixed: true})
+    brd.create('line', 
+      [[6.6, -1.88], [6.6, 1.88]], {
+        strokeWidth:1, strokeColor: 'blue', dash:2, fixed: true})
+    brd.create('functiongraph',
+      [(x) => -0.059*3*(x-1.53)+0.77, -3, 17], {
+        strokeColor:'blue', dash:2 });
+    brd.create('functiongraph',
+      [(x) => -0.059*(x-6.6)-0.11, -3, 17], {
+        strokeColor:'blue', dash:2 });
+    brd.create('functiongraph',
+      [(x) => -0.059*(x-6.6)-0.45, -3, 17], {
+        strokeColor:'blue', dash:2 });
+    brd.create('text', [13.2, 0.9, "A"], dFontAttr);
+    brd.create('text', [13.2, -0.3, "B"], dFontAttr);
+    brd.create('text', [1.7, 1.25, "C"], dFontAttr);
+    brd.create('text', [6.8, 1.25, "D"], dFontAttr);
     brd.create('text', [-0.8, -0.5, "E/V vs. NHE"], dFontVert);
     brd.create('text', [6.5, -1.8, "pH"], dFontAttr);
-    brd.create('text', [8.7, 1, "O<sub>2</sub>"], dFontAttr);
-    brd.create('text', [8.7, -0.07, "H<sub>2</sub>O"], dFontAttr);
-    brd.create('text', [8.7, -1.25, "H<sub>2</sub>"], dFontAttr);
+    brd.create('text', [4.4, 0.38, "E"], dFontAttr);
+    brd.create('text', [2.5, 0.22, "F"], dFontAttr);
+    brd.create('text', [2.5, -0.15, "G"], dFontAttr);
   }
   draw1();
 </script>
