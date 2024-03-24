@@ -1,4 +1,5 @@
 ---
+lang: ko
 toc: true
 toc_sticky: true
 title: 마커스 전자 교환 모델

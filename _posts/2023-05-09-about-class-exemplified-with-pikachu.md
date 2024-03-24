@@ -1,4 +1,5 @@
 ---
+lang: en
 toc: true
 toc_sticky: true
 title: "[Python] 클래스 기본 개념"

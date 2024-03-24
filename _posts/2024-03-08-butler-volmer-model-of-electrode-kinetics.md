@@ -1,4 +1,5 @@
 ---
+lang: ko
 toc: true
 toc_sticky: true
 title: 버틀러-볼머 식의 이해

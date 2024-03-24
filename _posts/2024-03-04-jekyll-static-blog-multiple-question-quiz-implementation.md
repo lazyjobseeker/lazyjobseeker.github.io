@@ -1,4 +1,5 @@
 ---
+lang: ko
 toc: true
 toc_sticky: true
 title: "자바스크립트로 객관식 문제 만들기"

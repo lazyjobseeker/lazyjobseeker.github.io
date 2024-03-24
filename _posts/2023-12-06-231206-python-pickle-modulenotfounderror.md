@@ -1,4 +1,5 @@
 ---
+lang: ko
 toc: true
 toc_sticky: true
 title: "pickle 관련 오류 조치 방법"

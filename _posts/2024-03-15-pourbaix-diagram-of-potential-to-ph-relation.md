@@ -1,4 +1,5 @@
 ---
+lang: ko
 toc: true
 toc_sticky: true
 title: 포베 다이어그램 (Poubaix Diagram)

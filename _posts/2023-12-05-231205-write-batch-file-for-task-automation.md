@@ -1,4 +1,5 @@
 ---
+lang: ko
 toc: true
 toc_sticky: true
 title: "배치 파일(.bat)로 반복 작업 자동화"

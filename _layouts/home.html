@@ -15,7 +15,7 @@ classes: wide
 {% endif %}
 {% endraw %}{% endcomment %}
 
-{% assign paginate = 3 %}
+{% assign paginate = site.paginate_custom %}
 {% assign total_pages = 1 %}
 
 {% assign display_counter = 0 %}
@@ -23,11 +23,8 @@ classes: wide
 {% assign first_post_idx = page.page_no | minus: 1 | times: paginate %}
 {% assign last_post_idx = first_post_idx | plus: paginate | minus: 1 %}
 
-{{ first_post_idx | append: ' / ' | append: last_post_idx }}
-
 {% assign posts = "" | split: ',' %}
 {% for post in site.posts %}
-  {{ display_counter }}
   {% if post.lang and post.lang == page.lang %}
     {% assign total_page_counter = total_page_counter | plus: 1 %}
     {% if total_page_counter == paginate %}

@@ -1,4 +1,5 @@
 ---
+lang: ko
 toc: true
 toc_sticky: true
 title: "자바스크립트로 수식과 그래프 표시"

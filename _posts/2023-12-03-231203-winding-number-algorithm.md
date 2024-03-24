@@ -1,4 +1,5 @@
 ---
+lang: ko
 toc: true
 toc_sticky: true
 title: "점과 다각형의 포함관계 판정: Winding Number 알고리즘"

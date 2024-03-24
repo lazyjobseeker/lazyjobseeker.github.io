@@ -1,4 +1,5 @@
 ---
+lang: ko
 toc: true
 toc_sticky: true
 title: "모바일 환경에서 깃허브 블로그 관리하기"

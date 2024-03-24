@@ -1,4 +1,5 @@
 ---
+lang: ko
 toc: true
 toc_sticky: true
 title: 팰린드롬 관련 알고리즘 문제들

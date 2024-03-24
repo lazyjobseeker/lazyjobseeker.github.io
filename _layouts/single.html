@@ -56,7 +56,38 @@ layout: default
 
       {% if page.share %}{% include social-share.html %}{% endif %}
 
-      {% include post_pagination.html %}
+      {% assign posts = "" | split: ',' %}
+      {% for post in site.posts %}
+        {% if post.lang and post.lang == page.lang %}
+          {% assign posts = posts | push: post %}
+        {% endif %}
+      {% endfor %}
+
+      {% assign last_idx = posts.size | minus: 1 %}
+      {% for idx in (0..posts.size) %}
+        {% assign prev_idx = idx | plus: 1 %}
+        {% assign next_idx = idx | minus: 1 %}
+        {% if page.id == posts[idx].id %}
+          {% if idx == 0 %}
+            {% assign post_prev = posts[prev_idx] %}
+            {% assign post_next = posts[idx] %}
+          {% elsif idx == last_idx %}
+            {% assign post_prev = posts[idx] %}
+            {% assign post_next = posts[next_idx] %}
+          {% else %}
+            {% assign post_prev = posts[prev_idx] %}
+            {% assign post_next = posts[next_idx] %}
+          {% endif %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+      
+      {% if post_prev or post_next %}
+        {% include post_pagination.html post_prev=post_prev post_next=post_next %}
+      {% else %}
+        {% include post_pagination.html %}
+      {% endif %}
+
     </div>
 
     {% if jekyll.environment == 'production' and site.comments.provider and page.comments %}

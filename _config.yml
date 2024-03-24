@@ -224,6 +224,8 @@ paginate: 60 # amount of posts to show
 paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
+# Custom paginator
+paginate_custom: 5
 
 # Plugins (previously gems:)
 plugins:
@@ -270,7 +272,6 @@ tag_archive:
 #     category: /categories/:name/
 #     tag: /tags/:name/
 
-
 # HTML Compression
 # - https://jch.penibelst.de/
 compress_html:
@@ -311,16 +312,15 @@ defaults:
       related: true
       sidebar:
         nav: "docs"
-  # index-en
+  # parginated (custom) index pages
   - scope:
-      path: "_index-en"
+      path: "_languages"
       type: pages
     values:
       layout: home
+      lang: ko
+      page_no: 1
       author_profile: true
-      read_time: true
-      comments: # true
-      share: true
-      related: true
       sidebar:
         nav: "docs"
+      permalink: site.url

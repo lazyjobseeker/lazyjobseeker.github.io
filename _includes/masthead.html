@@ -1,20 +1,35 @@
 {% capture logo_path %}{{ site.logo }}{% endcapture %}
+{% if page.lang == 'ko' %}
+  {% assign prefix = '/' %}
+  {% assign target-url-ko = page.url | relative_url %}
+  {% assign target-url-en = page.url | prepend: '/en' | relative_url %}
+{% else %}
+  {% assign prefix = page.lang | prepend: '/' %}
+  {% assign target-url-ko = page.url | replace: '/en/', '/' | relative_url %}
+  {% assign target-url-en = page.url | relative_url %}
+{% endif %}
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         {% unless logo_path == empty %}
-          <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></a>
+          <a class="site-logo" href="{{ prefix | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></a>
         {% endunless %}
-        <a class="site-title" href="{{ '/' | relative_url }}">
+        <a class="site-title" href="{{ prefix | relative_url }}">
           {{ site.masthead_title | default: site.title }}
           {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle }}</span>{% endif %}
         </a>
         <ul class="visible-links">
+          <li class="masthead__menu-item">
+            <a href="{{ target-url-ko }}" title="Page in Korean">KO</a>
+          </li>
+          <li class="masthead__menu-item">
+            <a href="{{ target-url-en }}" title="Page in English">EN</a>
+          </li>
           {%- for link in site.data.navigation.main -%}
             <li class="masthead__menu-item">
-              <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
+              <a href="{{ link.url | prepend: site.baseurl }}"{% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
             </li>
           {%- endfor -%}
         </ul>

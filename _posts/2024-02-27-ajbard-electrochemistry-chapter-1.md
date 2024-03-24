@@ -1,4 +1,5 @@
 ---
+lang: ko
 toc: true
 toc_sticky: true
 title: "Bard 전기화학 3판 - Ch. 1"
