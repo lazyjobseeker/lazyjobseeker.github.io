@@ -6,4 +6,5 @@ author_profile: true
 entries_layout: list
 sidebar:
   nav: "docs"
+permalink: site.url
 ---

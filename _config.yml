@@ -155,6 +155,7 @@ include:
   - .htaccess
   - _pages
   - _docs
+  - _languages
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -219,7 +220,7 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
-paginate: 8 # amount of posts to show
+paginate: 60 # amount of posts to show
 paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
@@ -303,6 +304,19 @@ defaults:
       type: pages
     values:
       layout: single
+      author_profile: true
+      read_time: true
+      comments: # true
+      share: true
+      related: true
+      sidebar:
+        nav: "docs"
+  # index-en
+  - scope:
+      path: "_index-en"
+      type: pages
+    values:
+      layout: home
       author_profile: true
       read_time: true
       comments: # true
