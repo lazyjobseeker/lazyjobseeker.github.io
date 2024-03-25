@@ -1,5 +1,5 @@
 ---
-lang: en
+lang: ko
 toc: true
 toc_sticky: true
 title: "unittest와 coverage로 코드 테스트하기"

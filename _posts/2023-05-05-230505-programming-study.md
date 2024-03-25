@@ -1,5 +1,5 @@
 ---
-lang: en
+lang: ko
 toc: true
 toc_sticky: true
 title: 첫 포스팅

@@ -16,9 +16,15 @@ minimal_mistakes_skin    : "default" # "default", "air", "aqua", "contrast", "da
 
 # Site Settings
 locale                   : "en-US"
-title                    : "나불나불 끄적끄적"
+title                    : "lazyjobseeker's blog"
 title_separator          : "-"
-subtitle                 : "읽고 쓰고 그리고 기억하기" # site tagline that appears below site title in masthead
+subtitle                 :
+display-title:
+  ko: "나불나불 끄적끄적"
+  en: "Lazyjobseeker's Blog"
+display-subtitle:
+  ko: "읽고 쓰고 그리고 기억하기"
+  en: "I read, write, and memorize"
 name                     : "Sangheon Lee"
 description              : "My little workspace."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -103,8 +109,10 @@ analytics:
 # Site Author
 author:
   name             : "Sangheon Lee"
-  avatar           : # "/assets/images/bio-photo-221010-0200.png"
-  bio              : "일하는 것처럼 보인다면 착각입니다."
+  avatar           : # "/assets/images/logo.png"
+  bio              :
+    ko: "일하는 것처럼 보인다면 착각입니다."
+    en: "If it looks like I am working, you are mistaken."
   location         : "Republic of Korea"
   email            :
   links:
@@ -155,7 +163,8 @@ include:
   - .htaccess
   - _pages
   - _docs
-  - _languages
+  - _index
+  - en
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -220,16 +229,13 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
-paginate: 60 # amount of posts to show
-paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # Custom paginator
-paginate_custom: 5
+paginate_custom: 8
 
 # Plugins (previously gems:)
 plugins:
-  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
@@ -237,7 +243,6 @@ plugins:
 
 # mimic GitHub Pages with --safe
 whitelist:
-  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
@@ -312,15 +317,27 @@ defaults:
       related: true
       sidebar:
         nav: "docs"
-  # parginated (custom) index pages
+  # Index pages with custom pagination (Korean)
   - scope:
-      path: "_languages"
+      path: "_index"
       type: pages
     values:
+      is_index: true
       layout: home
       lang: ko
       page_no: 1
       author_profile: true
       sidebar:
         nav: "docs"
-      permalink: site.url
+  # Index pages with custom pagination (English)
+  - scope:
+      path: "en/_index"
+      type: pages
+    values:
+      is_index: true
+      layout: home
+      lang: en
+      page_no: 1
+      author_profile: true
+      sidebar:
+        nav: "docs"

@@ -1,5 +1,5 @@
 ---
-lang: en
+lang: ko
 toc: true
 toc_sticky: true
 title: "[Python] 클래스 상속 개념과 활용"

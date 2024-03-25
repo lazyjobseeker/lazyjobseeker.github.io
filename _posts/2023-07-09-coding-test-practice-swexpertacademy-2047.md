@@ -1,5 +1,5 @@
 ---
-lang: en
+lang: ko
 toc: true
 toc_sticky: true
 title: "[2047] 신문 헤드라인 (D1)"
