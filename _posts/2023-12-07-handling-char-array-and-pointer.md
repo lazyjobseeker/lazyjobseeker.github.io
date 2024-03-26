@@ -6,10 +6,11 @@ title: char array들을 원소로 갖는 vector 만들기
 category: Programming
 tags:
   - C++
+redirect_from:
+  - /programming/231207-handling-char-array-and-pointer/
 published: true
-use_math: true
 created_at: 2023-12-05 13:35:24 +09:00
-last_modified_at: 2023-12-08 01:33:04 +09:00
+last_modified_at: 2024-03-26 13:45:22 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-2.png
 excerpt: C++에서 vector에 char array들을 저장하는 방법을 알아 봅니다

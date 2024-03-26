@@ -4,9 +4,12 @@
   {% if page.is_index %}
     {% assign target-url-ko = site.url %}
     {% assign target-url-en = site.url | append: '/en/' %}
-  {% else %}
+  {% elsif page.translated %}
     {% assign target-url-ko = page.url | relative_url %}
     {% assign target-url-en = page.url | prepend: '/en' | relative_url %}
+  {% else %}
+    {% assign target-url-ko = page.url %}
+    {% assign target-url-en = page.url %}
   {% endif %}
   {% assign display-title = site.display-title.ko %}
   {% assign display-subtitle = site.display-subtitle.ko %}
@@ -36,14 +39,14 @@
         </a>
         <ul class="visible-links">
           {% if page.lang == 'en' %}
-          <li class="masthead__menu-item">
-            <a href="{{ target-url-ko }}" title="Page in Korean">KO</a>
-          </li>
+            <li class="masthead__menu-item">
+              <a href="{{ target-url-ko }}" title="Page in Korean">KO</a>
+            </li>
           {% endif %}
           {% if page.lang == 'ko' %}
-          <li class="masthead__menu-item">
-            <a href="{{ target-url-en }}" title="Page in English">EN</a>
-          </li>
+            <li class="masthead__menu-item">
+              <a href="{{ target-url-en }}" title="Page in Korean">EN</a>
+            </li>
           {% endif %}
           {%- for link in site.data.navigation.main -%}
             <li class="masthead__menu-item">

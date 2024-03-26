@@ -4,12 +4,13 @@ toc: true
 toc_sticky: true
 title: "pathlib과 sys로 ModuleNotFoundError 해결하기"
 category: Programming
+redirect_from:
+  - /programming/231201-pathlib-syspath/
 tags:
   - python
 published: true
-use_math: true
 created_at: 2023-12-01 02:04:33 +09:00
-last_modified_at: 2023-12-01 02:04:37 +09:00
+last_modified_at: 2024-03-26 13:58:31 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-4.png
 excerpt: "내가 만든 python 패키지를 import하려고 할 때 발생하는 ModuleNotFoundError 해결하기"

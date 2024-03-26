@@ -4,12 +4,13 @@ toc: true
 toc_sticky: true
 title: 첫 포스팅
 categories: Programming
+redirect_from:
+  - /programming/230505-programming-study/
 tags:
   - C++
 published: false
 created_at: 2024-02-29 14:23:05 +09:00
-last_modified_at: 2024-03-07 15:15:53 +09:00
-use_math: true
+last_modified_at: 2024-03-26 14:04:29 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-1.png
 ---

@@ -4,13 +4,14 @@ toc: true
 toc_sticky: true
 title: 팰린드롬 관련 알고리즘 문제들
 category: Programming
+redirect_from:
+  - /programming/231208-coding-test-palindromes/
 tags:
   - "SW Expert Academy"
   - "Coding Test"
 published: true
-use_math: true
 created_at: 2023-12-08 17:07:36 +09:00
-last_modified_at: 2024-02-29 13:11:37 +09:00
+last_modified_at: 2024-03-26 13:44:50 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-3.png
 excerpt: 회문(palindrome; 팰린드롬)을 주제로 한 알고리즘 문제들 공부하기

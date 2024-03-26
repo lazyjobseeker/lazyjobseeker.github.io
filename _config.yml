@@ -228,7 +228,7 @@ sass:
 
 
 # Outputting
-permalink: /:categories/:title/
+permalink: /:title/ # /:categories/:title/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # Custom paginator
@@ -240,6 +240,8 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-paginate
+  - jekyll-redirect-from
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -247,6 +249,8 @@ whitelist:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-paginate
+  - jekyll-redirect-from
 
 
 # Archives
@@ -304,6 +308,7 @@ defaults:
       related: true
       sidebar:
         nav: "docs"
+      permalink: /posts/:title/
   # _docs
   - scope:
       path: "_docs"
@@ -323,6 +328,7 @@ defaults:
       type: pages
     values:
       is_index: true
+      translated: true
       layout: home
       lang: ko
       page_no: 1
@@ -335,6 +341,7 @@ defaults:
       type: pages
     values:
       is_index: true
+      translated: true
       layout: home
       lang: en
       page_no: 1
