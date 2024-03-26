@@ -13,9 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2024-03-08-butler-volmer-model-of-electrode-kinetics.md",
+                "file": "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
                 "mode": "source",
-                "source": false
+                "source": true
               }
             }
           }
@@ -73,7 +73,8 @@
         }
       }
     ],
-    "currentTab": 0
+    "currentTab": 0,
+    "pinned": true
   },
   "right": {
     "id": "4a53661387233087",
@@ -85,7 +86,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "_posts/2024-03-08-butler-volmer-model-of-electrode-kinetics.md",
+            "file": "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "_posts/2024-03-08-butler-volmer-model-of-electrode-kinetics.md",
+            "file": "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +115,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "_posts/2024-03-08-butler-volmer-model-of-electrode-kinetics.md"
+            "file": "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md"
           }
         }
       }
@@ -133,22 +134,38 @@
   },
   "active": "b93edfbd8504d5fe",
   "lastOpenFiles": [
+    "_site/en/posts/pourbaix-diagram-of-potential-to-ph-relation/index.html",
+    "_site/en/posts/pourbaix-diagram-of-potential-to-ph-relation",
+    "_site/en/posts",
+    "_site/posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation/index.html",
+    "_site/posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation",
     "_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
+    "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
+    "_site/posts/pourbaix-diagram-of-potential-to-ph-relation/index.html",
+    "_site/posts/marcus-microscopic-model/index.html",
+    "_site/posts/javascript-math-rendering-and-graphing-libraries/index.html",
+    "_site/posts/butler-volmer-model-of-electrode-kinetics/index.html",
+    "_site/posts/jekyll-static-blog-multiple-question-quiz-implementation/index.html",
+    "_site/posts/jekyll-based-github-blog-local-build-test-in-android-mobile-environment/index.html",
+    "_site/assets/images/uncategorized-teaser-8.png",
+    "_site/assets/images/uncategorized-teaser-7.png",
+    "_site/assets/images/uncategorized-teaser-6.png",
+    "_site/assets/images/uncategorized-teaser-5.png",
+    "_site/assets/images/uncategorized-teaser-4.png",
+    "_site/assets/images/uncategorized-teaser-3.png",
+    "_site/assets/images/uncategorized-teaser-2.png",
+    "_site/assets/images/uncategorized-teaser-1.png",
+    "_site/assets/images/software-teaser-scm.png",
+    "_site/assets/images/python-teaser-devenviron.png",
+    "_docs/curriculum-vitae.md",
+    "_docs/curriculum-vitae.md.md",
+    "en/_docs/curriculum-vitae.md",
     "_posts/2024-03-11-marcus-microscopic-model.md",
+    "_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation 1.md",
     "_posts/2024-03-08-butler-volmer-model-of-electrode-kinetics.md",
     "_posts/2024-03-08-javascript-math-rendering-and-graphing-libraries.md",
     "_posts/2024-03-04-jekyll-static-blog-multiple-question-quiz-implementation.md",
-    "_includes/jsxgraphs/240314-butlervolmer-4.html",
-    "_includes/jsxgraphs/240314-butlervolmer-3 (1).html",
     "_posts/2023-05-05-230505-programming-study.md",
-    "_sass/custom/_katex.scss",
-    "_includes/jsxgraphs/240315-pourbaix-2.html",
-    "_includes/jsxgraphs/240315-pourbaix-1 (1).html",
-    "_includes/jsxgraphs/240315-pourbaix-1.html",
-    "_site/electrochemistry/pourbaix-diagram-of-potential-to-ph-relation/index.html",
-    "_site/electrochemistry/pourbaix-diagram-of-potential-to-ph-relation",
-    "_site/pourbaix-diagram-of-potential-to-ph-relation/index.html",
-    "_site/pourbaix-diagram-of-potential-to-ph-relation",
     "_posts/2023-05-07-blog-posting-environment.md",
     "_posts/2024-03-08-javascript-chart.md",
     "_posts/2023-04-16-mathjax.md",
@@ -160,16 +177,6 @@
     "_posts/2023-05-09-about-class-exemplified-with-pikachu.md",
     "_posts/2023-12-04-231204-chmod-chown.md",
     "_posts/2023-12-07-231207-handling-char-array-and-pointer.md",
-    "_docs/03-test.md",
-    "_site/assets/images/uncategorized-teaser-8.png",
-    "_site/assets/images/uncategorized-teaser-7.png",
-    "_site/assets/images/uncategorized-teaser-6.png",
-    "_site/assets/images/uncategorized-teaser-5.png",
-    "_site/assets/images/uncategorized-teaser-4.png",
-    "_site/assets/images/uncategorized-teaser-3.png",
-    "_site/assets/images/uncategorized-teaser-2.png",
-    "_site/assets/images/uncategorized-teaser-1.png",
-    "_site/assets/images/software-teaser-scm.png",
-    "_site/assets/images/python-teaser-devenviron.png"
+    "_docs/03-test.md"
   ]
 }

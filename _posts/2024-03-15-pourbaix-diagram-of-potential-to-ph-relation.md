@@ -1,5 +1,6 @@
 ---
 lang: ko
+translated: true
 toc: true
 toc_sticky: true
 title: 포베 다이어그램 (Poubaix Diagram)
@@ -14,7 +15,7 @@ tags:
   - kinetics
 published: true
 created_at: 2024-03-15 09:24:59 +09:00
-last_modified_at: 2024-03-26 13:33:07 +09:00
+last_modified_at: 2024-03-26 14:41:10 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-2.png
 excerpt: 포베 다이어그램(Pourbaix diagram)으로 불리는 전위-산도(Potential-pH) 도표를 그리는 방법 및 읽는 방법에 대해 정리합니다.

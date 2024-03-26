@@ -27,6 +27,11 @@
   }
 </script>
 {% include jsxgraphs/{{ include.graphName | append: ".html"}} %}
+{% if page.lang == 'ko' %}
+  {% assign fig_label = '그림' %}
+{% else %}
+  {% assign fig_label = 'Figure' %}
+{% endif %}
 
-**그림 {{ include.jxgNo | plus: 1 }}.** {{ include.caption }}
+**{{ fig_label }} {{ include.jxgNo | plus: 1 }}.** {{ include.caption }}
 {: .text-center}

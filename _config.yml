@@ -24,7 +24,7 @@ display-title:
   en: "Lazyjobseeker's Blog"
 display-subtitle:
   ko: "읽고 쓰고 그리고 기억하기"
-  en: "I read, write, and memorize"
+  en: "I read, write, draw and remember"
 name                     : "Sangheon Lee"
 description              : "My little workspace."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -294,9 +294,9 @@ collections:
 
 # Defaults
 defaults:
-  # _posts
+  # _posts-ko
   - scope:
-      path: ""
+      path: "_posts"
       type: posts
     values:
       show_date: true
@@ -309,6 +309,21 @@ defaults:
       sidebar:
         nav: "docs"
       permalink: /posts/:title/
+  # _posts-en
+  - scope:
+      path: "en/_posts"
+      type: posts
+    values:
+      show_date: true
+      layout: single
+      author_profile: false
+      read_time: true
+      comments: # true
+      share: true
+      related: true
+      sidebar:
+        nav: "docs"
+      permalink: /en/posts/:title/
   # _docs
   - scope:
       path: "_docs"
