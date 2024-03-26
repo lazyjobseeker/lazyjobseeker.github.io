@@ -28,6 +28,6 @@ codekit-config.json
 _asset_bundler_cache
 _site
 
-# Obsidian config
-**/.obsidian
-.trash
+## Obsidian config
+# **/.obsidian
+# .trash
