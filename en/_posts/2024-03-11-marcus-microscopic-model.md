@@ -11,13 +11,13 @@ tags:
   - kinetics
 published: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-26 20:15:22 +09:00
+last_modified_at: 2024-03-26 20:43:16 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-1.png
 excerpt: The concept of Marcus microscopic model for isoenergetic, radiationless and configuration-preserving electron transfer is detailed.
 ---
 
-## 요약
+## Summary
 
 **Marcus microscopic model** explains how the kinetics of electron transfer reaction is determined.  Formulation of Marcus model is based on three crucial assumptions:
 

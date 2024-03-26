@@ -73,8 +73,7 @@
         }
       }
     ],
-    "currentTab": 0,
-    "pinned": true
+    "currentTab": 0
   },
   "right": {
     "id": "4a53661387233087",
@@ -134,10 +133,11 @@
   },
   "active": "b93edfbd8504d5fe",
   "lastOpenFiles": [
-    "_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
-    "en/_posts/2024-03-11-marcus-microscopic-model.md",
-    "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
     "_posts/2024-03-11-marcus-microscopic-model.md",
+    "_posts/2024-03-08-javascript-math-rendering-and-graphing-libraries.md",
+    "en/_posts/2024-03-11-marcus-microscopic-model.md",
+    "_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
+    "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
     "_site/en/posts/marcus-microscopic-model/index.html",
     "_site/en/posts/marcus-microscopic-model",
     "_site/posts/marcus-microscopic-model-1/index.html",
@@ -163,7 +163,6 @@
     "en/_docs/curriculum-vitae.md",
     "_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation 1.md",
     "_posts/2024-03-08-butler-volmer-model-of-electrode-kinetics.md",
-    "_posts/2024-03-08-javascript-math-rendering-and-graphing-libraries.md",
     "_posts/2024-03-04-jekyll-static-blog-multiple-question-quiz-implementation.md",
     "_posts/2023-05-05-230505-programming-study.md",
     "_posts/2023-05-07-blog-posting-environment.md",
