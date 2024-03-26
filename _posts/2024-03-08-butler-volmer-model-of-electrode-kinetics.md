@@ -1,15 +1,18 @@
 ---
+lang: ko
 toc: true
 toc_sticky: true
 title: 버틀러-볼머 식의 이해
 category: Electrochemistry
+redirect_from:
+  - /electrochemistry/butler-volmer-model-of-electrode-kinetics/
 tags:
   - Butler-Volmer
   - Electrode
   - kinetics
 published: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-19 02:19:08 +09:00
+last_modified_at: 2024-03-26 13:33:56 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-7.png
 excerpt: 속도상수와 반응좌표-자유에너지 도식을 통한 버틀러-볼머 식(Butler-Volmer Equation)의 유도 과정 및 이해

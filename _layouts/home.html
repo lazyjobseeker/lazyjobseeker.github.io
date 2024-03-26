@@ -7,11 +7,36 @@ classes: wide
 
 <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
 
+{% comment %}{% raw %}
 {% if paginator %}
   {% assign posts = paginator.posts %}
 {% else %}
   {% assign posts = site.posts %}
 {% endif %}
+{% endraw %}{% endcomment %}
+
+{% assign paginate = site.paginate_custom %}
+{% assign total_pages = 1 %}
+
+{% assign display_counter = 0 %}
+{% assign total_page_counter = 0 %}
+{% assign first_post_idx = page.page_no | minus: 1 | times: paginate %}
+{% assign last_post_idx = first_post_idx | plus: paginate | minus: 1 %}
+
+{% assign posts = "" | split: ',' %}
+{% for post in site.posts %}
+  {% if post.lang and post.lang == page.lang %}
+    {% assign total_page_counter = total_page_counter | plus: 1 %}
+    {% if total_page_counter == paginate %}
+      {% assign total_pages = total_pages | plus: 1 %}
+      {% assign total_page_counter = 0 %}
+    {% endif %}
+    {% if display_counter >= first_post_idx and display_counter <= last_post_idx %}
+      {% assign posts = posts | push: post %}
+    {% endif %}
+    {% assign display_counter = display_counter | plus: 1 %}
+  {% endif %}
+{% endfor %}
 
 {% assign entries_layout = page.entries_layout | default: 'list' %}
 <div class="entries-{{ entries_layout }}">
@@ -20,4 +45,4 @@ classes: wide
   {% endfor %}
 </div>
 
-{% include paginator.html %}
+{% include paginator.html total_pages = total_pages %}

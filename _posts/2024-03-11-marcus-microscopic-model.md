@@ -1,15 +1,18 @@
 ---
+lang: ko
 toc: true
 toc_sticky: true
 title: 마커스 전자 교환 모델
 category: Electrochemistry
+redirect_from:
+  - /electrochemistry/marcus-microscopic-model/
 tags:
   - "electron transfer"
   - "Marcus model"
   - kinetics
 published: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-14 13:43:47 +09:00
+last_modified_at: 2024-03-26 13:33:12 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-1.png
 excerpt: 구조불변성 전자 교환 반응의 반응속도를 자유에너지 관점에서 설명하는 마커스 모델 (Marcus model) 정리

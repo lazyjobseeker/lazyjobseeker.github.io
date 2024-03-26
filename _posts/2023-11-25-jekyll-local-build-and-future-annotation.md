@@ -1,16 +1,18 @@
 ---
+lang: ko
 toc: true
 toc_sticky: true
 title: "Jekyll 로컬 빌드, 파이썬 future annotations"
 category: Programming
+redirect_from:
+  - /programming/jekyll-local-build-and-future-annotation/
 tags:
   - Jekyll
   - Python
   - "Minimal Mistakes"
 published: true
-use_math: true
 created_at: 2023-11-25 13:28:00 +09:00
-last_modified_at: 2024-02-28 10:15:47 +09:00
+last_modified_at: 2024-03-26 13:59:25 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-3.png
 excerpt: "Jekyll 블로그를 로컬 PC에서 미리보기 하는 방법, python에서 작성한 클래스 내에서 해당 클래스에 대한 타입 힌팅(type hinting)을 사용하기 위해 __future__ 모듈을 사용하는 방법"

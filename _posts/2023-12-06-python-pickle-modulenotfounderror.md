@@ -1,15 +1,17 @@
 ---
+lang: ko
 toc: true
 toc_sticky: true
 title: "pickle 관련 오류 조치 방법"
 category: Programming
+redirect_from:
+  - /programming/231206-python-pickle-modulenotfounderror/
 tags:
   - python
   - pickle
 published: true
-use_math: true
 created_at: 2023-12-05 13:35:24 +09:00
-last_modified_at: 2024-03-06 18:11:13 +09:00
+last_modified_at: 2024-03-26 13:46:48 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-1.png
 excerpt: "python의 직렬화 모듈 pickle 사용 시 ModuleNotFoundError가 발생하는 경우 해결 방법"
