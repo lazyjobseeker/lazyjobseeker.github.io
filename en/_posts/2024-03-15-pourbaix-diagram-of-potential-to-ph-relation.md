@@ -3,7 +3,7 @@ lang: en
 translated: true
 toc: true
 toc_sticky: true
-title: Poubaix Diagrams
+title: Pourbaix Diagrams
 category: Electrochemistry
 tags:
   - electron

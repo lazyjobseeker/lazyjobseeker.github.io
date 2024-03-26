@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2024-03-08-javascript-math-rendering-and-graphing-libraries.md",
+                "file": "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
                 "mode": "source",
                 "source": true
               }
@@ -73,7 +73,8 @@
         }
       }
     ],
-    "currentTab": 0
+    "currentTab": 0,
+    "pinned": true
   },
   "right": {
     "id": "4a53661387233087",
@@ -85,7 +86,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "_posts/2024-03-08-javascript-math-rendering-and-graphing-libraries.md",
+            "file": "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "_posts/2024-03-08-javascript-math-rendering-and-graphing-libraries.md",
+            "file": "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +115,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "_posts/2024-03-08-javascript-math-rendering-and-graphing-libraries.md"
+            "file": "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md"
           }
         }
       }
@@ -134,11 +135,10 @@
   "active": "b93edfbd8504d5fe",
   "lastOpenFiles": [
     "en/_posts/2024-03-11-marcus-microscopic-model.md",
+    "_posts/2024-03-08-javascript-math-rendering-and-graphing-libraries.md",
     "_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
     "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
     "_posts/2024-03-11-marcus-microscopic-model.md",
-    "_posts/2024-03-08-javascript-math-rendering-and-graphing-libraries.md",
-    "en/_posts/2024-03-11-marcus-microscopic-model.md",
     "_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
     "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
     "_site/en/posts/marcus-microscopic-model/index.html",
@@ -178,7 +178,6 @@
     "_posts/2024-02-27-ajbard-electrochemistry-chapter-1.md",
     "_posts/2023-05-09-about-class-exemplified-with-pikachu.md",
     "_posts/2023-12-04-231204-chmod-chown.md",
-    "_posts/2023-12-07-231207-handling-char-array-and-pointer.md",
-    "_docs/03-test.md"
+    "_posts/2023-12-07-231207-handling-char-array-and-pointer.md"
   ]
 }
