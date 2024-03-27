@@ -126,7 +126,7 @@ $$\begin{aligned}i = &FAk_0(C_O e^{\alpha f(E-E_{eq})}\newline&- C_R e^{-(1-\alp
 
 ## 5. Transfer Coefficient
 
-The core observation during derivation of Butler-Volmer equation was that the given potential change is distributed between free energy barrier changes of redox reactions.  The fraction of distribution $\alpha$ is called **transfer coefficient**, which is commonly considered to be independent from $\delta E$ but determinted to be constant according to the characteristic of given chemical system.
+The core observation during derivation of Butler-Volmer equation was that the given potential change is distributed between free energy barrier changes of redox reactions.  The fraction of distribution $\alpha$ is called **transfer coefficient**, which is commonly considered to be independent from $\Delta E$ but determinted to be constant according to the characteristic of given chemical system.
 
 From $\alpha$ one can infer the extent of *local variation in free energy*  along the reaction coordinate.  In detail,
 
