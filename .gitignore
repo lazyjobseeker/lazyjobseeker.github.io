@@ -31,5 +31,5 @@ _site
 # Obsidian config
  .obsidian
  .obsidian/
- # **/.obsidian
+ **/.obsidian
  .trash
