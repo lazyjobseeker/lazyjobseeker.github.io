@@ -13,7 +13,7 @@ tags:
   - kinetics
 published: true
 created_at: 2024-03-15 09:24:59 +09:00
-last_modified_at: 2024-03-26 19:32:01 +09:00
+last_modified_at: 2024-03-27 01:10:09 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-2.png
 excerpt: How to interpret Pourbaix diagram or potential-pH diagram, with step-by-step instruction to draw ones for water and iron system.
@@ -108,7 +108,12 @@ $$\ce{Fe^3+ + e <=> Fe^2+} \newline (E^0 = \text{0.77V vs. NHE}) \tag{B, 12}$$
 
 There are two other reactions where **electrons** are not involved.  One of both is precipitation of $\ce{Fe3+}$ into $\ce{Fe(OH)3}$
 
-$$\ce{Fe^3+ + 3H2O <=> Fe(OH)3 + 3H+} \tag{C, 13}$$
+$$
+\begin{aligned}
+\ce{Fe^3+ + 3H2O &<=>\newline
+&Fe(OH)3 + 3H+} \tag{C, 13}
+\end{aligned}
+$$
 
 As proton-free reactions defined horizontal lines, it is natural to infer that electron-free reactions will define vertical equilibrium lines.  A tricky point is that we do not rely on equation $(5)$ any more.  The pH value where vertical line will be drawn is directly calculated using solubility product constant ($K_\text{sp}$) of $\ce{Fe(OH)3}$ and ion-product constant of water ($K_\text{w}$).
 
@@ -121,7 +126,8 @@ By setting $a_\ce{Fe^{3+}}=1$, we have:
 
 $$
 \begin{aligned}
--\log a_\ce{H+}
+\text{pH}
+&=-\log a_\ce{H+}\newline
 &=-\log \left( 10^{-14}×\left(4×10^{-38}\right)^{-1/3} \right)\newline
 &= 1.53\newline
 \end{aligned}

@@ -13,17 +13,17 @@ tags:
   - kinetics
 published: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-26 19:30:20 +09:00
+last_modified_at: 2024-03-27 01:12:54 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-1.png
 excerpt: 구조불변성 전자 교환 반응의 반응속도를 자유에너지 관점에서 설명하는 마커스 모델 (Marcus model) 정리
 ---
 
-## 요약
+## 1. 요약
 
 등에너지성(isoenergetic), 비방사성(radiationless), 구조불변성(outer-space)을 갖는 전자 교환 반응의 반응속도를 설명하는 **마커스 모델(Marcus Microscopic Model)**에 대해 설명합니다.  마커스 모델은 반응물과 생성물의 자유에너지가 이차함수 형태를 가지는 것으로 보고, 이로부터 정반응과 역반응의 활성화 에너지를 설명하는 구체적인 공식을 유도합니다.  이 과정에서 재구성 에너지(reorganization energy; $\lambda$)가 중요한 개념으로 제시됩니다.  또한 마커스 모델은 마커스 반전 영역(Marcus Inverted Region)의 존재를 예측하는데, 이는 어떤 반응에 대해 단순히 과전위를 계속 높이거나 낮추는 것만으로 반응속도를 무한히 높일 수 없음을 알려 줍니다.
 
-## 반응좌표 - 자유에너지 도식
+## 2. 반응좌표 - 자유에너지 도식
 
 마커스 모델의 반응좌표 - 자유에너지 도식을 살펴봅시다.  산화종과 환원종이 전자 하나를 교환하는 단순한 반응을 생각합니다.
 
@@ -58,7 +58,7 @@ $G_O(q_O)=0$으로 약속하면, 정반응의 활성화에너지를 다음과 �
 $$\Delta G^\ddagger_f=\frac{k(q_R-q_O)^2}{8}\left[1+\frac{2\Delta G_0}{k(q_R-q_O)
 ^2}\right]^2 \tag{5}$$
 
-## 재구성 에너지
+## 3. 재구성 에너지
 
 재구성 에너지(reorganization energy)를 아래와 같이 정의합니다.
 
@@ -70,7 +70,7 @@ $$\Delta G^\ddagger_f=\frac{\lambda}{4}\left(1+\frac{\Delta G_0}{\lambda}\right)
 
 재구성 에너지는 안정한 상태에 있는 반응물의 구조($q_O$)를 **전자 이동 없이** 안정한 상태의 생성물($q_R$)과 같은 형태로 왜곡하기 위해 필요한 에너지의 크기입니다.
 
-## 마커스 반전 영역
+## 4. 마커스 반전 영역
 
 아래 그림을 살펴 봅시다.  초기 상태에서 이 반응은 정반응의 활성화 에너지가 역반응의 활성화 에너지보다 높습니다.
 

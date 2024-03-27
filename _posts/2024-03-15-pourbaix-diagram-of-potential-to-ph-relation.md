@@ -15,7 +15,7 @@ tags:
   - kinetics
 published: true
 created_at: 2024-03-15 09:24:59 +09:00
-last_modified_at: 2024-03-26 14:41:10 +09:00
+last_modified_at: 2024-03-27 01:09:54 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-2.png
 excerpt: 포베 다이어그램(Pourbaix diagram)으로 불리는 전위-산도(Potential-pH) 도표를 그리는 방법 및 읽는 방법에 대해 정리합니다.
@@ -112,7 +112,12 @@ $$\ce{Fe^3+ + e <=> Fe^2+} \newline (E^0 = \text{0.77V vs. NHE}) \tag{B, 12}$$
 
 위에 나타낸 철의 포베 다이어그램에는 전자가 관여하지 않는 반응도 두 개가 포함되어 있습니다.  우선 두 반응식 중 하나는 아래와 같습니다.  3가 철 이온이 물과 반응하여 수산화철로 침전하는 반응입니다.
 
-$$\ce{Fe^3+ + 3H2O <=> Fe(OH)3 + 3H+} \tag{C, 13}$$
+$$
+\begin{aligned}
+\ce{Fe^3+ + 3H2O &<=>\newline
+&Fe(OH)3 + 3H+} \tag{C, 13}
+\end{aligned}
+$$
 
 이 반응의 반응평형식은 식 $(5)$ 를 이용하여 구하지 않고, 침전물인 삼수산화철의 용해도곱상수와 물의 이온곱상수를 이용하여 구합니다.
 
@@ -120,12 +125,12 @@ $$K_\text{sp}=a_\ce{Fe^3+}a^3_\ce{OH-}=4×10^{-38} \tag{14}$$
 
 $$K_\text{w} = a_\ce{H+} a_\ce{OH-} = 10^{-14} \tag{15}$$
 
-
 $a_\ce{Fe^{3+}}=1$로 두면, 아래와 같습니다.
 
 $$
 \begin{aligned}
--\log a_\ce{H+}
+\text{pH}
+&=-\log a_\ce{H+}\newline
 &=-\log \left( 10^{-14}×\left(4×10^{-38}\right)^{-1/3} \right)\newline
 &= 1.53\newline
 \end{aligned}

@@ -13,7 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
+                "file": "en/_posts/2024-03-08-javascript-math-rendering-and-graphing-libraries.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "5e1eb4b60d63438b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "en/_docs/curriculum-vitae.md",
                 "mode": "source",
                 "source": true
               }
@@ -86,7 +98,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
+            "file": "en/_posts/2024-03-08-javascript-math-rendering-and-graphing-libraries.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -103,7 +115,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
+            "file": "en/_posts/2024-03-08-javascript-math-rendering-and-graphing-libraries.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -115,7 +127,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md"
+            "file": "en/_posts/2024-03-08-javascript-math-rendering-and-graphing-libraries.md"
           }
         }
       }
@@ -134,23 +146,24 @@
   },
   "active": "b93edfbd8504d5fe",
   "lastOpenFiles": [
-    "en/_posts/2024-03-11-marcus-microscopic-model.md",
     "_posts/2024-03-08-javascript-math-rendering-and-graphing-libraries.md",
-    "_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
-    "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
+    "en/_docs/curriculum-vitae.md",
+    "_docs/curriculum-vitae.md",
+    "en/_posts/2024-03-08-javascript-math-rendering-and-graphing-libraries.md",
+    "en/_posts/2024-03-11-marcus-microscopic-model.md",
     "_posts/2024-03-11-marcus-microscopic-model.md",
+    "_site/en/posts/javascript-math-rendering-and-graphing-libraries/index.html",
+    "_site/en/posts/javascript-math-rendering-and-graphing-libraries",
+    "_site/en/posts/2024-03-08-javascript-math-rendering-and-graphing-libraries/index.html",
+    "_site/en/posts/2024-03-08-javascript-math-rendering-and-graphing-libraries",
+    "_site/en/posts/javascript-math-rendering-and-graphing-libraries-1/index.html",
+    "_site/en/posts/javascript-math-rendering-and-graphing-libraries-1",
+    "_site/posts/javascript-math-rendering-and-graphing-libraries-1/index.html",
+    "_site/posts/javascript-math-rendering-and-graphing-libraries-1",
     "_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
     "en/_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation.md",
     "_site/en/posts/marcus-microscopic-model/index.html",
     "_site/en/posts/marcus-microscopic-model",
-    "_site/posts/marcus-microscopic-model-1/index.html",
-    "_site/posts/marcus-microscopic-model-1",
-    "_site/en/posts/pourbaix-diagram-of-potential-to-ph-relation/index.html",
-    "_site/en/posts/pourbaix-diagram-of-potential-to-ph-relation",
-    "_site/en/posts",
-    "_site/posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation/index.html",
-    "_site/posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation",
-    "_site/posts/pourbaix-diagram-of-potential-to-ph-relation/index.html",
     "_site/assets/images/uncategorized-teaser-8.png",
     "_site/assets/images/uncategorized-teaser-7.png",
     "_site/assets/images/uncategorized-teaser-6.png",
@@ -161,9 +174,7 @@
     "_site/assets/images/uncategorized-teaser-1.png",
     "_site/assets/images/software-teaser-scm.png",
     "_site/assets/images/python-teaser-devenviron.png",
-    "_docs/curriculum-vitae.md",
     "_docs/curriculum-vitae.md.md",
-    "en/_docs/curriculum-vitae.md",
     "_posts/2024-03-15-pourbaix-diagram-of-potential-to-ph-relation 1.md",
     "_posts/2024-03-08-butler-volmer-model-of-electrode-kinetics.md",
     "_posts/2024-03-04-jekyll-static-blog-multiple-question-quiz-implementation.md",

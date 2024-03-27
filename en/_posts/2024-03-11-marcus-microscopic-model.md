@@ -11,13 +11,13 @@ tags:
   - kinetics
 published: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-26 20:43:16 +09:00
+last_modified_at: 2024-03-27 01:12:53 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-1.png
 excerpt: The concept of Marcus microscopic model for isoenergetic, radiationless and configuration-preserving electron transfer is detailed.
 ---
 
-## Summary
+## 1. Summary
 
 **Marcus microscopic model** explains how the kinetics of electron transfer reaction is determined.  Formulation of Marcus model is based on three crucial assumptions:
 
@@ -26,7 +26,7 @@ excerpt: The concept of Marcus microscopic model for isoenergetic, radiationless
 
 Marcus model starts from assumption that free-energies of oxidized species ($O$) and reduced species ($R$) could both be described in quadratic form, formulating explicit equation explaining rate constants of forward- and backward-reaction.  In this process, the concept of **reorganization energy ($\lambda$)** is posed to be important.  Furthermore, the theory predicts the existence of so-called **Marcus inverted region**, where rate constants of reactions cannot be increased further by increasing the applied overpotential.
 
-## Reaction Coordinate vs. Free Energy Plot
+## 2. Reaction Coordinate vs. Free Energy Plot
 
 Let's consider a simple redox reaction involving single electron transfer and reaction coordinate *vs.* free energy plot.
 
@@ -61,7 +61,7 @@ $$\Delta G^\ddagger_f=\frac{k(q_R-q_O)^2}{8}\left[1+\frac{2\Delta G_0}{k(q_R-q_O
 
 Similar sequence can be done to get the same for backward reaction ($\Delta G^\ddagger_b$).
 
-## Reorganization Energy
+## 3. Reorganization Energy
 
 **Reorganization energy** is defined as follows:
 
@@ -73,7 +73,7 @@ $$\Delta G^\ddagger_f=\frac{\lambda}{4}\left(1+\frac{\Delta G_0}{\lambda}\right)
 
 Reorganization energy is the amount of energy required to distort the reactant ($O$) from its stable state ($q_O$) to that of product ($q_R$), without allowing electron transfer at transition state.
 
-## Marcus Inverted Region
+## 4. Marcus Inverted Region
 
 An important prediction from Marcus theory is existence of **inverted region**.  Let's examine this interesting phenomenon with an interactive plot below.
 
