@@ -1,7 +1,4 @@
 ---
-lang: ko
-toc: true
-toc_sticky: true
 title: "자바스크립트로 객관식 문제 만들기"
 category: Programming
 redirect_from:
@@ -14,7 +11,7 @@ tags:
 published: true
 use_math: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-26 13:34:22 +09:00
+last_modified_at: 2024-03-27 16:10:21 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: "Javascript를 이용하여 Github Pages 및 Jekyll 기반 정적 블로그 포스트의 원하는 위치에 사지선다형 객관식 문제를 추가해 봅니다"

@@ -1,7 +1,4 @@
 ---
-lang: ko
-toc: true
-toc_sticky: true
 title: "파이썬 설치, 환경 변수, 프로젝트 패키징"
 category: Programming
 redirect_from:
@@ -10,7 +7,7 @@ tags:
   - Python
 published: true
 created_at: 2023-11-05 23:57:00 +09:00
-last_modified_at: 2024-03-26 13:59:46 +09:00
+last_modified_at: 2024-03-27 16:11:13 +09:00
 header:
   teaser: /assets/images/python-teaser-devenviron.png
 excerpt: "python을 설치하고 환경 변수를 설정하는 방법, setuptools 패키지를 이용해 내가 만든 python 패키지를 배포 가능한 형태로 만드는 방법"

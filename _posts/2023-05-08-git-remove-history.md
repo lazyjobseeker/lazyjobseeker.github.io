@@ -1,7 +1,4 @@
 ---
-lang: ko
-toc: true
-toc_sticky: true
 title: "[Git] 저장소 커밋 히스토리 모두 삭제하기"
 categories: Programming
 redirect_from:
@@ -10,7 +7,7 @@ tags:
   - devlog
 published: true
 created_at: 2023-05-08 01:33:28 +09:00
-last_modified_at: 2024-03-26 14:02:54 +09:00
+last_modified_at: 2024-03-27 16:11:28 +09:00
 header:
   teaser: /assets/images/software-teaser-scm.png
 ---

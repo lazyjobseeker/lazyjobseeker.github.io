@@ -1,7 +1,4 @@
 ---
-lang: ko
-toc: true
-toc_sticky: true
 title: "[Python] 클래스 상속 개념과 활용"
 category: Programming
 redirect_from:
@@ -10,7 +7,7 @@ tags:
   - python
 published: true
 created_at: 2023-05-12 07:43:00 +09:00
-last_modified_at: 2024-03-26 14:00:57 +09:00
+last_modified_at: 2024-03-27 16:11:17 +09:00
 header:
   teaser: /assets/images/python-teaser-basicconcepts.png
 ---

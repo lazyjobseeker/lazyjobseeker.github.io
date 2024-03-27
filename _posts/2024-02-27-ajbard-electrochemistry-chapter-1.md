@@ -1,7 +1,4 @@
 ---
-lang: ko
-toc: true
-toc_sticky: true
 title: "Bard 전기화학 3판 - Ch. 1"
 category: Electrochemistry
 redirect_from:
@@ -10,7 +7,7 @@ tags:
   - Electrochemistry
 published: true
 created_at: 2024-02-27 00:30:11 +09:00
-last_modified_at: 2024-03-26 13:35:31 +09:00
+last_modified_at: 2024-03-27 16:10:30 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-4.png
 excerpt: "Allen J. Bard의 <Electrochemical Methods: Fundamentals and Applications (3rd Ed.)> 챕터 1 정리"

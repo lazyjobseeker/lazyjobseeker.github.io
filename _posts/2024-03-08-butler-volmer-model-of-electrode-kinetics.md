@@ -1,7 +1,5 @@
 ---
-lang: ko
-toc: true
-toc_sticky: true
+translated: true
 title: 버틀러-볼머 식의 이해
 category: Electrochemistry
 redirect_from:
@@ -12,7 +10,7 @@ tags:
   - kinetics
 published: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-26 13:33:56 +09:00
+last_modified_at: 2024-03-27 21:41:38 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-7.png
 excerpt: 속도상수와 반응좌표-자유에너지 도식을 통한 버틀러-볼머 식(Butler-Volmer Equation)의 유도 과정 및 이해
@@ -20,7 +18,7 @@ excerpt: 속도상수와 반응좌표-자유에너지 도식을 통한 버틀러
 
 ## 1. 개요
 
-전기화학 속도론에서 **버틀러-볼머(Butler-Voler) 식**은 작동전극(working electrode)의 전위가 높아지거나 낮아질 때 반응 전류의 크기 변화를 기술하는 식입니다.  간단한 산화환원 반응에서 반응좌표(reaction coordinate)에 따른 자유에너지 변화를 도시해 보고, 그래프로부터 버틀러-볼머 식을 유도해 보도록 하겠습니다.
+전기화학 속도론에서 **버틀러-볼머(Butler-Volmer) 식**은 작동전극(working electrode)의 전위가 높아지거나 낮아질 때 반응 전류의 크기 변화를 기술하는 식입니다.  간단한 산화환원 반응에서 반응좌표(reaction coordinate)에 따른 자유에너지 변화를 도시해 보고, 그래프로부터 버틀러-볼머 식을 유도해 보도록 하겠습니다.
 
 ## 2. 속도 상수
 
@@ -44,8 +42,6 @@ $$\ce{O + e <=>[k_f][k_b] R} \tag{2}$$
 
 정반응과 역반응이 일어나기 위해 극복해야 하는 에너지 차이가 동일하기 때문에, 두 반응의 속도는 동일합니다.
 
-## 4. 자유에너지 차이에 따른 반응속도 변화
-
 앞의 예시에서는 반응물과 생성물이 안정 상태에서 갖는 자유에너지가 동일했습니다.  그렇지 않은 경우에는 상황이 조금 달라집니다.  예를 들어 아래 **그림 2**와 같은 경우, 정반응(산화)가 역반응(환원)보다 일어나기 쉽습니다.
 
 {% include jsxgraph.html graphName="240314-butlervolmer-1" jxgNo=1 width=300 height=300 caption= "반응좌표-자유에너지 도식 (2)"%}
@@ -62,7 +58,7 @@ $$\ce{O + e <=>>[k_f][k_b] R} \tag{3}$$
 
 $$\ce{O + e <<=>[k_f][k_b] R} \tag{4}$$
 
-## 5. 버틀러-볼머 식 유도
+## 4. 버틀러-볼머 식 유도
 
 이제 버틀러-볼머 식의 유도를 시작해 봅시다.  아래 **그림 4**에서, 외부에서 전압을 인가하기 이전 산화종의 포텐셜이 <font color='red'>빨간색 점선</font>이었다고 하겠습니다.  이 경우 전체 반응은 정반응(환원)이 우세한 상태로 그림 2의 경우와 같습니다.
 
@@ -97,9 +93,6 @@ $$\begin{aligned}k_f &= A_f e^{-{\Delta G^\ddagger_{c}}/{RT}}\newline
 \end{aligned}  \tag{5}
 $$
 
-
-
-
 역반응:
 
 $$
@@ -126,7 +119,7 @@ $$ k_b = k_0 e^{-{(1-\alpha) F(E-E_{eq})}/{RT}} \tag{9} $$
 
 $$\begin{aligned}i = &FAk_0(C_O e^{\alpha f(E-E_{eq})}\newline&- C_R e^{-(1-\alpha) f(E- E_{eq})})\end{aligned} \tag{10} $$
 
-## 6. 전달 계수
+## 5. 전달 계수
 
 식 $(10)$과 같이 유도된 버틀러-볼머 식에서 $\alpha$를 **전달 계수(transfer coefficient)**라고 합니다.  이 값은 일반적으로 반응계에 가해진 과전압의 크기와 무관하며, 계의 화학적 특성에 따라 고정된 값이라고 봅니다.
 

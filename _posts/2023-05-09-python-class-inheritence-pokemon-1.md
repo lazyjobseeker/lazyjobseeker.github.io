@@ -1,7 +1,4 @@
 ---
-lang: ko
-toc: true
-toc_sticky: true
 title: "[Python] 클래스 기본 개념"
 categories: Programming
 redirect_from:
@@ -10,7 +7,7 @@ tags:
   - python
 published: true
 created_at: 2023-05-10 06:59:45 +09:00
-last_modified_at: 2024-03-26 14:01:50 +09:00
+last_modified_at: 2024-03-27 16:11:22 +09:00
 header:
   teaser: /assets/images/python-teaser-basicconcepts.png
 ---

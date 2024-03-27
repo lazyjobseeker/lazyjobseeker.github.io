@@ -299,6 +299,9 @@ defaults:
       path: "_posts"
       type: posts
     values:
+      lang: ko
+      toc: true
+      toc_sticky: true
       show_date: true
       layout: single
       author_profile: false
@@ -314,6 +317,9 @@ defaults:
       path: "en/_posts"
       type: posts
     values:
+      lang: en
+      toc: true
+      toc_sticky: true
       show_date: true
       layout: single
       author_profile: false

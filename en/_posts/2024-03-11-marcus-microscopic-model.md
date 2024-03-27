@@ -1,8 +1,5 @@
 ---
-lang: en
 translated: true
-toc: true
-toc_sticky: true
 title: Marcus Model of Electron Transfer
 category: Electrochemistry
 tags:
@@ -11,7 +8,7 @@ tags:
   - kinetics
 published: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-27 01:12:53 +09:00
+last_modified_at: 2024-03-27 16:08:26 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-1.png
 excerpt: The concept of Marcus microscopic model for isoenergetic, radiationless and configuration-preserving electron transfer is detailed.

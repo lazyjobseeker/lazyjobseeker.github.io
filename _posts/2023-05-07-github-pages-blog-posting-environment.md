@@ -1,7 +1,4 @@
 ---
-lang: ko
-toc: true
-toc_sticky: true
 title: "블로그 포스팅 도구들"
 categories: Programming
 redirect_from:
@@ -10,7 +7,7 @@ tags:
   - devlog
 published: true
 created_at: 2023-05-07 11:17:13 +09:00
-last_modified_at: 2024-03-26 14:03:45 +09:00
+last_modified_at: 2024-03-27 16:11:32 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-2.png
 excerpt: "모바일 환경에서 깃허브 블로그를 포스팅하기 위해 사용하고 있는 어플리케이션들"
