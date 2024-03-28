@@ -8,7 +8,7 @@ tags:
   - kinetics
 published: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-27 23:01:16 +09:00
+last_modified_at: 2024-03-28 17:22:52 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-7.png
 excerpt: Derivation of Butler-Volmer equation from Gibbs free energy-dependent expression of rate constants.
@@ -131,8 +131,8 @@ The core observation during derivation of Butler-Volmer equation was that the gi
 From $\alpha$ one can infer the extent of *local variation in free energy*  along the reaction coordinate.  In detail,
 
 - If $\alpha = 1/2$, local variation of free energy is same for $O$ and $R$.
-- If $\alpha\gt 1/2$, local variation of free energy is larger for $O$.
-- If $\alpha\lt 1/2$, local variation of free energy is larger for $R$.
+- If $\alpha\gt 1/2$, local variation of free energy is larger for $R$.
+- If $\alpha\lt 1/2$, local variation of free energy is larger for $O$.
 
 Below is an interactive plot where you can see what happens when the local variation of free energy changes.  By pulling up(down) the slider, local free energy variation goes larger(smaller).  Try dragging and check yourself whether above cases are correct.
 
