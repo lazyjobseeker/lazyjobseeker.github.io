@@ -1,5 +1,5 @@
 ---
-title: "모바일 환경에서 깃허브 블로그 관리하기"
+title: "How to Maintain Your Github 모바일 환경에서 깃허브 블로그 관리하기"
 category: Programming
 redirect_from:
   - /programming/jekyll-based-github-blog-local-build-test-in-android-mobile-environment/
@@ -7,9 +7,9 @@ tags:
   - Jekyll
   - Ruby
   - "Github Blog"
-published: true
+published: false
 created_at: 2024-02-28 10:25:00 +09:00
-last_modified_at: 2024-03-29 16:35:16 +09:00
+last_modified_at: 2024-03-29 17:09:29 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: "Github Pages와 Jekyll 기반으로 작성된 블로그를 스마트폰 및 태블릿 등 모바일 환경에서 Git을 이용해 형상관리하고 로컬 빌드 산출물을 확인하는 방법을 정리합니다"
