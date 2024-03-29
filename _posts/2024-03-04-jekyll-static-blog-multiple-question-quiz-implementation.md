@@ -12,7 +12,7 @@ tags:
 published: true
 use_math: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-29 15:47:33 +09:00
+last_modified_at: 2024-03-29 16:21:18 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: "Javascript를 이용하여 Github Pages 및 Jekyll 기반 정적 블로그 포스트의 원하는 위치에 사지선다형 객관식 문제를 추가해 봅니다"
@@ -99,7 +99,7 @@ JSON 형식을 이용해 문제 정보를 담은 파일을 만들고, HTML 및 C
 {% endhighlight %}
 
 - 첫 줄의 `assign` Liquid 구문은 퀴즈 UI를 구성하는 각 요소들에 유일한 `id` 태그를 `quiz0`,`quiz1`... 와 같은 꼴로 부여하기 위해 `qId`라는 문자열을 생성합니다.
-- {% raw% }{% include %}{% endraw %} 수행 시 넘겨준 추가 파라미터 `jsonIdx`와 `quizNum`은 `include`에 의해 호출되는 html 문서 내에서 `include` 네임스페이스에 존재하게 됩니다.  즉, `include.jsonIdx`및 `include.quizNum`을 참조하여 사용할 수 있습니다.
+- {% raw %}{% include %}{% endraw %} 수행 시 넘겨준 추가 파라미터 `jsonIdx`와 `quizNum`은 `include`에 의해 호출되는 html 문서 내에서 `include` 네임스페이스에 존재하게 됩니다.  즉, `include.jsonIdx`및 `include.quizNum`을 참조하여 사용할 수 있습니다.
 
 ### CSS 스타일 작성
 
