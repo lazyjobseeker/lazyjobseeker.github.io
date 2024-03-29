@@ -6,8 +6,8 @@ redirect_from:
 tags:
   - python
 published: true
-created_at: 2023-12-04 00:00:02 +09:00
-last_modified_at: 2024-03-27 16:10:51 +09:00
+created_at: 2023-12-04 12:00:02 +09:00
+last_modified_at: 2024-03-29 06:49:32 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-7.png
 excerpt: "adb shell 환경에서 파일 권한과 소유자를 변경하는 chmod 명령어와 chown 명령어를 사용해 봅니다"
@@ -67,7 +67,7 @@ adb shell ls -l a.txt
 -rwxrwxrwx 1 system install 2023-12-04 15:55 a.txt
 ```
 
-{% include multiple-choice-quiz.html quizNum=0 %}
+{% include multiple-choice-quiz.html jsonIdx=0 quizNum=1 %}
 
 ## 2. chown 명령어
 
