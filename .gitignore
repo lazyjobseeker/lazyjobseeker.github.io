@@ -29,7 +29,7 @@ _asset_bundler_cache
 _site
 
 # Obsidian config
- .obsidian
- .obsidian/
- **/.obsidian
- .trash
+.obsidian
+.obsidian/
+**/.obsidian
+.trash

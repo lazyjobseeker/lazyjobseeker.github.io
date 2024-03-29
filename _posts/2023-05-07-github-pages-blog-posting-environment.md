@@ -7,7 +7,7 @@ tags:
   - devlog
 published: true
 created_at: 2023-05-07 11:17:13 +09:00
-last_modified_at: 2024-03-27 16:11:32 +09:00
+last_modified_at: 2024-03-28 10:06:02 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-2.png
 excerpt: "모바일 환경에서 깃허브 블로그를 포스팅하기 위해 사용하고 있는 어플리케이션들"
@@ -23,15 +23,15 @@ excerpt: "모바일 환경에서 깃허브 블로그를 포스팅하기 위해 �
 
 다른 매력 포인트는 기본적으로 $\LaTeX$ 스타일 수식 렌더링을 지원한다는 점입니다.  인라인 수식을 입력하려면 $\text{\textdollar}$으로, 블록 수식을 입력하려면 $\text{\textdollar\textdollar}$으로 수식 양 쪽을 감싸면 프리뷰 모드에서 $\LaTeX$ 스타일로 렌더링됩니다.
 
-예를 들어, $\text{\textdollar z\textasciicircum 2 = \textbackslash sqrt\textbraceleft x\textasciicircum 2+y\textasciicircum 2\textbraceright\textdollar}$ 이렇게 입력해 주면, 실제 옵시디언 편집기에서 $z^2 = \sqrt{x^2+y^2}$ 가 **인라인 수식**으로 깔끔하게 렌더링되는 것을 볼 수 있습니다.
+예를 들어, `$z^2=\sqrt{x^2+y^2}$`를 입력해 주면, 실제 옵시디언 편집기에서 $z^2 = \sqrt{x^2+y^2}$ 가 **인라인 수식**으로 깔끔하게 렌더링되는 것을 볼 수 있습니다.
 
-$\text{\textdollar\textdollar z\textasciicircum 2 = \textbackslash sqrt\textbraceleft x\textasciicircum 2+y\textasciicircum 2\textbraceright\textdollar\textdollar}$이라고 입력하면 아래와 같은 **블록 수식**으로 자동으로 렌더링됩니다.
+`$$z^2=\sqrt{x^2+y^2}$$`라고 입력하면, 아래와 같은 **블록 수식**으로 자동으로 렌더링됩니다.
 
 $$z^2 = \sqrt{x^2+y^2}$$
 
-화학식 입력도 마찬가지로 지원됩니다. $\text{\textdollar\textdollar\textbackslash ce\textbraceleft 2H2 + O2 \textendash\textgreater 2H2O\textbraceright\textdollar\textdollar}$을 입력하면,
+화학식 입력도 마찬가지로 지원됩니다. `$$\ce{2H2 + O2 -> 2H2O}$$`를 입력하면,
 
-$$\ce{2 H2 + O2 -> 2 H2O}$$
+$$\ce{2H2 + O2 -> 2H2O}$$
 
 위와 같이 화학식 렌더링이 되는 것을 확인할 수 있습니다.  편집기에서 **Source Mode**를 활성화하면 마크다운 문법 요소들을 렌더링 없이 그대로 보는 것도 가능합니다.
 

@@ -1,4 +1,5 @@
 ---
+translated: true
 title: "자바스크립트로 객관식 문제 만들기"
 category: Programming
 redirect_from:
@@ -11,7 +12,7 @@ tags:
 published: true
 use_math: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-27 16:10:21 +09:00
+last_modified_at: 2024-03-29 15:47:33 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: "Javascript를 이용하여 Github Pages 및 Jekyll 기반 정적 블로그 포스트의 원하는 위치에 사지선다형 객관식 문제를 추가해 봅니다"
@@ -22,7 +23,7 @@ quiz_file: /assets/json/quiz_example.json
 
 [^1]: <https://webdesign.tutsplus.com/multiple-choice-quiz-app-with-javascript--cms-107756t>
 
-{% include multiple-choice-quiz.html quizNum=0 %}
+{% include multiple-choice-quiz.html jsonIdx=0 quizNum=1 %}
 
 포스트의 Front Matter에 문제들이 저장된 `.json` 파일의 위치를 명시합니다.  마크다운으로 포스트를 작성할 때는 Liquid 문법의 `include`를 이용해 원하는 위치에 문제를 배치합니다.
 
@@ -37,12 +38,12 @@ quiz_file: /assets/json/quiz_example.json
 [^2]: <https://blog.sverrirs.com/2016/10/jekyll-passing-post-variables-to-includes.html>
 
 ```html
-{% raw %}{% include multiple-choice-quiz.html quizNum=1 %}{% endraw %}
+{% raw %}{% include multiple-choice-quiz.html jsonIdx=1 quizNum=2 %}{% endraw %}
 ```
 
-위의 Liquid 태그는 브라우저에서 아래와 같이 렌더링됩니다.
+위의 Liquid 태그는 브라우저에서 아래와 같이 렌더링됩니다.  `jsonIdx`는 JSON 파일에 저장된 퀴즈들 중 몇 번째 퀴즈를 표시할지를, `quizNum`은 JSON 파일 내에서의 순서와 무관하게 퀴즈를 렌더링하는 페이지 내에서 표시할 퀴즈 번호를 나타내기 위해 사용된 추가 변수입니다.
 
-{% include multiple-choice-quiz.html quizNum=1 %}
+{% include multiple-choice-quiz.html jsonIdx=1 quizNum=2 %}
 
 JSON 형식을 이용해 문제 정보를 담은 파일을 만들고, HTML 및 CSS로 문제 정보를 표시할 폼을 만들고, Javascript로 사용자 클릭 이벤트를 받아 정답 및 오답에 따른 처리를 구현해야 합니다.  필요한 내용들을 하나씩 살펴보도록 하겠습니다.
 
@@ -67,12 +68,6 @@ JSON 형식을 이용해 문제 정보를 담은 파일을 만들고, HTML 및 C
     "choices": ["피 땀 눈물", "작은 별", "톰과 제리", "마동석"],
     "correct": 1,
     "explanations": ["반짝반짝 <b>피 땀 눈물</b>은 조금 이상한 것 같아요...", "반짝반짝은 <b>작은 별</b>이죠", "반짝반짝 <b>톰과 제리</b>는 조금 이상한 것 같아요...", "반짝반짝 <b>마동석</b>은 조금 이상한 것 같아요..."] 
-  },
-  {
-    "question": "서유기에 등장하지 않는 인물은?",
-    "choices": ["사오정", "저팔계", "손오공", "크리링"],
-    "correct": 3,
-    "explanations": ["", "", "", ""]
   }
 ]
 ```
@@ -85,16 +80,16 @@ JSON 형식을 이용해 문제 정보를 담은 파일을 만들고, HTML 및 C
 
 {% highlight html linenos %}
 <!-- 파일 경로: _include/multiple-choice-quiz.html -->
-{% raw %}{% assign qId = "quiz" | append: include.quizNum %}{% endraw %}
+{% raw %}{% assign qId = "quiz" | append: include.jsonIdx %}{% endraw %}
 <div class="quiz-container" id="{{ qId }}" >
   <div class="quiz">
-  <div class="quiz-title"> Sample Quiz {% raw %}{{ include.quizNum | plus: 1 }}{% endraw %} </div>
+  <div class="quiz-title"> Sample Quiz {% raw %}{{ include.quizNum }}{% endraw %} </div>
     <p class="quiz-text">Quiz Text</p>
     <div class="choices">
-      <button class="choice" onclick="checkAnswer({% raw %}{{ include.quizNum }}{% endraw %}, 0)">1st Option</button>
-      <button class="choice" onclick="checkAnswer({% raw %}{{ include.quizNum }}{% endraw %}, 1)">2nd Option</button>
-      <button class="choice" onclick="checkAnswer({% raw %}{{ include.quizNum }}{% endraw %}, 2)">3rd Option</button>
-      <button class="choice" onclick="checkAnswer({% raw %}{{ include.quizNum }}{% endraw %}, 3)">4th Option</button>
+      <button class="choice" onclick="checkAnswer({% raw %}{{ include.jsonIdx }}{% endraw %}, 0)">1st Option</button>
+      <button class="choice" onclick="checkAnswer({% raw %}{{ include.jsonIdx }}{% endraw %}, 1)">2nd Option</button>
+      <button class="choice" onclick="checkAnswer({% raw %}{{ include.jsonIdx }}{% endraw %}, 2)">3rd Option</button>
+      <button class="choice" onclick="checkAnswer({% raw %}{{ include.jsonIdx }}{% endraw %}, 3)">4th Option</button>
     </div>
     <div class="feedback-container">
       <p class="feedback"></p>
@@ -103,8 +98,8 @@ JSON 형식을 이용해 문제 정보를 담은 파일을 만들고, HTML 및 C
 </div>
 {% endhighlight %}
 
-- 첫 줄의 `assign` Liquid 구문은 퀴즈 UI를 구성하는 각 요소들에 유일한 `id` 태그를 `quiz1`,`quiz2`... 와 같은 꼴로 부여하기 위해 `qId`라는 문자열을 생성합니다.
--  `include.quizNum`은 불러들인 JSON 파일에 여러 퀴즈가 있을 때 어떤 퀴즈의 정보를 사용할지 지정하기 위한 변수입니다.  `include` 문법으로 이 HTML 파일을 불러올 때 `quizNum`이라는 추가 파라미터가 제공될 것을 전제로 사용되었습니다.
+- 첫 줄의 `assign` Liquid 구문은 퀴즈 UI를 구성하는 각 요소들에 유일한 `id` 태그를 `quiz0`,`quiz1`... 와 같은 꼴로 부여하기 위해 `qId`라는 문자열을 생성합니다.
+- {% raw% }{% include %}{% endraw %} 수행 시 넘겨준 추가 파라미터 `jsonIdx`와 `quizNum`은 `include`에 의해 호출되는 html 문서 내에서 `include` 네임스페이스에 존재하게 됩니다.  즉, `include.jsonIdx`및 `include.quizNum`을 참조하여 사용할 수 있습니다.
 
 ### CSS 스타일 작성
 
@@ -188,17 +183,19 @@ async function loadJson() {
 
 {% highlight javascript linenos %}
 function showQuiz() {
-  const quizForms = document.querySelectorAll(".quiz-container");
   loadJson()
   .then((json) => {
-    quizForms.forEach((quizForm, qIdx) => {
-      quizForm.querySelector(".quiz-text").textContent = json[qIdx].question;
-      var quizId = "quiz"+qIdx;
-      var choices = document.getElementById(quizId).querySelectorAll(".choice");
+    for (idx=0; idx<json.length; idx++) {
+      var quizId = "quiz"+idx;
+      var target = document.getElementById(quizId);
+      if (!target) { continue; }
+      var quizForm = target.querySelector(".quiz-container");
+      target.querySelector(".quiz-text").textContent = json[idx].question;
+      var choices = target.querySelectorAll(".choice");
       choices.forEach((choice, cIdx) => {
-        choice.textContent = json[qIdx].choices[cIdx];
+        choice.textContent = json[idx].choices[cIdx];
       });
-    });
+    }
   });
 }
 {% endhighlight %}
@@ -207,21 +204,21 @@ function showQuiz() {
 
 클릭이 발생했을 때 정답 여부를 판정하는 `checkAnswer`함수를 아래와 같이 작성해 줍니다.  앞서 작성한 HTML 파일을 다시 살펴보면, 각 선택지 버튼에 `onclick` 파라미터로 `checkAnswer`의 호출 결과가 바인딩되고 있습니다.
 
-HTML을 작성할 때 최상위 컨테이너인 `quiz_container` 요소에 유일한 id 값을 제공하였었는데, 한 포스트에 여러 퀴즈가 있으면 클릭된 퀴즈가 어떤 퀴즈인지 알아야 하기 때문입니다.  어떤 문제에 클릭이 발생했는지 특정하기 위해 `checkAnswer`는 몇 번째 선택지(selected)가 클릭되었는지 이외에도 몇 번째 문제(quizNum)가 클릭되었는지에 대한 정보를 추가 인자로 받도록 구성되었습니다.
+HTML을 작성할 때 최상위 컨테이너인 `quiz_container` 요소에 유일한 id 값을 제공하였었는데, 한 포스트에 여러 퀴즈가 있으면 클릭된 퀴즈가 어떤 퀴즈인지 알아야 하기 때문입니다.  어떤 문제에 클릭이 발생했는지 특정하기 위해 `checkAnswer`는 몇 번째 선택지(selected)가 클릭되었는지 이외에도 몇 번째 문제(jsonIdx)가 클릭되었는지에 대한 정보를 추가 인자로 받도록 구성되었습니다.
 
 {% highlight javascript linenos %}
-function checkAnswer(quizNum, selected) {
-  var quizId = "quiz"+quizNum;
+function checkAnswer(jsonIdx, selected) {
+  var quizId = "quiz"+jsonIdx;
   var explanation = "";
   const feedback = document
   .getElementById(quizId)
   .querySelector('.feedback');
   loadJson()
   .then((json) => {
-    if (selected === json[quizNum].correct) {
-      feedback.innerHTML = "<b>정답!</b><br>" + json[quizNum].explanations[selected];
+    if (selected === json[jsonIdx].correct) {
+      feedback.innerHTML = "<b>정답!</b><br>" + json[jsonIdx].explanations[selected];
     } else {
-      feedback.innerHTML = "<b>오답!</b><br>" + json[quizNum].explanations[selected];
+      feedback.innerHTML = "<b>오답!</b><br>" + json[jsonIdx].explanations[selected];
     }
   });
 }

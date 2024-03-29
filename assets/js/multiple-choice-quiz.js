@@ -7,56 +7,35 @@ async function loadJson() {
 }
 
 function showQuiz() {
-  const quizForms = document.querySelectorAll(".quiz-container");
   loadJson()
   .then((json) => {
-    quizForms.forEach((quizForm, qIdx) => {
-      quizForm.querySelector(".quiz-text").textContent = json[qIdx].question;
-      var quizId = "quiz"+qIdx;
-      var choices = document.getElementById(quizId).querySelectorAll(".choice");
+    for (idx=0; idx<json.length; idx++) {
+      var quizId = "quiz"+idx;
+      var target = document.getElementById(quizId);
+      if (!target) { continue; }
+      var quizForm = target.querySelector(".quiz-container");
+      target.querySelector(".quiz-text").textContent = json[idx].question;
+      var choices = target.querySelectorAll(".choice");
       choices.forEach((choice, cIdx) => {
-        choice.textContent = json[qIdx].choices[cIdx];
+        choice.textContent = json[idx].choices[cIdx];
       });
-    });
+    }
   });
-  /*
-  const questionText = document.getElementById("question-text");
-  const choices = document.querySelectorAll(".choice");
-  const feedback = document.getElementById("feedback");
-  loadJson()
-  .then((json) => {
-    questionText.textContent = json[currentQuestion].question;
-    choices.forEach((choice, index) => {
-      choice.textContent = json[currentQuestion].choices[index];
-    });
-  });
-  */
 }
 
-function checkAnswer(quizNum, selected) {
-  var quizId = "quiz"+quizNum;
+function checkAnswer(jsonIdx, selected) {
+  var quizId = "quiz"+jsonIdx;
   var explanation = "";
   const feedback = document
   .getElementById(quizId)
   .querySelector('.feedback');
   loadJson()
   .then((json) => {
-    if (selected === json[quizNum].correct) {
-      feedback.innerHTML = "<b>정답!</b><br>" + json[quizNum].explanations[selected];
+    if (selected === json[jsonIdx].correct) {
+      feedback.innerHTML = "<b>" + quiz_pass + "</b><br>" + json[jsonIdx].explanations[selected];
     } else {
-      feedback.innerHTML = "<b>오답!</b><br>" + json[quizNum].explanations[selected];
+      feedback.innerHTML = "<b>" + quiz_fail + "</b><br>" + json[jsonIdx].explanations[selected];
     }
-    /*
-    setTimeout(() =>{
-      currentQuestion++;
-      if (currentQuestion < json.length) {
-        showQuestion();
-      } else {
-        const quizContainer = document.querySelector(".quiz-container");
-        quizContainer.innerHTML = `<p>You got ${correctAnswers} out of ${json.length} questions.</p>`;        
-      }
-    }, 2000);
-    */
   });
 }
 

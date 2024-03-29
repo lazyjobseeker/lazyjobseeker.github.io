@@ -12,9 +12,15 @@
     "explanations": ["반짝반짝 <b>피 땀 눈물</b>은 조금 이상한 것 같아요...", "반짝반짝은 <b>작은 별</b>이죠", "반짝반짝 <b>톰과 제리</b>는 조금 이상한 것 같아요...", "반짝반짝 <b>마동석</b>은 조금 이상한 것 같아요..."] 
   },
   {
-    "question": "서유기에 등장하지 않는 인물은?",
-    "choices": ["사오정", "저팔계", "손오공", "크리링"],
-    "correct": 3,
-    "explanations": ["", "", "", ""]
+    "question": "Who does belong to different category?",
+    "choices": ["Lionel Messi", "Kylian Mbappe", "Patrick Mahomes", "Robin van Persie"],
+    "correct": 2,
+    "explanations": ["", "", "Patrick Mahomes is American football player, while others are soccer players.", ""] 
+  },
+  {
+    "question": "The early bird catches the ______",
+    "choices": ["shark", "worm", "Floyd Mayweather Jr.", "zebra"],
+    "correct": 1,
+    "explanations": ["Maybe some birds could, but...", "", "Maybe some birds could, but...", "Maybe some birds could, but..."] 
   }
 ]
