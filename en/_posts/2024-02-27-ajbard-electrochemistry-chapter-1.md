@@ -2,16 +2,14 @@
 translated: true
 title: "Electrochemistry by A.J.Bard - 3rd Ed Ch. 1"
 category: Electrochemistry
-redirect_from:
-  - /electrochemistry/ajbard-electrochemistry-chapter-1/
 tags:
   - Electrochemistry
-published: false
+published: true
 created_at: 2024-02-27 00:30:11 +09:00
-last_modified_at: 2024-04-02 16:25:40 +09:00
+last_modified_at: 2024-04-02 17:30:48 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-4.png
-excerpt: "Allen J. Bard의 <Electrochemical Methods: Fundamentals and Applications (3rd Ed.)> 챕터 1 정리"
+excerpt: "Summary of the contents of chapter 1 of <Electrochemical Methods: Fundamentals and Applications (3rd Ed.)> by A. J. Bard."
 ---
 
 ## Electrode Process
@@ -79,29 +77,26 @@ $$\ce{Pt/H^+(1 M),Br^-(1 M)/AgBr/Ag}$$
 
 $$\ce{Hg/H^+(1 M),Br^-(1 M)/AgBr/Ag}$$
 
-In above cases, working electrodes are platinum and mercury, respectively.  On the Pt working electrode, hydrogen evolution reaction occurs at 0 V (vs. NHE).  However, 
-에서 발생하지만 수은 작동전극의 경우 훨씬 낮은 전압에서 발생한다.  즉, 수은 작동전극을 사용한 경우에 수소발생반응을 일으키는 데 필요한 전자의 에너지가 훨씬 크다.  이것은 수소발생반응에 대한 속도상수가 수은 전극에서 훨씬 작기 때문이다.
+In above cases, working electrodes are platinum and mercury, respectively.  On the Pt working electrode, hydrogen evolution reaction occurs at 0 V (vs. NHE).  However, if mecury is chosen as working electrode, far lower (negatively larger) potential or far larger electronic energy is required to drive the same reaction.  This is because of the kinetics: reaction rate for hydrogen evolution reaction is much slower with Hg electrode. 
 
-### 전기화학 셀의 개회로전압 (Open Circuit Potential)
+### Open Circuit Potential
 
-**개회로전압** 혹은 **개방회로전압** (Open-Circuit Potential; OCP)은 전기화학 셀의 각 전극이 외부 전도회로로 이어지지 않은 상태에서 셀 양단에 발생하는 전위차를 말한다.
+**Open-Circuit Potential** or **OCP** indicates the potential difference between electrodes in a electrochemical cell when the external conduction path is not applied.
 
-#### 전기화학 셀의 개회로전압 추정
+#### Locating OCP of Electrochemical Cell
 
-- 기본적으로, OCP는 가장 산화되기 쉬운 환원종(reduced form)의 산화 발생하기 시작하는 전위와 가장 환원되기 쉬운 산화종(oxidized form)의 환원이 발생하는 전위 사이에 존재한다.
-- 전해액에 오직 산화종(oxidized form)만 존재하는 경우, OCP는 배경산화전류가 발생하기 시작하는 전위와 가장 환원되기 쉬운 산화종의 환원반응이 시작되는 전위 사이에 존재한다.
-- 전해액에 오직 환원종(reduced form)만 존재하는 경우, OCP는 배경환원전류가 발생하기 시작하는 전위와 가장 산화되기 쉬운 환원종의 산화반응이 시작되는 전위 사이에 존재한다.
+- Basically, OCP is located between the potential at which the easiest-to-be-oxidized species starts to oxidize and the potential at which the easiest-to-be-reduced species starts to reduce.
+- If an electrolyte is comprised only of the oxidized forms, OCP is located between the potential at which the background oxidative current onsets and the potential where the easiest-to-be-reduced species starts to reduce.
+- If an electrolyte is comprised only of the reduced forms, OCP is located between the potential at which the background reductive current onsets and the potential where the easiest-to-be-oxidized species starts to oxidize.
 
-### 패러데이 과정과 비-패러데이 과정
+### Faradaic and Nonfaradaic Process
 
-계면에서의 전하 이동을 수반하는 전극 반응을 **패러데이 과정(Faradaic Process)**, 그렇지 않은 경우 **비패러데이 과정(Nonfaradaic Process)**이라고 한다.
+If an electrode reaction accompanies with charge transfer at interface, the reaction is called **Faradaic Process**.  If not, it is called **Non-Faradaic Process**
 
-### 이상분극전극과 이상비분극전극
+### Ideally Polarizable and Ideally Nonpolarizable Electrodes
 
-실제 패러데이 과정이 발생하는 전위가 열역학적으로 예상되는 평형 전위로부터 벗어나는 것을 **분극(polarization)**이라고 하고, 열역학적 평형 전위와 실제 전극과정 전위 사이의 차이를 **과전위(overpotential)**라고 한다.
+It is called **polarization** if the potential for an electrode reaction deviates from its expected value from themodynamic estimation.  And the extent of such descrepancy is called **overpotential**.  Therefore, if higher polarization level is involved with an electrode, larger overpotential is expected.
 
-즉, 분극이 큰 전극일수록 과전위가 크게 측정된다.
+In such perspective, it is called **Ideally Polarizable Electrode** or **IPE** if an electrode is unlimitedly easy to be polarized.  It means that IPE shows large overpotential even with infinitesimally small amount of reactions proceeding.  On $i$-$E$ plot, graph for IPE has $y = constant$ form.
 
-이러한 관점에서, 분극을 일으키는 것이 무한히 쉬운 전극을 **이상분극전극(Ideally Polarizable Electrode; IPE)**이라고 한다.  즉, IPE는 아주 약간의 전극 반응에도 큰 과전위가 발생하는 전극이다.  $i$-$E$ 곡선을 그려 보면, 아주 약간의 환원전류만 흘러도 (-)방향의 과전위가 크게 발생하고, 아주 약간의 산화전류만 흘러도 (+)방향의 과전위가 크게 발생하기 때문에, 넓은 전위 영역에서 전류가 0인 것처럼 보인다.
-
-반대로, 분극을 일으키는 것이 무한히 어려운 전극을 **이상비분극전극(Ideally Nonpolarizable Electrode; INE)**라고 한다.  이러한 전극은 전극반응에 의한 산화전류 혹은 환원전류의 크기가 아주 커지지 않는 한 평형에서 벗어나지 않는다.  즉, $i$-$E$ 곡선을 그려 보면, 넓은 전류 영역에서 항상 동일한 반응 전위를 유지하는 것처럼 보인다.
+On the other hand, **Ideally Nonpolarizable Electrode** or **INE** is an electrode which is infinitely difficult to deviate from themodynamically expected reaction potential.  Potential of such electrode cannot off from its thermodynamic equilibrium value unless sufficiently huge mass of reactants participate in reaction at once.  This makes $i$-$E$ curve of INE have $x = constant$ form.
