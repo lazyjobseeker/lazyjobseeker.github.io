@@ -7,7 +7,7 @@ tags:
   - Electrochemistry
 published: true
 created_at: 2024-02-27 00:30:11 +09:00
-last_modified_at: 2024-03-27 16:10:30 +09:00
+last_modified_at: 2024-04-02 16:16:54 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-4.png
 excerpt: "Allen J. Bard의 <Electrochemical Methods: Fundamentals and Applications (3rd Ed.)> 챕터 1 정리"
@@ -103,5 +103,3 @@ $$\ce{Hg/H^+(1 M),Br^-(1 M)/AgBr/Ag}$$
 이러한 관점에서, 분극을 일으키는 것이 무한히 쉬운 전극을 **이상분극전극(Ideally Polarizable Electrode; IPE)**이라고 한다.  즉, IPE는 아주 약간의 전극 반응에도 큰 과전위가 발생하는 전극이다.  $i$-$E$ 곡선을 그려 보면, 아주 약간의 환원전류만 흘러도 (-)방향의 과전위가 크게 발생하고, 아주 약간의 산화전류만 흘러도 (+)방향의 과전위가 크게 발생하기 때문에, 넓은 전위 영역에서 전류가 0인 것처럼 보인다.
 
 반대로, 분극을 일으키는 것이 무한히 어려운 전극을 **이상비분극전극(Ideally Nonpolarizable Electrode; INE)**라고 한다.  이러한 전극은 전극반응에 의한 산화전류 혹은 환원전류의 크기가 아주 커지지 않는 한 평형에서 벗어나지 않는다.  즉, $i$-$E$ 곡선을 그려 보면, 넓은 전류 영역에서 항상 동일한 반응 전위를 유지하는 것처럼 보인다.
-
-참고문헌
