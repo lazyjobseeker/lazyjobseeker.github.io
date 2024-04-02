@@ -10,7 +10,7 @@ tags:
   - "Github Blog"
 published: true
 created_at: 2024-02-28 10:25:00 +09:00
-last_modified_at: 2024-04-02 15:21:23 +09:00
+last_modified_at: 2024-04-02 05:01:58 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: "Github Pages와 Jekyll 기반으로 작성된 블로그를 스마트폰 및 태블릿 등 모바일 환경에서 Git을 이용해 형상관리하고 로컬 빌드 산출물을 확인하는 방법을 정리합니다"
@@ -69,9 +69,9 @@ git config --global user.email 'honggildong@example.com'
 	
       ```
       Host github.com
-        IdentifyFile ~/.ssh/id_ed25519
+        IdentityFile ~/.ssh/id_ed25519
         User git
-        PreferredAuthentifications publickey
+        PreferredAuthentications publickey
         Hostname ssh.github.com
         Port 443
         TCPKeepAlive yes
