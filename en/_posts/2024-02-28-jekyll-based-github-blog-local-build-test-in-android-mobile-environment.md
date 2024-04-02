@@ -8,7 +8,7 @@ tags:
   - "Github Blog"
 published: false
 created_at: 2024-02-28 10:25:00 +09:00
-last_modified_at: 2024-04-02 11:17:51 +09:00
+last_modified_at: 2024-04-02 12:37:25 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: "How to use Git with Android mobile devices to maintain Jekyll-based static blog hosted by Github Pages."
@@ -44,20 +44,20 @@ You can install `Git` from your Termux terminal.
 pkg install git
 ```
 
-
-
-태블릿에서 사용할 git 유저네임 및 이메일 주소를 설정합니다.
+Then, you can set default git username and email address to be used in mobile device.
 
 ```bash
-git config --global user.name 'Hong Gil Dong'
-git config --global user.email 'honggildong@example.com'
+git config --global user.name 'John Doe'
+git config --global user.email 'johndoe@example.com'
 ```
 
-### SSH Key 생성 및 Github 레포지토리에 등록
+### 4. SSH Settings
 
-이 작업은 진행하지 않아도 상관 없지만, 레포지토리를 클론하기 전에 진행해 두는 편이 좋습니다.
+There are two differenty ways to clone remote repository to your local mobile device.  You can provide https based repository address to clone it and in that case this step is not required.  But https-cloning will necessiate you to provide github username and password every time you push your changes to remote, which couldn't be ommitted or automated in my case.
 
-- Termux 터미널에서 현재 모바일 기기의 SSH 키를 생성 ([참고](https://www.lainyzine.com/ko/article/creating-ssh-key-for-github/))
+You can evade from the tedius username/password inputs by following processes below and cloning your repository with ssh manner.
+
+- Create SSH key for current mobile device ([Reference](https://www.lainyzine.com/ko/article/creating-ssh-key-for-github/))
 
   ```bash
   #openssh 패키지 설치
