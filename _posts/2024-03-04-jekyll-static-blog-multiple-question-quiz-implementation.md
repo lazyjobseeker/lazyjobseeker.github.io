@@ -12,7 +12,7 @@ tags:
 published: true
 use_math: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-29 16:21:18 +09:00
+last_modified_at: 2024-04-02 15:53:57 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: "Javascript를 이용하여 Github Pages 및 Jekyll 기반 정적 블로그 포스트의 원하는 위치에 사지선다형 객관식 문제를 추가해 봅니다"
@@ -49,7 +49,7 @@ JSON 형식을 이용해 문제 정보를 담은 파일을 만들고, HTML 및 C
 
 작성될 스크립트들의 위치는 Jekyll 테마 Minimal Mistakes를 기준으로 설명합니다.
 
-## 문제 만들기 (JSON)
+## 1. 문제 만들기 (JSON)
 
 문제는 `.json` 형식으로, `/assets` 폴더에 `/json` 하위 폴더를 추가하여 저장해 주었습니다.  파일은 하나의 JSON 배열을 포함하고 있으며 배열의 원소들은 질문(question), 선택지(choices), 정답(correct), 각 선택지를 클릭하면 보여질 설명(explanations)으로 구성된 JSON 데이터들입니다.
 
@@ -72,9 +72,9 @@ JSON 형식을 이용해 문제 정보를 담은 파일을 만들고, HTML 및 C
 ]
 ```
 
-## UI 작성 및 스타일링 (HTML + CSS)
+## 2. UI 작성 및 스타일링 (HTML + CSS)
 
-### HTML 프레임 작성 
+### 2.1. HTML 프레임 작성 
 
 이제 브라우저에서 문제와 선택지를 보여줄 UI의 뼈대를 HTML로 작성해 줍니다.
 
@@ -101,7 +101,7 @@ JSON 형식을 이용해 문제 정보를 담은 파일을 만들고, HTML 및 C
 - 첫 줄의 `assign` Liquid 구문은 퀴즈 UI를 구성하는 각 요소들에 유일한 `id` 태그를 `quiz0`,`quiz1`... 와 같은 꼴로 부여하기 위해 `qId`라는 문자열을 생성합니다.
 - {% raw %}{% include %}{% endraw %} 수행 시 넘겨준 추가 파라미터 `jsonIdx`와 `quizNum`은 `include`에 의해 호출되는 html 문서 내에서 `include` 네임스페이스에 존재하게 됩니다.  즉, `include.jsonIdx`및 `include.quizNum`을 참조하여 사용할 수 있습니다.
 
-### CSS 스타일 작성
+### 2.2. CSS 스타일 작성
 
 {% highlight css linenos %}
 /* 파일 경로: _sass/custom/quiz.sass */
@@ -159,11 +159,11 @@ JSON 형식을 이용해 문제 정보를 담은 파일을 만들고, HTML 및 C
 @import "custom/quiz";
 ```
 
-## 문제 불러오고 정답 처리하기 (Javascript)
+## 3. 문제 불러오고 정답 처리하기 (Javascript)
 
 이제 문제를 불러들이고, UI에 표시하고, 마우스 클릭 입력을 처리할 자바스크립트 파일(`.js`)이 필요합니다.  `/assets/js/multiple-choice-quiz.js`파일을 만들고 아래와 같이 작성하도록 하겠습니다.
 
-### JSON 파일 읽기
+### 3.1. JSON 파일 읽기
 
 JSON 파일을 읽기 위해, `fetch` 함수를 사용하여`loadJson()` 사용자 정의 함수를 아래와 같이 작성했습니다.
 
@@ -177,7 +177,7 @@ async function loadJson() {
 **주의!** 읽어들일 JSON 파일의 경로를 나타내는 `jsonpath` 변수는 **선언 없이** 사용되었습니다.  `jsonpath` 자리에 실제 파일 경로인 `/assets/json/example_quiz.json`를 사용할 수도 있지만, 그렇게 하면 필요에 따라 서로 다른 문제 세트 (다른 json 파일)을 사용하기가 어렵기 때문에, 아직 정의하지 않은 변수 `jsonpath`를 설정해 두었습니다.
 {: .notice--danger}
 
-### 문제 불러오기
+### 3.2. 문제 불러오기
 
 이제 읽어들인 JSON 파일을 참조하여 문제 및 선택지에 해당하는 HTML 요소의 텍스트들을 변경해 주는 `showQuiz()` 함수를 작성합니다.
 
@@ -200,7 +200,7 @@ function showQuiz() {
 }
 {% endhighlight %}
 
-### 정답 처리하기
+### 3.3. 정답 처리하기
 
 클릭이 발생했을 때 정답 여부를 판정하는 `checkAnswer`함수를 아래와 같이 작성해 줍니다.  앞서 작성한 HTML 파일을 다시 살펴보면, 각 선택지 버튼에 `onclick` 파라미터로 `checkAnswer`의 호출 결과가 바인딩되고 있습니다.
 
@@ -230,7 +230,7 @@ function checkAnswer(jsonIdx, selected) {
 showQuiz();
 {% endhighlight %}
 
-### &lt;src&gt; 태그로 .js 파일 포함하기
+### 3.4. &lt;src&gt; 태그로 .js 파일 포함하기
 
 작성된 `.js` 파일은 페이지 빌드 과정의 어딘가에서 &lt;src&gt; 태그에 의해 포함되지 않으면 작동하지 않습니다.  저는 커스텀 헤더 (`_includes/head/custom.html`) 및 푸터 파일 (`_includes/footer/custom.html`)에 아래 내용을 추가했습니다.
 

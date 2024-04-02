@@ -10,7 +10,7 @@ tags:
 published: true
 use_math: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-29 16:06:53 +09:00
+last_modified_at: 2024-04-02 15:53:08 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: "How to embed 4-choices quiz inside blog post generated using Jekyll."
@@ -55,7 +55,7 @@ To implement this, three items are needed.  All the implementations are based on
   2. HTML + CSS files defining quiz UI.
   3. JavaScript files handling user click event and responsively altering html content based on the given answer(click) is correct or not.
 
-## Create JSON File with Quizzes
+## 1. Create JSON File with Quizzes
 
 First of all, we need a problem set to be used.  I prepared `example_quiz.json` file under `/assets/json/`.  This file contains a JSON array, each element of which consists of below keys and values:
 
@@ -81,9 +81,9 @@ First of all, we need a problem set to be used.  I prepared `example_quiz.json` 
 ]
 ```
 
-## UI Design and Styling (HTML + CSS)
+## 2. UI Design and Styling (HTML + CSS)
 
-### Write HTML Form
+### 2.1. Write HTML Form
 
 Now we need UI frames where question and text choices will be displayed.
 
@@ -110,7 +110,7 @@ Now we need UI frames where question and text choices will be displayed.
 - First line in liquid syntax creates `qId` characters.  This is to provide `quiz-container` div elements unique IDs.  These unique IDs are formatted like `quiz0`, `quiz1`...
 - `jsonIdx` and `quizNum` variables are available under namespace `include`.  So, `include.jsonIdx` and `include.quizNum` are available without definition inside `multiple-choice-quiz.html`, as long as the `include` tag passes those two parameters as I did above.
 
-### CSS Styling
+### 2.2. CSS Styling
 
 {% highlight css linenos %}
 /* File path: _sass/custom/quiz.sass */
@@ -168,11 +168,11 @@ After completed, above sass file needs to be imported to **main CSS** (/assets/c
 @import "custom/quiz";
 ```
 
-## Displaying Quizzes and Handling Answers (Javascript)
+## 3. Displaying Quizzes and Handling Answers (Javascript)
 
 Now we need JavaScript file (`js`) which will throw quiz texts to proper places and handle user input to check whether correct answer is clicked or not.  I created `/assets/js/multiple-choice-quiz.js` file and implemented some features.
 
-### Loading JSON File
+### 3.1. Loading JSON File
 
 `fetch` function is used to define `loadJson()` custom function.
 
@@ -186,7 +186,7 @@ async function loadJson() {
 **Warning!** Please note that a variable `jsonpath`, which is to designate the path of target JSON file to read is used **without declaration**.  By this I could change the JSON file I refer my quizzes from, rather than relying on a single file.  But the variable `jsonpath` should be defined elsewhere, which I will explain further.
 {: .notice--danger}
 
-### Display Quiz Texts
+### 3.2. Display Quiz Texts
 
 With `loadJson` custom function now I am ready to define another function `showQuiz()`, which is to modify text elements of our quiz frame (`multiple-choice-quiz.html`) to corresponding ones read from quiz object.
 
@@ -211,7 +211,7 @@ function showQuiz() {
 
 This function loops the JSON array read from my JSON-formatted quiz file.  As I designed `multiple-choice-quiz.html` so that there is unique `quiz#` style id, I can check in the loop whether current JSON object will be used in current page or not.
 
-### Handle User Click Event and Check Answer
+### 3.3. Handle User Click Event and Check Answer
 
 Finally, I defined `checkAnswer()` function to handle the event where user clicks one of the multiple choices and responsibly display whether the given answer is correct or not.  Please not that this function is used in `multiple-choice-quiz.html`, bound to `onclick` paramemter of button elements.
 
@@ -241,7 +241,7 @@ Finally everything is over in JavaScript side.  But I need to execute `showQuiz`
 showQuiz();
 {% endhighlight %}
 
-### Modify Header and Footer
+### 3.4. Modify Header and Footer
 
 After I had completed the `.js` file implementing all above features, there remained only two steps more: 1) including finished `.js` file and 2) define some variables I used without defining it.  To do this, I changed custom header file (`_includes/head/custom.html`) and custom footer file (`_includes/footer/custom.html`).
 
