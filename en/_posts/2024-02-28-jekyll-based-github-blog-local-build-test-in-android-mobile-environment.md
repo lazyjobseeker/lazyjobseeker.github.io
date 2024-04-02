@@ -1,46 +1,50 @@
 ---
-title: "How to Maintain Your Github 모바일 환경에서 깃허브 블로그 관리하기"
+translated: false
+title: "How to Maintain Your Github Blog from Mobile Devices"
 category: Programming
-redirect_from:
-  - /programming/jekyll-based-github-blog-local-build-test-in-android-mobile-environment/
 tags:
   - Jekyll
   - Ruby
   - "Github Blog"
 published: false
 created_at: 2024-02-28 10:25:00 +09:00
-last_modified_at: 2024-03-29 17:09:29 +09:00
+last_modified_at: 2024-04-02 11:17:51 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-5.png
-excerpt: "Github Pages와 Jekyll 기반으로 작성된 블로그를 스마트폰 및 태블릿 등 모바일 환경에서 Git을 이용해 형상관리하고 로컬 빌드 산출물을 확인하는 방법을 정리합니다"
+excerpt: "How to use Git with Android mobile devices to maintain Jekyll-based static blog hosted by Github Pages."
 ---
 
-Ruby와 Jekyll을 설치하면 로컬 PC 환경에서 서버를 구동하여 깃허브 블로그가 어떻게 렌더링될지 확인할 수 있습니다.  이런 환경을 노트 PC에 구축해 둔다면 어디서든 자유롭게 포스트를 수정하고 레포지토리에 push할 수 있겠지만, 여의치 않다면 태블릿이나 스마트폰 등 모바일 환경을 활용하고 싶다는 생각이 들 수 있습니다.  안드로이드 태블릿(갤럭시 노트 10+ 및 갤럭시 탭 7 FE)에서 Jekyll 정적 블로그를 로컬 빌드하기 위해 필요했던 내용들을 아래에 정리합니다.
+If you have your own static blog hosted via Github Pages, which is built based on Jekyll, you can test your blog with your local PC by installing Ruby and Jekyll.  You can also maintain your repository if you install Git.  You can do all these things outside if you establish the same enviroment with your laptop.
 
-## F-Droid 앱 스토어 및 Termux 설치
+But, how can we do the same thing with Android mobile devices - smartphones and tablets?  I have struggled to setup my static blog maintenance environment with my Android devices (Galaxy Note 10+ and Galaxy Tab 7 FE).  I finally made it and would like to share some tips to save your time.
 
-모바일 환경에서 리눅스 터미널을 이용하기 위해 `Termux`를 설치해야 합니다.  Termux는 구글 플레이스토어에서도 검색할 수 있는 어플리케이션이지만, 이것을 다운로드하면 안 되고 `F-Droid`라는 오픈소스 어플리케이션 스토어에서 다운로드해야 합니다.
+## 1. Install F-Droid App Store and Termux
 
-- F-Droid 설치 ([다운로드 페이지](https://f-droid.org))
-- F-Droid를 실행하고 Termux를 검색하여, **Termux Terminal emulator with packages**를 설치
+Firstly I installed `Termux` to use Linux terminal in mobile environemnt.  I had to download this from an open-source appstore `F-Droid`, rather than from Google Play Store.
 
-## Termux 설정
+- Install F-Droid ([Download Page](https://f-droid.org))
+- Excute F-Droid and search for Termux.
+- Install **Termux Terminal emulator with packages**
 
-Termux를 실행하고, 아래 명령으로 Termux가 태블릿의 로컬 저장소에 대한 접근 권한을 갖도록 해 줍니다.
+## 2. Setup Termux
+
+Now you can excute Termux and see emulated Linux terminal on your mobile device.  First of all, ensure your Termux to have access to local storage of your device.
 
 ```bash
 termux-setup-storage
 ```
 
-## git 설치 및 설정
+## 3. Git
 
-### git 설치 및 설정
+### 3.1. Install and Setup Git
 
-Termux 터미널에서 git을 설치합니다.
+You can install `Git` from your Termux terminal.
 
 ```bash
 pkg install git
 ```
+
+
 
 태블릿에서 사용할 git 유저네임 및 이메일 주소를 설정합니다.
 

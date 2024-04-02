@@ -1,4 +1,5 @@
 ---
+translated: false
 title: "모바일 환경에서 깃허브 블로그 관리하기"
 category: Programming
 redirect_from:
@@ -9,7 +10,7 @@ tags:
   - "Github Blog"
 published: true
 created_at: 2024-02-28 10:25:00 +09:00
-last_modified_at: 2024-03-29 16:35:16 +09:00
+last_modified_at: 2024-04-02 11:18:01 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: "Github Pages와 Jekyll 기반으로 작성된 블로그를 스마트폰 및 태블릿 등 모바일 환경에서 Git을 이용해 형상관리하고 로컬 빌드 산출물을 확인하는 방법을 정리합니다"
@@ -17,14 +18,14 @@ excerpt: "Github Pages와 Jekyll 기반으로 작성된 블로그를 스마트�
 
 Ruby와 Jekyll을 설치하면 로컬 PC 환경에서 서버를 구동하여 깃허브 블로그가 어떻게 렌더링될지 확인할 수 있습니다.  이런 환경을 노트 PC에 구축해 둔다면 어디서든 자유롭게 포스트를 수정하고 레포지토리에 push할 수 있겠지만, 여의치 않다면 태블릿이나 스마트폰 등 모바일 환경을 활용하고 싶다는 생각이 들 수 있습니다.  안드로이드 태블릿(갤럭시 노트 10+ 및 갤럭시 탭 7 FE)에서 Jekyll 정적 블로그를 로컬 빌드하기 위해 필요했던 내용들을 아래에 정리합니다.
 
-## F-Droid 앱 스토어 및 Termux 설치
+## 1. F-Droid 앱 스토어 및 Termux 설치
 
 모바일 환경에서 리눅스 터미널을 이용하기 위해 `Termux`를 설치해야 합니다.  Termux는 구글 플레이스토어에서도 검색할 수 있는 어플리케이션이지만, 이것을 다운로드하면 안 되고 `F-Droid`라는 오픈소스 어플리케이션 스토어에서 다운로드해야 합니다.
 
 - F-Droid 설치 ([다운로드 페이지](https://f-droid.org))
 - F-Droid를 실행하고 Termux를 검색하여, **Termux Terminal emulator with packages**를 설치
 
-## Termux 설정
+## 2. Termux 설정
 
 Termux를 실행하고, 아래 명령으로 Termux가 태블릿의 로컬 저장소에 대한 접근 권한을 갖도록 해 줍니다.
 
@@ -32,9 +33,9 @@ Termux를 실행하고, 아래 명령으로 Termux가 태블릿의 로컬 저장
 termux-setup-storage
 ```
 
-## git 설치 및 설정
+## 3. git 설치 및 설정
 
-### git 설치 및 설정
+### 3.1. git 설치 및 설정
 
 Termux 터미널에서 git을 설치합니다.
 
@@ -49,7 +50,7 @@ git config --global user.name 'Hong Gil Dong'
 git config --global user.email 'honggildong@example.com'
 ```
 
-### SSH Key 생성 및 Github 레포지토리에 등록
+### 3.2. SSH Key 생성 및 Github 레포지토리에 등록
 
 이 작업은 진행하지 않아도 상관 없지만, 레포지토리를 클론하기 전에 진행해 두는 편이 좋습니다.
 
@@ -71,7 +72,7 @@ git config --global user.email 'honggildong@example.com'
 
 Termux 터미널에서 Git을 이용하여 변경사항을 푸시하려고 할 때 깃허브 아이디와 비밀번호를 묻는 절차가 있는데, 이 과정을 설정 파일 등으로 만들어 놓고 생략할 수 있는 방법이 없는 것 같습니다.  위 과정을 진행한 뒤 레포지토리를 클론해 오면 변경사항을 푸시할 때 자격 증명 과정을 생략할 수 있습니다.
 
-### 레포지토리 클론(clone)
+### 3.3. 레포지토리 클론(clone)
 
 - `mkdir` 커맨드로 로컬 저장소에 적당한 디렉토리를 만듭니다.
 - `cd` 커맨드를 이용해 위에서 만든 디렉토리로 이동합니다.
@@ -83,7 +84,7 @@ Termux 터미널에서 Git을 이용하여 변경사항을 푸시하려고 할 �
   git clone https://github.com/lazyjobseeker/lazyjobseeker.github.io.git
   ```
 
-## Ruby 설치
+## 4. Ruby 설치
 
 Ruby를 설치합니다.
 
@@ -91,7 +92,7 @@ Ruby를 설치합니다.
 pkg install ruby
 ```
 
-## 모바일 로컬에서 서버 구동하기
+## 5. 모바일 로컬에서 서버 구동하기
 
 여기까지 완료되었다면 거의 모든 준비가 끝났습니다.  클론된 리포지토리의 로컬 저장소로 이동한 다음, 의존성이 있는 `gem`들을 설치하기 위해 `bundle install`을 한 번 실행해 줍니다.  Jekyll을 별도로 설치하지 않았지만, 제가 사용하고 있는 **Minimal Mistakes** 테마의 경우 Jekyll에 대한 의존성을 이미 선언하고 있기 때문에 굳이 Jekyll을 먼저 설치하지 않아도 상관이 없었습니다.
 
@@ -120,11 +121,11 @@ Configuration file: /storage/emulated/0/repos/lazyjobseeker.github.io/_config.ym
 bundle exec jekyll serve --baseurl ''
 ```
 
-## 문제 해결
+## 6. 문제 해결
 
 여기까지의 과정이 아무 문제 없이 진행되었을 수도 있지만, 문제가 발생할 수도 있습니다.  제가 겪었던 문제점 및 해결 방법들은 아래와 같습니다.
 
-### nokogiri 설치 불가
+### 6.1. nokogiri 설치 불가
 
 `nokogiri`는 Ruby에서 XML과 HTML을 다루기 용이하게 하는 API들을 제공하는 라이브러리입니다.  `bundle install`로 의존성 gem들을 설치하는 과정에서, 다른 모든 gem들은 문제없이 설치가 가능한데 nokogiri는 설치에 실패했다는 메시지와 함께 진행이 불가능한 문제가 있었습니다.
 
@@ -153,7 +154,7 @@ gem install pkg-config
 gem install nokogiri --platform=ruby -- --use-system-libraries
 ```
 
-### bundle exec jekyll serve 실행 시 권한 없음
+### 6.2. bundle exec jekyll serve 실행 시 권한 없음
 
 위 문제를 해결하여 모든 gem들을 설치한 후, `bundle exec jekyll serve`로 로컬 서버를 구동하려고 하자, 아래와 같은 오류가 발생하며 진행이 되지 않았습니다.
 
@@ -200,7 +201,7 @@ bundle show jekyll
 
 위와 같이 특정할 수 있었습니다.  이 문제는 제가 가지고 있는 스마트폰과 태블릿에서 모두 발생했고, 위 조치로 동일하게 해결 되었습니다.
 
-## 깃허브 블로그 리포지토리의 로컬 저장소를 Obsidian vault로 연동
+## 7. 깃허브 블로그 리포지토리의 로컬 저장소를 Obsidian vault로 연동
 
 원래 태블릿에서는 포스트 수정과 git 작업을 동시에 하기 위해 파일 수정 기능과 함께 git의 일부 기능을 기본적으로 지원하는 **스펙 에디터(spck editor)**를 사용하고 있었습니다.  스펙 에디터의 마크다운 편집 및 프리뷰 기능은 **옵시디언**에 비하면 아쉽지만, git 기능을 사용할 수 있는 장점 때문에 사용해 왔습니다.
 
