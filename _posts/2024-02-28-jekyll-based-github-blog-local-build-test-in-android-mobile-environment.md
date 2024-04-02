@@ -10,7 +10,7 @@ tags:
   - "Github Blog"
 published: true
 created_at: 2024-02-28 10:25:00 +09:00
-last_modified_at: 2024-04-02 14:55:45 +09:00
+last_modified_at: 2024-04-02 15:21:23 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: "Github Pages와 Jekyll 기반으로 작성된 블로그를 스마트폰 및 태블릿 등 모바일 환경에서 Git을 이용해 형상관리하고 로컬 빌드 산출물을 확인하는 방법을 정리합니다"
@@ -52,7 +52,7 @@ git config --global user.email 'honggildong@example.com'
 
 ### 3.2. SSH Key 생성 및 Github 레포지토리에 등록
 
-이 작업은 진행하지 않아도 상관 없지만, 레포지토리를 클론하기 전에 진행해 두는 편이 좋습니다.
+깃허브 원격 저장소를 클론하기 위해 HTTPS 주소 방식이나 SSH 주소 방식을 사용할 수 있습니다.  HTTPS 주소 방식을 사용하기로 하면 이 과정은 진행할 필요가 없지만, 변경사항을 원격 저장소에 푸시할 때마다 깃허브 사용자 이름과 비밀번호를 매번 입력해 주어야 합니다.  SSH 방식을 사용하면 터미널에서 최초 1회 SSH 연결을 진행할 때를 제외하면 별도의 자격증명 없이 변경 사항을 계속 푸시할 수 있어 편리합니다.
 
 - Termux 터미널에서 현재 모바일 기기의 SSH 키를 생성 ([참고](https://www.lainyzine.com/ko/article/creating-ssh-key-for-github/))
 
@@ -64,25 +64,51 @@ git config --global user.email 'honggildong@example.com'
   #cat 명령으로 출력되는 키 값을 Ctrl+C로 복사
   ```
 
+- `./ssh/config` 파일 설정
+	- `./ssh/config` 파일을 생성하거나 아래 내용이 포함되도록 수정합니다.
+	
+      ```
+      Host github.com
+        IdentifyFile ~/.ssh/id_ed25519
+        User git
+        PreferredAuthentifications publickey
+        Hostname ssh.github.com
+        Port 443
+        TCPKeepAlive yes
+        IdentitiesOnly yes
+      ```
 - 생성된 SSH 키를 클론해 올 레포지토리에 등록 ([참고](https://www.lainyzine.com/ko/article/creating-ssh-key-for-github/))
 	- Github 사이트로 이동
 	- 우상단의 프로필을 클릭하여 드롭다운 메뉴에서 Settings로 이동
 	- SSH and GPG Keys 메뉴로 이동
 	- New SSH Key 버튼 클릭하고 앞에서 복사한 SSH 키 붙여넣기
+- 깃허브 서버에 SSH로 접근 가능한지 확인합니다.  활성 터미널에서 최초 1회 실행하고 yes를 입력해 주면 SSH 연결로 리포지토리 클론 및 변경사항 푸시 등을 자격증명 없이 수행할 수 있습니다.
 
-Termux 터미널에서 Git을 이용하여 변경사항을 푸시하려고 할 때 깃허브 아이디와 비밀번호를 묻는 절차가 있는데, 이 과정을 설정 파일 등으로 만들어 놓고 생략할 수 있는 방법이 없는 것 같습니다.  위 과정을 진행한 뒤 레포지토리를 클론해 오면 변경사항을 푸시할 때 자격 증명 과정을 생략할 수 있습니다.
+   ```bash
+   ~/.ssh $ ssh -T git@github.com
+   The authenticity of host '[ssh.github.com]:443 ([20.200.245.248]:443)' cannot be established.
+   ED25519 key fingerprint is SHA256:xxx.
+   This key is not known by any other names.
+   Are you sure you want to continue connecting (yes/no/[fingerprint])?
+   ```
 
 ### 3.3. 레포지토리 클론(clone)
 
 - `mkdir` 커맨드로 로컬 저장소에 적당한 디렉토리를 만듭니다.
 - `cd` 커맨드를 이용해 위에서 만든 디렉토리로 이동합니다.
 - `git clone` 커맨드를 이용해 레포지토리를 클론합니다.
-
-  ```bash
-  mkdir ~/storage/shared/repos
-  cd ~/storage/shared/repos
-  git clone https://github.com/lazyjobseeker/lazyjobseeker.github.io.git
-  ```
+	- HTTPS 방식으로 클론하는 경우
+     ```bash
+     mkdir ~/storage/shared/repos
+     cd ~/storage/shared/repos
+     git clone https://github.com/lazyjobseeker/lazyjobseeker.github.io.git
+     ```
+	- SSH 방식으로 클론하는 경우
+     ```bash
+     mkdir ~/storage/shared/repos
+     cd ~/storage/shared/repos
+     git clone git@github.com:lazyjobseeker/lazyjobseeker.github.io.git
+     ```
 
 ## 4. Ruby 설치
 
