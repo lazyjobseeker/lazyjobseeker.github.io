@@ -6,7 +6,7 @@ tags:
   - python
 published: true
 created_at: 2023-12-04 12:00:02 +09:00
-last_modified_at: 2024-04-03 16:14:03 +09:00
+last_modified_at: 2024-04-03 16:15:05 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-7.png
 excerpt: "How to use chmod and chwon commands for modifying file permissions and owners."
@@ -69,11 +69,11 @@ adb shell ls -l a.txt
 -rwxrwxrwx 1 system install 2023-12-04 15:55 a.txt
 ```
 
-{% include multiple-choice-quiz.html jsonIdx=0 quizNum=1 %}
+{% include multiple-choice-quiz.html jsonIdx=1 quizNum=1 %}
 
 ## 2. chown
 
-`chown` command is used to reassign owner/group for some file/directory.  It is an abbreviation for **ch**ange-**own**er를 축약한 것입니다.
+`chown` command is used to reassign owner/group for some file/directory.  It is an abbreviation for **ch**ange-**own**er.
 
 Syntax is **adb chown [new owner]:[new group] [target filename]**.
 
