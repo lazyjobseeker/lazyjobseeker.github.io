@@ -1,4 +1,5 @@
 ---
+translated: true
 title: "adb shell의 chmod, chown 명령어"
 category: Programming
 redirect_from:
@@ -7,7 +8,7 @@ tags:
   - python
 published: true
 created_at: 2023-12-04 12:00:02 +09:00
-last_modified_at: 2024-03-29 06:49:32 +09:00
+last_modified_at: 2024-04-03 15:00:28 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-7.png
 excerpt: "adb shell 환경에서 파일 권한과 소유자를 변경하는 chmod 명령어와 chown 명령어를 사용해 봅니다"
