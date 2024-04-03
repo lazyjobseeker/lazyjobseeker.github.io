@@ -1,4 +1,5 @@
 ---
+translated: true
 title: "pickle 관련 오류 조치 방법"
 category: Programming
 redirect_from:
@@ -8,7 +9,7 @@ tags:
   - pickle
 published: true
 created_at: 2023-12-05 13:35:24 +09:00
-last_modified_at: 2024-03-27 16:10:43 +09:00
+last_modified_at: 2024-04-03 13:15:22 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-1.png
 excerpt: "python의 직렬화 모듈 pickle 사용 시 ModuleNotFoundError가 발생하는 경우 해결 방법"
@@ -74,10 +75,10 @@ package
  ├─ dog.py
  ├─ dogpickler.py
  ├─ dogunpickler.py
- └─ pickled_dog
+ └─ pickled-dog
 ```
 
-그리고 **dogunpickler.py**에서는, Dog 클래스를 임포트하여 인스턴스 my_dog을 생성하는 대신, pickle 모듈을 이용해 pickled_dog을 로드하여 짖도록 만들어 줍니다.
+그리고 **dogunpickler.py**에서는, Dog 클래스를 임포트하여 인스턴스 my_dog을 생성하는 대신, pickle 모듈을 이용해 pickled-dog을 로드하여 짖도록 만들어 줍니다.
 
 ```python
 import pickle
@@ -106,7 +107,7 @@ package
  ├─ animal.py # dog -> animal로 변경
  ├─ dogpickler.py
  ├─ dogunpickler.py
- └─ pickled_dog
+ └─ pickled-dog
  
 # dogunpickler 실행 시:
 >>>ModuleNotFoundError: No module named 'dog'
@@ -163,7 +164,7 @@ class Dog:
 >>>Waloo!
 ```
 
-심지어 `bark_sound` 인스턴스 변수의 이름 자체를 바꾼 경우라도, `pickle.load`를 실행하려고 할 때 ModuleNotFoundError가 발생하지는 않습니다. 하지만 `pickle.load`를 통해 로드된 my_dog 객체는 인스턴스 변수 my_dog.sound를 갖지 않습니다. my_dog은 Dog 클래스가 `bark_sound` 인스턴스 변수를 가질 때 생성되었기 때문입니다.
+심지어 `bark_sound` 인스턴스 변수의 이름 자체를 바꾼 경우라도, `pickle.load`를 실행하려고 할 때 ModuleNotFoundError가 발생하지는 않습니다. 예를 들어, `dog.py`에서 `bark_sound`의 이름을 `barkSound`로 고쳐도 됩니다.  하지만 `pickle.load`를 통해 로드된 my_dog 객체는 인스턴스 변수 `my_dog.barkSound`를 갖지 않습니다. my_dog은 Dog 클래스가 `bark_sound` 인스턴스 변수를 가질 때 생성되었기 때문입니다.
 
 #### 인스턴스 변수를 추가한 경우
 
