@@ -27,7 +27,7 @@ classes: wide
 {% for post in site.posts %}
   {% if post.lang and post.lang == page.lang %}
     {% assign total_page_counter = total_page_counter | plus: 1 %}
-    {% if total_page_counter == paginate %}
+    {% if total_page_counter > paginate %}
       {% assign total_pages = total_pages | plus: 1 %}
       {% assign total_page_counter = 0 %}
     {% endif %}

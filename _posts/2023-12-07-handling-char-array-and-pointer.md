@@ -1,4 +1,5 @@
 ---
+translated: true
 title: char array들을 원소로 갖는 vector 만들기
 category: Programming
 tags:
@@ -7,7 +8,7 @@ redirect_from:
   - /programming/231207-handling-char-array-and-pointer/
 published: true
 created_at: 2023-12-05 13:35:24 +09:00
-last_modified_at: 2024-03-27 16:10:38 +09:00
+last_modified_at: 2024-04-03 08:59:49 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-2.png
 excerpt: C++에서 vector에 char array들을 저장하는 방법을 알아 봅니다
@@ -40,7 +41,7 @@ v.push_back(test);
 
 그리고 아래 답변이 가장 많은 vote를 받은 답변입니다:
 
-*"배열을 벡터에 저장하는 것은 불가능합니다 (벡터가 아니라 어떤 표준 컨테이너 라이브러리도 마찬가지입니다). 컨테이너에 담을 수 있는 요소는 copiable과 assignable의 두 가지 성질을 가져야 하는데 배열은 이 두 가지 중 어느 것도 만족하지 않습니다"*
+> *"배열을 벡터에 저장하는 것은 불가능합니다 (벡터가 아니라 어떤 표준 컨테이너 라이브러리도 마찬가지입니다). 컨테이너에 담을 수 있는 요소는 copiable과 assignable의 두 가지 성질을 가져야 하는데 배열은 이 두 가지 중 어느 것도 만족하지 않습니다"*
 
 ### vector<char []>는 정의할 수 없다
 
