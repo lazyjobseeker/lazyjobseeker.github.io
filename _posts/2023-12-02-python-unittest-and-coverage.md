@@ -1,4 +1,5 @@
 ---
+translated: true
 title: "unittest와 coverage로 코드 테스트하기"
 redirect_from:
   - /programming/231202-python-unitttest-and-coverage/
@@ -7,7 +8,7 @@ tags:
   - python
 published: true
 created_at: 2023-12-01 13:45:54 +09:00
-last_modified_at: 2024-03-27 16:11:02 +09:00
+last_modified_at: 2024-04-04 13:49:55 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: "파이썬에서 unittest 라이브러리를 사용하여 작성된 코드를 테스트하고 coverage패키지를 이용하여 코드 커버리지를 확인하는 방법"
@@ -80,7 +81,7 @@ if __name__ == '__main__':
 
 이 클래스의 메서드들로는 `math` 모듈의 네 가지 함수들을 테스트할 수 있는 케이스들을 생각해서 넣어 주었습니다. TestCase 클래스의 기본 메서드인 `assertEqual`을 이용해 수행 결과와 결과값이 동일한지 확인하도록 합니다.
 
-`math.divde` 메서드의 경우 분모가 0인 경우에 에러가 발생할 것이므로, 에러가 제대로 발생하는지도 체크해 주는 내용을 `assertRaise` 메서드를 이용해 확인하도록 추가했습니다. 따라서 총 4개의 함수에 대한 5개의 테스트케이스를 만든 것이 되었습니다. 테스트케이스는 다양하게 추가될 수 있으며 반드시 테스트하고자 하는 함수 혹은 클래스/메서드의 갯수와 같아야 할 이유는 없습니다.
+`math.divide` 메서드의 경우 분모가 0인 경우에 에러가 발생할 것이므로, 에러가 제대로 발생하는지도 체크해 주는 내용을 `assertRaise` 메서드를 이용해 확인하도록 추가했습니다. 따라서 총 4개의 함수에 대한 5개의 테스트케이스를 만든 것이 되었습니다. 테스트케이스는 다양하게 추가될 수 있으며 반드시 테스트하고자 하는 함수 혹은 클래스/메서드의 갯수와 같아야 할 이유는 없습니다.
 
 이제 `test.py`를 실행해 보면, 5개의 테스트가 수행되고 그 중 몇 개나 성공했는지 알 수 있습니다.
 
