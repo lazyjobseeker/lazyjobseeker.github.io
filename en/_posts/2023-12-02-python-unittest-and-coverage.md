@@ -1,12 +1,12 @@
 ---
 translated: true
-title: "unittest와 coverage로 코드 테스트하기"
+title: "Testing Python Code with unittest and coverage"
 category: Programming
 tags:
   - python
 published: true
 created_at: 2023-12-01 13:45:54 +09:00
-last_modified_at: 2024-04-04 13:58:37 +09:00
+last_modified_at: 2024-04-04 14:02:10 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: "How to use unittest library to test my code and check code coverage using coverage library."
