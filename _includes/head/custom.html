@@ -1,4 +1,39 @@
 <!-- start custom head snippets -->
+
+<!-- Add hreflang for multiple language SEO support -->
+{% if page.lang == 'ko' %}
+  {% assign prefix = '/' %}
+  {% if page.is_index %}
+    {% assign target-url-ko = site.url %}
+    {% assign target-url-en = site.url | append: '/en/' %}
+  {% elsif page.translated %}
+    {% assign target-url-ko = page.url | absolute_url %}
+    {% assign target-url-en = page.url | prepend: '/en' | absolute_url %}
+  {% else %}
+    {% assign target-url-ko = page.url | absolute_url %}
+    {% assign target-url-en = nil %}
+  {% endif %}
+{% elsif page.lang == 'en' %}
+  {% assign prefix = page.lang | prepend: '/' %}
+  {% if page.is_index %}
+    {% assign target-url-ko = site.url %}
+    {% assign target-url-en = site.url | append: '/en/' %}
+  {% elsif page.translated %}
+    {% assign target-url-ko = page.url | replace: '/en/', '/' | absolute_url %}
+    {% assign target-url-en = page.url | absolute_url %}
+  {% else %}
+    {% assign target-url-ko = nil %}
+    {% assign target-url-en = page.url | absolute_url %}
+  {% endif %}
+{% endif %}
+
+{% if target-url-ko %}
+  <link rel="alternate" hreflang="ko" href={{target-url-ko}}>
+{% endif %}
+{% if target-url-en %}
+  <link rel="alternate" hreflang="en" href={{target-url-en}}>
+{% endif %}
+
 <!-- To add quiz in a post -->
 {% if page.quiz_file %}
   <script> var jsonpath = '{{ page.quiz_file }}'; </script>

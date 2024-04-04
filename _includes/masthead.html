@@ -18,9 +18,12 @@
   {% if page.is_index %}
     {% assign target-url-ko = site.url %}
     {% assign target-url-en = site.url | append: '/en/' %}
-  {% else %}
+  {% elsif page.translated %}
     {% assign target-url-ko = page.url | replace: '/en/', '/' | relative_url %}
     {% assign target-url-en = page.url | relative_url %}
+  {% else %}
+    {% assign target-url-ko = page.url %}
+    {% assign target-url-en = page.url %}
   {% endif %}
   {% assign display-title = site.display-title.en %}
   {% assign display-subtitle = site.display-subtitle.en %}
