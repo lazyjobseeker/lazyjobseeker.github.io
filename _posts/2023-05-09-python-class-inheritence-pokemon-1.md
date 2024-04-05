@@ -1,4 +1,5 @@
 ---
+translated: true
 title: "[Python] 클래스 기본 개념"
 categories: Programming
 redirect_from:
@@ -7,12 +8,11 @@ tags:
   - python
 published: true
 created_at: 2023-05-10 06:59:45 +09:00
-last_modified_at: 2024-03-27 16:11:22 +09:00
+last_modified_at: 2024-04-05 11:16:18 +09:00
 header:
   teaser: /assets/images/python-teaser-basicconcepts.png
+excerpt: "파이썬 클래스(Class) 의 구성 요소들을 살펴보고 사용자 정의 클래스를 작성하여 사용해 봅시다."
 ---
-
-파이썬 클래스(Class) 의 구성 요소들을 살펴보고 사용자 정의 클래스를 작성하여 사용해 봅시다.
 
 ## 클래스 만들기
 

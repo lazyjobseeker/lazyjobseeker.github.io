@@ -6,12 +6,12 @@ tags:
   - python
 published: true
 created_at: 2023-05-12 07:43:00 +09:00
-last_modified_at: 2024-04-05 11:10:07 +09:00
+last_modified_at: 2024-04-05 11:15:38 +09:00
 header:
   teaser: /assets/images/python-teaser-basicconcepts.png
+excerpt: "Let's brief how to `inherit` existing class to define new class and how it is useful."
 ---
 
-Let's brief how to `inherit` existing class to define new class and how it is useful.
 
 ## Inherit Existing Class
 

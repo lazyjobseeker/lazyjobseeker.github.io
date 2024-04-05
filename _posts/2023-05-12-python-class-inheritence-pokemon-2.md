@@ -8,12 +8,11 @@ tags:
   - python
 published: true
 created_at: 2023-05-12 07:43:00 +09:00
-last_modified_at: 2024-04-05 11:10:50 +09:00
+last_modified_at: 2024-04-05 11:16:02 +09:00
 header:
   teaser: /assets/images/python-teaser-basicconcepts.png
+excerpt: "만들어 둔 클래스를 상속하여 새로운 클래스를 만드는 방법을 알아 봅시다."
 ---
-
-만들어 둔 클래스를 상속하여 새로운 클래스를 만드는 방법을 알아 봅시다.
 
 ## 클래스 상속하기
 
