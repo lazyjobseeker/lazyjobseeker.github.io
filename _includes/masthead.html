@@ -1,34 +1,5 @@
 {% capture logo_path %}{{ site.logo }}{% endcapture %}
-{% if page.lang == 'ko' %}
-  {% assign prefix = '/' %}
-  {% if page.is_index %}
-    {% assign target-url-ko = site.url %}
-    {% assign target-url-en = site.url | append: '/en/' %}
-  {% elsif page.translated %}
-    {% assign target-url-ko = page.url | relative_url %}
-    {% assign target-url-en = page.url | prepend: '/en' | relative_url %}
-  {% else %}
-    {% assign target-url-ko = page.url %}
-    {% assign target-url-en = page.url %}
-  {% endif %}
-  {% assign display-title = site.display-title.ko %}
-  {% assign display-subtitle = site.display-subtitle.ko %}
-{% else %}
-  {% assign prefix = page.lang | prepend: '/' %}
-  {% if page.is_index %}
-    {% assign target-url-ko = site.url %}
-    {% assign target-url-en = site.url | append: '/en/' %}
-  {% elsif page.translated %}
-    {% assign target-url-ko = page.url | replace: '/en/', '/' | relative_url %}
-    {% assign target-url-en = page.url | relative_url %}
-  {% else %}
-    {% assign target-url-ko = page.url %}
-    {% assign target-url-en = page.url %}
-  {% endif %}
-  {% assign display-title = site.display-title.en %}
-  {% assign display-subtitle = site.display-subtitle.en %}
-{% endif %}
-
+{% include masthead-lang-toggle.html %}
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
