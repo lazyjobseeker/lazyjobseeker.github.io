@@ -8,9 +8,8 @@ tags:
   - "electron transfer"
   - "Marcus model"
   - kinetics
-published: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-27 16:09:56 +09:00
+last_modified_at: 2024-04-05 16:08:40 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-1.png
 excerpt: 구조불변성 전자 교환 반응의 반응속도를 자유에너지 관점에서 설명하는 마커스 모델 (Marcus model) 정리

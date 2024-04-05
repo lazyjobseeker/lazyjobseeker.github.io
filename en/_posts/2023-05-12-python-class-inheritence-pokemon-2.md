@@ -4,7 +4,6 @@ title: "[Python] Class Inheritence"
 category: Programming
 tags:
   - python
-published: true
 created_at: 2023-05-12 07:43:00 +09:00
 last_modified_at: 2024-04-05 11:15:38 +09:00
 header:

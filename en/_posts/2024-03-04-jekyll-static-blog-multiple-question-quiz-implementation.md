@@ -7,8 +7,6 @@ tags:
   - Jekyll
   - "Github Blog"
   - Javascript
-published: true
-use_math: true
 created_at: 2024-03-05 23:43:24 +09:00
 last_modified_at: 2024-04-02 15:53:08 +09:00
 header:

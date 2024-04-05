@@ -6,7 +6,6 @@ redirect_from:
   - /programming/231204-chmod-chown/
 tags:
   - python
-published: true
 created_at: 2023-12-04 12:00:02 +09:00
 last_modified_at: 2024-04-03 15:00:28 +09:00
 header:

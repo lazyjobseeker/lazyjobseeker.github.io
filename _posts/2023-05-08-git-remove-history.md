@@ -6,7 +6,6 @@ redirect_from:
   - /programming/230508-git-remove-history/
 tags:
   - devlog
-published: true
 created_at: 2023-05-08 01:33:28 +09:00
 last_modified_at: 2024-04-05 14:18:06 +09:00
 header:

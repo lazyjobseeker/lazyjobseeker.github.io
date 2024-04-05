@@ -6,7 +6,6 @@ tags:
   - Jekyll
   - Python
   - "Minimal Mistakes"
-published: true
 created_at: 2023-11-25 13:28:00 +09:00
 last_modified_at: 2024-04-05 09:08:28 +09:00
 header:

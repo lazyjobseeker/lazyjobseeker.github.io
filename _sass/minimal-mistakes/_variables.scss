@@ -14,8 +14,8 @@ $indent-var: 1.3em !default;
 
 /* system typefaces */
 $base-font: 'NanumSquareNeo-Variable';
-$serif: $base-font, "Noto Serif", "Noto Serif KR", serif !default; // Georgia, Times, serif !default;
-$sans-serif: $base-font, -apple-system, BlinkMacSystemFont, sans-serif !default; // "NanumSquareNeo-Variable"
+$serif: $base-font !default; //"Noto Serif", "Noto Serif KR", serif; Georgia, Times, serif !default;
+$sans-serif: $base-font, -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", sans-serif !default; // "NanumSquareNeo-Variable"
 $monospace: "NanumSquareRound", "Consolas", monospace !default;
 $masthead-site-title: 'S-CoreDream-7ExtraBold';
 $masthead-site-subtitle: 'S-CoreDream-6Bold';

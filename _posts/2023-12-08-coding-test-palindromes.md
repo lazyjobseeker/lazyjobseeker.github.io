@@ -7,7 +7,6 @@ redirect_from:
 tags:
   - "SW Expert Academy"
   - "Coding Test"
-published: true
 created_at: 2023-12-08 17:07:36 +09:00
 last_modified_at: 2024-04-03 08:43:05 +09:00
 header:

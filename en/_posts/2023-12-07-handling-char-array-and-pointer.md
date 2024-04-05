@@ -4,9 +4,8 @@ title: Vector with char Arrays as Elements
 category: Programming
 tags:
   - C++
-published: true
 created_at: 2023-12-05 13:35:24 +09:00
-last_modified_at: 2024-04-03 10:06:26 +09:00
+last_modified_at: 2024-04-05 16:06:43 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-2.png
 excerpt: How to store char arrays into a vector in C++

@@ -4,7 +4,6 @@ title: "Solve ModuleNotFoundError Error with `pathlib` and `sys`"
 category: Programming
 tags:
   - python
-published: true
 created_at: 2023-12-01 02:04:33 +09:00
 last_modified_at: 2024-04-04 22:55:09 +09:00
 header:

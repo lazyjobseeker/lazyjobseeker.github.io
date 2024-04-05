@@ -6,7 +6,6 @@ redirect_from:
   - /programming/231205-write-batch-file-for-task-automation/
 tags:
   - windows
-published: true
 created_at: 2023-12-05 00:00:00 +09:00
 last_modified_at: 2024-04-03 14:07:40 +09:00
 header:

@@ -6,7 +6,6 @@ redirect_from:
   - /programming/class-inheritence-pokemon/
 tags:
   - python
-published: true
 created_at: 2023-05-12 07:43:00 +09:00
 last_modified_at: 2024-04-05 11:16:02 +09:00
 header:

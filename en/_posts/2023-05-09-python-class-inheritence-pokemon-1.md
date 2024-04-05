@@ -4,7 +4,6 @@ title: "[Python] Class"
 categories: Programming
 tags:
   - python
-published: true
 created_at: 2023-05-10 06:59:45 +09:00
 last_modified_at: 2024-04-05 12:25:52 +09:00
 header:

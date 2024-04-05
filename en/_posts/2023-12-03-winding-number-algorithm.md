@@ -4,7 +4,6 @@ title: "Winding Number Algorithm to Determine Point-Polygon Inclusion"
 category: Programming
 tags:
   - python
-published: true
 created_at: 2023-12-03 15:34:31 +09:00
 last_modified_at: 2024-04-04 12:12:41 +09:00
 header:

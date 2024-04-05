@@ -4,7 +4,6 @@ title: "Testing Python Code with unittest and coverage"
 category: Programming
 tags:
   - python
-published: true
 created_at: 2023-12-01 13:45:54 +09:00
 last_modified_at: 2024-04-04 14:02:10 +09:00
 header:

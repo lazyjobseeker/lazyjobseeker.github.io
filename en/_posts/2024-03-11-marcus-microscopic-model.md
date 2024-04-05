@@ -6,9 +6,8 @@ tags:
   - "electron transfer"
   - "Marcus model"
   - kinetics
-published: true
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-03-27 16:08:26 +09:00
+last_modified_at: 2024-04-05 16:05:49 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-1.png
 excerpt: The concept of Marcus microscopic model for isoenergetic, radiationless and configuration-preserving electron transfer is detailed.

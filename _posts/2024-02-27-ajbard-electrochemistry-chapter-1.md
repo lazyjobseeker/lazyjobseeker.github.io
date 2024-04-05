@@ -6,7 +6,6 @@ redirect_from:
   - /electrochemistry/ajbard-electrochemistry-chapter-1/
 tags:
   - Electrochemistry
-published: true
 created_at: 2024-02-27 00:30:11 +09:00
 last_modified_at: 2024-04-02 17:29:08 +09:00
 header:

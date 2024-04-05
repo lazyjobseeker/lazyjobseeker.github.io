@@ -4,7 +4,6 @@ title: "Task Automation with Batch File (.bat)"
 category: Programming
 tags:
   - windows
-published: true
 created_at: 2023-12-05 00:00:00 +09:00
 last_modified_at: 2024-04-03 14:57:39 +09:00
 header:

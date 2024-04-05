@@ -8,9 +8,8 @@ tags:
   - Jekyll
   - Python
   - "Minimal Mistakes"
-published: true
 created_at: 2023-11-25 13:28:00 +09:00
-last_modified_at: 2024-04-05 08:55:50 +09:00
+last_modified_at: 2024-04-05 16:07:53 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-3.png
 excerpt: "Jekyll 블로그를 로컬 PC에서 미리보기 하는 방법, python에서 작성한 클래스 내에서 해당 클래스에 대한 타입 힌팅(type hinting)을 사용하기 위해 __future__ 모듈을 사용하는 방법"

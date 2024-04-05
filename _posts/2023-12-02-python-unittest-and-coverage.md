@@ -6,7 +6,6 @@ redirect_from:
 category: Programming
 tags:
   - python
-published: true
 created_at: 2023-12-01 13:45:54 +09:00
 last_modified_at: 2024-04-04 13:49:55 +09:00
 header:

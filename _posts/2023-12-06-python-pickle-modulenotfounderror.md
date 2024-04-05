@@ -7,7 +7,6 @@ redirect_from:
 tags:
   - python
   - pickle
-published: true
 created_at: 2023-12-05 13:35:24 +09:00
 last_modified_at: 2024-04-03 13:15:22 +09:00
 header:

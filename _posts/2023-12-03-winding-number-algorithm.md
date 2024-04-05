@@ -6,7 +6,6 @@ redirect_from:
   - /programming/231203-winding-number-algorithm/
 tags:
   - python
-published: true
 created_at: 2023-12-03 15:34:31 +09:00
 last_modified_at: 2024-04-03 16:20:10 +09:00
 header:

@@ -6,7 +6,6 @@ redirect_from:
   - /programming/231201-pathlib-syspath/
 tags:
   - python
-published: true
 created_at: 2023-12-01 02:04:33 +09:00
 last_modified_at: 2024-04-04 16:22:47 +09:00
 header:

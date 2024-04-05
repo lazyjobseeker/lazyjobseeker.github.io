@@ -4,7 +4,6 @@ title: "[Git] Removing All Commit History"
 categories: Programming
 tags:
   - devlog
-published: true
 created_at: 2023-05-08 01:33:28 +09:00
 last_modified_at: 2024-04-05 14:28:12 +09:00
 header:

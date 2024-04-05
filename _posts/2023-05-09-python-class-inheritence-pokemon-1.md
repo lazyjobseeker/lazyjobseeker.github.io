@@ -6,7 +6,6 @@ redirect_from:
   - /programming/about-class-exemplified-with-pikachu/
 tags:
   - python
-published: true
 created_at: 2023-05-10 06:59:45 +09:00
 last_modified_at: 2024-04-05 11:16:18 +09:00
 header:

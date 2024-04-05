@@ -2,17 +2,14 @@
 translated: true
 title: "Algorithm Topic: Palindromes"
 category: Programming
-redirect_from:
-  - /programming/231208-coding-test-palindromes/
 tags:
   - SW
   - Expert
   - Academy
   - Coding
   - Test
-published: true
 created_at: 2023-12-08 17:07:36 +09:00
-last_modified_at: 2024-04-03 08:52:55 +09:00
+last_modified_at: 2024-04-05 16:06:33 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-3.png
 excerpt: Algorithm problems about how to handle palindromes
