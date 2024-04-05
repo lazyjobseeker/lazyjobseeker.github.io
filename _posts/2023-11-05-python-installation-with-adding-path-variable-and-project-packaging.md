@@ -1,4 +1,5 @@
 ---
+translated: true
 title: "파이썬 설치, 환경 변수, 프로젝트 패키징"
 category: Programming
 redirect_from:
@@ -7,7 +8,7 @@ tags:
   - Python
 published: true
 created_at: 2023-11-05 23:57:00 +09:00
-last_modified_at: 2024-03-27 16:11:13 +09:00
+last_modified_at: 2024-04-05 09:11:01 +09:00
 header:
   teaser: /assets/images/python-teaser-devenviron.png
 excerpt: "python을 설치하고 환경 변수를 설정하는 방법, setuptools 패키지를 이용해 내가 만든 python 패키지를 배포 가능한 형태로 만드는 방법"
@@ -47,7 +48,6 @@ excerpt: "python을 설치하고 환경 변수를 설정하는 방법, setuptool
 우선 `/Python310` 디렉토리에는 `python.exe` 실행 파일이 들어 있다. 명령 프롬프트에 `python`이라고 적어 넣을 때, 사실은 저 파일을 실행하라고 명령하는 것이다. 실제로 저 실행 파일의 이름을 바꾸어 버리면 `python --version` 같은 명령들이 제대로 동작하지 않는다.
 
 ![](/assets/images/python-path-5.png){: width="600" .align-center}
-
 한편 `/Python310/Scripts` 경로에서는 `pip.exe`를 찾을 수 있다. 파이썬의 패키지 관리 시스템 프로그램인 pip의 실행 파일이다. 파이썬 설치 과정에서 이 경로가 여기에 등록되었기 때문에 파이썬 설치 이후 명령 프롬프트에서 별다른 작업을 하지 않아도 `pip install` 명령으로 패키지 설치 작업을 할 수 있다.
 
 ![](/assets/images/python-path-pip-versioncheck.png){: width="600" .align-center}
