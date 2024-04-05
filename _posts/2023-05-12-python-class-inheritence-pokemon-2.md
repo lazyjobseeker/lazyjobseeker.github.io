@@ -1,4 +1,5 @@
 ---
+translated: true
 title: "[Python] 클래스 상속 개념과 활용"
 category: Programming
 redirect_from:
@@ -7,7 +8,7 @@ tags:
   - python
 published: true
 created_at: 2023-05-12 07:43:00 +09:00
-last_modified_at: 2024-03-27 16:11:17 +09:00
+last_modified_at: 2024-04-05 11:10:50 +09:00
 header:
   teaser: /assets/images/python-teaser-basicconcepts.png
 ---
@@ -365,7 +366,7 @@ class Bulbasaur(Pokemon):
 >>> print(a.hit_point)
 80 # 100-(15+15-10); 이상해씨는 자신의 방어력만큼 추가 피해를 준다!
 ```
-
+<!--
 ### 메서드 오버로딩
 
 **메서드 오버로딩**은 상속과는 관련이 없는 내용이지만 오버라이딩과 한 묶음으로 소개되는 경우가 많습니다.  아마 단어가 비슷해 보여서 그렇지 않을까 합니다.
@@ -425,4 +426,4 @@ Pokemon 클래스에서 이처럼 attack 메서드에 메서드 오버로딩을 
 >>> print(a.hit_point)
 85 # 100-15
 ```
-
+-->
