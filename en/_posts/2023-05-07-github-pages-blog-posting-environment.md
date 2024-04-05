@@ -1,12 +1,12 @@
 ---
 translated: true
-title: "블로그 포스팅 도구들"
+title: "Tools for Blog Posting in Mobile Environment"
 categories: Programming
 tags:
   - devlog
 published: true
 created_at: 2023-05-07 11:17:13 +09:00
-last_modified_at: 2024-04-05 15:12:09 +09:00
+last_modified_at: 2024-04-05 15:14:19 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-2.png
 excerpt: "Applications I am using to maintain blogs in mobile environment"
