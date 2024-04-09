@@ -10,7 +10,7 @@ tags:
   - "Github Blog"
   - Javascript
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-04-09 17:18:40 +09:00
+last_modified_at: 2024-04-09 17:45:47 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-1.png
 excerpt: "Javascript를 이용하여 Github Pages 및 Jekyll 기반 정적 블로그 포스트의 원하는 위치에 사지선다형 객관식 문제를 추가해 봅니다"
@@ -27,7 +27,7 @@ quiz_file: /assets/json/quiz_example.json
 
 포스트 본문에 사지선다 퀴즈를 노출하려면, 우선 문제들이 포함된 `.json` 파일을 작성하고 파일 경로를 `quiz_file` 변수로 YAML Front Matter에 제공합니다.
 
-```bash
+```yaml
 quiz_file: /assets/json/quiz_example.json
 ```
 
@@ -76,8 +76,7 @@ JSON 형식을 이용해 문제 정보를 담은 파일을 만들고, HTML 및 C
 
 이제 브라우저에서 문제와 선택지를 보여줄 UI의 뼈대를 HTML로 작성해 줍니다.
 
-{% highlight html linenos %}
-<!-- 파일 경로: _include/multiple-choice-quiz.html -->
+```html
 {% raw %}{% assign qId = "quiz" | append: include.jsonIdx %}{% endraw %}
 <div class="quiz-container" id="{{ qId }}" >
   <div class="quiz">
@@ -94,15 +93,15 @@ JSON 형식을 이용해 문제 정보를 담은 파일을 만들고, HTML 및 C
     </div>
   </div>
 </div>
-{% endhighlight %}
+```
+{: file="_include/multiple-choice-quiz.html"}
 
 - 첫 줄의 `assign` Liquid 구문은 퀴즈 UI를 구성하는 각 요소들에 유일한 `id` 태그를 `quiz0`,`quiz1`... 와 같은 꼴로 부여하기 위해 `qId`라는 문자열을 생성합니다.
 - {% raw %}{% include %}{% endraw %} 수행 시 넘겨준 추가 파라미터 `jsonIdx`와 `quizNum`은 `include`에 의해 호출되는 html 문서 내에서 `include` 네임스페이스에 존재하게 됩니다.  즉, `include.jsonIdx`및 `include.quizNum`을 참조하여 사용할 수 있습니다.
 
 ### 2.2. CSS 스타일 작성
 
-{% highlight css linenos %}
-/* 파일 경로: _sass/custom/quiz.sass */
+```css
 .quiz-container{
   box-sizing: border-box;
   width: 100%;
@@ -148,7 +147,9 @@ JSON 형식을 이용해 문제 정보를 담은 파일을 만들고, HTML 및 C
     margin: 0 0 0 0;
   }
 }
-{% endhighlight %}
+
+```
+{: file="_sass/custom/quiz.sass"}
 
 위 파일은 **메인 CSS 파일** (/assets/css/main.css)에 임포트하여야 블로그 빌드 시에 정상 적용됩니다.
 
@@ -165,12 +166,12 @@ JSON 형식을 이용해 문제 정보를 담은 파일을 만들고, HTML 및 C
 
 JSON 파일을 읽기 위해, `fetch` 함수를 사용하여`loadJson()` 사용자 정의 함수를 아래와 같이 작성했습니다.
 
-{% highlight javascript linenos %}
+```javascript
 async function loadJson() {
   return fetch(jsonpath)
   .then((response) => response.json());
 }
-{% endhighlight %}
+```
 
 **주의!** 읽어들일 JSON 파일의 경로를 나타내는 `jsonpath` 변수는 **선언 없이** 사용되었습니다.  `jsonpath` 자리에 실제 파일 경로인 `/assets/json/example_quiz.json`를 사용할 수도 있지만, 그렇게 하면 필요에 따라 서로 다른 문제 세트 (다른 json 파일)을 사용하기가 어렵기 때문에, 아직 정의하지 않은 변수 `jsonpath`를 설정해 두었습니다.
 {: .notice--danger}
@@ -179,7 +180,7 @@ async function loadJson() {
 
 이제 읽어들인 JSON 파일을 참조하여 문제 및 선택지에 해당하는 HTML 요소의 텍스트들을 변경해 주는 `showQuiz()` 함수를 작성합니다.
 
-{% highlight javascript linenos %}
+```javascript
 function showQuiz() {
   loadJson()
   .then((json) => {
@@ -196,7 +197,7 @@ function showQuiz() {
     }
   });
 }
-{% endhighlight %}
+```
 
 ### 3.3. 정답 처리하기
 
@@ -204,7 +205,7 @@ function showQuiz() {
 
 HTML을 작성할 때 최상위 컨테이너인 `quiz_container` 요소에 유일한 id 값을 제공하였었는데, 한 포스트에 여러 퀴즈가 있으면 클릭된 퀴즈가 어떤 퀴즈인지 알아야 하기 때문입니다.  어떤 문제에 클릭이 발생했는지 특정하기 위해 `checkAnswer`는 몇 번째 선택지(selected)가 클릭되었는지 이외에도 몇 번째 문제(jsonIdx)가 클릭되었는지에 대한 정보를 추가 인자로 받도록 구성되었습니다.
 
-{% highlight javascript linenos %}
+```javascript
 function checkAnswer(jsonIdx, selected) {
   var quizId = "quiz"+jsonIdx;
   var explanation = "";
@@ -220,13 +221,13 @@ function checkAnswer(jsonIdx, selected) {
     }
   });
 }
-{% endhighlight %}
+```
 
 마지막으로 아래와 같이 `showQuiz()`를 한 번 실행하여, HTML 파일의 기본 텍스트들이 JSON 파일에서 불러온 첫 번째 문제들에 대한 텍스트들로 교체되도록 합니다.
 
-{% highlight javascript linenos %}
+```javascript
 showQuiz();
-{% endhighlight %}
+```
 
 ### 3.4. &lt;src&gt; 태그로 .js 파일 포함하기
 

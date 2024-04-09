@@ -8,9 +8,9 @@ tags:
   - "Github Blog"
   - Javascript
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-04-09 17:20:30 +09:00
+last_modified_at: 2024-04-09 17:44:40 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-1.png
+  teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: "How to embed 4-choices quiz inside blog post generated using Jekyll."
 quiz_file: /assets/json/quiz_example.json
 ---
@@ -85,7 +85,7 @@ First of all, we need a problem set to be used.  I prepared `example_quiz.json` 
 
 Now we need UI frames where question and text choices will be displayed.
 
-{% highlight html linenos %}
+```html
 <!-- File path: _include/multiple-choice-quiz.html -->
 {% raw %}{% assign qId = "quiz" | append: include.jsonIdx %}{% endraw %}
 <div class="quiz-container" id="{{ qId }}" >
@@ -103,15 +103,15 @@ Now we need UI frames where question and text choices will be displayed.
     </div>
   </div>
 </div>
-{% endhighlight %}
+```
+{: file="_include/multiple-choice-quiz.html"}
 
 - First line in liquid syntax creates `qId` characters.  This is to provide `quiz-container` div elements unique IDs.  These unique IDs are formatted like `quiz0`, `quiz1`...
 - `jsonIdx` and `quizNum` variables are available under namespace `include`.  So, `include.jsonIdx` and `include.quizNum` are available without definition inside `multiple-choice-quiz.html`, as long as the `include` tag passes those two parameters as I did above.
 
 ### 2.2. CSS Styling
 
-{% highlight css linenos %}
-/* File path: _sass/custom/quiz.sass */
+```css
 .quiz-container{
   box-sizing: border-box;
   width: 100%;
@@ -157,7 +157,8 @@ Now we need UI frames where question and text choices will be displayed.
     margin: 0 0 0 0;
   }
 }
-{% endhighlight %}
+```
+{: file="_sass/custom/quiz.sass"}
 
 After completed, above sass file needs to be imported to **main CSS** (/assets/css/main.css)
 
@@ -174,12 +175,12 @@ Now we need JavaScript file (`js`) which will throw quiz texts to proper places 
 
 `fetch` function is used to define `loadJson()` custom function.
 
-{% highlight javascript linenos %}
+```javascript
 async function loadJson() {
   return fetch(jsonpath)
   .then((response) => response.json());
 }
-{% endhighlight %}
+```
 
 **Warning!** Please note that a variable `jsonpath`, which is to designate the path of target JSON file to read is used **without declaration**.  By this I could change the JSON file I refer my quizzes from, rather than relying on a single file.  But the variable `jsonpath` should be defined elsewhere, which I will explain further.
 {: .notice--danger}
@@ -188,7 +189,7 @@ async function loadJson() {
 
 With `loadJson` custom function now I am ready to define another function `showQuiz()`, which is to modify text elements of our quiz frame (`multiple-choice-quiz.html`) to corresponding ones read from quiz object.
 
-{% highlight javascript linenos %}
+```javascript
 function showQuiz() {
   loadJson()
   .then((json) => {
@@ -205,7 +206,7 @@ function showQuiz() {
     }
   });
 }
-{% endhighlight %}
+```
 
 This function loops the JSON array read from my JSON-formatted quiz file.  As I designed `multiple-choice-quiz.html` so that there is unique `quiz#` style id, I can check in the loop whether current JSON object will be used in current page or not.
 
@@ -215,7 +216,7 @@ Finally, I defined `checkAnswer()` function to handle the event where user click
 
 `checkAnswer` receives two arguments of `jsonIdx` and `selected`.  The former is to specify which one among the JSON array should be referred, and the latter is to specify which choice among the 4 choices the user clicked. 
 
-{% highlight javascript linenos %}
+```javascript
 function checkAnswer(jsonIdx, selected) {
   var quizId = "quiz"+jsonIdx;
   var explanation = "";
@@ -231,13 +232,13 @@ function checkAnswer(jsonIdx, selected) {
     }
   });
 }
-{% endhighlight %}
+```
 
 Finally everything is over in JavaScript side.  But I need to execute `showQuiz` once at the end of all the definitions.  This execution makes the default texts in `multiple-choice-quiz.html` (for example, 4 choice buttons have initial texts of "A1", "A2", "A3", and "A4") be replaced with those in from JSON file.
 
-{% highlight javascript linenos %}
+```javascript
 showQuiz();
-{% endhighlight %}
+```
 
 ### 3.4. Modify Header and Footer
 
