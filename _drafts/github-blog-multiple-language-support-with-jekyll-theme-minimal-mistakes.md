@@ -1,7 +1,6 @@
 ---
-published: false
 translated: true
-title: 플러그인 없이 지킬 깃허브 블로그 다국어 지원하기
+title: 플러그인 없이 지킬 블로그 다국어 지원하기
 category: Programming
 tags:
   - Jekyll
@@ -9,7 +8,7 @@ tags:
   - "Minimal Mistakes"
   - "Multi-Languages"
 created_at: 2024-04-05 18:09:50 +09:00
-last_modified_at: 2024-04-09 17:46:15 +09:00
+last_modified_at: 2024-04-09 18:59:34 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: 지킬 테마 Minimal Mistakes로 만든 Github 블로그에 별도 다국어 지원 플러그인(polyglot, jekyll-multiple-languages-plugin) 없이 다국어 지원을 구현한 과정을 정리합니다.
@@ -19,13 +18,13 @@ excerpt: 지킬 테마 Minimal Mistakes로 만든 Github 블로그에 별도 다
 
 블로그를 시작한 이후로 블로그 컨텐츠들을 한글과 영어로 모두 지원하는 **다국어 지원**을 구현하는 것이 오랜 숙제였습니다.
 
-이 블로그는 정적 웹 사이트 생성기 `Jekyll`에서 오랫동안 사랑받은 테마 `Minimal Mistakes`로 만든 블로그입니다.  다양한 기능들이 이미 구현되어 있는 강력한 테마이지만, `Minimal Mistakes`에는 다국어를 지원하는 별도의 기능은 없었습니다.
+이 블로그는 정적 웹 사이트 생성기 `Jekyll`에서 오랫동안 사랑받은 테마 `Minimal Mistakes`로 만든 블로그입니다.  다양한 기능들이 이미 구현되어 있는 강력한 테마이지만, 아쉽게도 다국어 지원을 위한 별도의 기능은 없었습니다.
 
-다국어 지원을 구현하는 `Jekyll` 플러그인인 `Polyglot`을 적용하여 다국어를 구현하는 경우가 있지만, Github Pages에서의 실행이 지원되지 않는 것으로 알려져 있어 완벽한 대안이라고는 생각되지 않았습니다.
+`Jekyll`의 `Polyglot` 플러그인을 이용하여 다국어를 구현하는 경우가 있지만, Github Pages에서의 실행이 지원되지 않는 것으로 알려져 있어 완벽한 대안이라고는 생각되지 않았습니다.
 
 결국 이 블로그의 다국어 지원은 *플러그인 없이* 구현하게 되었습니다.  다행히 `Jekyll`에서 기본적으로 지원하는 요소들과 `Liquid` 및 `html` 코드만으로 `Minimal Mistakes` 테마에서 다국어 지원을 구현할 수 있었습니다.
 
-구현하고자 했던 내용은 구체적으로 아래와 같았습니다.
+아래 내용들의 구현에 필요했던 내용들을 정리해 보겠습니다.
 
 1. 한글로 작성된 특정 문서의 퍼마링크가 `blabla`일 때, 이 문서의 영어 번역이 존재한다면, 해당 문서의 URL은 반드시 `en/blabla`로 제공한다.
 2. 특정 문서에서 해당 문서의 영어(한글) 번역이 존재하면, 번역된 문서 페이지로 이동할 수 있는 버튼을 마스트헤드 영역에 제공한다.
@@ -35,13 +34,11 @@ excerpt: 지킬 테마 Minimal Mistakes로 만든 Github 블로그에 별도 다
 	- **이전·다음 글 보기** 영역
 	- **You May Also Enjoy** 영역
 
-구현에 필요했던 과정들을 정리해 보겠습니다.
-
 ## 영문 컨텐츠 폴더 만들기
 
 가장 먼저 프로젝트 루트 경로에 `en`이라는 새로운 폴더를 만들었습니다.  루트 폴더의 문서와 폴더들 중 영어로 번역되어야 하는 컨텐츠들이 포함된 것들이 있다면 `en` 폴더 안에 같은 이름의 문서 또는 폴더들을 만들어 주었습니다.
 
-예를 들어, 루트 경로의 `_posts`에 존재하는 모든 포스트들은 영문 번역이 제공되어야 하기 때문에, `en` 디렉토리 하위에 `_posts` 폴더를 새로 만들어 주었습니다.
+예를 들어, 루트 경로의 `_posts`에는 한글 포스트들이 존재하며 이들은 모두 영어로 번역하는 것이 목표였기 때문에, `en` 디렉토리 하위에 `_posts` 폴더를 새로 만들어 주었습니다.
 
 ```
 lazyjobseeker.github.io
@@ -81,6 +78,7 @@ defaults:
       lang: en
       permalink: /en/posts/:title/
 ```
+{: file='_config.yml`}
 
 **퍼마링크 변경에 따른 리디렉션**<br>퍼마링크 구성을 바꾸게 되면 기존 페이지에 대해 만들어져 있던 구글 색인 결과를 더 이상 사용할 수 없게 되고 이로 인해 페이지에 대한 검색엔진 최적화(SEO)에 악영향을 줄 수 있습니다.  `jekyll-redirect-from` 패키지를 이용해 리디렉션을 설정하여 이러한 문제를 어느 정도 해결할 수 있습니다.
 {: .notice--info}
@@ -95,6 +93,7 @@ display-subtitle:
   ko: "읽고 쓰고 그리고 기억하기"
   en: "I read, write, draw and remember"
 ```
+{: file='_config.yml`}
 
 마지막으로, 사이드바에 표시되는 블로그 저자 (author) 소개 문구도 언어에 따라 달리 적용되도록 분리했습니다.
 
@@ -107,8 +106,9 @@ author:
     ko: "일하는 것처럼 보인다면 착각입니다."
     en: "If it looks like I am working, you are mistaken."
 ```
+{: file='_config.yml`}
 
-### 마크다운 문서에 `translated` 변수 추가
+### `translated` 변수 추가
 
 어떤 문서가 자신의 번역된 버전을 가지고 있는지 알려 주는 불리언 변수 `translated`를 YAML Front Matter로 명시해 주기로 하였습니다.  예를 들어 `_post` 혹은 `en/_post` 하위의 어떤 마크다운 파일이 Front Matter로 아래 내용을 가진다면, 해당 파일에 대한 영어(한글) 번역이 존재한다는 뜻입니다.
 
@@ -144,7 +144,6 @@ lazyjobseeker.github.io
 
 ```liquid
 {% raw %}{% if page.lang == 'ko' %}
-{% if page.lang == 'ko' %}
   {% assign prefix = '/' %}
   {% if page.translated %}
     {% assign target-url-ko = page.url | relative_url %}
@@ -169,6 +168,7 @@ lazyjobseeker.github.io
 {% endif %}
 {% endif %}{% endraw %}
 ```
+{: file='_includes/lang-toggle-post.html'}
 
 위 `Liquid` 코드는 주어진 페이지의 `lang` 값이 `ko`인지 `en`인지에 따라 서로 다른 URL을 생성하기 위한 것입니다.  총 4개의 `Liquid` 변수를 이후의 html에서 참조할 수 있도록 생성합니다.
 
@@ -229,6 +229,7 @@ lazyjobseeker.github.io
   </div>
 </div>{% endraw %}
 ```
+{: file='_includes/masthead.html'}
 
 ## 사이드바 수정하기
 
@@ -243,14 +244,14 @@ lazyjobseeker.github.io
   {% assign author_bio = author.bio.en %}
 {% endif %}{% endraw %}
 ```
-{: file='_sass/jekyll-theme-chirpy.scss'}
+{: file='_includes/author-profile.html'}
 
 `author_bio` 변수는 `page.lang` 변수가 `ko`인지 `en`인지에 따라 `_config.yml`에 설정된 블로그 저자 소개 관련 스트링 중 알맞은 값을 갖게 됩니다.  `author-profile.html`의 이후 부분에서는 원래 코드에서 `author.bio`로 되어 있는 부분을 모두 새로 정의한 변수 `author_bio`로 바꾸어 주었습니다.
 
 `_includes/nav_list` 파일도 사이드바 영역을 구현하는 파일 중 하나입니다.  아래와 같이 변경하여, 사이드바에 존재하는 링크들이 타게팅하는 URL을 포스트의 `lang` 변수에 따라 변경하도록 하였습니다.
 
-{% highlight javascript linenos %}
 
+```html
 {% raw %}{% assign navigation = site.data.navigation[include.nav] %}
 
 {% if page.lang == 'ko' %}
@@ -283,8 +284,8 @@ lazyjobseeker.github.io
     {% endfor %}
   </ul>
 </nav>{% endraw %}
-{% endhighlight %}
-{: file='_sass/jekyll-theme-chirpy.scss'}
+```
+{: file='_includes/nav_list'}
 
 ## 푸터 수정하기
 
@@ -327,12 +328,11 @@ lazyjobseeker.github.io
   {% endif %}
 {% endfor %}{% raw %}
 ```
+{: file='_includes/custom-paginator/single-post-paginator.html'}
 
 `single-post-paginator.html`을 `include`하고 나면 **현재 포스트의 언어를 기준으로** 동일한 언어로 작성된 포스트들만 모아 둔 `liquid` 객체인 `post`를 참조할 수 있고,  마찬가지로 현재 포스트의 언어를 기준으로 이전 포스트를 나타내는 `post_prev`와 다음 포스트를 나타내는 `post_next`를 사용할 수 있게 됩니다.
 
 이제 포스트의 기본 레이아웃을 결정하는 `_layouts/single.html` 파일에서 `single-post-paginator.html`을 `include`하고 `post_prev`와 `post_next`를 이용하도록 하이퍼링크 참조들을 바꾸어 주면 됩니다.  이전/다음 포스트를 구현하는 부분이 `_includes/post_pagination.html` 파일에 구현되어 `include`되고 있기 때문에 해당 파일 내에서 `post_prev`와 `post_next`를 참조할 수 있도록 넘겨 주었습니다.
-
-`_includes/single.html` 파일:
 
 ```html
   <footer class="page__meta">
@@ -350,8 +350,7 @@ lazyjobseeker.github.io
 	{% include post_pagination.html %}
   {% endif %}{% endraw %}
 ```
-
-`_includes/post_pagination.html` 파일:
+{: file='_includes/single.html'}
 
 ```html
 {% raw %}{% if include.post_prev or include.post_next %}
@@ -369,6 +368,7 @@ lazyjobseeker.github.io
   </nav>
 {% endif %}{% endraw %}
 ```
+{: file='_includes/post-pagination.html'}
 
 ### Related Posts 구현하기
 
@@ -401,12 +401,13 @@ lazyjobseeker.github.io
     </div>
   {% endif %}{% endraw %}
 ```
+{: file='_layouts/single.html'}
 
 ### 카테고리 리스트에서 `en` 제거하기
 
 `Jekyll`의 동작 방식에 따르면 `en` 폴더 하위에 존재하는 문서들은 기본적으로 `en`이라는 카테고리를 갖는 것으로 취급됩니다.  `Minimal Mistakes` 테마의 포스트 마지막 부분에는 현재 포스트가 속한 카테고리들을 나열하는 부분이 있는데, 별도로 수정을 하지 않으면 영어 포스트들은 이 부분에 `en`이라는 카테고리가 기본적으로 존재하는 것처럼 빌드됩니다.
 
-이것을 방지하기 위해, `_includes/category-list.html`
+이것을 방지하기 위해 `_includes/category-list.html` 파일을 수정하여, `en`이라는 이름의 카테고리가 존재하는 경우 해당 태그는 나타내지 않도록 하였습니다.
 
 ## 홈 페이지네이터 커스텀하기
 
@@ -452,15 +453,15 @@ lazyjobseeker.github.io
 lazyjobseeker.github.io
 ├─ index.html → https://lazyjobseekerg.github.io/ (Home Page)
 ├─ _index
-│  ├─ page2.md → https://lazyjobseekerg.github.io/page2/
-│  └─ page3.md → https://lazyjobseekerg.github.io/page3/
+│   ├─ page2.md → https://lazyjobseekerg.github.io/page2/
+│   └─ page3.md → https://lazyjobseekerg.github.io/page3/
 ├─ _posts
 └─ en
-   ├─ _index
-   │  ├─ index.md → https://lazyjobseekerg.github.io/en/ (EN Home Page)
-   │  ├─ page2.md → https://lazyjobseekerg.github.io/en/page2/
-   │  └─ page3.md → https://lazyjobseekerg.github.io/en/page3/
-   └─ _posts
+    ├─ _index
+    │    ├─ index.md → https://lazyjobseekerg.github.io/en/ (EN Home Page)
+    │    ├─ page2.md → https://lazyjobseekerg.github.io/en/page2/
+    │    └─ page3.md → https://lazyjobseekerg.github.io/en/page3/
+    └─ _posts
 ```
 
 그리고 `_config.yml`에서 `_index` 경로들에 대한 기초 변수 세팅을 추가하는데, 기본적으로 `translated` 변수가 `true`로 세팅되도록 하고, 홈 페이지임을 나타내는 `is_index` 변수를 추가로 설정했습니다.
@@ -493,7 +494,7 @@ lazyjobseeker.github.io
       sidebar:
         nav: "docs"
 ```
-
+{: file='_config.yml'}
 
 ## SEO 최적화하기
 

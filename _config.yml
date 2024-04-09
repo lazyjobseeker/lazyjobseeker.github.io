@@ -315,9 +315,45 @@ defaults:
       sidebar:
         nav: "docs"
       permalink: /posts/:title/
+  # _drafts-ko
+  - scope:
+      path: "_drafts"
+      type: posts
+    values:
+      lang: ko
+      toc: true
+      # toc_sticky: true
+      show_date: true
+      layout: single
+      author_profile: false
+      read_time: true
+      comments: # true
+      share: true
+      related: true
+      sidebar:
+        nav: "docs"
+      permalink: /posts/:title/
   # _posts-en
   - scope:
       path: "en/_posts"
+      type: posts
+    values:
+      lang: en
+      toc: true
+      # toc_sticky: true
+      show_date: true
+      layout: single
+      author_profile: false
+      read_time: true
+      comments: # true
+      share: true
+      related: true
+      sidebar:
+        nav: "docs"
+      permalink: /en/posts/:title/
+    # _drafts-en
+  - scope:
+      path: "en/_drafts"
       type: posts
     values:
       lang: en
