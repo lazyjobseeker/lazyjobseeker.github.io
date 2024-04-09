@@ -10,9 +10,9 @@ tags:
   - "Github Blog"
   - Javascript
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-04-02 15:53:57 +09:00
+last_modified_at: 2024-04-09 17:18:40 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-6.png
+  teaser: /assets/images/uncategorized-teaser-1.png
 excerpt: "Javascript를 이용하여 Github Pages 및 Jekyll 기반 정적 블로그 포스트의 원하는 위치에 사지선다형 객관식 문제를 추가해 봅니다"
 quiz_file: /assets/json/quiz_example.json
 ---

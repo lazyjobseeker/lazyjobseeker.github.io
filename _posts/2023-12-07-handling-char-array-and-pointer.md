@@ -9,7 +9,7 @@ redirect_from:
 created_at: 2023-12-05 13:35:24 +09:00
 last_modified_at: 2024-04-05 16:08:17 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-2.png
+  teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: C++에서 vector에 char array들을 저장하는 방법을 알아 봅니다
 ---
 

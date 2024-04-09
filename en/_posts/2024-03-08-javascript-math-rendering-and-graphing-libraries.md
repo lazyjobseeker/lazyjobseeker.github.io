@@ -12,7 +12,7 @@ tags:
 created_at: 2024-03-08 11:13:00 +09:00
 last_modified_at: 2024-04-05 16:05:56 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-8.png
+  teaser: /assets/images/uncategorized-teaser-3.png
 excerpt: "Application of JavaScript libraries to enable mathematical equation rendering (Katex) and graphing (JSXGraph)."
 ---
 

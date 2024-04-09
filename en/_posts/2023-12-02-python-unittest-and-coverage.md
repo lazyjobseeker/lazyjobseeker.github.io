@@ -5,9 +5,9 @@ category: Programming
 tags:
   - python
 created_at: 2023-12-01 13:45:54 +09:00
-last_modified_at: 2024-04-04 14:02:10 +09:00
+last_modified_at: 2024-04-09 17:19:56 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-5.png
+  teaser: /assets/images/uncategorized-teaser-8.png
 excerpt: "How to use unittest library to test my code and check code coverage using coverage library."
 ---
 

@@ -7,9 +7,9 @@ redirect_from:
 tags:
   - python
 created_at: 2023-12-03 15:34:31 +09:00
-last_modified_at: 2024-04-03 16:20:10 +09:00
+last_modified_at: 2024-04-09 17:18:13 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-6.png
+  teaser: /assets/images/uncategorized-teaser-1.png
 excerpt: "2차원 평면에서 다각형과 점이 주어졌을 때 점이 다각형 안에 있는지 판정할 수 있는 Winding Number 알고리즘을 구현해 봅니다"
 ---
 

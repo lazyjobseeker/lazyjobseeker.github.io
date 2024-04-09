@@ -9,7 +9,7 @@ tags:
 created_at: 2024-03-05 23:43:24 +09:00
 last_modified_at: 2024-04-05 16:05:49 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-1.png
+  teaser: /assets/images/uncategorized-teaser-4.png
 excerpt: The concept of Marcus microscopic model for isoenergetic, radiationless and configuration-preserving electron transfer is detailed.
 ---
 

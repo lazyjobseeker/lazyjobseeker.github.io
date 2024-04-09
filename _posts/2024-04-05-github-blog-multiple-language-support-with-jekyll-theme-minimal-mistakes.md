@@ -9,185 +9,494 @@ tags:
   - "Minimal Mistakes"
   - "Multi-Languages"
 created_at: 2024-04-05 18:09:50 +09:00
-last_modified_at: 2024-04-05 19:03:03 +09:00
+last_modified_at: 2024-04-09 17:26:31 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-3.png
+  teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: 지킬 테마 Minimal Mistakes로 만든 Github 블로그에 별도 다국어 지원 플러그인(polyglot, jekyll-multiple-languages-plugin) 없이 다국어 지원을 구현한 과정을 정리합니다.
 ---
 
-## 개요
+## 들어가기
 
-## `_posts` 폴더 구조 바꾸기
+블로그를 시작한 이후로 블로그 컨텐츠들을 한글과 영어로 모두 지원하는 **다국어 지원**을 구현하는 것이 오랜 숙제였습니다.
 
-## `_config.yml` 수정하기
+이 블로그는 정적 웹 사이트 생성기 `Jekyll`에서 오랫동안 사랑받은 테마 `Minimal Mistakes`로 만든 블로그입니다.  다양한 기능들이 이미 구현되어 있는 강력한 테마이지만, `Minimal Mistakes`에는 다국어를 지원하는 별도의 기능은 없었습니다.
+
+다국어 지원을 구현하는 `Jekyll` 플러그인인 `Polyglot`을 적용하여 다국어를 구현하는 경우가 있지만, Github Pages에서의 실행이 지원되지 않는 것으로 알려져 있어 완벽한 대안이라고는 생각되지 않았습니다.
+
+결국 이 블로그의 다국어 지원은 *플러그인 없이* 구현하게 되었습니다.  다행히 `Jekyll`에서 기본적으로 지원하는 요소들과 `Liquid` 및 `html` 코드만으로 `Minimal Mistakes` 테마에서 다국어 지원을 구현할 수 있었습니다.
+
+구현하고자 했던 내용은 구체적으로 아래와 같았습니다.
+
+1. 한글로 작성된 특정 문서의 퍼마링크가 `blabla`일 때, 이 문서의 영어 번역이 존재한다면, 해당 문서의 URL은 반드시 `en/blabla`로 제공한다.
+2. 특정 문서에서 해당 문서의 영어(한글) 번역이 존재하면, 번역된 문서 페이지로 이동할 수 있는 버튼을 마스트헤드 영역에 제공한다.
+3. 현재 한글 블로그에서 사용하고 있는 모든 요소들이 영어 버전에서도 정상적으로 동작한다.
+	- 홈 페이지의 Recent Posts 영역
+	- 마스트헤드 및 사이드바
+	- **이전·다음 글 보기** 영역
+	- **You May Also Enjoy** 영역
+
+구현에 필요했던 과정들을 정리해 보겠습니다.
+
+## 영문 컨텐츠 폴더 만들기
+
+가장 먼저 프로젝트 루트 경로에 `en`이라는 새로운 폴더를 만들었습니다.  루트 폴더의 문서와 폴더들 중 영어로 번역되어야 하는 컨텐츠들이 포함된 것들이 있다면 `en` 폴더 안에 같은 이름의 문서 또는 폴더들을 만들어 주었습니다.
+
+예를 들어, 루트 경로의 `_posts`에 존재하는 모든 포스트들은 영문 번역이 제공되어야 하기 때문에, `en` 디렉토리 하위에 `_posts` 폴더를 새로 만들어 주었습니다.
+
+```
+lazyjobseeker.github.io
+├─ _posts
+└─ en
+   └─ _posts
+```
+
+**여러 개의 `Posts` 폴더**<br>`Jekyll`은 `_posts` 폴더의 마크다운 파일들을 개별 포스트로 판단하여 빌드합니다.  이 때 `_posts` 폴더가 프로젝트 내에 반드시 하나여야 한다는 제한은 없고, 프로젝트에 존재하는 모든 `_posts`라는 이름의 폴더들이 빌드 대상이 됩니다.  만일 프로젝트 루트의 `_post` 폴더 외에 `a/_posts`라는 폴더가 존재한다면, 이 폴더에서 빌드되는 포스트들은 `a`라는 카테고리를 갖는 것으로 분류됩니다.
+{: .notice--info}
+
+## 커스텀 변수 설정
+
+다국어 지원에 필요한 포스트 별 추가 변수들을 설정합니다.  구체적으로, `_config.yml` 파일을 수정하고, 개별 포스트에는 YAML Front Matter로 추가 변수를 설정합니다.
+
+### `_config.yml` 파일 수정
+
+`_posts`에 존재하는 한국어 문서들과 `en/_posts`에 존재하는 영어 문서들에 대해 서로 다른 디폴트 설정을 제공하기 위해 `_config.yml` 파일의 내용을 수정하였습니다.  구체적으로는 `lang` 변수를 새로 추가하여 한글 포스트들은 `ko`, 영어 포스트들은 `en` 값을 갖도록 하였습니다.
+
+그리고 퍼마링크(permalink) 구조도 변경하였습니다.  `Minimal Mistakes` 테마의 기본 퍼마링크 세팅은 `/:categories/:title` 인데, `en/_posts`에 작성하는 영문 포스트들은 기본적으로 상위 폴더명인 `en`을 추가 카테고리로 가지게 되고, 이로 인해 퍼마링크의 가장 앞에 `en` 경로가 강제로 추가됩니다.  이로 인해 일관성 있는 퍼마링크 제공에 어려움이 발생할 수 있다고 생각하여 퍼마링크 구조를 변경해 주었습니다. 
+
+```yaml
+# 일부 값들은 편의상 생략하였습니다.
+defaults:
+  # 한글 포스트들에 대한 디폴트 설정
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      lang: ko
+      permalink: /posts/:title/
+  # 영어 포스트들에 대한 디폴트 설정
+  - scope:
+      path: "en/_posts"
+      type: posts
+    values:
+      lang: en
+      permalink: /en/posts/:title/
+```
+
+**퍼마링크 변경에 따른 리디렉션**<br>퍼마링크 구성을 바꾸게 되면 기존 페이지에 대해 만들어져 있던 구글 색인 결과를 더 이상 사용할 수 없게 되고 이로 인해 페이지에 대한 검색엔진 최적화(SEO)에 악영향을 줄 수 있습니다.  `jekyll-redirect-from` 패키지를 이용해 리디렉션을 설정하여 이러한 문제를 어느 정도 해결할 수 있습니다.
+{: .notice--info}
+
+또한 상단바(마스트헤드) 영역의 왼쪽 끝에 표시되는 **블로그 제목 및 부제목**도 한국어와 영어 페이지에서 서로 다르게 표시하기 위해 값을 분리하여 주었습니다. 
+
+```yaml
+display-title:
+  ko: "나불나불 끄적끄적"
+  en: "Lazyjobseeker's Blog"
+display-subtitle:
+  ko: "읽고 쓰고 그리고 기억하기"
+  en: "I read, write, draw and remember"
+```
+
+마지막으로, 사이드바에 표시되는 블로그 저자 (author) 소개 문구도 언어에 따라 달리 적용되도록 분리했습니다.
+
+```yaml
+# Site Author
+author:
+  name             : "Sangheon Lee"
+  avatar           : "/assets/images/logo.png"
+  bio              :
+    ko: "일하는 것처럼 보인다면 착각입니다."
+    en: "If it looks like I am working, you are mistaken."
+```
+
+### 마크다운 문서에 `translated` 변수 추가
+
+어떤 문서가 자신의 번역된 버전을 가지고 있는지 알려 주는 불리언 변수 `translated`를 YAML Front Matter로 명시해 주기로 하였습니다.  예를 들어 `_post` 혹은 `en/_post` 하위의 어떤 마크다운 파일이 Front Matter로 아래 내용을 가진다면, 해당 파일에 대한 영어(한글) 번역이 존재한다는 뜻입니다.
+
+```yaml
+translated: true
+```
+
+`translated` 변수가 존재하지 않거나 `false` 라면 해당 페이지에 대한 번역은 존재하지 않는다는 것입니다.
+
+지금까지의 내용을 정리하기 위해 아래와 같은 예시를 살펴 보겠습니다.
+
+```
+lazyjobseeker.github.io
+├─ _posts
+│     └─ 2024-04-05-example.md
+│        (target url = https://lazyjobseeker.github.io/posts/example/)
+└─ en
+   └─ _posts
+         └─ 2024-04-05-example.md
+            (target url = https://lazyjobseeker.github.io/en/posts/example/
+```
+
+`2024-04-05-example.md`는 한글 및 영어 버전을 갖는 포스트 파일들입니다.  두 파일 모두 Front Matter에 `translated: true`가 선언되어 있습니다.  또한 `_config.yml`에 정의된 디폴트 설정으로 인해 `_post` 하위의 파일은 `ko`, `en/_post` 하위의 파일은 `en`을 `lang` 값으로 갖게 됩니다.
+
+**파일명에 대하여**<br>`_posts`와 `en/_posts`에 존재하는 번역된 문서들은 동일한 파일명을 가지고 있어야 합니다.  만일 동일한 파일명을 사용하고 싶지 않다면, 다른 변수를 정의하는 등의 방식으로 특정한 두 마크다운 파일이 동일한 내용의 번역들이라는 것을 알 수 있도록 해 두어야 합니다.
+{: .notice--warning}
+
+## 언어별로 타겟 언어 URL 및 블로그 제목/부제목 변경하기
+
+앞선 내용을 바탕으로, 어떤 포스트의 `translated` 및 `lang` 변수에 따라 상대 언어로 만들어진 포스트의 URL을 제공할 수 있는 `Liquid` 코드를 작성하였습니다.
+
+구체적으로는, `_include` 폴더에 `lang-toggle-post.html`이라는 이름으로 아래와 같은 코드를 작성하였습니다.
+
+```liquid
+{% raw %}{% if page.lang == 'ko' %}
+{% if page.lang == 'ko' %}
+  {% assign prefix = '/' %}
+  {% if page.translated %}
+    {% assign target-url-ko = page.url | relative_url %}
+    {% assign target-url-en = page.url | prepend: '/en' | relative_url %}
+  {% else %}
+    {% assign target-url-ko = page.url %}
+    {% assign target-url-en = page.url %}
+  {% endif %}
+  {% assign display-title = site.display-title.ko %}
+  {% assign display-subtitle = site.display-subtitle.ko %}
+{% else %}
+  {% assign prefix = page.lang | prepend: '/' %}
+  {% if page.translated %}
+    {% assign target-url-ko = page.url | replace: '/en/', '/' | relative_url %}
+    {% assign target-url-en = page.url | relative_url %}
+  {% else %}
+    {% assign target-url-ko = page.url %}
+    {% assign target-url-en = page.url %}
+  {% endif %}
+  {% assign display-title = site.display-title.en %}
+  {% assign display-subtitle = site.display-subtitle.en %}
+{% endif %}
+{% endif %}{% endraw %}
+```
+
+위 `Liquid` 코드는 주어진 페이지의 `lang` 값이 `ko`인지 `en`인지에 따라 서로 다른 URL을 생성하기 위한 것입니다.  총 4개의 `Liquid` 변수를 이후의 html에서 참조할 수 있도록 생성합니다.
+
+- `target-url-ko`: (영어 포스트인 경우) 한글 포스트가 존재한다면 해당 한글 포스트의 URL.
+- `target-url-en`: (한글 포스트인 경우) 영어 포스트가 존재한다면 해당 영어 포스트의 URL.
+- `display-title`: 블로그 제목.
+- `display-subtitle`: 블로그 부제목.
 
 ## 마스트헤드 수정하기
 
+이제 어떤 `html` 파일이던지 적당한 위치에서 `lang-toggle-post.html` 파일을 `include`하면 위의 4가지 `Liquid` 변수들을 사용할 수 있습니다.
+
+이를 이용하여 가장 먼저 블로그 상단의 마스트헤드 영역을 나타내는 `_includes/masthead.html` 파일을 수정하였습니다.  먼저 마스트헤드 영역 우측에 한글 포스트이면 `EN` 링크를, 영어 포스트이면 `KO`라고 써 준 다음 번역된 포스트로의 링크를 제공하도록 하였습니다.  또한 언어에 따라 다른 값이 적용되도록 한 블로그 제목 및 부제목 변수를 이용하여 현재 포스트의 타겟 언어 상태에 따라 서로 다른 제목과 부제목이 나타나도록 변경했습니다.
+
+```html
+{% raw %}{% if page.id %}{% include lang-toggle-post.html %}{% endif %}
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        {% unless logo_path == empty %}
+          <a class="site-logo" href="{{ prefix | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: display-title }}"></a>
+        {% endunless %}
+        <a class="site-title" href="{{ prefix | relative_url }}">
+          {{ site.masthead_title | default: display-title }}
+          {% if site.display-subtitle %}<span class="site-subtitle">{{ display-subtitle }}</span>{% endif %}
+        </a>
+        <ul class="visible-links">
+          {% if page.lang == 'en' %}
+            <li class="masthead__menu-item">
+              <a href="{{ target-url-ko }}" title="Page in Korean">KO</a>
+            </li>
+          {% endif %}
+          {% if page.lang == 'ko' %}
+            <li class="masthead__menu-item">
+              <a href="{{ target-url-en }}" title="Page in English">EN</a>
+            </li>
+          {% endif %}
+          {%- for link in site.data.navigation.main -%}
+            <li class="masthead__menu-item">
+              <a href="{{ link.url | prepend: site.baseurl }}"{% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+        {% if site.search == true %}
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
+          <i class="fas fa-search"></i>
+        </button>
+        {% endif %}
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>{% endraw %}
+```
+
 ## 사이드바 수정하기
 
-## 커스텀 페이지네이터 만들기
+사이드바 영역을 구현하는 파일 중 `_includes/author-profile.html`에는 아래 `Liquid` 구문을 추가했습니다.
 
-### Recent Posts 구현하기
+```liquid
+{% raw %}{% if page.lang == 'ko' %}
+  {% assign prefix = '/' %}
+  {% assign author_bio = author.bio.ko %}
+{% else %}
+  {% assign prefix = page.lang | prepend: '/' %}
+  {% assign author_bio = author.bio.en %}
+{% endif %}{% endraw %}
+```
+{: file='_sass/jekyll-theme-chirpy.scss'}
+
+`author_bio` 변수는 `page.lang` 변수가 `ko`인지 `en`인지에 따라 `_config.yml`에 설정된 블로그 저자 소개 관련 스트링 중 알맞은 값을 갖게 됩니다.  `author-profile.html`의 이후 부분에서는 원래 코드에서 `author.bio`로 되어 있는 부분을 모두 새로 정의한 변수 `author_bio`로 바꾸어 주었습니다.
+
+`_includes/nav_list` 파일도 사이드바 영역을 구현하는 파일 중 하나입니다.  아래와 같이 변경하여, 사이드바에 존재하는 링크들이 타게팅하는 URL을 포스트의 `lang` 변수에 따라 변경하도록 하였습니다.
+
+{% highlight javascript linenos %}
+
+{% raw %}{% assign navigation = site.data.navigation[include.nav] %}
+
+{% if page.lang == 'ko' %}
+  {% assign prefix = '' %}
+{% elsif page.lang == 'en' %}
+  {% assign prefix = page.lang | prepend: '/' %}
+{% endif %}
+
+<nav class="nav__list">
+  {% if page.sidebar.title %}<h3 class="nav__title" style="padding-left: 0;">{{ page.sidebar.title }}</h3>{% endif %}
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle Menu" }}</label>
+  <ul class="nav__items">
+    {% for nav in navigation %}
+      <li>
+        {% if nav.url %}
+          <a href="{{ nav.url | prepend: prefix | relative_url }}"><span class="nav__sub-title">{{ nav.title }}</span></a>
+        {% else %}
+          <span class="nav__sub-title">{{ nav.title }}</span>
+        {% endif %}
+
+        {% if nav.children != null %}
+        <ul>
+          {% for child in nav.children %}
+            <li><a href="{{ child.url | prepend: prefix | prepend: site.url }}"{% if child.url == page.url %} class="active"{% endif %}>{{ child.title }}</a></li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>{% endraw %}
+{% endhighlight %}
+{: file='_sass/jekyll-theme-chirpy.scss'}
+
+## 푸터 수정하기
+
+앞선 과정을 통해 포스트의 최상단(마스트헤드) 부분과 사이드바에 언어에 따라 서로 다른 링크 및 텍스트를 적용할 수 있었습니다.  다음으로는 푸터 부분, 즉 페이지 본문 이후 아래 부분에 추가되는 요소들에서 다국어 지원이 필요한 부분들을 해결해야 합니다.
 
 ### 이전 & 다음 포스트 구현하기
 
+가장 먼저 해결해야 하는 문제는 `Minimal Mistakes` 테마에서 개별 포스트의 최하단 푸터 부분에 제공하는 포스트 페이지네이션 (post-pagination) 기능입니다.
+
+포스트 본문의 가장 아래 영역에 이전 포스트 및 다음 포스트로 이동할 수 있는 `Previous`와 `Next` 버튼이 구현되어 있는데, 이 부분은 `jekyll-paginate` 플러그인을 이용하여 구현된 것은 아니고 `Jekyll`에서 제공하는 `page` 객체를 이용합니다.  `page` 객체에는 `page.next`와 `page.previous`라는 변수가 정의되어 있어 어떤 포스트를 기준으로 이전 포스트와 이후 포스트 객체에 접근할 수 있습니다.
+
+하지만 이 역시 포스트의 언어를 구분할 수 있도록 구현된 것은 아니기 때문에, 이 부분을 수정해 주지 않으면 영어 포스트에서 `Next`를 누르다 보면 한글 포스트가 나온다거나 하는 상황이 발생하게 됩니다.
+
+이를 해결하기 위해, 먼저 현재 포스트의 언어를 기준으로 동일한 언어로 작성된 포스트들만 모아 둔 `Liquid` 객체를 반환할 수 있는 코드를 `_includes/custom-paginator` 디렉토리에 `single-post-paginator.html`이라는 이름으로 작성하였습니다.
+
+```liquid
+{% raw %}{% assign posts = "" | split: ',' %}
+{% for post in site.posts %}
+  {% if post.lang and post.lang == page.lang %}
+    {% assign posts = posts | push: post %}
+  {% endif %}
+{% endfor %}
+
+{% assign last_idx = posts.size | minus: 1 %}
+{% for idx in (0..posts.size) %}
+  {% assign prev_idx = idx | plus: 1 %}
+  {% assign next_idx = idx | minus: 1 %}
+  {% if page.id == posts[idx].id %}
+    {% if idx == 0 %}
+      {% assign post_prev = posts[prev_idx] %}
+      {% assign post_next = posts[idx] %}
+    {% elsif idx == last_idx %}
+      {% assign post_prev = posts[idx] %}
+      {% assign post_next = posts[next_idx] %}
+    {% else %}
+      {% assign post_prev = posts[prev_idx] %}
+      {% assign post_next = posts[next_idx] %}
+    {% endif %}
+    {% break %}
+  {% endif %}
+{% endfor %}{% raw %}
+```
+
+`single-post-paginator.html`을 `include`하고 나면 **현재 포스트의 언어를 기준으로** 동일한 언어로 작성된 포스트들만 모아 둔 `liquid` 객체인 `post`를 참조할 수 있고,  마찬가지로 현재 포스트의 언어를 기준으로 이전 포스트를 나타내는 `post_prev`와 다음 포스트를 나타내는 `post_next`를 사용할 수 있게 됩니다.
+
+이제 포스트의 기본 레이아웃을 결정하는 `_layouts/single.html` 파일에서 `single-post-paginator.html`을 `include`하고 `post_prev`와 `post_next`를 이용하도록 하이퍼링크 참조들을 바꾸어 주면 됩니다.  이전/다음 포스트를 구현하는 부분이 `_includes/post_pagination.html` 파일에 구현되어 `include`되고 있기 때문에 해당 파일 내에서 `post_prev`와 `post_next`를 참조할 수 있도록 넘겨 주었습니다.
+
+`_includes/single.html` 파일:
+
+```html
+  <footer class="page__meta">
+	{% raw %}{% if site.data.ui-text[site.locale].meta_label %}
+	  <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
+	{% endif %}
+	{% include page__taxonomy.html %}
+	{% include page__date.html %}
+  </footer>
+  {% if page.share %}{% include social-share.html %}{% endif %}
+  {% include custom-paginator/single-post-paginator.html %}
+  {% if post_prev or post_next %}
+	{% include post_pagination.html post_prev=post_prev post_next=post_next %}
+  {% else %}
+	{% include post_pagination.html %}
+  {% endif %}{% endraw %}
+```
+
+`_includes/post_pagination.html` 파일:
+
+```html
+{% raw %}{% if include.post_prev or include.post_next %}
+  <nav class="pagination">
+    {% if include.post_prev.id != page.id %}
+      <a href="{{ post_prev.url | relative_url }}" class="pagination--pager" title="{{ post_prev.title | markdownify | strip_html }}">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a>
+    {% else %}
+      <a href="#" class="pagination--pager disabled">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a>
+    {% endif %}
+    {% if include.post_next.id != page.id %}
+      <a href="{{ post_next.url | relative_url }}" class="pagination--pager" title="{{ post_next.title | markdownify | strip_html }}">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</a>
+    {% else %}
+      <a href="#" class="pagination--pager disabled">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</a>
+    {% endif %}
+  </nav>
+{% endif %}{% endraw %}
+```
+
 ### Related Posts 구현하기
 
-### 카테고리 
+다음으로는 현재 포스트와 연관성이 있는 포스트들을 나열해 주는 Related Posts 부분을 수정했습니다.  `_layouts/single.html`의 최하단 부분을 수정하는데, 해당 언어로 작성된 포스트 중 4개를 랜덤 샘플링하여 보여주는 것으로 컨셉을 바꾸었습니다.  따라서 Related Posts 부분에 노출되는 4개 포스트의 조합이 사이트를 빌드할 때마다 매번 바뀌게 됩니다.
 
-## 레이아웃 수정하기 : `single`
+```html
+{% raw %}{% comment %}<!-- only show related on a post page when `related: true` -->{% endcomment %}
+  {% if page.id and page.related and site.related_posts.size > 0 %}
+    <div class="page__related">
+      <h2 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h2>
+      <div class="grid__wrapper">
+        {% assign sampled_posts = posts | sample: 4 %}
+        {% for post in sampled_posts %}
+          {% include archive-single.html type="grid" %}
+        {% endfor %}
+      </div>
+    </div>
+  {% comment %}<!-- otherwise show recent posts if no related when `related: true` -->{% endcomment %}
+  {% elsif page.id and page.related %}
+    <div class="page__related">
+      <h2 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h2>
+      <div class="grid__wrapper">
+        {% for post in posts limit:4 %}
+          {% if post.id == page.id %}
+            {% continue %}
+          {% endif %}
+          {% include archive-single.html type="grid" %}
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}{% endraw %}
+```
 
-## 레이아웃 수정하기 : `home`
+### 카테고리 리스트에서 `en` 제거하기
+
+`Jekyll`의 동작 방식에 따르면 `en` 폴더 하위에 존재하는 문서들은 기본적으로 `en`이라는 카테고리를 갖는 것으로 취급됩니다.  `Minimal Mistakes` 테마의 포스트 마지막 부분에는 현재 포스트가 속한 카테고리들을 나열하는 부분이 있는데, 별도로 수정을 하지 않으면 영어 포스트들은 이 부분에 `en`이라는 카테고리가 기본적으로 존재하는 것처럼 빌드됩니다.
+
+이것을 방지하기 위해, `_includes/category-list.html`
+
+## 홈 페이지네이터 커스텀하기
+
+`Minimal Mistakes` 테마에는 페이지네이션(pagination) 기능을 이용한 요소들이 있습니다.  페이지네이션은 여러 포스트들을 페이지 당 정해진 갯수씩 묶어, 여러 장의 페이지에 걸쳐 보여줄 수 있도록 하는 기능입니다.
+
+`Minimal Mistakes` 테마의 경우 사이트의 기본 페이지는 **Recent Posts**라는 이름으로 가장 최근의 포스트 제목들을 정해진 갯수만큼씩 한 페이지에 보여 주도록 되어 있습니다.  총 40개의 포스트가 있고 페이지마다 5개씩 보여주기로 한다면 8개의 페이지가 생기게 되며, 각 페이지 사이를 이동할 수 있는 링크가 하단에 제공됩니다.
+
+이러한 기능은 테마에 특화된 UI를 제외하면 `Minimal Mistakes` 테마가 자체적으로 구현하는 것이 아니며, `Jekyll`에서 제공하는 페이지네이션 플러그인인 `jekyll-paginate`를 이용한 것입니다.  바닐라 상태의 테마에서는 문제가 없지만, 다국어 지원을 다국어 플러그인 없이 구현하고자 하는 경우, 이 부분이 문제가 됩니다.  왜냐하면 `jekyll-paginate` 플러그인은 프로젝트 내에 존재하는 모든 포스트들을 대상으로 작동하며, '한글 포스트만 페이지네이션하기', '영어 포스트만 페이지네이션하기' 와 같이 조건이 붙은 작업은 수행할 수 없기 때문입니다.
+
+따라서 다국어 지원 플러그인을 사용하지 않으면서 페이지네이션 기능도 한글/영어 포스트에 대해 따로 적용하고 싶다면, 페이지네이션 기능 또한 별도로 구현해야 합니다.  다행히 이 부분 역시 `Liquid` 문법 수준에서 어느 정도 구현할 수 있는 내용입니다.
+
+### `jekyll-paginate` 이해하기
+
+우선 `jekyll-paginate` 플러그인이 [제공하는 기능](https://jekyllrb.com/docs/pagination)을 살펴보면, `paginator`라는 `Liquid` 객체를 제공하며, 이 객체를 통해 아래의 정보들을 제공합니다.
+
+1. 현재 페이지의 번호
+2. 페이지당 표시할 포스트 개수
+3. 현재 페이지에 표시되는 포스트 객체들
+4. 포스트의 총 개수
+5. 페이지의 총 개수
+6. 이전 페이지 번호
+7. 이전 페이지 URL
+8. 다음 페이지 번호
+9. 다음 페이지 URL
+
+따라서 이 항목들을 `jekyll-paginate` 없이 순수 `Liquid` 문법으로 언어를 구분하여 구현할 수 있다면 플러그인 없이 **Recent Posts** 부분에 대한 페이지네이션을 다국어로 지원할 수 있게 됩니다.
+
+### `_index` 폴더 만들기
+
+`Minimal Mistakes` 테마는 `jekyll-paginate` 플러그인을 활용하여 기본 홈 페이지 및 `page#` 꼴의 퍼마링크를 가진 개별 페이지들을 렌더링합니다.  저의 블로그 주소인 `lazyjobseeker.github.io`를 예로 들면 아래와 같습니다.
+
+- 홈 (1페이지): `lazyjobseeker.github.io/`
+- 2페이지: `lazyjobseeker.github.io/page2/`
+- $num$페이지: `lazyjobseeker.github.io/page:num/`
+
+그리고 1페이지를 생성하기 위해 `index.html`이 필요한 것을 제외하면, 나머지 페이지들은 별도로 `html`이나 `md` 파일을 만들어 두지 않더라도 자동으로 만들어집니다.
+
+하지만 `jekyll-paginate` 자체에서 다국어를 지원하지 않기 때문에, 다국어 블로그에서 언어별 페이지네이션을 구현하기 위해서는 `/page2/`, `/page3/`... 꼴 (`page:num`)의 퍼마링크를 갖는 개별 페이지들을 마크다운 파일로 모조리 따로 준비해야 합니다.  또한, 영어 페이지의 경우 `en/page2/`, `en/page3/`과 같은 퍼마링크를 갖는 페이지들이 빌드될 수 있도록 `.md` 혹은 `.html` 파일들이 별도로 존재해야 합니다.
+
+이를 위해 `/page:num/` 꼴의 퍼마링크를 갖도록 빌드될 마크다운 파일들을 모아 두는 `_index` 폴더를 만들었습니다.  루트에 존재하는 `_index`는 기존의 우리말 블로그를 위한 것이고, `en` 하위에 만든 것은 영어 버전을 지원하기 위한 것입니다.  루트의 `index.html`은 `Jekyll`이 기본적으로 루트 디렉토리에서`index.html`을 찾아 홈 페이지로 만들기 때문에 `_index` 안으로 이동하지 않았습니다.
+
+```
+lazyjobseeker.github.io
+├─ index.html → https://lazyjobseekerg.github.io/ (Home Page)
+├─ _index
+│  ├─ page2.md → https://lazyjobseekerg.github.io/page2/
+│  └─ page3.md → https://lazyjobseekerg.github.io/page3/
+├─ _posts
+└─ en
+   ├─ _index
+   │  ├─ index.md → https://lazyjobseekerg.github.io/en/ (EN Home Page)
+   │  ├─ page2.md → https://lazyjobseekerg.github.io/en/page2/
+   │  └─ page3.md → https://lazyjobseekerg.github.io/en/page3/
+   └─ _posts
+```
+
+그리고 `_config.yml`에서 `_index` 경로들에 대한 기초 변수 세팅을 추가하는데, 기본적으로 `translated` 변수가 `true`로 세팅되도록 하고, 홈 페이지임을 나타내는 `is_index` 변수를 추가로 설정했습니다.
+
+```yaml
+# Index pages with custom pagination (Korean)
+  - scope:
+      path: "_index"
+      type: pages
+    values:
+      is_index: true
+      translated: true
+      layout: home
+      lang: ko
+      page_no: 1
+      author_profile: true
+      sidebar:
+        nav: "docs"
+  # Index pages with custom pagination (English)
+  - scope:
+      path: "en/_index"
+      type: pages
+    values:
+      is_index: true
+      translated: true
+      layout: home
+      lang: en
+      page_no: 1
+      author_profile: true
+      sidebar:
+        nav: "docs"
+```
+
 
 ## SEO 최적화하기
 
 ### `hreflang` 설정하기
 
 ### 사이트맵 구조 수정하기
-
-
-## 1. 포베 다이어그램
-
-**전위-산도 (Potential-pH) 도표** 혹은 **포베 다이어그램 (Pourbaix diagram)**은 **네른스트 식 (Nernst equation)**에 의해 표현되는 산화환원반응의 열역학적 평형조건들을 $x$축을 산도(pH), $y$축을 전위(potential)로 하는 좌표평면상에 표시한 도표입니다.  포베 다이어그램을 이용하면 주어진 산화환원 반응계에서 전위 혹은 pH의 변화에 따라 어떤 화학종이 우세하게 존재하는지 시각적으로 쉽게 확인할 수 있습니다.
-
-### 1.1. 산화환원 반응식
-
-산화환원 반응은 산화종 $\ce{O}$가 몇 개의 양성자를 얻거나 (+$q\ce{H+}$) 몇 개의 전자를 얻어 (+$n\ce{e}$) 환원종 $\ce{R}$로 변하는 반응 및 그 역과정입니다.  즉, 일반적인 산화환원 반응은 아래와 같이 쓰여집니다.
-
-$$\ce{O + qH+ + ne <=> R \tag{1}}$$
-
-### 1.2. 네른스트식
-
-**네른스트 식**은 어떤 반응에 대한 포텐셜 $E$가 표준 평형 상태 포텐셜 $E^0$에서 벗어나는 정도를 반응물과 생성물의 활동도와 반응계수들의 조합으로 나타냅니다.
-
-네른스트 식의 유도를 위해, 우선 반응 $(1)$의 평형에 대한 아래의 깁스자유에너지 표현을 생각합니다.
-
-$$\Delta G = \Delta G^0 + RT\frac{a_\text{R}}{a_\text{O}a^q_\ce{H+}} \tag{2}$$
-
-그리고 $\Delta G = -nFE$, $\Delta G^0 = -nFE^0$임을 이용하여, 다음을 얻습니다.  이 식이 반응 $(1)$에 대한 네른스트식이 됩니다.
-
-$$E = E^0 + \frac{qRT}{nF}\ln{\frac{a_\ce{O}a_\ce{H+}}{a_\ce{R}}} \tag{3}$$
-
-포베 다이어그램은 전위와 pH의 관계를 나타내기 위한 것이므로, $(3)$에서 pH 항을 분리하여 다시 아래와 같이 써 줍니다. 
-
-$$E = E^0 - 0.059 \left( \frac{q}{n} \right) \left(\text{pH}-\log{\frac{a_\ce{O}}{a_\ce{R}}} \right) \tag{4}$$
-
-이제 어떠한 화학종들로 구성된 계에 대해, 각 화학종 사이의 산화환원 반응식 및 표준상태 평형전위 $E^0$을 알고 있다면, 식 $(3)$을 이용하여 좌표평면상에 포베 다이어그램을 그릴 수 있습니다.  복잡한 반응의 경우 반응물과 생성물의 활동도 및 화학식 계수를 모두 고려하여야 하지만, 많은 경우 수소 이온과 수산화이온을 제외한 반응물 및 생성물의 활동도는 1로 두고 아래와 같이 간단히 쓸 수 있습니다.
-
-$$E = E^0 - 0.059 \left( \frac{q}{n} \right) \text{pH} \tag{5}$$
-
-많은 경우 $(5)$와 같이 간략화된 식을 이용해 포베 다이어그램을 그릴 수 있지만, 반응식이 더 복잡하고 수소 이온과 수산화이온 외 화학종들의 활동도를 1로 둘 수 없는 경우도 있습니다.  물에 대한 포베 다이어그램과 철에 대한 포베 다이어그램을 직접 그려 보도록 하겠습니다.
-
-**주의!**  네른스트식의 표현은 자연로그로 주어지는데 pH는 수소이온농도의 **상용로그**이기 때문에,  식 $(3)$을 식 $(4)$로 정리하는 과정에서 $\ln{x} = (\log x/\log e) = 2.303\log(x)$임이 사용되었습니다.
-{: .notice--warning}
-
-## 2. 물의 포베 다이어그램
-
-가장 간단한 예시로, 물과 관련된 포베 다이어그램을 직접 그려 보도록 하겠습니다.  물 분자 ($\ce{H2O}$), 수소 분자 ($\ce{H2}$), 산소 분자 ($\ce{O2}$)와 수소 이온 ($\ce{H+}$)이 반응에 참여합니다.
-
-먼저 환원 반응의 반응식은 아래와 같이 주어집니다.
-
-$$\ce{H+ + e- <=> 1/2H2} \newline (E^0 = \text{0.0V vs. NHE}) \tag{6}$$
-
-이 반응에 대한 네른스트 식은 $(5)$를 참고하여 아래와 같이 정리됩니다.
-
-$$E = 0.0 - 0.059\text{pH} \tag{7}$$
-
-다음으로, 산화 반응의 반응식은 아래와 같이 주어집니다.
-
-$$\ce{O2 + 4H+ + 4e- <=> 2H2O} \newline (E^0 =\text{1.229V vs. NHE}) \tag{8}$$
-
-이 반응에 대한 네른스트 식 역시 $(5)$를 참고하여 아래와 같이 정리됩니다.
-
-$$E = 1.229 - 0.059\text{pH} \tag{9}$$
-
-이처럼 하나의 산화환원 반응식에 네른스트식의 유도과정을 적용하여 얻어진 $(7)$및 $(9)$와 같은 식들을 편의상 **반응평형선**이라고 부르겠습니다.  반응계와 관련된 반응평형선들을 좌표평면상에 그려 주면 아래와 같은 포베 다이어그램을 얻게 됩니다.
-
-{% include jsxgraph.html graphName="240315-pourbaix-0" jxgNo=0 width=300 height=300 caption="물의 포베 다이어그램"%}
-
-위 포베 다이어그램의 각 영역은 가장 위 영역부터 순서대로 $\ce{O2}$, $\ce{H2O}$, $\ce{H2}$가 가장 안정한 영역을 나타냅니다.  포텐셜이 낮아질수록 전극을 통해 공급되는 전자의 에너지가 높아지며 전극 주변의 화학종들을 환원시키게 되므로 $y$축에서 위로 올라갈수록 산화, 아래로 갈수록 환원 반응이 우세하게 되는 것에 유의합니다.
-
-## 3. 철의 포베 다이어그램
-
-식 $(5)$를 다시 살펴 봅시다.  반응에 참여하는 수소 이온이 많을수록 ($q \uparrow$), 반응에 참여하는 전자가 적을수록 ($n \downarrow$) 포베 다이어그램 상에서 해당 반응을 나타내는 반응평형선의 기울기가 커지는 것을 알 수 있습니다.
-
-$$E = E^0 - 0.059 \left( \frac{q}{n} \right)\text{pH}$$
-
-하지만 더 복잡한 시스템에서 그려진 포베 다이어그램은 수평선 혹은 수직선을 포함하기도 합니다.  가장 많이 접할 수 있는 포베 다이어그램 중 하나는 철의 포베 다이어그램입니다.
-
-먼저, 아래 그림은 완성된 포베 다이어그램을 만들기 전의 것으로, 모든 가능한 반응의 반응평형선들만을 좌표평면상에 나타낸 것입니다.
-
-{% include jsxgraph.html graphName="240315-pourbaix-1" jxgNo=1 width=300 height=300 caption="철의 반응 평형선"%}
-
-위 그래프를 살펴 보면 물의 포베 다이어그램에서 관찰되었던, 우하향하는 형태의 반응평형선 이외에도 수직선 및 수평선 형태의 반응평형선을 볼 수 있습니다.  어떤 경우에 이러한 반응평형선이 발생하며, 각각의 경우를 어떻게 그려야 하는지 간단히 살펴 보겠습니다.
-
-### 3.1. 수소이온이 관여하지 않는 반응 (수평선)
-
-수소이온이 관여하지 않는 반응은 식 $(5)$ 에서 $q=0$인 경우가 됩니다. 
-
-$$E = E^0 - 0.059(q/n)\text{pH} \tag{9} = E^0$$
-
-이는 $y=k$꼴이며, 표준환원전위를 지나는 수평선으로 표시됩니다.  위 **그림 2**에 나타낸 철의 포베 다이어그램에서 두 수평선은 각각 아래의 반응들을 나타냅니다.
-
-$$\ce{Fe^2+ + 2e <=> Fe} \newline (E^0 = \text{-0.44V vs. NHE}) \tag{A, 11}$$
-
-$$\ce{Fe^3+ + e <=> Fe^2+} \newline (E^0 = \text{0.77V vs. NHE}) \tag{B, 12}$$
-
-### 3.2. 전자가 관여하지 않는 반응 (수직선)
-
-위에 나타낸 철의 포베 다이어그램에는 전자가 관여하지 않는 반응도 두 개가 포함되어 있습니다.  우선 두 반응식 중 하나는 아래와 같습니다.  3가 철 이온이 물과 반응하여 수산화철로 침전하는 반응입니다.
-
-$$
-\begin{aligned}
-\ce{Fe^3+ + 3H2O &<=>\newline
-&Fe(OH)3 + 3H+} \tag{C, 13}
-\end{aligned}
-$$
-
-이 반응의 반응평형식은 식 $(5)$ 를 이용하여 구하지 않고, 침전물인 삼수산화철의 용해도곱상수와 물의 이온곱상수를 이용하여 구합니다.
-
-$$K_\text{sp}=a_\ce{Fe^3+}a^3_\ce{OH-}=4×10^{-38} \tag{14}$$
-
-$$K_\text{w} = a_\ce{H+} a_\ce{OH-} = 10^{-14} \tag{15}$$
-
-$a_\ce{Fe^{3+}}=1$로 두면, 아래와 같습니다.
-
-$$
-\begin{aligned}
-\text{pH}
-&=-\log a_\ce{H+}\newline
-&=-\log \left( 10^{-14}×\left(4×10^{-38}\right)^{-1/3} \right)\newline
-&= 1.53\newline
-\end{aligned}
-\tag{16}
-$$
-
-따라서, 반응 $(13)$을 나타내는 반응평형선은 $\text{pH} = 1.53$입니다.
-
-한편 2가 철 이온 ($\ce{Fe^{2+}}$)은 아래 반응에 의해 이수산화철로 침전합니다.
-
-$$\ce{Fe(OH)2 <=> Fe^{2+} + 2OH-} \tag{D, 17}$$
-
-이 반응 역시 전자가 관여하지 않으므로 수직선을 나타냅니다.  이수산화철의 용해도곱상수는 $1.6×10^{-15}$이며, 위와 같은 방식으로 계산하면 $\text{pH} = 6.6$이 반응평형선이 된다는 것을 알 수 있습니다.
-
-### 3.3. 깁스 상률 적용하여 나머지 반응평형선 그리기
-
-한편, 삼수산화철과 2가 철 이온은 아래 반응식에 의해 평형을 이룹니다.
-
-$$\ce{Fe(OH)3 + 3H+ + e <=> Fe^{2+} + 3H2O} \tag{E, 18}$$
-
-이 반응의 반응평형선은 $(5)$의 네른스트식으로 구할 수 있습니다.
-
-$$E = E^0 - 3×0.059\text{pH} \tag{19}$$
-
-이 반응평형선은 기울기는 알려져 있지만 $E^0$값을 알지 못합니다.  하지만 기울기 정보만 가지고도 이 반응평형선은 포베 다이어그램 상에 그릴 수 있습니다.  반응평형선 $(19)$위에서는 이미 $\ce{Fe^{2+}}$와 $\ce{Fe(OH)3}$이 평형을 이루고 있는데, 여기에 $\ce{Fe^{3+}}$까지 동시에 평형을 이루며 존재하는 것은 **깁스 상률**에 의거하여 오직 한 점에서만 가능하며, 이로부터 반응평형선 $(19)$는 반응평형선 A와 C의 교점인 $(1.53, 0.77)$을 반드시 지나야 한다는 것을 알 수 있기 때문입니다.
-
-이러한 방식으로 두 개의 반응평형선을 더 그릴 수 있습니다.  각 반응은 아래와 같습니다.
-
-$$\ce{Fe(OH)3 + H+ + e <=> Fe(OH)2 + H2O \tag{F, 20}}$$
-
-$$\ce{Fe(OH)2 + 2H+ + 2e <=> Fe + 2H2O \tag{G, 21}}$$
-
-이제 지금까지 도시한 반응평형선들을  가지고 실제 관찰 가능한 선분 및 반직선들만을 남기면 아래와 같은 도식을 얻습니다.  이것이 완성된 철의 포베 다이어그램입니다.
-
-{% include jsxgraph.html graphName="240315-pourbaix-2" jxgNo=2 width=300 height=300 caption="철의 포베 다이어그램"%}

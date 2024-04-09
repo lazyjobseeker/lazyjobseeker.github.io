@@ -7,9 +7,9 @@ redirect_from:
 tags:
   - Electrochemistry
 created_at: 2024-02-27 00:30:11 +09:00
-last_modified_at: 2024-04-02 17:29:08 +09:00
+last_modified_at: 2024-04-09 17:18:32 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-4.png
+  teaser: /assets/images/uncategorized-teaser-7.png
 excerpt: "Allen J. Bard의 <Electrochemical Methods: Fundamentals and Applications (3rd Ed.)> 챕터 1 정리"
 ---
 

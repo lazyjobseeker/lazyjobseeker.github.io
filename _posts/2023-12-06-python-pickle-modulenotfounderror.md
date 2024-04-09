@@ -8,9 +8,9 @@ tags:
   - python
   - pickle
 created_at: 2023-12-05 13:35:24 +09:00
-last_modified_at: 2024-04-03 13:15:22 +09:00
+last_modified_at: 2024-04-09 17:18:22 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-1.png
+  teaser: /assets/images/uncategorized-teaser-4.png
 excerpt: "python의 직렬화 모듈 pickle 사용 시 ModuleNotFoundError가 발생하는 경우 해결 방법"
 ---
 

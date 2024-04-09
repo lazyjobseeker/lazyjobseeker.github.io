@@ -7,9 +7,9 @@ redirect_from:
 tags:
   - python
 created_at: 2023-05-10 06:59:45 +09:00
-last_modified_at: 2024-04-05 11:16:18 +09:00
+last_modified_at: 2024-04-09 17:17:39 +09:00
 header:
-  teaser: /assets/images/python-teaser-basicconcepts.png
+  teaser: /assets/images/uncategorized-teaser-3.png
 excerpt: "파이썬 클래스(Class) 의 구성 요소들을 살펴보고 사용자 정의 클래스를 작성하여 사용해 봅시다."
 ---
 

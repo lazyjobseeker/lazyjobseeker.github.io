@@ -1,0 +1,13 @@
+{% if page.lang == 'ko' %}
+  {% assign prefix = '/' %}
+  {% assign target-url-ko = site.url %}
+  {% assign target-url-en = site.url | append: '/en/' %}
+  {% assign display-title = site.display-title.ko %}
+  {% assign display-subtitle = site.display-subtitle.ko %}
+{% else %}
+  {% assign prefix = page.lang | prepend: '/' %}
+  {% assign target-url-ko = site.url %}
+  {% assign target-url-en = site.url | append: '/en/' %}
+  {% assign display-title = site.display-title.en %}
+  {% assign display-subtitle = site.display-subtitle.en %}
+{% endif %}

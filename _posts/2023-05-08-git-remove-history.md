@@ -7,9 +7,10 @@ redirect_from:
 tags:
   - devlog
 created_at: 2023-05-08 01:33:28 +09:00
-last_modified_at: 2024-04-05 14:18:06 +09:00
+last_modified_at: 2024-04-09 17:17:30 +09:00
 header:
-  teaser: /assets/images/software-teaser-scm.png
+  teaser: /assets/images/uncategorized-teaser-2.png
+excerpt: "깃에서 커밋 히스토리 모두 삭제하기"
 ---
 
 https://stackoverflow.com/questions/13716658/how-to-delete-all-commit-history-in-github

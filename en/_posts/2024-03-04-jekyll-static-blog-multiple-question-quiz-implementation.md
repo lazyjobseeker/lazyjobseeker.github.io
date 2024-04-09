@@ -8,9 +8,9 @@ tags:
   - "Github Blog"
   - Javascript
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-04-02 15:53:08 +09:00
+last_modified_at: 2024-04-09 17:20:30 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-6.png
+  teaser: /assets/images/uncategorized-teaser-1.png
 excerpt: "How to embed 4-choices quiz inside blog post generated using Jekyll."
 quiz_file: /assets/json/quiz_example.json
 ---

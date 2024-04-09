@@ -5,9 +5,9 @@ category: Programming
 tags:
   - C++
 created_at: 2023-12-05 13:35:24 +09:00
-last_modified_at: 2024-04-05 16:06:43 +09:00
+last_modified_at: 2024-04-09 17:20:16 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-2.png
+  teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: How to store char arrays into a vector in C++
 ---
 

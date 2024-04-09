@@ -8,9 +8,9 @@ tags:
   - "SW Expert Academy"
   - "Coding Test"
 created_at: 2023-12-08 17:07:36 +09:00
-last_modified_at: 2024-04-03 08:43:05 +09:00
+last_modified_at: 2024-04-09 17:18:27 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-3.png
+  teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: 회문(palindrome; 팰린드롬)을 주제로 한 알고리즘 문제들 공부하기
 ---
 

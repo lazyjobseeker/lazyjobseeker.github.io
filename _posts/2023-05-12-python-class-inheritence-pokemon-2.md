@@ -7,9 +7,9 @@ redirect_from:
 tags:
   - python
 created_at: 2023-05-12 07:43:00 +09:00
-last_modified_at: 2024-04-05 11:16:02 +09:00
+last_modified_at: 2024-04-09 17:17:48 +09:00
 header:
-  teaser: /assets/images/python-teaser-basicconcepts.png
+  teaser: /assets/images/uncategorized-teaser-4.png
 excerpt: "만들어 둔 클래스를 상속하여 새로운 클래스를 만드는 방법을 알아 봅시다."
 ---
 

@@ -1,5 +1,6 @@
 ---
 lang: ko
+translated: true
 title: CURRICULUM VITAE
 category: Sangheon Lee
 last_modified_at: 2024-03-26 14:38:41 +09:00

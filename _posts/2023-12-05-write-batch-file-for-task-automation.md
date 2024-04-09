@@ -7,9 +7,9 @@ redirect_from:
 tags:
   - windows
 created_at: 2023-12-05 00:00:00 +09:00
-last_modified_at: 2024-04-03 14:07:40 +09:00
+last_modified_at: 2024-04-09 17:18:19 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-8.png
+  teaser: /assets/images/uncategorized-teaser-3.png
 excerpt: "윈도우즈 환경에서 반복 작업을 자동화할 수 있도록 배치 파일을 작성하고 활용하는 방법"
 ---
 

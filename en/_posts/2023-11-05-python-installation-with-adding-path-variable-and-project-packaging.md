@@ -7,7 +7,7 @@ tags:
 created_at: 2023-11-05 23:57:00 +09:00
 last_modified_at: 2024-04-05 16:07:11 +09:00
 header:
-  teaser: /assets/images/python-teaser-devenviron.png
+  teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: "How to 1) install python and setting PATH variable and 2) package custom python project using setuptools package for distribution."
 ---
 

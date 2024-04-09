@@ -5,9 +5,9 @@ categories: Programming
 tags:
   - devlog
 created_at: 2023-05-08 01:33:28 +09:00
-last_modified_at: 2024-04-05 14:28:12 +09:00
+last_modified_at: 2024-04-09 17:19:30 +09:00
 header:
-  teaser: /assets/images/software-teaser-scm.png
+  teaser: /assets/images/uncategorized-teaser-2.png
 excerpt: "How to remove all commit history from a git repository."
 ---
 

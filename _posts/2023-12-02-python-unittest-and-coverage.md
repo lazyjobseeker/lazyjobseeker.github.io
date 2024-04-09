@@ -7,9 +7,9 @@ category: Programming
 tags:
   - python
 created_at: 2023-12-01 13:45:54 +09:00
-last_modified_at: 2024-04-04 13:49:55 +09:00
+last_modified_at: 2024-04-09 17:18:10 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-5.png
+  teaser: /assets/images/uncategorized-teaser-8.png
 excerpt: "파이썬에서 unittest 라이브러리를 사용하여 작성된 코드를 테스트하고 coverage패키지를 이용하여 코드 커버리지를 확인하는 방법"
 ---
 

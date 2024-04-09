@@ -9,7 +9,7 @@ tags:
 created_at: 2024-02-28 10:25:00 +09:00
 last_modified_at: 2024-04-05 16:06:16 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-5.png
+  teaser: /assets/images/uncategorized-teaser-8.png
 excerpt: "How to use Git with Android mobile devices to maintain Jekyll-based static blog hosted by Github Pages."
 ---
 

@@ -5,9 +5,9 @@ category: Electrochemistry
 tags:
   - Electrochemistry
 created_at: 2024-02-27 00:30:11 +09:00
-last_modified_at: 2024-04-02 17:30:48 +09:00
+last_modified_at: 2024-04-09 17:20:23 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-4.png
+  teaser: /assets/images/uncategorized-teaser-7.png
 excerpt: "Summary of the contents of chapter 1 of <Electrochemical Methods: Fundamentals and Applications (3rd Ed.)> by A. J. Bard."
 ---
 

@@ -9,7 +9,7 @@ tags:
 created_at: 2024-03-05 23:43:24 +09:00
 last_modified_at: 2024-04-05 16:06:03 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-7.png
+  teaser: /assets/images/uncategorized-teaser-2.png
 excerpt: Derivation of Butler-Volmer equation from Gibbs free energy-dependent expression of rate constants.
 ---
 

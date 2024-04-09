@@ -1,9 +1,6 @@
 {% if page.lang == 'ko' %}
   {% assign prefix = '/' %}
-  {% if page.is_index %}
-    {% assign target-url-ko = site.url %}
-    {% assign target-url-en = site.url | append: '/en/' %}
-  {% elsif page.translated %}
+  {% if page.translated %}
     {% assign target-url-ko = page.url | relative_url %}
     {% assign target-url-en = page.url | prepend: '/en' | relative_url %}
   {% else %}
@@ -14,10 +11,7 @@
   {% assign display-subtitle = site.display-subtitle.ko %}
 {% else %}
   {% assign prefix = page.lang | prepend: '/' %}
-  {% if page.is_index %}
-    {% assign target-url-ko = site.url %}
-    {% assign target-url-en = site.url | append: '/en/' %}
-  {% elsif page.translated %}
+  {% if page.translated %}
     {% assign target-url-ko = page.url | replace: '/en/', '/' | relative_url %}
     {% assign target-url-en = page.url | relative_url %}
   {% else %}

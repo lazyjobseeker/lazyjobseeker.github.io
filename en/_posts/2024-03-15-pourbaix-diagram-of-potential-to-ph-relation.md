@@ -9,9 +9,9 @@ tags:
   - model
   - kinetics
 created_at: 2024-03-15 09:24:59 +09:00
-last_modified_at: 2024-04-05 16:04:54 +09:00
+last_modified_at: 2024-04-09 17:20:48 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-2.png
+  teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: How to interpret Pourbaix diagram or potential-pH diagram, with step-by-step instruction to draw ones for water and iron system.
 ---
 

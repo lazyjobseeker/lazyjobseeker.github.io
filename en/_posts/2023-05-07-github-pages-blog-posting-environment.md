@@ -5,9 +5,9 @@ categories: Programming
 tags:
   - devlog
 created_at: 2023-05-07 11:17:13 +09:00
-last_modified_at: 2024-04-05 15:14:19 +09:00
+last_modified_at: 2024-04-09 17:19:22 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-2.png
+  teaser: /assets/images/uncategorized-teaser-1.png
 excerpt: "Applications I am using to maintain blogs in mobile environment"
 ---
 

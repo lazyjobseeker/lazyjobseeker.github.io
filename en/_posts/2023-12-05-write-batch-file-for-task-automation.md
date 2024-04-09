@@ -5,9 +5,9 @@ category: Programming
 tags:
   - windows
 created_at: 2023-12-05 00:00:00 +09:00
-last_modified_at: 2024-04-03 14:57:39 +09:00
+last_modified_at: 2024-04-09 17:20:07 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-8.png
+  teaser: /assets/images/uncategorized-teaser-3.png
 excerpt: "How to write batch file to automate repeated tasks in windows environment."
 ---
 

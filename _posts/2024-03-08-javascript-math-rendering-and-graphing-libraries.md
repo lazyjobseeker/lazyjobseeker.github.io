@@ -12,9 +12,9 @@ tags:
   - Katex
   - JSXGraph
 created_at: 2024-03-08 11:13:00 +09:00
-last_modified_at: 2024-04-05 16:08:37 +09:00
+last_modified_at: 2024-04-09 17:18:46 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-8.png
+  teaser: /assets/images/uncategorized-teaser-3.png
 excerpt: "Github 블로그에 수학식 및 화학식 표시를 위한 Javascript 라이브러리 적용. 수학식 표시를 위한 Katex 라이브러리와 함수 그래프 표시를 위한 JSXGraph 라이브러리 적용 과정 정리."
 ---
 
@@ -38,7 +38,7 @@ Minimal Mistakes 테마의 Github Pages 블로그에 수식 렌더링을 위한 
 
 적용 후, 한 줄 수식은 `\\[`와 `\\]`으로 감싸서 표시할 수 있습니다.  예를 들어, 아래와 같이 입력하면,
 
-```bash
+```
 \\[ x^2 + y^2 = 1 \\]
 ```
 

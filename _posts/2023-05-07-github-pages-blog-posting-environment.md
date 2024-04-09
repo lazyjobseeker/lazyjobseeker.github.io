@@ -7,9 +7,9 @@ redirect_from:
 tags:
   - devlog
 created_at: 2023-05-07 11:17:13 +09:00
-last_modified_at: 2024-04-05 14:30:07 +09:00
+last_modified_at: 2024-04-09 17:17:14 +09:00
 header:
-  teaser: /assets/images/uncategorized-teaser-2.png
+  teaser: /assets/images/uncategorized-teaser-1.png
 excerpt: "모바일 환경에서 깃허브 블로그를 포스팅하기 위해 사용하고 있는 어플리케이션들"
 ---
 
