@@ -4,6 +4,7 @@
 {% if page.lang and page.lang == 'ko' and page.page_no and page.page_no == 1 %}
   <meta name="naver-site-verification" content="e849c9ef4769c0606b6958592fc2e13a5c4e9a37" />
 {% endif %}
+
 <!-- Add hreflang for multiple language SEO support -->
 {% if page.lang == 'ko' %}
   {% assign prefix = '/' %}
@@ -32,10 +33,10 @@
 {% endif %}
 
 {% if target-url-ko %}
-  <link rel="alternate" hreflang="ko" href={{target-url-ko}}>
+  <link rel="alternate" hreflang="ko" href="{{target-url-ko}}">
 {% endif %}
 {% if target-url-en %}
-  <link rel="alternate" hreflang="en" href={{target-url-en}}>
+  <link rel="alternate" hreflang="en" href="{{target-url-en}}">
 {% endif %}
 
 <!-- To add quiz in a post -->

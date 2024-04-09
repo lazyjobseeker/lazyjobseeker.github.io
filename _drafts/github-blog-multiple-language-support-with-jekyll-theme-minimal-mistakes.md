@@ -1,5 +1,5 @@
 ---
-translated: true
+translated: false
 title: 플러그인 없이 지킬 블로그 다국어 지원하기
 category: Programming
 tags:
@@ -8,7 +8,7 @@ tags:
   - "Minimal Mistakes"
   - "Multi-Languages"
 created_at: 2024-04-05 18:09:50 +09:00
-last_modified_at: 2024-04-09 18:59:34 +09:00
+last_modified_at: 2024-04-10 01:15:29 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: 지킬 테마 Minimal Mistakes로 만든 Github 블로그에 별도 다국어 지원 플러그인(polyglot, jekyll-multiple-languages-plugin) 없이 다국어 지원을 구현한 과정을 정리합니다.
@@ -18,7 +18,7 @@ excerpt: 지킬 테마 Minimal Mistakes로 만든 Github 블로그에 별도 다
 
 블로그를 시작한 이후로 블로그 컨텐츠들을 한글과 영어로 모두 지원하는 **다국어 지원**을 구현하는 것이 오랜 숙제였습니다.
 
-이 블로그는 정적 웹 사이트 생성기 `Jekyll`에서 오랫동안 사랑받은 테마 `Minimal Mistakes`로 만든 블로그입니다.  다양한 기능들이 이미 구현되어 있는 강력한 테마이지만, 아쉽게도 다국어 지원을 위한 별도의 기능은 없었습니다.
+이 블로그는 `Jekyll`의 `Minimal Mistakes`로 만든 블로그입니다.  `Minimal Mistakes`는 다양한 기능들을 지원하지만, 아쉽게도 다국어 지원을 위한 별도의 기능은 없었습니다.
 
 `Jekyll`의 `Polyglot` 플러그인을 이용하여 다국어를 구현하는 경우가 있지만, Github Pages에서의 실행이 지원되지 않는 것으로 알려져 있어 완벽한 대안이라고는 생각되지 않았습니다.
 
@@ -100,9 +100,9 @@ display-subtitle:
 ```yaml
 # Site Author
 author:
-  name             : "Sangheon Lee"
-  avatar           : "/assets/images/logo.png"
-  bio              :
+  name : "Sangheon Lee"
+  avatar : "/assets/images/logo.png"
+  bio :
     ko: "일하는 것처럼 보인다면 착각입니다."
     en: "If it looks like I am working, you are mistaken."
 ```
@@ -249,7 +249,6 @@ lazyjobseeker.github.io
 `author_bio` 변수는 `page.lang` 변수가 `ko`인지 `en`인지에 따라 `_config.yml`에 설정된 블로그 저자 소개 관련 스트링 중 알맞은 값을 갖게 됩니다.  `author-profile.html`의 이후 부분에서는 원래 코드에서 `author.bio`로 되어 있는 부분을 모두 새로 정의한 변수 `author_bio`로 바꾸어 주었습니다.
 
 `_includes/nav_list` 파일도 사이드바 영역을 구현하는 파일 중 하나입니다.  아래와 같이 변경하여, 사이드바에 존재하는 링크들이 타게팅하는 URL을 포스트의 `lang` 변수에 따라 변경하도록 하였습니다.
-
 
 ```html
 {% raw %}{% assign navigation = site.data.navigation[include.nav] %}
@@ -451,7 +450,7 @@ lazyjobseeker.github.io
 
 ```
 lazyjobseeker.github.io
-├─ index.html → https://lazyjobseekerg.github.io/ (Home Page)
+├─ index.html → https://lazyjobseekerg.github.io/ (KR Home Page)
 ├─ _index
 │   ├─ page2.md → https://lazyjobseekerg.github.io/page2/
 │   └─ page3.md → https://lazyjobseekerg.github.io/page3/
@@ -498,6 +497,57 @@ lazyjobseeker.github.io
 
 ## SEO 최적화하기
 
+다국어 페이지를 위한 SEO 최적화는 `hreflang` 설정 방식을 사용했습니다.  `hreflang` 태그는 아래와 같은 구조로 구성됩니다.
+
+```html
+<link rel="alternate" hreflang="kr" href="https://lazyjobseeker.github.io">
+<link rel="alternate" hreflang="en" href="https://lazyjobseeker.github.io/en">
+```
+{: .nolineno}
+
+웹 페이지의 `<head>` 부분에 위 태그들을 넣으면, 한글 및 영어 페이지에 대한 대체 링크들을 검색 엔진에 제공할 수 있게 됩니다.
+
 ### `hreflang` 설정하기
 
+`Minimal Mistakes` 테마를 기준으로, 커스텀 헤더 파일을 아래와 같이 수정합니다.
+
+```html
+<!-- Add hreflang for multiple language SEO support -->
+
+{% if page.lang == 'ko' %}
+  {% assign prefix = '/' %}
+  {% if page.is_index %}
+    {% assign target-url-ko = site.url %}
+    {% assign target-url-en = site.url | append: '/en/' %}
+  {% elsif page.translated %}
+    {% assign target-url-ko = page.url | absolute_url %}
+    {% assign target-url-en = page.url | prepend: '/en' | absolute_url %}
+  {% else %}
+    {% assign target-url-ko = page.url | absolute_url %}
+    {% assign target-url-en = nil %}
+  {% endif %}
+{% elsif page.lang == 'en' %}
+  {% assign prefix = page.lang | prepend: '/' %}
+  {% if page.is_index %}
+    {% assign target-url-ko = site.url %}
+    {% assign target-url-en = site.url | append: '/en/' %}
+  {% elsif page.translated %}
+    {% assign target-url-ko = page.url | replace: '/en/', '/' | absolute_url %}
+    {% assign target-url-en = page.url | absolute_url %}
+  {% else %}
+    {% assign target-url-ko = nil %}
+    {% assign target-url-en = page.url | absolute_url %}
+  {% endif %}
+{% endif %}
+
+{% if target-url-ko %}
+  <link rel="alternate" hreflang="ko" href="{{target-url-ko}}">
+{% endif %}
+{% if target-url-en %}
+  <link rel="alternate" hreflang="en" href="{{target-url-en}}">
+{% endif %}
+```
+{: file='_includes/head/custom.html'}
+<!--
 ### 사이트맵 구조 수정하기
+-->
