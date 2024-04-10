@@ -11,7 +11,8 @@
 <!-- Add hreflang for multiple language SEO support -->
 {% if target-url-ko %}
   <link rel="alternate" hreflang="ko" href="{{target-url-ko}}">
-{% elsif target-url-en %}
+{% endif %}
+{% if target-url-en %}
   <link rel="alternate" hreflang="en" href="{{target-url-en}}">
 {% endif %}
 
