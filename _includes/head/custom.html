@@ -1,35 +1,19 @@
 <!-- start custom head snippets -->
-
 <!-- Naver Search Advisor -->
-{% if page.lang and page.lang == 'ko' and page.page_no and page.page_no == 1 %}
-  <meta name="naver-site-verification" content="e849c9ef4769c0606b6958592fc2e13a5c4e9a37" />
-{% endif %}
-
-<!-- Add Liquid Variables for Multilingual Support -->
-{% include multilingual.html %}
-
+{% if page.lang and page.lang == 'ko' and page.page_no and page.page_no == 1 %}<meta name="naver-site-verification" content="e849c9ef4769c0606b6958592fc2e13a5c4e9a37" />{% endif %}
 <!-- Add hreflang for multiple language SEO support -->
-{% if target-url-ko %}
-  <link rel="alternate" hreflang="ko" href="{{target-url-ko}}">
-{% endif %}
-{% if target-url-en %}
-  <link rel="alternate" hreflang="en" href="{{target-url-en}}">
-{% endif %}
-
+{% include multilang/get-lang-variables %}
+{% if target_url_ko %}<link rel="alternate" hreflang="ko" href="{{target_url_ko}}">{% endif %}
+{% if target_url_en %}<link rel="alternate" hreflang="en" href="{{target_url_en}}">{% endif %}
 <!-- To add quiz in a post -->
-{% if page.quiz_file %}
-  <script> var jsonpath = '{{ page.quiz_file }}'; </script>
-{% endif %}
-
+{% if page.quiz_file %}<script> var jsonpath = '{{ page.quiz_file }}'; </script>{% endif %}
 <!-- To enable JSX mathematical plotting -->
 <link href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js" type="text/javascript" charset="UTF-8"></script>
 <script src="/assets/js/custom-math-functions.js"></script>
-
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 <link rel="apple-touch-icon" sizes="180x180" href="{{site.baseurl}}/assets/favicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="{{site.baseurl}}/assets/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="{{site.baseurl}}/assets/favicon/favicon-16x16.png">
 <link rel="manifest" href="{{site.baseurl}}/assets/favicon/site.webmanifest">
-
 <!-- end custom head snippets -->

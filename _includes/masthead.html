@@ -1,24 +1,25 @@
 {% capture logo_path %}{{ site.logo }}{% endcapture %}
+{% include multilang/get-lang-variables %}
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         {% unless logo_path == empty %}
-          <a class="site-logo" href="{{ prefix | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: display-title }}"></a>
+          <a class="site-logo" href="{{ prefix | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: display_title }}"></a>
         {% endunless %}
         <a class="site-title" href="{{ prefix | relative_url }}">
-          {{ site.masthead_title | default: display-title }}
-          {% if site.display-subtitle %}<span class="site-subtitle">{{ display-subtitle }}</span>{% endif %}
+          {{ site.masthead_title | default: display_title }}
+          {% if site.display-subtitle %}<span class="site-subtitle">{{ display_subtitle }}</span>{% endif %}
         </a>
         <ul class="visible-links">
           {% if page.lang == 'en' %}
             <li class="masthead__menu-item">
-              <a href="{{ target-url-ko }}" title="Page in Korean">KO</a>
+              <a href="{{ target_url_ko }}" title="Page in Korean">KO</a>
             </li>
           {% endif %}
           {% if page.lang == 'ko' %}
             <li class="masthead__menu-item">
-              <a href="{{ target-url-en }}" title="Page in English">EN</a>
+              <a href="{{ target_url_en }}" title="Page in English">EN</a>
             </li>
           {% endif %}
           {%- for link in site.data.navigation.main -%}

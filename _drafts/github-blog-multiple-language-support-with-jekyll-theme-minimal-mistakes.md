@@ -8,7 +8,7 @@ tags:
   - "Minimal Mistakes"
   - "Multi-Languages"
 created_at: 2024-04-05 18:09:50 +09:00
-last_modified_at: 2024-04-10 10:02:30 +09:00
+last_modified_at: 2024-04-10 23:55:25 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: 지킬 테마 Minimal Mistakes로 만든 Github 블로그에 별도 다국어 지원 플러그인(polyglot, jekyll-multiple-languages-plugin) 없이 다국어 지원을 구현한 과정을 정리합니다.
@@ -43,6 +43,21 @@ excerpt: 지킬 테마 Minimal Mistakes로 만든 Github 블로그에 별도 다
 
 ## 기능 구현 개요
 
+핵심은 각 페이지가 렌더링될 때마다 다국어 지원에 필요한 몇 가지 추가 데이터가 `Liquid` 배열 및 변수로 제공될 수 있도록 하는 것입니다.
+
+모든 페이지가 `ko` 또는 `en` 중 하나의 값을 갖는 `lang` 속성을 가지도록 하고, 페이지의 `lang` 변수에 따라 아래와 같은 값들을 제공할 수 있도록 했습니다.
+
+- `lang_posts`: `lang` 값이 현재 페이지와 동일한 포스트만을 모은 `Liquid` 배열입니다.
+- `display_title`:  마스트헤드 좌측에 표시되는, 블로그 제목을 나타내는 텍스트입니다.
+- `display_subtitle`: 마스트헤드 좌측에 표시되는, 블로그 부제목을 나타내는 텍스트입니다.
+- `author_bio`: 사이드바의 블로그 소유자 이름 아래에 표시되는 설명입니다.
+- `first_page_path`: 홈 페이지 영역(**Recent Posts** 부분)은 여러 포스트들을 한 장에 정해진 갯수만큼 표시하여 여러 장에 걸쳐 구성되는데(페이지네이션), 이 중 가장 첫 번째 페이지를 나타내는 URL입니다.
+- `target_url_ko`: 현재 문서가 영어 문서인 경우, 한글 번역에 해당하는 문서를 나타내는 URL입니다.
+- `target_url_en`: 현재 문서가 한글 문서인 경우, 영어 번역에 해당하는 문서를 나타내는 URL입니다.
+-  `current_page_posts`:  홈 페이지 영역(**Recent Posts** 부분)은 여러 포스트들을 한 장에 정해진 갯수만큼 표시하여 여러 장에 걸쳐 구성되는데(페이지네이션), 현재 문서가 페이지네이션의 일부인 경우 현재 문서에 표시되어야 하는 포스트들을 모은 `Liquid` 배열입니다.
+- `post_prev`: 현재 문서를 기준으로 이전 문서를 나타냅니다.
+- `post_next`: 현재 문서를 기준으로 다음 문서를 나타냅니다.
+ 
 가장 중요한 것은 매 페이지가 렌더링될 때마다 몇 가지 `L`
 
 ## 영문 컨텐츠 폴더 만들기

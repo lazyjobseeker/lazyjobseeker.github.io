@@ -1,13 +1,7 @@
+{% include multilang/get-lang-variables %}
+
 {% assign author = page.author | default: page.authors[0] | default: site.author %}
 {% assign author = site.data.authors[author] | default: author %}
-
-{% if page.lang == 'ko' %}
-  {% assign prefix = '/' %}
-  {% assign author_bio = author.bio.ko %}
-{% else %}
-  {% assign prefix = page.lang | prepend: '/' %}
-  {% assign author_bio = author.bio.en %}
-{% endif %}
 
 <div itemscope itemtype="https://schema.org/Person" class="h-card">
 

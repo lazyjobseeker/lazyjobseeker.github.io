@@ -1,13 +1,8 @@
-{% if page.lang == 'ko' %}
-  {% assign first_page_path = site.url %}
-{% else %}
-  {% assign first_page_path = site.url | append: '/' | append: page.lang %}
-{% endif %}
-
+{% include multilang/get-lang-variables %}
 {% assign next_page_no = page.page_no | plus: 1 %}
 {% assign prev_page_no = page.page_no | minus: 1 %}
 
-{% if include.total_pages > 1 %}
+{% if total_pages > 1 %}
 <nav class="pagination">
   <ul>
     {% comment %} Link for previous page {% endcomment %}
