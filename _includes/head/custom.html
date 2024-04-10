@@ -5,37 +5,13 @@
   <meta name="naver-site-verification" content="e849c9ef4769c0606b6958592fc2e13a5c4e9a37" />
 {% endif %}
 
-<!-- Add hreflang for multiple language SEO support -->
-{% if page.lang == 'ko' %}
-  {% assign prefix = '/' %}
-  {% if page.is_index %}
-    {% assign target-url-ko = site.url %}
-    {% assign target-url-en = site.url | append: '/en/' %}
-  {% elsif page.translated %}
-    {% assign target-url-ko = page.url | absolute_url %}
-    {% assign target-url-en = page.url | prepend: '/en' | absolute_url %}
-  {% else %}
-    {% assign target-url-ko = page.url | absolute_url %}
-    {% assign target-url-en = nil %}
-  {% endif %}
-{% elsif page.lang == 'en' %}
-  {% assign prefix = page.lang | prepend: '/' %}
-  {% if page.is_index %}
-    {% assign target-url-ko = site.url %}
-    {% assign target-url-en = site.url | append: '/en/' %}
-  {% elsif page.translated %}
-    {% assign target-url-ko = page.url | replace: '/en/', '/' | absolute_url %}
-    {% assign target-url-en = page.url | absolute_url %}
-  {% else %}
-    {% assign target-url-ko = nil %}
-    {% assign target-url-en = page.url | absolute_url %}
-  {% endif %}
-{% endif %}
+<!-- Add Liquid Variables for Multilingual Support -->
+{% include multilingual.html %}
 
+<!-- Add hreflang for multiple language SEO support -->
 {% if target-url-ko %}
   <link rel="alternate" hreflang="ko" href="{{target-url-ko}}">
-{% endif %}
-{% if target-url-en %}
+{% elsif target-url-en %}
   <link rel="alternate" hreflang="en" href="{{target-url-en}}">
 {% endif %}
 

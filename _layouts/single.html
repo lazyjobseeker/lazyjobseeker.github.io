@@ -54,7 +54,7 @@ layout: default
         {% include page__date.html %}
       </footer>
       {% if page.share %}{% include social-share.html %}{% endif %}
-      {% include custom-paginator/single-post-paginator.html %}
+      {% include custom-paginator/post-paginator.html %}
       {% if post_prev or post_next %}
         {% include post_pagination.html post_prev=post_prev post_next=post_next %}
       {% else %}

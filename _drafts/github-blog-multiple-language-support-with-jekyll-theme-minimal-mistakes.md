@@ -8,7 +8,7 @@ tags:
   - "Minimal Mistakes"
   - "Multi-Languages"
 created_at: 2024-04-05 18:09:50 +09:00
-last_modified_at: 2024-04-10 01:15:29 +09:00
+last_modified_at: 2024-04-10 10:02:30 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: 지킬 테마 Minimal Mistakes로 만든 Github 블로그에 별도 다국어 지원 플러그인(polyglot, jekyll-multiple-languages-plugin) 없이 다국어 지원을 구현한 과정을 정리합니다.
@@ -16,29 +16,40 @@ excerpt: 지킬 테마 Minimal Mistakes로 만든 Github 블로그에 별도 다
 
 ## 들어가기
 
-블로그를 시작한 이후로 블로그 컨텐츠들을 한글과 영어로 모두 지원하는 **다국어 지원**을 구현하는 것이 오랜 숙제였습니다.
+개인 블로그에서 한글과 영어를 모두 지원하는 **다국어 지원**의 구현이 오랜 숙제였습니다.  이 블로그는 다양한 기능을 가진 `Jekyll` 테마 `Minimal Mistakes`로 만들어져 있지만, 아쉽게도 다국어 지원을 테마 자체로 지원하지는 않았습니다.
 
-이 블로그는 `Jekyll`의 `Minimal Mistakes`로 만든 블로그입니다.  `Minimal Mistakes`는 다양한 기능들을 지원하지만, 아쉽게도 다국어 지원을 위한 별도의 기능은 없었습니다.
+`Polyglot` 플러그인을 이용하여 다국어를 구현하는 사례가 많았지만, `Github Pages`에서의 실행이 지원되지 않는다는 것을 알게 되어 완벽한 대안은 아니라고 판단했습니다.
 
-`Jekyll`의 `Polyglot` 플러그인을 이용하여 다국어를 구현하는 경우가 있지만, Github Pages에서의 실행이 지원되지 않는 것으로 알려져 있어 완벽한 대안이라고는 생각되지 않았습니다.
+최종적으로 이 블로그의 다국어 지원은 `Jekyll`의 기본 요소들과 `Liquid` 문법을 이용하여 별도 **플러그인 없이** 구현하였습니다.  구현하고자 한 내용은 아래와 같았으며, `Minimal Mistakes` 테마를 기준으로 합니다.
 
-결국 이 블로그의 다국어 지원은 *플러그인 없이* 구현하게 되었습니다.  다행히 `Jekyll`에서 기본적으로 지원하는 요소들과 `Liquid` 및 `html` 코드만으로 `Minimal Mistakes` 테마에서 다국어 지원을 구현할 수 있었습니다.
+- 한글로 작성된 어떤 문서의 퍼마링크가 `a`라면, 영어로 번역된 문서의 퍼마링크는 반드시 `en/a`로 제공한다.
+- 어떤 문서에 대한 영어(한글) 번역 문서가 있다면, 상단 마스트헤드 영역에 번역된 문서 페이지로 이동 가능한 **토글 버튼**을 제공한다.
 
-아래 내용들의 구현에 필요했던 내용들을 정리해 보겠습니다.
+![Toggle Button in Korean Page](https://drive.google.com/thumbnail?id=1XAFm9BNOh2lhPKw37O5vdgVUysf0ES2N&sz=w1000){: width="400" .align-center .shadow}
 
-1. 한글로 작성된 특정 문서의 퍼마링크가 `blabla`일 때, 이 문서의 영어 번역이 존재한다면, 해당 문서의 URL은 반드시 `en/blabla`로 제공한다.
-2. 특정 문서에서 해당 문서의 영어(한글) 번역이 존재하면, 번역된 문서 페이지로 이동할 수 있는 버튼을 마스트헤드 영역에 제공한다.
-3. 현재 한글 블로그에서 사용하고 있는 모든 요소들이 영어 버전에서도 정상적으로 동작한다.
-	- 홈 페이지의 Recent Posts 영역
-	- 마스트헤드 및 사이드바
-	- **이전·다음 글 보기** 영역
-	- **You May Also Enjoy** 영역
+![Toggle Button in English Page](https://drive.google.com/thumbnail?id=1-IZLOfVRfiX7uiCn5lPfi9mCWe32izFt&sz=w1000){: width="400" .align-center .shadow}
+
+- 기본 홈 페이지의 **Recent Posts** 영역이 정상적으로 동작한다.
+- 마스트헤드 및 사이드바의 모든 링크가 정상적으로 동작한다.
+- **이전·다음 글 보기** 버튼들이 정상적으로 동작한다.
+
+![Previous and Next Page](https://drive.google.com/thumbnail?id=1H26X7XH4EAXJB7_HuNA2T1uIyEKnHzO-&sz=w1000){: width="400" .align-center .shadow}
+
+- 연관 포스트를 표시하는 **YOU MAY ALSO ENJOY** 영역이 정상적으로 동작한다.
+
+![YOU MAY ALSO ENJOY in Korean Page](https://drive.google.com/thumbnail?id=1cU6oihM7R1oAz91QOWI7wDA4FXaevpdo&sz=w1000){: width="600" .align-center .shadow}
+
+![YOU MAY ALSO ENJOY in English Page](https://drive.google.com/thumbnail?id=19ZbY55-gDmx29M54it5_hC1bsxVow-Hd&sz=w1000){: width="600" .align-center .shadow}
+
+## 기능 구현 개요
+
+가장 중요한 것은 매 페이지가 렌더링될 때마다 몇 가지 `L`
 
 ## 영문 컨텐츠 폴더 만들기
 
-가장 먼저 프로젝트 루트 경로에 `en`이라는 새로운 폴더를 만들었습니다.  루트 폴더의 문서와 폴더들 중 영어로 번역되어야 하는 컨텐츠들이 포함된 것들이 있다면 `en` 폴더 안에 같은 이름의 문서 또는 폴더들을 만들어 주었습니다.
+프로젝트 루트 경로에 번역된 문서들을 저장할 `en`이라는 새로운 폴더를 만들었습니다.
 
-예를 들어, 루트 경로의 `_posts`에는 한글 포스트들이 존재하며 이들은 모두 영어로 번역하는 것이 목표였기 때문에, `en` 디렉토리 하위에 `_posts` 폴더를 새로 만들어 주었습니다.
+예를 들어, 루트 경로의 `_posts`에는 한글 포스트들이 존재합니다.  포스들은 모두 영어로 번역하고자 하였기 때문에, `en` 디렉토리 하위에 `_posts` 폴더를 새로 만들어 주었습니다.
 
 ```
 lazyjobseeker.github.io
@@ -47,12 +58,12 @@ lazyjobseeker.github.io
    └─ _posts
 ```
 
-**여러 개의 `Posts` 폴더**<br>`Jekyll`은 `_posts` 폴더의 마크다운 파일들을 개별 포스트로 판단하여 빌드합니다.  이 때 `_posts` 폴더가 프로젝트 내에 반드시 하나여야 한다는 제한은 없고, 프로젝트에 존재하는 모든 `_posts`라는 이름의 폴더들이 빌드 대상이 됩니다.  만일 프로젝트 루트의 `_post` 폴더 외에 `a/_posts`라는 폴더가 존재한다면, 이 폴더에서 빌드되는 포스트들은 `a`라는 카테고리를 갖는 것으로 분류됩니다.
+**여러 개의 `Posts` 폴더**<br>`_posts` 폴더는 프로젝트 내에 반드시 하나일 필요가 없으며, 프로젝트에 존재하는 모든 `_posts`라는 이름의 폴더들이 빌드 대상이 됩니다.  만일 프로젝트 루트의 `_post` 폴더 외에 `a/_posts`라는 폴더가 존재한다면, 이 폴더에서 빌드되는 포스트들은 `a`라는 카테고리를 갖는 것으로 분류됩니다.
 {: .notice--info}
 
 ## 커스텀 변수 설정
 
-다국어 지원에 필요한 포스트 별 추가 변수들을 설정합니다.  구체적으로, `_config.yml` 파일을 수정하고, 개별 포스트에는 YAML Front Matter로 추가 변수를 설정합니다.
+다국어 지원에 필요한 추가 변수들을 설정합니다.
 
 ### `_config.yml` 파일 수정
 
@@ -412,6 +423,10 @@ lazyjobseeker.github.io
 
 `Minimal Mistakes` 테마에는 페이지네이션(pagination) 기능을 이용한 요소들이 있습니다.  페이지네이션은 여러 포스트들을 페이지 당 정해진 갯수씩 묶어, 여러 장의 페이지에 걸쳐 보여줄 수 있도록 하는 기능입니다.
 
+![Paginated Index Page in Korean](https://drive.google.com/thumbnail?id=1iKCOo6ieSx0_GEjW7hnlg8CuOSB0YbFJ&sz=w1000){: width="400" .align-center .shadow}
+
+![Paginated Index Page in English](https://drive.google.com/thumbnail?id=1jm6tKqgLUqkzc-2Yufzh9rESsyKKbQPe&sz=w1000){: width="400" .align-center .shadow}
+
 `Minimal Mistakes` 테마의 경우 사이트의 기본 페이지는 **Recent Posts**라는 이름으로 가장 최근의 포스트 제목들을 정해진 갯수만큼씩 한 페이지에 보여 주도록 되어 있습니다.  총 40개의 포스트가 있고 페이지마다 5개씩 보여주기로 한다면 8개의 페이지가 생기게 되며, 각 페이지 사이를 이동할 수 있는 링크가 하단에 제공됩니다.
 
 이러한 기능은 테마에 특화된 UI를 제외하면 `Minimal Mistakes` 테마가 자체적으로 구현하는 것이 아니며, `Jekyll`에서 제공하는 페이지네이션 플러그인인 `jekyll-paginate`를 이용한 것입니다.  바닐라 상태의 테마에서는 문제가 없지만, 다국어 지원을 다국어 플러그인 없이 구현하고자 하는 경우, 이 부분이 문제가 됩니다.  왜냐하면 `jekyll-paginate` 플러그인은 프로젝트 내에 존재하는 모든 포스트들을 대상으로 작동하며, '한글 포스트만 페이지네이션하기', '영어 포스트만 페이지네이션하기' 와 같이 조건이 붙은 작업은 수행할 수 없기 때문입니다.
@@ -438,9 +453,9 @@ lazyjobseeker.github.io
 
 `Minimal Mistakes` 테마는 `jekyll-paginate` 플러그인을 활용하여 기본 홈 페이지 및 `page#` 꼴의 퍼마링크를 가진 개별 페이지들을 렌더링합니다.  저의 블로그 주소인 `lazyjobseeker.github.io`를 예로 들면 아래와 같습니다.
 
-- 홈 (1페이지): `lazyjobseeker.github.io/`
-- 2페이지: `lazyjobseeker.github.io/page2/`
-- $num$페이지: `lazyjobseeker.github.io/page:num/`
+- 홈 (1번째 페이지): `lazyjobseeker.github.io/`
+- 2번째 페이지: `lazyjobseeker.github.io/page2/`
+- `num` 번째 페이지: `lazyjobseeker.github.io/page:num/`
 
 그리고 1페이지를 생성하기 위해 `index.html`이 필요한 것을 제외하면, 나머지 페이지들은 별도로 `html`이나 `md` 파일을 만들어 두지 않더라도 자동으로 만들어집니다.
 
@@ -476,9 +491,7 @@ lazyjobseeker.github.io
       layout: home
       lang: ko
       page_no: 1
-      author_profile: true
-      sidebar:
-        nav: "docs"
+
   # Index pages with custom pagination (English)
   - scope:
       path: "en/_index"
@@ -489,11 +502,162 @@ lazyjobseeker.github.io
       layout: home
       lang: en
       page_no: 1
-      author_profile: true
-      sidebar:
-        nav: "docs"
 ```
 {: file='_config.yml'}
+
+`page:num.md` 파일은 아래와 같은 YAML Front Matter만을 갖는 빈 파일입니다.  아래 예시는 `/page3`을 렌더링하기 위한 것입니다.
+
+```yaml
+lang: ko
+page_no: 3
+permalink: /page3/
+```
+{: file='_index/page3'}
+
+`en/page:num.md`파일은 아래와 같은 YAML Front Matter만을 갖는 빈 파일입니다.  아래 예시는 `en/page3`을 렌더링하기 위한 것입니다.
+
+```yaml
+lang: en
+page_no: 3
+permalink: /page3/
+```
+{: file='_index/page3'}
+
+### 홈 페이지네이터 구현하기
+
+다음으로, 한 페이지에 표시할 한글(영어)포스트 개수가 $n$개이고 전체 한글(영어) 포스트 개수가 $N$개일 때, 아래 작업을 수행하는 `Liquid` 코드를 작성했습니다.
+
+- 필요한 전체 페이지의 수를 계산하여 `total_pages` 변수를 반환.
+- `page_no`번째 페이지에 표시될 $n$개 포스트만을 모은 `Liquid` 배열 `posts`를 반환. 
+
+```liquid
+{% raw %}{% assign paginate = site.paginate_custom %}
+{% assign total_pages = 1 %}
+{% assign display_counter = 0 %}
+{% assign total_page_counter = 0 %}
+{% assign first_post_idx = page.page_no | minus: 1 | times: paginate %}
+{% assign last_post_idx = first_post_idx | plus: paginate | minus: 1 %}
+{% assign posts = "" | split: ',' %}
+{% for post in site.posts %}
+  {% if post.lang and post.lang == page.lang %}
+    {% assign total_page_counter = total_page_counter | plus: 1 %}
+    {% if total_page_counter == paginate %}
+      {% assign total_pages = total_pages | plus: 1 %}
+      {% assign total_page_counter = 0 %}
+    {% endif %}
+    {% if display_counter >= first_post_idx and display_counter <= last_post_idx %}
+      {% assign posts = posts | push: post %}
+    {% endif %}
+    {% assign display_counter = display_counter | plus: 1 %}
+  {% endif %}
+{% endfor %}{% endraw %}
+```
+{: file='_includes/custom-paginator/home-paginator.html'}
+
+1행의 `site.paginate_custom` 변수는 `_config.yml`에 별도로 정의하였으며, 한 페이지당 표시할 포스트 수를 나타내는 자연수입니다.
+
+홈 페이지들은 `home` 레이아웃으로 렌더링됩니다.  완성된 위의 `Liquid` 코드를 우선 `_layouts/home.html`에 포함해 줍니다.
+
+```html
+---
+layout: archive
+classes: wide
+---
+
+{% raw %}{{ content }}
+
+<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+
+{% include custom-paginator/home-paginator.html %}
+
+{% assign entries_layout = page.entries_layout | default: 'list' %}
+<div class="entries-{{ entries_layout }}">
+  {% for post in posts %}
+    {% include archive-single.html type=entries_layout %}
+  {% endfor %}
+</div>
+
+{% include paginator.html total_pages=total_pages %}{% endraw %}
+```
+{: file='_layouts/home.html'}
+
+`paginator.html`을 호출하는 부분에는 `home-paginator`에 의해 계산되는 `total_pages` 변수를 추가 인자로 던져 주었습니다.
+
+`paginator.html`은 실제로 페이지 하단의 페이지간 이동 버튼들을 구현하는 영역입니다.  `page_no` 변수에 의해 현재 페이지의 번호를 알고 있으므로 전/후 페이지 번호를 자동적으로 계산할 수 있으며, `total_pages` 변수 덕분에 마지막 페이지 번호도 알 수 있습니다.
+
+수정된 `paginator.html` 파일은 다음과 같습니다.
+
+```html
+{% raw %}{% if page.lang == 'ko' %}
+  {% assign first_page_path = site.url %}
+{% else %}
+  {% assign first_page_path = site.url | append: '/' | append: page.lang %}
+{% endif %}
+{% assign next_page_no = page.page_no | plus: 1 %}
+{% assign prev_page_no = page.page_no | minus: 1 %}
+{% if include.total_pages > 1 %}
+<nav class="pagination">
+  <ul>
+    {% comment %} Link for previous page {% endcomment %}
+    {% if page.page_no > 1 %} 
+      {% if page.page_no == 2 %}
+        <li><a href="{{ first_page_path }}">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a></li>
+      {% else %}
+        <li><a href="{{ first_page_path | append: '/page' | append: prev_page_no }}">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a></li>
+      {% endif %}
+    {% else %}
+    <li><a href="#" class="disabled"><span aria-hidden="true">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</span></a></li>
+    {% endif %}
+    {% comment %} First page {% endcomment %}
+    {% if page.page_no == 1 %}
+      <li><a href="#" class="disabled current">1</a></li>
+    {% else %}
+      <li><a href="{{ first_page_path }}">1</a></li>
+    {% endif %}
+    {% assign page_start = 2 %}
+    {% if page.page_no > 4 %}
+      {% assign page_start = page.page_no | minus: 2 %}
+      {% comment %} Ellipsis for truncated links {% endcomment %}
+      <li><a href="#" class="disabled">&hellip;</a></li>
+    {% endif %}
+    {% assign page_end = include.total_pages | minus: 1 %}
+    {% assign pages_to_end = include.total_pages | minus: page.page_no %}
+    {% if pages_to_end > 4 %}
+      {% assign page_end = page.page_no | plus: 2 %}
+    {% endif %}
+    {% for index in (page_start..page_end) %}
+      {% if index == page.page_no %}
+        <li><a href="{{ first_page_path | append: '/page' | append: index }}" class="disabled current">{{ index }}</a></li>
+      {% else %}
+        {% comment %} Distance from current page and this link {% endcomment %}
+        {% assign dist = page.page_no | minus: index %}
+        {% if dist < 0 %}
+          {% comment %} Distance must be a positive value {% endcomment %}
+          {% assign dist = 0 | minus: dist %}
+        {% endif %}
+        <li><a href="{{ first_page_path | append: '/page' | append: index }}">{{ index }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% comment %} Ellipsis for truncated links {% endcomment %}
+    {% if pages_to_end > 3 %}
+      <li><a href="#" class="disabled">&hellip;</a></li>
+    {% endif %}
+    {% if page.page_no == include.total_pages %}
+      <li><a href="#" class="disabled current">{{ page.page_no }}</a></li>
+    {% else %}
+      <li><a href="{{ first_page_path | append: '/page' | append: include.total_pages }}">{{ include.total_pages }}</a></li>
+    {% endif %}
+    {% comment %} Link next page {% endcomment %}
+    {% if page.page_no < include.total_pages %}
+      <li><a href="{{ first_page_path | append: '/page' | append: next_page_no }}">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</a></li>
+    {% else %}
+      <li><a href="#" class="disabled"><span aria-hidden="true">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</span></a></li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}{% endraw %}
+```
+{: file='_includes/paginator.html'}
 
 ## SEO 최적화하기
 
@@ -509,12 +673,12 @@ lazyjobseeker.github.io
 
 ### `hreflang` 설정하기
 
-`Minimal Mistakes` 테마를 기준으로, 커스텀 헤더 파일을 아래와 같이 수정합니다.
+`Minimal Mistakes` 테마를 기준으로, 커스텀 헤더 파일에 아래 내용을 추가하였습니다.
 
 ```html
 <!-- Add hreflang for multiple language SEO support -->
 
-{% if page.lang == 'ko' %}
+{% raw %}{% if page.lang == 'ko' %}
   {% assign prefix = '/' %}
   {% if page.is_index %}
     {% assign target-url-ko = site.url %}
@@ -545,9 +709,12 @@ lazyjobseeker.github.io
 {% endif %}
 {% if target-url-en %}
   <link rel="alternate" hreflang="en" href="{{target-url-en}}">
-{% endif %}
+{% endif %}{% endraw %}
 ```
 {: file='_includes/head/custom.html'}
+
+그냥 헤더에서 참조가능경로 때리고 시작하는게 낫지
+
 <!--
 ### 사이트맵 구조 수정하기
 -->

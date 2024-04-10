@@ -4,7 +4,7 @@
   {% assign target-url-en = site.url | append: '/en/' %}
   {% assign display-title = site.display-title.ko %}
   {% assign display-subtitle = site.display-subtitle.ko %}
-{% else %}
+{% elsif page.lang == 'en' %}
   {% assign prefix = page.lang | prepend: '/' %}
   {% assign target-url-ko = site.url %}
   {% assign target-url-en = site.url | append: '/en/' %}

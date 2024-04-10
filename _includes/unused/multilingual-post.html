@@ -1,21 +1,21 @@
 {% if page.lang == 'ko' %}
   {% assign prefix = '/' %}
   {% if page.translated %}
-    {% assign target-url-ko = page.url | relative_url %}
-    {% assign target-url-en = page.url | prepend: '/en' | relative_url %}
+    {% assign target-url-ko = page.url | absolute_url %}
+    {% assign target-url-en = page.url | prepend: '/en' | absolute_url %}
   {% else %}
     {% assign target-url-ko = page.url %}
-    {% assign target-url-en = page.url %}
+    {% assign target-url-en = nil %}
   {% endif %}
   {% assign display-title = site.display-title.ko %}
   {% assign display-subtitle = site.display-subtitle.ko %}
 {% else %}
   {% assign prefix = page.lang | prepend: '/' %}
   {% if page.translated %}
-    {% assign target-url-ko = page.url | replace: '/en/', '/' | relative_url %}
-    {% assign target-url-en = page.url | relative_url %}
+    {% assign target-url-ko = page.url | replace: '/en/', '/' | absolute_url %}
+    {% assign target-url-en = page.url | absolute_url %}
   {% else %}
-    {% assign target-url-ko = page.url %}
+    {% assign target-url-ko = nil %}
     {% assign target-url-en = page.url %}
   {% endif %}
   {% assign display-title = site.display-title.en %}
