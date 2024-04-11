@@ -1,6 +1,6 @@
 ---
-translated: false
-published: true
+translated: true
+published: false
 title: 지킬 깃허브 블로그 다국어 지원하기
 category: Programming
 tags:
@@ -9,7 +9,7 @@ tags:
   - "Minimal Mistakes"
   - "Multi-Languages"
 created_at: 2024-04-05 08:44:57 +09:00
-last_modified_at: 2024-04-11 08:54:41 +09:00
+last_modified_at: 2024-04-11 08:56:20 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: 지킬 테마 Minimal Mistakes로 만든 Github 블로그에 별도 다국어 지원 플러그인(polyglot, jekyll-multiple-languages-plugin) 없이 다국어 지원을 구현한 과정을 정리합니다.
@@ -17,7 +17,7 @@ excerpt: 지킬 테마 Minimal Mistakes로 만든 Github 블로그에 별도 다
 
 ## 들어가기
 
-개인 블로그를 시작한 이후로 한글과 영어를 모두 지원하는 **다국어 지원**의 구현이 오랜 숙제였습니다.  이 블로그를 만들기 위해 사용한 `Jekyll` 테마 `Minimal Mistakes`는 다양항 기능을 가지고 있지만, 아쉽게도 다국어 지원을 테마 자체에서 지원하지는 않았습니다.
+개인 블로그를 시작한 이후로 한글과 영어를 모두 지원하는 **다국어 지원**의 구현이 오랜 숙제였습니다.  이 블로그를 만들기 위해 사용한 `Jekyll` 테마 `Minimal Mistakes`는 다양한 기능을 가지고 있지만, 아쉽게도 다국어 지원을 테마 자체에서 지원하지는 않았습니다.
 
 지킬 기반 웹 사이트들이 `Polyglot` 플러그인을 이용하여 다국어를 구현하는 사례가 많았지만, `Github Pages`에서의 실행이 지원되지 않는다는 것을 알게 되어 완벽한 대안은 아니라고 판단했습니다.
 
