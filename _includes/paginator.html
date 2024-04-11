@@ -1,7 +1,7 @@
 {% include multilang/get-lang-variables %}
+{% include multilang/home-paginator %}
 {% assign next_page_no = page.page_no | plus: 1 %}
 {% assign prev_page_no = page.page_no | minus: 1 %}
-
 {% if total_pages > 1 %}
 <nav class="pagination">
   <ul>
@@ -30,8 +30,8 @@
       <li><a href="#" class="disabled">&hellip;</a></li>
     {% endif %}
 
-    {% assign page_end = include.total_pages | minus: 1 %}
-    {% assign pages_to_end = include.total_pages | minus: page.page_no %}
+    {% assign page_end = total_pages | minus: 1 %}
+    {% assign pages_to_end = total_pages | minus: page.page_no %}
     {% if pages_to_end > 4 %}
       {% assign page_end = page.page_no | plus: 2 %}
     {% endif %}
@@ -55,14 +55,14 @@
       <li><a href="#" class="disabled">&hellip;</a></li>
     {% endif %}
 
-    {% if page.page_no == include.total_pages %}
+    {% if page.page_no == total_pages %}
       <li><a href="#" class="disabled current">{{ page.page_no }}</a></li>
     {% else %}
-      <li><a href="{{ first_page_path | append: '/page' | append: include.total_pages }}">{{ include.total_pages }}</a></li>
+      <li><a href="{{ first_page_path | append: '/page' | append: total_pages }}">{{ total_pages }}</a></li>
     {% endif %}
 
     {% comment %} Link next page {% endcomment %}
-    {% if page.page_no < include.total_pages %}
+    {% if page.page_no < total_pages %}
       <li><a href="{{ first_page_path | append: '/page' | append: next_page_no }}">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</a></li>
     {% else %}
       <li><a href="#" class="disabled"><span aria-hidden="true">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</span></a></li>
