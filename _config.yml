@@ -111,8 +111,8 @@ author:
   name             : "Sangheon Lee"
   avatar           : "/assets/images/logo.png"
   bio              :
-    ko: "재빠른 나무늘보. 일하는 것처럼 보인다면 착각입니다."
-    en: "If it looks like I am working, you are mistaken."
+    ko: "재빠른 나무늘보 - 일하는 것처럼 보인다면 착각입니다."
+    en: "Quick sloth - If you see me working, you are mistaken."
   location         : "Republic of Korea"
   email            :
   links:
@@ -229,13 +229,12 @@ sass:
   sass_dir: _sass
   style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
 
-
 # Outputting
 permalink: /:title/ # /:categories/:title/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # Custom paginator
-paginate_custom: 8
+posts_per_page: 8
 
 # Plugins (previously gems:)
 plugins:
@@ -395,12 +394,23 @@ defaults:
       related: true
       sidebar:
         nav: "docs"
+  # Index pages with custom pagination (Korean - 1st page)
+  - scope:
+      path: "index.html"
+      type: pages
+    values:
+      translated: true
+      layout: home
+      lang: ko
+      page_no: 1
+      author_profile: true
+      sidebar:
+        nav: "docs"
   # Index pages with custom pagination (Korean)
   - scope:
       path: "_index"
       type: pages
     values:
-      is_index: true
       translated: true
       layout: home
       lang: ko
@@ -413,7 +423,6 @@ defaults:
       path: "en/_index"
       type: pages
     values:
-      is_index: true
       translated: true
       layout: home
       lang: en
