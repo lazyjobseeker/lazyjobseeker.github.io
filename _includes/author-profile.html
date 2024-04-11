@@ -17,9 +17,9 @@
     <h3 class="author__name p-name" itemprop="name">
       <a class="u-url" rel="me" href="{{ author.home | default: prefix | absolute_url }}" itemprop="url">{{ author.name }}</a>
     </h3>
-    {% if author.bio %}
+    {% if author.bio.ko %}
       <div class="author__bio p-note" itemprop="description">
-        {{ author_bio | markdownify }}
+        {{ author.bio.ko | markdownify }}
       </div>
     {% endif %}
   </div>

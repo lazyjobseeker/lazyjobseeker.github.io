@@ -5,9 +5,9 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         {% unless logo_path == empty %}
-          <a class="site-logo" href="{{ prefix | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: display_title }}"></a>
+          <a class="site-logo" href="{{ prefix | absolute_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: display_title }}"></a>
         {% endunless %}
-        <a class="site-title" href="{{ prefix | relative_url }}">
+        <a class="site-title" href="{{ prefix | absolute_url }}">
           {{ site.masthead_title | default: display_title }}
           {% if site.display-subtitle %}<span class="site-subtitle">{{ display_subtitle }}</span>{% endif %}
         </a>
