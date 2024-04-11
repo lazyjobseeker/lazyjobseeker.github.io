@@ -8,7 +8,7 @@ tags:
   - "Minimal Mistakes"
   - "Multi-Languages"
 created_at: 2024-04-05 08:44:57 +09:00
-last_modified_at: 2024-04-12 00:04:44 +09:00
+last_modified_at: 2024-04-12 06:27:47 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: How I implemented multi-language support for my Jekyll-based Github Pages blog without plugins.
@@ -339,7 +339,7 @@ default:
       lang: en
       page_no: 1
 ```
-{: file='_config.yml')
+{: file='_config.yml'}
 
 #### Implementation
 
