@@ -9,7 +9,7 @@ tags:
   - "Minimal Mistakes"
   - "Multi-Languages"
 created_at: 2024-04-05 08:44:57 +09:00
-last_modified_at: 2024-04-11 08:33:11 +09:00
+last_modified_at: 2024-04-11 08:53:30 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: How I implemented multi-language support for my Jekyll-based Github Pages blog without plugins.
@@ -607,11 +607,13 @@ default:
 ```
 {: file='post_pagination.html'}
 
-### 카테고리 리스트에서 `en` 제거하기
+### Removing `en` from Category List
 
-`Jekyll`의 동작 방식에 따르면 `en` 폴더 하위에 존재하는 문서들은 기본적으로 `en`이라는 카테고리를 갖는 것으로 취급됩니다.  `Minimal Mistakes` 테마의 포스트 마지막 부분에는 현재 포스트가 속한 카테고리들을 나열하는 부분이 있는데, 별도로 수정을 하지 않으면 영어 포스트들은 이 부분에 `en`이라는 카테고리가 기본적으로 존재하는 것처럼 빌드됩니다.
+As explained already, when `Jekyll` processes my posts living in `en/_posts`, they are automatically treated as if I set `en` as additional category in its front matter.
 
-이것을 방지하기 위해 `_includes/category-list.html` 파일을 수정하여, `en`이라는 이름의 카테고리가 존재하는 경우 해당 태그는 나타내지 않도록 하였습니다.
+`Minimal Mistakes` theme shows all the categories a post holds at the end of the post by default, and therefore my English posts all show additional category `en` unless I change some codes.
+
+To avoid this I changed `_includes/category-list.html` file, making it `en` keyword is ignored in rendering category enumeration section at the end of a post.
 
 ```html
 {% raw %}{% case site.category_archive.type %}
@@ -746,12 +748,6 @@ Below codes were added to my custom header file.
 
 So it is all over!  I made it to serve my blog in Korean and English.  I am happy with the output but I wouldn't have done this if `poluglot` was little more handy to use or at least Github Pages officially supported its execution.  Maybe I would rollback all the implementations here I made if there comes better multiple language support plugin.
 
-After all I see my explanation here is too lengthy for someone who actually wants to modify one's blog to support multiple languages.  But if you are still willing to do, the most important part is writing `/multilang/` contents dedicated to codeblocks generating required`Liquid` arrays and variables. All other stuff were just about modifying UI components, checking 
+After all I see my explanation here is too lengthy for someone who actually wants to modify one's blog to support multiple languages.  But if you are still willing to do, the most important part is writing `/multilang/` contents dedicated to codeblocks generating required`Liquid` arrays and variables. All other stuff was just a tedious repeat-and-test to see if all hyperlinks and texts in rendered pages work as intended.
 
-사실 구현에서 중요한 것은 어떤 `Liquid` 요소들이 필요한지 생각하고 조각 코드로 만드는 작업이고, 나머지 내용은 장황하기는 하지만 그저 이미 있는 레이아웃들을 조금씩 건드리고 원하는 대로 될 때까지 테스트 빌드하는 작업의 반복에 불과했습니다.
-
-지킬로 다국어 블로그를 만들고 싶지만 플러그인은 사용하기 싫다면 한 번 시도해 보시는 것도 좋겠습니다. 😆
-
-<!--
-### 사이트맵 구조 수정하기
--->
+So if you want to serve your `Jekyll` blog but plugins are not of your taste: try implementing it yourself!  It is definitly possible and will be an worthwhile challenge. 😆
