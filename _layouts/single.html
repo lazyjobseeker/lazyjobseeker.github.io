@@ -55,11 +55,7 @@ layout: default
       </footer>
       {% if page.share %}{% include social-share.html %}{% endif %}
       {% include multilang/prev-next-locater %}
-      {% if post_prev or post_next %}
-        {% include post_pagination.html post_prev=post_prev post_next=post_next %}
-      {% else %}
-        {% include post_pagination.html %}
-      {% endif %}
+      {% include post_pagination.html %}
     </div>
 
     {% if jekyll.environment == 'production' and site.comments.provider and page.comments %}
@@ -72,7 +68,8 @@ layout: default
     <div class="page__related">
       <h2 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h2>
       <div class="grid__wrapper">
-        {% assign sampled_posts = posts | sample: 4 %}
+        {% include multilang/get-lang-posts %}
+        {% assign sampled_posts = lang_posts | sample: 4 %}
         {% for post in sampled_posts %}
           {% include archive-single.html type="grid" %}
         {% endfor %}
@@ -83,7 +80,8 @@ layout: default
     <div class="page__related">
       <h2 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h2>
       <div class="grid__wrapper">
-        {% for post in posts limit:4 %}
+        {% include multilang/get-lang-posts %}
+        {% for post in lang_posts limit:4 %}
           {% if post.id == page.id %}
             {% continue %}
           {% endif %}
