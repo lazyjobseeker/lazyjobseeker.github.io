@@ -1,16 +1,13 @@
 <!-- multilang/home-paginator -->
 {% include multilang/get-lang-posts %}
-
-{% assign paginate = site.paginate_custom %}
-
+{% assign ppp = site.posts_per_page %}
 {% assign total_page_counter = 0 %}
-{% assign first_post_idx = page.page_no | minus: 1 | times: paginate %}
-{% assign last_post_idx = first_post_idx | plus: paginate | minus: 1 %}
-
+{% assign first_post_idx = page.page_no | minus: 1 | times: ppp %}
+{% assign last_post_idx = first_post_idx | plus: ppp | minus: 1 %}
 {% assign total_pages = 1 %}
 {% for post in lang_posts %}
   {% assign total_page_counter = total_page_counter | plus: 1 %}
-  {% if total_page_counter == paginate %}
+  {% if total_page_counter == ppp %}
     {% assign total_pages = total_pages | plus: 1 %}
     {% assign total_page_counter = 0 %}    
   {% endif %}
