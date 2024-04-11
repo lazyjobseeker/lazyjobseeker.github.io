@@ -1,6 +1,5 @@
 ---
 translated: true
-published: false
 title: 지킬 깃허브 블로그 다국어 지원하기
 category: Programming
 tags:
@@ -9,7 +8,7 @@ tags:
   - "Minimal Mistakes"
   - "Multi-Languages"
 created_at: 2024-04-05 08:44:57 +09:00
-last_modified_at: 2024-04-11 08:56:20 +09:00
+last_modified_at: 2024-04-12 00:02:00 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: 지킬 테마 Minimal Mistakes로 만든 Github 블로그에 별도 다국어 지원 플러그인(polyglot, jekyll-multiple-languages-plugin) 없이 다국어 지원을 구현한 과정을 정리합니다.
@@ -91,7 +90,7 @@ defaults:
 ```
 {: file='_config.yml'}
 
-**퍼마링크 변경에 따른 리디렉션**<br>퍼마링크 구성을 바꾸게 되면 기존 페이지에 대해 만들어져 있던 구글 색인 결과를 더 이상 사용할 수 없게 되고 이로 인해 페이지에 대한 검색엔진 최적화(SEO)에 악영향을 줄 수 있습니다.  `jekyll-redirect-from` 패키지를 이용해 리디렉션을 설정하여 이러한 문제를 어느 정도 해결할 수 있습니다.
+**퍼마링크 변경에 따른 리디렉션**<br>퍼마링크 구성을 바꾸게 되면 기존 페이지에 대해 만들어져 있던 검색엔진 색인 결과를 더 이상 사용할 수 없게 되고 이로 인해 페이지에 대한 검색엔진 최적화(SEO)에 악영향을 줄 수 있습니다.  `jekyll-redirect-from` 패키지를 이용해 리디렉션을 설정하여 이러한 문제를 어느 정도 해결할 수 있습니다.
 {: .notice--info}
 
 또한 상단바(마스트헤드) 영역의 왼쪽 끝에 표시되는 **블로그 제목 및 부제목**도 한국어와 영어 페이지에서 서로 다르게 표시하기 위해 값을 분리하여 주었습니다. 
@@ -119,7 +118,7 @@ author:
 ```
 {: file='_config.yml'}
 
-마지막으로, `posts_per_page` 커스텀 변수를 추가했습니다.  기본적으로 존재하는 `paginate` 변수를 대신하며, 플러그인 없는 다국어 지원 구현에서 페이지네이션을 위한 표준 플러그인 `jekyll-paginate`를 사용할 수 없기 때문에 페이지네이션 기능을 새로 구현하는 과정에서 추가하였습니다.
+마지막으로, `posts_per_page` 커스텀 변수를 추가했습니다.  기본적으로 존재하는 `paginate` 변수를 대신하며, 플러그인 없는 다국어 지원 구현에서 페이지네이션을 위한 표준 플러그인 `jekyll-paginate`를 사용할 수 없기 때문에 페이지네이션 기능을 새로 구현하는 과정에서 추가하였습니다.  페이지네이션에 대한 내용은 뒤에서 다시 설명하겠습니다.
 
 ```yaml
 # Custom paginator
@@ -167,7 +166,7 @@ lazyjobseeker.github.io
 - `lang_posts`: `lang` 값이 현재 페이지와 동일한 포스트만을 모은 `Liquid` 배열입니다.
 - `display_title`:  마스트헤드 좌측에 표시되는, **블로그 제목**을 나타내는 텍스트입니다.
 - `display_subtitle`: 마스트헤드 좌측에 표시되는, **블로그 부제목**을 나타내는 텍스트입니다.
-- `author_bio`: 사이드바의 블로그 소유자 이름 아래에 표시되는 설명입니다.
+- `author_bio`: 사이드바의 블로그 저자 이름 아래에 표시되는 저자 코멘터리입니다.
 - `prefix`: 언어에 따라 홈 페이지 URL 뒤에 붙여 줄 문자열입니다.  한글 페이지를 디폴트로 할 예정이므로 `ko`라면 아무 값도 주지 않고, 영어 문서라면 `/en`이 되도록 할 것입니다. 
 - `target_url_ko`: 현재 문서가 영어 문서일 때, 한글 번역 문서의 URL입니다.
 - `target_url_en`: 현재 문서가 한글 문서일 때, 영어 번역 문서의 URL입니다.
@@ -266,7 +265,7 @@ lazyjobseeker.github.io
 
 페이지네이션을 구현하는 표준 플러그인 `jekyll-paginate`는 첫 번째 홈 페이지를 제외하면 `/page2/`, `/page3/`... 과 같은 꼴의 퍼마링크를 갖는 `html` 파일을 **자동으로 생성합니다**.  하지만 저는 `jekyll-paginate`를 이용하지 않기 때문에, 각 퍼마링크에 해당하는 `html` 파일로 빌드될 마크다운 파일을 페이지 수 만큼 미리 만들어 두어야 했습니다.
 
-그리고, `/page2/`가 존재한다면 이 페이지의 영어 버전인 `en/page2/`를 빌드하기 위한 마크다운 파일도 존재해야 합니다.  따라서 이러한 마크다운 파일들을 미리 작성해 두고 `_index`및 `en/_index` 폴더에 넣어 두었습니다.
+그리고, `/page2/`가 존재한다면 이 페이지의 영어 버전인 `/en/page2/`를 빌드하기 위한 마크다운 파일도 존재해야 합니다.  따라서 이러한 마크다운 파일들을 미리 작성해 두고 `_index`및 `en/_index` 폴더에 넣어 두었습니다.
 
 `Jekyll`은 홈페이지의 가장 첫 페이지를 만들 때 반드시 루트 경로의 `index.html`을 타겟하는 것으로 고정되어 있고 이 파일은 이름을 바꾸거나 위치를 옮길 수 없어, 최종적으로 프로젝트 구조는 아래와 같이 정리됩니다.
 
@@ -336,7 +335,7 @@ default:
       lang: en
       page_no: 1
 ```
-{: file='_config.yml')
+{: file='_config.yml'}
 
 #### 구현
 
@@ -634,7 +633,7 @@ default:
   </p>
 {% endif %}{% endraw %}
 ```
-{: text='category-list.html'}
+{: file='category-list.html'}
 
 ## `_layout` 구성 요소들 수정하기
 

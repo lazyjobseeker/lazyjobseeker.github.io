@@ -1,7 +1,6 @@
 ---
 translated: true
-published: false
-title: How to Build Multilingual Jekyll Github Blog
+title: How to Serve Jekyll-Github Blog Multilingual
 category: Programming
 tags:
   - Jekyll
@@ -9,7 +8,7 @@ tags:
   - "Minimal Mistakes"
   - "Multi-Languages"
 created_at: 2024-04-05 08:44:57 +09:00
-last_modified_at: 2024-04-11 08:53:30 +09:00
+last_modified_at: 2024-04-12 00:04:44 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: How I implemented multi-language support for my Jekyll-based Github Pages blog without plugins.
@@ -17,11 +16,11 @@ excerpt: How I implemented multi-language support for my Jekyll-based Github Pag
 
 ## Intro
 
-Since I started my `Jekyll` blog hosted via `Github Pages`, it has been a long-lasting quest to serve this blog in multiple languages, at least in two different ones (Korean as my native language and English).  This blog is based on powerful and long-loved `Jekyll` theme `Minimal Mistakes`, but unfortunately multiple language support was not among its native features.
+Since I started my `Jekyll` blog hosted *via* `Github Pages`, it has been a long-lasting quest to serve this blog in multiple languages, at least in two different ones (Korean as my native language and English).  This blog is based on powerful and long-loved `Jekyll` theme `Minimal Mistakes`, but unfortunately multiple language support was not among its native features.
 
-In my endeavor to implement multilingual support, I found that most of available examples was successful with `Jekyll` plugin `polyglot`, which I also considered for my blog at my first search.
+In my endeavor to implement multilingual support, I found that most of available examples were successful with `Jekyll` plugin `polyglot`, which I also considered for my blog at first.
 
-However, I abandoned the plan knowing that execution of `polyglot` is not supported by `Github Pages` and further settings are needed.  With trials and errors I managed to customize Korean-English bilingual support for my blog, ***without any plugins*** but only with `Jekyll`'s basic features and some `Liquid` codes.
+However, I abandoned this plan knowing that execution of `polyglot` is not supported by `Github Pages` and further settings are needed.  With trials and errors I managed to customize Korean-English bilingual support for my blog, ***without any plugins*** but only with `Jekyll`'s basic features and some `Liquid` codes.
 
 Below I provided the list of requirements I wanted my blog to fully fulfill after my implementation.
 
@@ -38,8 +37,8 @@ Below I provided the list of requirements I wanted my blog to fully fulfill afte
 
 ![Paginated Index Page in English](https://drive.google.com/thumbnail?id=1jm6tKqgLUqkzc-2Yufzh9rESsyKKbQPe&sz=w1000){: width="400" .align-center .shadow}
 
-- Every hyperlinks in masthead and sidebar must work reasonably and texts also should be able to change adaptively.
-- **Previous·Next posts** buttons for in-post navigation should work reasonably.
+- Every hyperlinks in masthead and sidebar must work reasonably and texts also should be able to change adaptively to current page's language.
+- **Previous·Next posts** buttons for in-post navigator UI should work reasonably.
 
 ![Previous and Next Page](https://drive.google.com/thumbnail?id=1H26X7XH4EAXJB7_HuNA2T1uIyEKnHzO-&sz=w1000){: width="400" .align-center .shadow}
 
@@ -49,11 +48,13 @@ Below I provided the list of requirements I wanted my blog to fully fulfill afte
 
 ![YOU MAY ALSO ENJOY in English Page](https://drive.google.com/thumbnail?id=19ZbY55-gDmx29M54it5_hC1bsxVow-Hd&sz=w1000){: width="600" .align-center .shadow}
 
+Let me explain every single details I have done to make above features work.
+
 ## Make English-Contents Folder
 
-I started with modifying project structure.  At first, I created new directory `en` in the project root, where I will store all translated documents.
+I started with modifying project structure.  At first, I created new directory `en` in the project root, where I stored all translated documents.
 
-For example, `_posts` directory in root held posts I already wrote in Korean.  As my purpose was to serve English-translated versions of all these posts, I created `_posts` subdirectory under `en`.
+For example, `_posts` directory in root held posts I already wrote in Korean.  As my purpose was to serve English-translated versions of all these posts, I created `_posts` subfolder under `en`.
 
 ```
 lazyjobseeker.github.io
@@ -62,14 +63,14 @@ lazyjobseeker.github.io
     └─ _posts
 ```
 
-**Several `_posts` Folders<br>`_posts` is not meant to be unique in your proejct.  `Jekyll` tries to render all the markdowns residing in all folders named `_posts` throughout your project.  If there is another `_posts` named folder like `a/_posts`, posts built from this folder is regarded to have `a` as one of the categories it belongs.
+**Several `_posts` Folders<br>`_posts` is not meant to be unique in your proejct.  `Jekyll` tries to render all the markdowns residing in all folders named `_posts` throughout your project.  If there is another `_posts` folder like `a/_posts`, for example, posts built from this folder is regarded to have `a` as one of the categories.
 {: .notice--info}
 
 ## Global Variable Settings in `_config.yml`
 
 Then I added some more lines from `_config.yml`.  I added new variable `lang` and set different values for posts living in different paths.  I designed it for Korean posts/docs to have `ko` and English versions to have `en` as default value.
 
-Permalink structure also was one of concern.  In default, permalink setting for `Minimal Mistakes` theme is `/:categories/:title`.  But as I mentioned above, when `Jekyll` treats my posts living in `en/posts`, it gives `en` as additional category for all the posts there.  So the folder tree I adjusted directly affects original permalink structure.
+Permalink structure also was one of concern.  In default, permalink setting for `Minimal Mistakes` theme is `/:categories/:title`.  But as I mentioned above, when `Jekyll` treats my posts living in `en/posts`, it gives `en` as additional category for all the posts there.  So the folder tree I adjusted directly bound to affect original permalink structure.
 
 I thought it would harm my efforts to provide consistent permalinks, so I forced some my preferred permalink formats for the posts according to their parent folder path.
 
@@ -93,10 +94,10 @@ defaults:
 ```
 {: file='_config.yml'}
 
-**Permalink Change and Redirection**<br>If you change permalinks for your web pages already indexed by search engines like Google's, existing indexing results are not available anymore because when user attempts to access your pages by original URL it would throw 404 error.  This might harm SEO of your blog.  You can avoid this issue by using `jekyll-redirect-from` plugin.
+**Permalink Change and Redirection**<br>If you change permalinks for your web pages previously indexed by search engines like Google bots, existing indexing results are not useful anymore because when visitor attempts to access your pages by original URL it would throw 404 error.  This might harm SEO of your blog.  You can avoid this issue by using `jekyll-redirect-from` plugin.
 {: .notice--info}
 
-Furthermore, I made distinction between `ko`- and `en`-specific values for `display-title` item and `display-subtitle` item, which are meant to be displayed in leftmost side of masthead part.
+Furthermore, I made distinction between `ko`- and `en`-specific values for `display-title` and `display-subtitle` items, which were meant to be displayed in leftmost side of masthead part.
 
 ```yaml
 display-title:
@@ -108,7 +109,7 @@ display-subtitle:
 ```
 {: file='_config.yml'}
 
-Same thing also was done for `author.bio` item, which goes downside of my author name in sidebar part, as my personal comment line.
+Same thing also was done for `author.bio` item, which goes downside of my author name in sidebar part, as my personal commentary lines.
 
 ```yaml
 # Site Author
@@ -121,7 +122,7 @@ author:
 ```
 {: file='_config.yml'}
 
-Finally, the meaning not as obvious as above ones, I added a custom variable `posts_per_page`.  This value replaces original one `paginate`, which is used in conjunction with `jekyll-paginate`.  `jekyll-paginate` is a plugin for pagination, which I will explain further in following sections.
+Finally, I added a custom variable `posts_per_page`.  This value replaces existing variable `paginate`, which is used in conjunction with `jekyll-paginate` plugin.  `jekyll-paginate` is a plugin for pagination.  Altough what this is for is obscure yet, I will explain further this through following sections.
 
 ```yaml
 # Custom paginator
@@ -130,7 +131,7 @@ posts_per_page: 8
 
 ## `translated` Variable Added
 
-I decided to define boolean variable `translated` in YAML Front Matters of all the posts or documents, to tell if a given document has its translated counterpart.  For example, if a markdown file living in `_post`( `en/_post`) has below line in their front matter, it means there exists its English(Korean) counterpart in `en/_post`(`_post`) folder.
+I also decided to define boolean variable `translated` in YAML Front Matters of all the posts or documents, to tell if a given document had its translated counterpart or not.  For example, if a markdown file living in `_post`( `en/_post`) has below line in their front matter, it means there exists its English(Korean) counterpart in `en/_post`(`_post`) folder.
 
 ```yaml
 translated: true
@@ -151,60 +152,56 @@ lazyjobseeker.github.io
             (target url = https://lazyjobseeker.github.io/en/posts/example/
 ```
 
-In above example tree, there are two files named `2024-04-05-example.md`.  Both has `translated: true` line in front matter - you can do away with this if you are planning to post only when you have original and translated versions both, or maybe you can move `translated: true` to default setting for posts -.  Default setting in `_config.yml` makes `_posts/2024-04-05-example.md` to have `ko` as its value for `lang` attribute.  For `en/_posts/2024-04-05-example.md`, value of `lang` is `en`.
+In above example folder tree, there are two files named `2024-04-05-example.md`.  Both has `translated: true` line in front matter.  Default setting in `_config.yml` makes `_posts/2024-04-05-example.md` to have `ko` as its value for `lang` attribute.  For `en/_posts/2024-04-05-example.md`, value of `lang` is `en`.
 
 **About Flle Name**<br>Original post in `_posts` and English-translated version `en/_posts` must be named as same.
 {: .notice--warning}
 
 ## Defining Custom `Liquid` Objects
 
-This is the most important part.  I set some additional `Liquid` arrays and variables, to provide required data I need in implementing multilingual support.
+Throughout the whole story, here comes the most important part.  I set some additional `Liquid` arrays and variables, to provide required data I needed in implementing multilingual support.
 
 ### Language-Dependent Variables
 
-앞서 `_config.yml`의 글로벌 설정을 통해 모든 포스트가 `lang` 속성을 가지게 되었으며, 이 값은 `page.lang` 변수에 접근하여 확인할 수 있습니다.
+As I already had modified `_config.yml` to render `lang` attribute for all the posts, for any post I could access `page.lang` variable to tell if a given post was in Korean (`ko`) or English (`en).
 
-아래와 같은 `Liquid` 변수들을 작성하고, `page.lang` 변수가 `ko`인지 `en`인지에 따라 서로 다른 값을 제공하도록 하였습니다.
+I moved on to defining several custom `Liquid` variables, which alters its content according to the value of `page.lang`.
 
-- `lang_posts`: `lang` 값이 현재 페이지와 동일한 포스트만을 모은 `Liquid` 배열입니다.
-- `display_title`:  마스트헤드 좌측에 표시되는, **블로그 제목**을 나타내는 텍스트입니다.
-- `display_subtitle`: 마스트헤드 좌측에 표시되는, **블로그 부제목**을 나타내는 텍스트입니다.
-- `author_bio`: 사이드바의 블로그 소유자 이름 아래에 표시되는 설명입니다.
-- `prefix`: 언어에 따라 홈 페이지 URL 뒤에 붙여 줄 문자열입니다.  한글 페이지를 디폴트로 할 예정이므로 `ko`라면 아무 값도 주지 않고, 영어 문서라면 `/en`이 되도록 할 것입니다. 
-- `target_url_ko`: 현재 문서가 영어 문서일 때, 한글 번역 문서의 URL입니다.
-- `target_url_en`: 현재 문서가 한글 문서일 때, 영어 번역 문서의 URL입니다.
-- `post_prev`: 현재 포스트와 언어가 동일한 포스트 중 **이전 포스트**를 나타냅니다.
-- `post_next`: 현재 포스트와 언어가 동일한 포스트 중 **다음 포스트**를 나타냅니다.
+- `lang_posts`: A `Liquid` array housing posts whose `lang` value is same with current post's.
+- `display_title`: **Blog title** displaying on left-end of masthead.
+- `display_subtitle`: **Blog subtitle** displaying on left-end of masthead.
+- `author_bio`: Commentary from author, displaying below author name on sidebar.
+- `prefix`: A string to be prepended to page permalink, to create full URL for translated page.  For example, if `page.lang` is `ko` for some post, `prefix` is `/en/`.
+- `target_url_ko`: URL targeting Korean version of current page.
+- `target_url_en`: URL targeting English version of current page.
+- `post_prev`: **Previous post** having `lang` same with current post.
+- `post_next`: **Next post** having `lang` same with current post.
 
-### 페이지네이션 관련 변수들
+### Variables for Pagination
 
-`Minimal Mistakes` 테마의 홈 페이지(메인 URL로 접근하면 보이는 페이지)는 **Recent Posts**라는 이름으로 블로그의 모든 포스트의 제목과 요약문을 가장 최근 포스트부터 차례대로 보여 주도록 되어 있습니다.
-
-이 때, 모든 포스트를 한 페이지에 보여주는 것이 아니고, `_config.yml`의 `paginate` 변수 값에 해당하는 갯수만큼씩 나누어 보여 줍니다.  블로그의 총 포스트 개수가 `paginate` 값보다 크면, `/page2/`, `/page3/`... 과 같은 퍼마링크를 갖는 여러 페이지로 자동으로 분할하여 빌드해 줍니다.  또한, 각 페이지 사이를 이동할 수 있는 내비게이터를 최하단에 제공합니다.
+Home page of `Minimal Mistakes` shows titles and excerpts of all the post in my blog.  In doing so, the theme does not list all the posts in single page, but refer to global variable `site.paginate` defined in `_config.yml` to show only specific number of posts at a page.  If there are total number of posts more than `site.paginate` value, additional pages are built with `/page2/`, `/page3/`... as permalinks.  Furthermore, a navigator is provided at the bottom of pages.
 
 ![Paginated Index Page in Korean](https://drive.google.com/thumbnail?id=1iKCOo6ieSx0_GEjW7hnlg8CuOSB0YbFJ&sz=w1000){: width="400" .align-center .shadow}
 
 ![Paginated Index Page in English](https://drive.google.com/thumbnail?id=1jm6tKqgLUqkzc-2Yufzh9rESsyKKbQPe&sz=w1000){: width="400" .align-center .shadow}
 
-이처럼 블로그의 모든 포스트들을 여러 페이지에 걸쳐 나누어 보여줄 수 있도록 하기 위해 필요한 기능을 **페이지네이션(pagination)**이라고 합니다.
+Such a feature is called **Pagination**.  When it comes to pagination-realted features of `Minimal Mistakes` theme, UI components like bottom navigator is powered by the theme itself but other features like mutliple-page building resorts to `jekyll-paginate` plugin.
 
-`Minimal Mistakes` 테마의 페이지네이션 관련 기능의 경우, 최하단 내비게이터와 같은 UI 요소는 테마 자체에서 구현하고 있습니다.  하지만 포스트를 정해진 숫자만큼씩 나누어 주고 서로 다른 페이지에 나누어 빌드해 주는 기능은 `Jekyll`의 페이지네이션 플러그인인 `jekyll-paginate`에 의존합니다.
+While `jekyll-paginate` is sufficient to implement pagination features for vanilla `Minimal Mistakes` theme, issue rises in serving multiple-language support.  `jekyll-paginate` processes all the posts of my project, and I cannot set conditions based on categories, tags or custom variables like `lang` to filter the scope.
 
-바닐라 테마에서는 `jekyll-paginate`만 이용하여도 문제가 없지만, 다국어 지원을 플러그인 없이 구현하는 경우 문제가 생깁니다.  왜냐하면 `jekyll-paginate` 플러그인은 프로젝트에 존재하는 모든 포스트들을 대상으로 작동하며, 위에서 설정한 `page.lang`과 같은 커스텀 변수를 참조하여 '한글 포스트들만 모아서 페이지네이션해 줘'와 같이 동작하도록 할 수 없기 때문입니다.
+Therefore, supporting multiple languages in `Minimal Mistakes` theme but maintaining **Recent Posts** section of default page meant that I had to abandon `jekyll-paginate`.  To do away with `jekyll-paginate`, I thought I should be able to provide below `Liquid` objects.
 
-결국 플러그인 없이 `Minimal Mistakes` 테마에 다국어를 지원하면서 **Recent Posts** 영역도  동일하게 동작하도록 하려면 `jekyll-paginate`에 의존하여 구현된 기능들을 포기하고 필요한 내용들을 새로 구현해야 했습니다.  아래의 `Liquid` 변수들은 이 작업을 위해 필요한 것들입니다. 
+- `first_page_path`: URL of the first page of paginated default pages.
+-  `current_page_posts`:  A `Liquid` arrray of length `post_per_page`, containing posts to be displayed in current page.
+- `total_pages`: Total number of pages into which default home pages should be divided by pagination.  For example, if I have 10 English posts and `posts_per_page` is 4, `total_pages` should be 3.
 
-- `first_page_path`: 페이지네이션된 홈 페이지들 중 가장 첫 번째 페이지의 URL입니다.
--  `current_page_posts`:  현재 문서가 페이지네이션된 홈 페이지들 중 하나인 경우, 현재 문서에 표시되어야 하는 포스트들을 모은 `Liquid` 배열입니다.
-- `total_pages`: 홈 페이지가 총 몇 개의 개별 페이지로 구성되어야 하는지 나타내는 변수입니다.  예를 들어, 블로그에 총 10개의 영어 포스트가 있고 한 페이지에 4개씩 보여주기로 한다면 `total_pages` 변수의 값은 3이 되어야 하며 퍼마링크가 `/page3/`인 페이지까지 총 3개의 `html` 파일이 페이지네이션된 홈 페이지들의 일부로 빌드되어야 합니다.
+## Implementing Custom `Liquid` Objects
 
-## 커스텀 `Liquid` 변수 구현
+After designing custom `Liquid` objects, I wrote some code snippets to calculate provide them.  I saved all the snippets below inside `_includes/multilang` folder.
 
-앞 장에서 나열한 커스텀 변수들을 몇 개 파일에 나누어 구현하였습니다.  아래의 모든 파일들은 `_includes/multilang` 폴더를 새로 만든 다음 해당 폴더 내에 만들어 주었습니다.
+### Finding Posts with Same Languages
 
-### 현재 문서와 같은 언어인 포스트들 찾기
-
-`lang_posts` 변수를 만들어 주는 코드 토막입니다.  `get-lang-posts`라는 이름의 확장자 없는 텍스트로 작성되었습니다.
+This snippet, named `get-lang-posts`, creates `lang_posts` array I conceptualized above.
 
 ```liquid
 {% raw %}{% for post in lang_posts %}
@@ -222,9 +219,9 @@ This is the most important part.  I set some additional `Liquid` arrays and vari
 ```
 {: file='get-lang-posts'}
 
-### 현재 문서의 언어에 맞는 URL 및 변수들 만들기
+### Language-Specific URLs and Texts
 
-문서 내에 생성할 하이퍼링크들의 URL, 마스트헤드 및 저자 정보 영역에 표시할 텍스트들을 현재 페이지의 `lang` 변수에 맞추어 할당해 주는 코드 토막입니다.  `get-lang-variables`라는 이름의 확장자 없는 텍스트로 작성되었습니다.
+This snippet, named `get-lang-variables`, creates required URLs for hyperlinks, texts to be displayed on masthead and sidebar.
 
 ```liquid
 <!-- multilang/get-lang-vairables -->
@@ -258,19 +255,21 @@ This is the most important part.  I set some additional `Liquid` arrays and vari
 ```
 {: file='get-lang-variables'}
 
-이 코드를 적당한 위치에 `include`해 주면 해당 위치에서 `display_title`, `display_subtitle`, `author_bio`, `first_page_path`, `prefix`, `target_url_ko`, `target_url_en`의 7개 변수를 사용할 수 있게 되고 그 내용은 `page.lang` 변수의 값에 따라 달라지게 됩니다.
+By including this code when needed, I was able to access to 7 custom variables: `display_title`, `display_subtitle`, `author_bio`, `first_page_path`, `prefix`, `target_url_ko`, `target_url_en`
 
-### 페이지네이션 관련 변수
+### Variables for Pagination
 
-#### 사전 작업
+#### Preliminary Works
 
-다국어 페이지네이션 구현에는 사전 작업이 추가로 필요합니다.
+Some preliminary works were needed in implementing pagination for multiple-language service.
 
-페이지네이션을 구현하는 표준 플러그인 `jekyll-paginate`는 첫 번째 홈 페이지를 제외하면 `/page2/`, `/page3/`... 과 같은 꼴의 퍼마링크를 갖는 `html` 파일을 **자동으로 생성합니다**.  하지만 저는 `jekyll-paginate`를 이용하지 않기 때문에, 각 퍼마링크에 해당하는 `html` 파일로 빌드될 마크다운 파일을 페이지 수 만큼 미리 만들어 두어야 했습니다.
+I started by observing what `jekyll-paginate` does.  This plugin **automatically creates** `html` files whose permalink is set by `/page2/`, `/page3/`.  Only exception is the very first page, permalink of which is `nil` (empty string).
 
-그리고, `/page2/`가 존재한다면 이 페이지의 영어 버전인 `en/page2/`를 빌드하기 위한 마크다운 파일도 존재해야 합니다.  따라서 이러한 마크다운 파일들을 미리 작성해 두고 `_index`및 `en/_index` 폴더에 넣어 두었습니다.
+However, I could not use `jekyll-paginate`, and it meant that I cannot let my `/page#/` and `/en/page#/` permalinked pages automatically creates during site build.  So I built `_index` and `en/_index` folders to house markdown files which were intended to be rendered as individual pages having `/page#/` or `/en/page#/` formatted permalinks.
 
-`Jekyll`은 홈페이지의 가장 첫 페이지를 만들 때 반드시 루트 경로의 `index.html`을 타겟하는 것으로 고정되어 있고 이 파일은 이름을 바꾸거나 위치를 옮길 수 없어, 최종적으로 프로젝트 구조는 아래와 같이 정리됩니다.
+For clarity, I named such individual markdown files housed under `_index` folders to be `page#.md`.  The only exception was `index.html` located in the project root: it couldn't be moved into `_index` nor renamed to `page1.md` as `Jekyll` tries to find a file named `index.html` and render it as unique default page.
+
+Finally, project structure considering customized pagination was as follows.  Altough markdown file for English version of home page is not obligated to have `index` as filename, I just let it have that name for consistency with `index.html` in project root.
 
 ```
 lazyjobseeker.github.io
@@ -287,7 +286,9 @@ lazyjobseeker.github.io
     └─ _posts
 ```
 
-그리고 `index.html` 및 `page#.md` 파일들의 YAML Front Matter에 `page_no` 변수를 설정하여 수동으로 해당 파일이 페이지네이션 결과 몇 번째 페이지가 될 것인지 명시했습니다.  페이지 퍼마링크도 이 단계에서 수동으로 직접 설정했습니다.  예를 들어, `/page2/` 및 `/en/page2/`로 렌더링될 마크다운 파일들은 각각 아래와 같이 작성됩니다.
+And `page_no` custom variable was declared in front matter of every `index.html`, `index.md` or `page#.md` files.  Permalinks were also set manually for those pages.
+
+For example, below I show how front matters for pages with `/page2/` and `/en/page2/` permalinks should look like:
 
 ```yaml
 ---
@@ -305,10 +306,10 @@ permalink: /en/page2/
 ```
 {: file='en/_index/page2.md'}
 
-물론 이 페이지들도 `lang` 변수를 가져야 합니다.  `_config.yml`의 `default` 부분에 아래 내용을 추가했습니다.
+For sure, `lang` variable should be set for those files also.  I set `lang` variable for those files in `_config.yml`, as part of `default`.
 
 ```yaml
-# 일부 값은 생략하였습니다.
+# Some values were omitted for clarity.
 default:
 # Index pages with custom pagination (Korean - 1st page)
   - scope:
@@ -340,9 +341,9 @@ default:
 ```
 {: file='_config.yml')
 
-#### 구현
+#### Implementation
 
-이제 페이지네이션 관련 변수를 작성해 주는 코드를 만드는데, 두 파일로 나누었습니다.  우선 `current_page_posts` 배열을 사용할 수 있게 해 주는 `home-paginator` 코드입니다.
+After preliminary works done, I moved on to pagination-related codes.  Implementations were separated into two files.  First one was `home-paginator`, which provides `current_page_posts`.
 
 ```liquid
 <!-- multilang/home-paginator -->
@@ -367,7 +368,7 @@ default:
 ```
 {: file='home-paginator'}
 
-다음으로, 어떤 포스트를 기준으로 같은 언어로 작성된 다른 포스트 중 **이전 포스트**와 **다음 포스트**를 특정해 주는 코드를 `prev-next-locater`로 작성하였습니다.
+Next thing was `prev-next-locater`, meant to specify previous and next posts having `lang` values same with current post.
 
 ```liquid
 <!-- multilang/prev-next-locater -->
@@ -394,13 +395,15 @@ default:
 ```
 {: file='prev-next-locater'}
 
-## `_include` 구성 요소들 수정하기
+## Modifying `_include` Contents
 
-`_include` 폴더에는 자주 렌더링되는 요소들인 상단바(마스트헤드), 사이드바, 헤더, 푸터 등의 요소들이 사전 정의되어 있습니다.  이 중 `masthead.html`, `author-profile.html`, `nav_-_list`, `paginator.html`, `post-pagination.html` 파일을 수정해야 합니다.  수정 과정에서 앞서 만들어 둔 `_include/multilang` 폴더의 토막 코드들을 필요한 위치에 `include`해 주면 됩니다.
+`_include` folder is comprised of items repeatedly used in rendering any pages - masthead, sidebar, header, footer, and so on.  Among them, I had to modify `masthead.html`, `author-profile.html`, `nav_-_list`, `paginator.html`, `post-pagination.html` files.  Snippets written in `_include/multilang` were repeatedly included in modifying those files to provide proper `Liquid` objects/variables.
 
-### 마스트헤드
+### Masthead
 
-블로그 상단의 마스트헤드 영역을 나타내는 `_includes/masthead.html` 파일을 수정하였습니다.  먼저 마스트헤드 영역 우측에 한글 포스트이면 `EN` 링크를, 영어 포스트이면 `KO`라고 써 준 다음 번역된 포스트로의 링크를 제공하도록 하였습니다.  필요한 링크들은 모두 `get-lang-variables`를 통해 얻을 수 있도록 구현해 두었으므로 적당한 위치에서 해당 파일을 `include`해 주기만 하면 됩니다.
+Top panel or masthead part of posts/pages are rendered by `_includes/masthead.html`.  First of all, additional UI component is required here: a language toggle link which displays EN(KO) if current page is Korean(English).  This toggle link should direct user to English(Korean) version counterpart of current page.
+
+All URLs were already available by including `get-lang-variables`.  So I could simply import `get-lang-variables` file and refer `prefix`, `target_url_ko` and `target_url_en` variables to modify original hyperlinks.
 
 ```html
 {% raw %}{% include multilang/get-lang-variables %}
@@ -451,11 +454,11 @@ default:
 ```
 {: file='_includes/masthead.html'}
 
-### 사이드바
+### Sidebar
 
-사이드바 영역에서는 `author-profile.html` 파일과 `nav_list` 파일을 수정해야 합니다.
+Among building blocks for sidebar component, two files need to be modified: `author-profile.html` and `nav_list.`
 
-먼저 `author-profile.html` 파일의 경우, 원래 코드에서 `author.bio` 변수를 불러오는 부분을 수정합니다.
+Firstly, in `author-profile.html`, reference to `author.bio` needs to be changed to custom variable `author_bio` which can adaptively vary according to `page.lang`.
 
 ```html
 <div class="author__content">
@@ -472,7 +475,7 @@ default:
 ```
 {: file='author-profile.html'}
 
-다음으로 `nav_list` 파일에서는 `prefix` 변수를 불러온 다음 하이퍼링크들의 앞에 붙여 주도록 작업합니다.  `_data/navigation.yml`에는 사이드바에 표시할 리스트들과 각 리스트 요소들을 클릭했을 때 이동할 링크 URL이 제공되는데, 영어 문서인 경우 링크 주소에 `/en/`을 붙여 주기 위한 것입니다.
+In `nav_list` file, `get-lang-variables` is imported to use `prefix` variable.  `prefix` variable is to prepend `/en/` prefix to get URLs directing to English-translated documents when `page.lang` is `en`.
 
 ```liquid
 {% assign navigation = site.data.navigation[include.nav] %}
@@ -504,9 +507,9 @@ default:
 ```
 {: file='nav_list'}
 
-### 페이지네이터
+### Paginator
 
-`home.html`레이아웃에 `include`되어 페이지네이션 기능을 수행하는 `paginator.html`은 아래와 같이 수정하였습니다.
+`home.html` layout imports `paginator.html` to conduct pagination for default pages.  This file was modified as follows.  Notice to how `page_no` variable and `total_pages` custom variables are in use.
 
 ```html
 {% raw %}{% include multilang/get-lang-variables %}
@@ -584,9 +587,9 @@ default:
 ```
 {: file='paginator.html'}
 
-### 이전·다음 포스트
+### Previous·Next Posts
 
-이 부분은 테마 기본 파일 중 `post_pagination.html`을 통해 구현되어 있습니다.  언어를 구분하여 전후 포스트를 특정하는 기능은 `prev-next-locater`에 구현되었으므로, 이 파일을 `post_pagination.html`에 `include`한 뒤 기존 구현에서 지킬 자체 변수 `page.next` 및 `page.previous`로 구현된 내용을 `post_next` 및 `post_prev`로 교체해 주면 됩니다.
+This part is implemented by `post_pagination.html`.  As I already wrote `prev-next-locater` to serve `post_next` and `post_prev` objects, I can simply include this fiile and subtitute `page.next` and `page.previous` variables in original lines with my new custom variables.
 
 ```html
 {% raw %}{% include multilang/prev-next-locater %}
@@ -638,17 +641,17 @@ To avoid this I changed `_includes/category-list.html` file, making it `en` keyw
   </p>
 {% endif %}{% endraw %}
 ```
-{: text='category-list.html'}
+{: file='category-list.html'}
 
 ## Modifying `_layout` Contents
 
-While `_includes` houses reusable fragments of UI segments, `_layout` holds presets for complete pages built from these building blocks.
+While `_includes` houses reusable UI segments, `_layout` holds presets for complete pages built from these building blocks.
 
-Pages containing **Recent Pages** header are rendered to full `.html` file based on `home` layout.  For normal posts, `single` layout is used.  So I had to make changes for those to preset to make my previous changes well blend to layouts and therefore final outputs.
+Pages containing **Recent Pages** header are rendered based on `home` layout.  For normal posts, `single` layout is used.  So I had to make changes for those to preset to make my previous changes well blend to layouts and therefore final outputs.
 
 ### Changes for `home.html` 
 
-`home` layout or `home.html` is used to render `index.html` and `page#.md` files.  With custom variable `page_no` added, I could refer to `page.page_no` to determine the sublist of posts which should display.
+`home` layout or `home.html` is used to render `index.html` and `page#.md` files.  With custom variable `page_no`, I could access `page.page_no` and determine the subset of all posts which should display.
 
 In actual implementation, it was sufficient for me to `include` my partial code `home-paginator` and use `current_page_post` which was returned.
 
@@ -682,9 +685,9 @@ classes: wide
 
 After **YOU MAY ALSO ENJOY** header at the tail of any post, there follow 4 different post thumbnails as related posts.  If there are predesignated list of related posts 4 posts come from there.  If not, 4 recent posts from all blog posts follow.
 
-If this part is not changed, in related post section posts written in different languages simply mix up.
+So if I do not modify this part, this related posts section is simply mixed up with posts of different languages.
 
-So I changed the related lines by importing `get-lang-posts` and using `lang_posts`.  As I had no plan to set related posts for my posts, I gave little twist for fun: if no related posts explicitly set, the section is filled with 4 posts randomly chosen from `lang_posts`.  So now I have my related posts section changing contents every time I commit to master repo to trigger remote `Jekyll` build from Github Pages.
+To handle this I changed related lines by importing `get-lang-posts` and using `lang_posts`.  As I had no plan to set related posts for my posts, I gave little twist for fun: if no related posts explicitly set, the section is filled with 4 posts ***randomly*** chosen from `lang_posts`.  So now I have my related posts section changing contents every time I commit to master repo to trigger remote `Jekyll` build from Github Pages.
 
 ```html
 <!-- Only some part of code is displayed -->
@@ -734,7 +737,7 @@ Above kind of lines should be added to all of my pages having Korean and English
 
 ### Adding `hreflang` Tags
 
-Below codes were added to my custom header file.
+Below codes were added to my custom header file, to automatically add `hreflang` tages in every contents in my blog.
 
 ```html
 <!-- Add hreflang for multiple language SEO support -->
@@ -746,8 +749,8 @@ Below codes were added to my custom header file.
 
 ## Outro
 
-So it is all over!  I made it to serve my blog in Korean and English.  I am happy with the output but I wouldn't have done this if `poluglot` was little more handy to use or at least Github Pages officially supported its execution.  Maybe I would rollback all the implementations here I made if there comes better multiple language support plugin.
+So it is all over!  I made it to serve my blog in Korean and English.  I am happy with the output but I wouldn't have done this if `polyglot` was little bit more handy to use or at least Github Pages officially supported its execution.  Maybe I would rollback all the implementations here I made if there comes better multiple language support plugin.
 
-After all I see my explanation here is too lengthy for someone who actually wants to modify one's blog to support multiple languages.  But if you are still willing to do, the most important part is writing `/multilang/` contents dedicated to codeblocks generating required`Liquid` arrays and variables. All other stuff was just a tedious repeat-and-test to see if all hyperlinks and texts in rendered pages work as intended.
+After all I see my explanation here is too lengthy for someone who actually wants to modify one's blog to support multiple languages.  But if you are still willing to do, just keep in mind that the most important part was writing code snippets I stored in `_include/multilang/`. All other stuff was just a tedious repeat-and-test to see if all hyperlinks and texts in rendered pages work as intended.
 
 So if you want to serve your `Jekyll` blog but plugins are not of your taste: try implementing it yourself!  It is definitly possible and will be an worthwhile challenge. 😆
