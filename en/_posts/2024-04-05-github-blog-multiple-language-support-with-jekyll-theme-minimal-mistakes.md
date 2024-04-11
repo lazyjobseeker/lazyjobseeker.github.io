@@ -9,13 +9,13 @@ tags:
   - "Minimal Mistakes"
   - "Multi-Languages"
 created_at: 2024-04-05 08:44:57 +09:00
-last_modified_at: 2024-04-11 19:26:40 +09:00
+last_modified_at: 2024-04-11 08:33:11 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: How I implemented multi-language support for my Jekyll-based Github Pages blog without plugins.
 ---
 
-## Introduction
+## Intro
 
 Since I started my `Jekyll` blog hosted via `Github Pages`, it has been a long-lasting quest to serve this blog in multiple languages, at least in two different ones (Korean as my native language and English).  This blog is based on powerful and long-loved `Jekyll` theme `Minimal Mistakes`, but unfortunately multiple language support was not among its native features.
 
@@ -638,17 +638,19 @@ default:
 ```
 {: text='category-list.html'}
 
-## `_layout` 구성 요소들 수정하기
+## Modifying `_layout` Contents
 
-`_includes`가 재사용 가능한 UI 요소들의 조각들이라면 `_layout`은 이 조각들을 이용해서 특정한 형태의 완성된 페이지 형상을 짜맞춰 둔 것입니다.
+While `_includes` houses reusable fragments of UI segments, `_layout` holds presets for complete pages built from these building blocks.
 
-페이지네이션을 통해 여러 페이지로 분할된 **Recent Pages**는 `home` 레이아웃, 일반 포스트는 `single` 레이아웃으로 렌더링됩니다.  이 두 가지 레이아웃에 대해서는 수정이 필요하게 됩니다.
+Pages containing **Recent Pages** header are rendered to full `.html` file based on `home` layout.  For normal posts, `single` layout is used.  So I had to make changes for those to preset to make my previous changes well blend to layouts and therefore final outputs.
 
-### `home.html` 수정하기
+### Changes for `home.html` 
 
-`home` 레이아웃은 `index.html` 및 `page#.md` 문서들을 렌더링하는 데 사용됩니다.  `page_no` 변수를 YAML Front Matter로 제공하였기 때문에, `page.page_no` 변수를 이용하면 현재 렌더링 중인 페이지가 몇 번째 페이지가 되어야 하는지 알 수 있습니다.  그리고 `home-paginator`를 불러오면 현재 페이지에 표시되어야 할 포스트 목록을 `current_page_posts` 변수로 받을 수 있습니다.
+`home` layout or `home.html` is used to render `index.html` and `page#.md` files.  With custom variable `page_no` added, I could refer to `page.page_no` to determine the sublist of posts which should display.
 
-최종적으로 아래와 같이 수정되었습니다.
+In actual implementation, it was sufficient for me to `include` my partial code `home-paginator` and use `current_page_post` which was returned.
+
+Modified `home.html` looked like this.
 
 ```html
 ---
@@ -672,18 +674,18 @@ classes: wide
 ```
 {: file='home.html'}
 
-### `single.html` 수정하기
+### Modifying `single.html`
 
-`single` 레이아웃은 일반 포스트를 렌더링하는 데 사용됩니다.  **YOU MAY ALSO ENJOY** 헤더와 함께 표시되는 연관 포스트 표시 부분을 수정해야 합니다.
+`single` layout is used to render normal posts.  In `single.html`, changes were needed in the lines where the section headed **YOU MAY ALSO ENJOY**.
 
-포스트 마지막 부분에 **YOU MAY ALSO ENJOY**라는 헤더와 함께 연관 포스트 4개가 표시됩니다.  이 부분의 구현을 `single` 레이아웃 파일의 뒷 부분에서 찾을 수 있는데, 특별히 연관 포스트를 지정해 두었다면 지정된 연관 포스트 중 4개를 표시하고 그렇지 않으면 모든 포스트 중 최근 4개를 표시합니다.
+After **YOU MAY ALSO ENJOY** header at the tail of any post, there follow 4 different post thumbnails as related posts.  If there are predesignated list of related posts 4 posts come from there.  If not, 4 recent posts from all blog posts follow.
 
-이 부분을 별도로 수정하지 않으면, 연관 포스트를 별도 지정하지 않은 포스트에서는 연관 포스트에 한글/영어 포스트가 섞여 나오게 됩니다.
+If this part is not changed, in related post section posts written in different languages simply mix up.
 
-각 포스트마다 연관 포스트를 별도로 지정할 계획이 없다면, 모든 포스트 중 최근 4개를 표시하도록 하는 대신 `get-lang-posts`를 불러온 다음 `lang_posts`에서 최근 4개를 불러오게 하는 방식으로 연관 포스트에 동일한 언어의 포스트들만 나오도록 할 수 있습니다.  저는 조금 다른 방식으로 적용하고 싶어서, `lang_posts`를 불러와 사용하되 랜덤하게 4개를 추출하는 방식으로 변경했습니다.
+So I changed the related lines by importing `get-lang-posts` and using `lang_posts`.  As I had no plan to set related posts for my posts, I gave little twist for fun: if no related posts explicitly set, the section is filled with 4 posts randomly chosen from `lang_posts`.  So now I have my related posts section changing contents every time I commit to master repo to trigger remote `Jekyll` build from Github Pages.
 
 ```html
-<!-- 일부 코드만 표시했습니다 -->
+<!-- Only some part of code is displayed -->
 {% raw %}{% comment %}<!-- only show related on a post page when `related: true` -->{% endcomment %}
 {% if page.id and page.related and site.related_posts.size > 0 %}
   <div class="page__related">
@@ -714,9 +716,11 @@ classes: wide
 ```
 {: file='single.html'}
 
-## SEO 최적화하기
+## SEO
 
-다국어 페이지를 위한 SEO 최적화는 `hreflang` 설정 방식을 사용했습니다.  `hreflang` 태그는 아래와 같은 구조로 구성됩니다.
+Multiple language support completes with proper SEO setting.  I used `hreflang` tag.
+
+This is basic structure for giving some lines for search bots to know how I am providing my Korean-English bilingual documents.  
 
 ```html
 <link rel="alternate" hreflang="kr" href="https://lazyjobseeker.github.io">
@@ -724,11 +728,11 @@ classes: wide
 ```
 {: .nolineno}
 
-웹 페이지의 `<head>` 부분에 위 태그들을 넣으면, 한글 및 영어 페이지에 대한 대체 링크들을 검색 엔진에 제공할 수 있게 됩니다.
+Above kind of lines should be added to all of my pages having Korean and English versions both, inside `<head>` section.
 
-### `hreflang` 설정하기
+### Adding `hreflang` Tags
 
-커스텀 헤더 파일에 아래 내용을 추가하였습니다.
+Below codes were added to my custom header file.
 
 ```html
 <!-- Add hreflang for multiple language SEO support -->
@@ -738,9 +742,11 @@ classes: wide
 ```
 {: file='_includes/head/custom.html'}
 
-## 나가기
+## Outro
 
-이상의 작업을 통해 플러그인 없이 지킬 깃허브 블로그에 대한 다국어 지원을 `Minimal Mistakes` 테마 기준으로 구현할 수 있었습니다.  `Polyglot` 플러그인의 사용성이 조금만 더 좋았다면 이런 식으로 구현하지 않았을 텐데, 혹시라도 이후에 더 사용성 좋은 플러그인이 나오고 Github Pages에서 정식으로 사용할 수 있게 된다면 이 내용들은 전부 롤백하게 될 지도 모르겠습니다.
+So it is all over!  I made it to serve my blog in Korean and English.  I am happy with the output but I wouldn't have done this if `poluglot` was little more handy to use or at least Github Pages officially supported its execution.  Maybe I would rollback all the implementations here I made if there comes better multiple language support plugin.
+
+After all I see my explanation here is too lengthy for someone who actually wants to modify one's blog to support multiple languages.  But if you are still willing to do, the most important part is writing `/multilang/` contents dedicated to codeblocks generating required`Liquid` arrays and variables. All other stuff were just about modifying UI components, checking 
 
 사실 구현에서 중요한 것은 어떤 `Liquid` 요소들이 필요한지 생각하고 조각 코드로 만드는 작업이고, 나머지 내용은 장황하기는 하지만 그저 이미 있는 레이아웃들을 조금씩 건드리고 원하는 대로 될 때까지 테스트 빌드하는 작업의 반복에 불과했습니다.
 
