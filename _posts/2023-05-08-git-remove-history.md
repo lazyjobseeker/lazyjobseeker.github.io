@@ -1,13 +1,13 @@
 ---
 translated: true
 title: "[Git] 저장소 커밋 히스토리 모두 삭제하기"
-categories: Programming
+category: programming
 redirect_from:
   - /programming/230508-git-remove-history/
 tags:
   - devlog
 created_at: 2023-05-08 01:33:28 +09:00
-last_modified_at: 2024-04-09 17:17:30 +09:00
+last_modified_at: 2024-04-12 10:54:05 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-2.png
 excerpt: "깃에서 커밋 히스토리 모두 삭제하기"

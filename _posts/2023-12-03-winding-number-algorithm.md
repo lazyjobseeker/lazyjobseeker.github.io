@@ -1,7 +1,7 @@
 ---
 translated: true
 title: "점과 다각형의 포함관계 판정: Winding Number 알고리즘"
-category: Programming
+category: programming
 redirect_from:
   - /programming/231203-winding-number-algorithm/
 tags:

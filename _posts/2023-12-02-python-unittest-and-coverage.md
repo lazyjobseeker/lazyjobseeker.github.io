@@ -3,11 +3,11 @@ translated: true
 title: "unittest와 coverage로 코드 테스트하기"
 redirect_from:
   - /programming/231202-python-unitttest-and-coverage/
-category: Programming
+category: programming
 tags:
   - python
 created_at: 2023-12-01 13:45:54 +09:00
-last_modified_at: 2024-04-09 17:18:10 +09:00
+last_modified_at: 2024-04-12 10:54:36 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-8.png
 excerpt: "파이썬에서 unittest 라이브러리를 사용하여 작성된 코드를 테스트하고 coverage패키지를 이용하여 코드 커버리지를 확인하는 방법"

@@ -1,7 +1,7 @@
 ---
 translated: true
 title: Vector with char Arrays as Elements
-category: Programming
+category: programming
 tags:
   - C++
 created_at: 2023-12-05 13:35:24 +09:00

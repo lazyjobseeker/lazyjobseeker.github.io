@@ -1,7 +1,7 @@
 ---
 translated: true
 title: "[Python] 클래스 상속 개념과 활용"
-category: Programming
+category: programming
 redirect_from:
   - /programming/class-inheritence-pokemon/
 tags:

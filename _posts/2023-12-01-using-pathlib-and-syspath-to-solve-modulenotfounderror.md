@@ -1,7 +1,7 @@
 ---
 translated: true
 title: "pathlib과 sys로 ModuleNotFoundError 해결하기"
-category: Programming
+category: programming
 redirect_from:
   - /programming/231201-pathlib-syspath/
 tags:

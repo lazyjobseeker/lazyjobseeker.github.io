@@ -1,7 +1,7 @@
 ---
 translated: true
 title: "배치 파일(.bat)로 반복 작업 자동화"
-category: Programming
+category: programming
 redirect_from:
   - /programming/231205-write-batch-file-for-task-automation/
 tags:

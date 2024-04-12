@@ -1,7 +1,7 @@
 ---
 translated: true
 title: "Task Automation with Batch File (.bat)"
-category: Programming
+category: programming
 tags:
   - windows
 created_at: 2023-12-05 00:00:00 +09:00

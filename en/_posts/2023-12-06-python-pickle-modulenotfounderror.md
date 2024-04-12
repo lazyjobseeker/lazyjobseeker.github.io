@@ -1,7 +1,7 @@
 ---
 translated: true
 title: "How to Handle Errors in Using pickle"
-category: Programming
+category: programming
 tags:
   - python
   - pickle

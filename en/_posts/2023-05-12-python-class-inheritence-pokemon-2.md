@@ -1,7 +1,7 @@
 ---
 translated: true
 title: "[Python] Class Inheritence"
-category: Programming
+category: programming
 tags:
   - python
 created_at: 2023-05-12 07:43:00 +09:00

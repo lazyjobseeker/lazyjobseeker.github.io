@@ -1,7 +1,7 @@
 ---
 translated: true
 title: "[Python] Class"
-categories: Programming
+category: programming
 tags:
   - python
 created_at: 2023-05-10 06:59:45 +09:00

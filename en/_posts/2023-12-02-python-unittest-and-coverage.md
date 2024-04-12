@@ -1,7 +1,7 @@
 ---
 translated: true
 title: "Testing Python Code with unittest and coverage"
-category: Programming
+category: programming
 tags:
   - python
 created_at: 2023-12-01 13:45:54 +09:00

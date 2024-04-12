@@ -1,15 +1,11 @@
 ---
 translated: true
 title: Pourbaix Diagrams
-category: Electrochemistry
+category: electrochemistry
 tags:
-  - electron
-  - transfer
-  - Marcus
-  - model
-  - kinetics
+  - pourbaix-diagram
 created_at: 2024-03-15 09:24:59 +09:00
-last_modified_at: 2024-04-09 17:20:48 +09:00
+last_modified_at: 2024-04-12 11:16:19 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: How to interpret Pourbaix diagram or potential-pH diagram, with step-by-step instruction to draw ones for water and iron system.

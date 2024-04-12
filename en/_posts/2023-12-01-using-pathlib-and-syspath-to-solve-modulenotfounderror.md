@@ -1,7 +1,7 @@
 ---
 translated: true
 title: "Solve ModuleNotFoundError Error with `pathlib` and `sys`"
-category: Programming
+category: programming
 tags:
   - python
 created_at: 2023-12-01 02:04:33 +09:00

@@ -1,11 +1,11 @@
 ---
 translated: true
 title: "Electrochemistry by A.J.Bard - 3rd Ed Ch. 1"
-category: Electrochemistry
+category: electrochemistry
 tags:
-  - Electrochemistry
+  - electrochemistry
 created_at: 2024-02-27 00:30:11 +09:00
-last_modified_at: 2024-04-09 17:20:23 +09:00
+last_modified_at: 2024-04-12 10:56:47 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-7.png
 excerpt: "Summary of the contents of chapter 1 of <Electrochemical Methods: Fundamentals and Applications (3rd Ed.)> by A. J. Bard."

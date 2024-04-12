@@ -1,13 +1,13 @@
 ---
 translated: true
 title: "파이썬 설치, 환경 변수, 프로젝트 패키징"
-category: Programming
+category: programming
 redirect_from:
   - /programming/python/
 tags:
-  - Python
+  - python
 created_at: 2023-11-05 23:57:00 +09:00
-last_modified_at: 2024-04-09 17:17:59 +09:00
+last_modified_at: 2024-04-12 10:54:25 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-5.png
 excerpt: "python을 설치하고 환경 변수를 설정하는 방법, setuptools 패키지를 이용해 내가 만든 python 패키지를 배포 가능한 형태로 만드는 방법"

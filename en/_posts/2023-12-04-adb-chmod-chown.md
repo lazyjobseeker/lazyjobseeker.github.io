@@ -1,11 +1,11 @@
 ---
 translated: true
 title: "chmod, chown Commands in Adb Shell"
-category: Programming
+category: programming
 tags:
-  - python
+  - adb
 created_at: 2023-12-04 12:00:02 +09:00
-last_modified_at: 2024-04-09 17:20:03 +09:00
+last_modified_at: 2024-04-12 10:56:30 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-2.png
 excerpt: "How to use chmod and chwon commands for modifying file permissions and owners."

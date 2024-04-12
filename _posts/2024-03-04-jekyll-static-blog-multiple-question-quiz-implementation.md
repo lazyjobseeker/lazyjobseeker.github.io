@@ -1,16 +1,16 @@
 ---
 translated: true
 title: "자바스크립트로 객관식 문제 만들기"
-category: Programming
+category: programming
 redirect_from:
   - /programming/jekyll-static-blog-multiple-question-quiz-implementation/
 tags:
-  - "Minimal Mistakes"
-  - Jekyll
-  - "Github Blog"
-  - Javascript
+  - minimal-mistakes
+  - jekyll
+  - github-blog
+  - javascript
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-04-09 17:45:47 +09:00
+last_modified_at: 2024-04-12 11:13:09 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-1.png
 excerpt: "Javascript를 이용하여 Github Pages 및 Jekyll 기반 정적 블로그 포스트의 원하는 위치에 사지선다형 객관식 문제를 추가해 봅니다"

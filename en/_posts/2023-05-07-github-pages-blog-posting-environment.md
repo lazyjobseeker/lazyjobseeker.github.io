@@ -1,7 +1,7 @@
 ---
 translated: true
 title: "Tools for Blog Posting in Mobile Environment"
-categories: Programming
+category: programming
 tags:
   - devlog
 created_at: 2023-05-07 11:17:13 +09:00

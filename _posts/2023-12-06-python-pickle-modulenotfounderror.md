@@ -1,7 +1,7 @@
 ---
 translated: true
 title: "pickle 관련 오류 조치 방법"
-category: Programming
+category: programming
 redirect_from:
   - /programming/231206-python-pickle-modulenotfounderror/
 tags:

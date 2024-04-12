@@ -1,14 +1,13 @@
 ---
 translated: true
 title: "Making Multiple-Choice Quiz using JavaScript"
-category: Programming
+category: programming
 tags:
-  - "Minimal Mistakes"
-  - Jekyll
-  - "Github Blog"
-  - Javascript
+  - minimal-mistakes
+  - jekyll
+  - javascript
 created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-04-09 17:44:40 +09:00
+last_modified_at: 2024-04-12 11:15:35 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: "How to embed 4-choices quiz inside blog post generated using Jekyll."
