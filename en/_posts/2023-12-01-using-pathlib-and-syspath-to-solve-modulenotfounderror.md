@@ -5,9 +5,7 @@ category: programming
 tags:
   - python
 created_at: 2023-12-01 02:04:33 +09:00
-last_modified_at: 2024-04-09 17:19:53 +09:00
-header:
-  teaser: /assets/images/uncategorized-teaser-7.png
+last_modified_at: 2024-04-12 06:09:59 +09:00
 excerpt: "How to solve ModuleNotFoundError using pathlib and sys"
 ---
 

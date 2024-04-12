@@ -6,10 +6,8 @@ tags:
   - jekyll
   - python
   - minimal-mistakes
-created_at: 2023-11-25 13:28:00 +09:00
-last_modified_at: 2024-04-12 11:14:54 +09:00
-header:
-  teaser: /assets/images/uncategorized-teaser-6.png
+created_at: 2023-11-25 01:28:00 +09:00
+last_modified_at: 2024-04-12 06:14:45 +09:00
 excerpt: "1) How to preview Jekyll blog in local environment. 2) How to use __future__ module to provide type hinting for custom class."
 ---
 

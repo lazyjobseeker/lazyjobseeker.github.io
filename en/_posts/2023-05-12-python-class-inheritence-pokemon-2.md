@@ -5,9 +5,7 @@ category: programming
 tags:
   - python
 created_at: 2023-05-12 07:43:00 +09:00
-last_modified_at: 2024-04-09 17:19:41 +09:00
-header:
-  teaser: /assets/images/uncategorized-teaser-4.png
+last_modified_at: 2024-04-12 06:14:28 +09:00
 excerpt: "Let's brief how to `inherit` existing class to define new class and how it is useful."
 ---
 

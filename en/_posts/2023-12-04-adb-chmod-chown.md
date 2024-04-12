@@ -5,9 +5,7 @@ category: programming
 tags:
   - adb
 created_at: 2023-12-04 12:00:02 +09:00
-last_modified_at: 2024-04-12 10:56:30 +09:00
-header:
-  teaser: /assets/images/uncategorized-teaser-2.png
+last_modified_at: 2024-04-12 06:09:21 +09:00
 excerpt: "How to use chmod and chwon commands for modifying file permissions and owners."
 quiz_file: /assets/json/chmod-chown.json
 ---

@@ -5,9 +5,8 @@ category: electrochemistry
 tags:
   - butler-volmer
   - electrode-kinetics
-created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-04-12 11:15:46 +09:00
-random-teaser: true
+created_at: 2024-03-05 11:43:24 +09:00
+last_modified_at: 2024-04-12 06:07:27 +09:00
 excerpt: Derivation of Butler-Volmer equation from Gibbs free energy-dependent expression of rate constants.
 ---
 

@@ -4,10 +4,8 @@ title: "Python Installation, Setting, Project Packaging"
 category: programming
 tags:
   - python
-created_at: 2023-11-05 23:57:00 +09:00
-last_modified_at: 2024-04-12 10:48:43 +09:00
-header:
-  teaser: /assets/images/uncategorized-teaser-5.png
+created_at: 2023-11-05 11:57:00 +09:00
+last_modified_at: 2024-04-12 06:14:36 +09:00
 excerpt: "How to 1) install python and setting PATH variable and 2) package custom python project using setuptools package for distribution."
 ---
 

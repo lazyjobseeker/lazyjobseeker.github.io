@@ -7,8 +7,7 @@ tags:
   - minimal-mistakes
   - multi-languages
 created_at: 2024-04-05 08:44:57 +09:00
-last_modified_at: 2024-04-12 11:14:22 +09:00
-random-teaser: true
+last_modified_at: 2024-04-12 06:05:20 +09:00
 excerpt: How I implemented multi-language support for my Jekyll-based Github Pages blog without plugins.
 ---
 

@@ -9,8 +9,7 @@ tags:
   - katex
   - jsxGraph
 created_at: 2024-03-08 11:13:00 +09:00
-last_modified_at: 2024-04-12 11:15:58 +09:00
-random-teaser: true
+last_modified_at: 2024-04-12 06:07:17 +09:00
 excerpt: "Application of JavaScript libraries to enable mathematical equation rendering (Katex) and graphing (JSXGraph)."
 ---
 

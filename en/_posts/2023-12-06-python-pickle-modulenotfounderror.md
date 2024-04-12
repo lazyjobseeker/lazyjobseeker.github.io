@@ -5,10 +5,8 @@ category: programming
 tags:
   - python
   - pickle
-created_at: 2023-12-05 13:35:24 +09:00
-last_modified_at: 2024-04-09 17:20:10 +09:00
-header:
-  teaser: /assets/images/uncategorized-teaser-4.png
+created_at: 2023-12-05 01:35:24 +09:00
+last_modified_at: 2024-04-12 06:08:49 +09:00
 excerpt: "How to solve ModuleNotFoundError in using Python's serialization module pickle."
 ---
 

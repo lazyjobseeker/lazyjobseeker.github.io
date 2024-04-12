@@ -4,10 +4,8 @@ title: "Task Automation with Batch File (.bat)"
 category: programming
 tags:
   - windows
-created_at: 2023-12-05 00:00:00 +09:00
-last_modified_at: 2024-04-09 17:20:07 +09:00
-header:
-  teaser: /assets/images/uncategorized-teaser-3.png
+created_at: 2023-12-05 12:00:00 +09:00
+last_modified_at: 2024-04-12 06:09:05 +09:00
 excerpt: "How to write batch file to automate repeated tasks in windows environment."
 ---
 

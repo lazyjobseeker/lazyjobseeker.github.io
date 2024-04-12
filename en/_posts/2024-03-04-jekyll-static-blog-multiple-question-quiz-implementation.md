@@ -6,9 +6,8 @@ tags:
   - minimal-mistakes
   - jekyll
   - javascript
-created_at: 2024-03-05 23:43:24 +09:00
-last_modified_at: 2024-04-12 11:15:35 +09:00
-random-teaser: true
+created_at: 2024-03-05 11:43:24 +09:00
+last_modified_at: 2024-04-12 06:07:35 +09:00
 excerpt: "How to embed 4-choices quiz inside blog post generated using Jekyll."
 quiz_file: /assets/json/quiz_example.json
 ---

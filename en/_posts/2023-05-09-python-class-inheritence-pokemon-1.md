@@ -5,9 +5,7 @@ category: programming
 tags:
   - python
 created_at: 2023-05-10 06:59:45 +09:00
-last_modified_at: 2024-04-09 17:19:37 +09:00
-header:
-  teaser: /assets/images/uncategorized-teaser-3.png
+last_modified_at: 2024-04-12 06:14:18 +09:00
 excerpt: "Let's brief how to define and use classes in python."
 ---
 

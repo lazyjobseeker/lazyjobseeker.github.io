@@ -314,6 +314,7 @@ defaults:
       sidebar:
         nav: "docs"
       permalink: /posts/:title/
+      random-teaser: true
   # _drafts-ko
   - scope:
       path: "_drafts"
@@ -332,6 +333,7 @@ defaults:
       sidebar:
         nav: "docs"
       permalink: /posts/:title/
+      random-teaser: true
   # _posts-en
   - scope:
       path: "en/_posts"
@@ -350,6 +352,7 @@ defaults:
       sidebar:
         nav: "docs"
       permalink: /en/posts/:title/
+      random-teaser: true
     # _drafts-en
   - scope:
       path: "en/_drafts"
@@ -368,6 +371,7 @@ defaults:
       sidebar:
         nav: "docs"
       permalink: /en/posts/:title/
+      random-teaser: true
   # _docs-kr
   - scope:
       path: "_docs"
