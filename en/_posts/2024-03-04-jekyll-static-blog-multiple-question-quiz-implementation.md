@@ -8,8 +8,7 @@ tags:
   - javascript
 created_at: 2024-03-05 23:43:24 +09:00
 last_modified_at: 2024-04-12 11:15:35 +09:00
-header:
-  teaser: /assets/images/uncategorized-teaser-6.png
+random-teaser: true
 excerpt: "How to embed 4-choices quiz inside blog post generated using Jekyll."
 quiz_file: /assets/json/quiz_example.json
 ---

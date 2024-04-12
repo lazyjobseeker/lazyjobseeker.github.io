@@ -6,8 +6,7 @@ tags:
   - algorithm
 created_at: 2023-12-08 17:07:36 +09:00
 last_modified_at: 2024-04-12 11:15:18 +09:00
-header:
-  teaser: /assets/images/uncategorized-teaser-6.png
+random-teaser: true
 excerpt: Algorithm problems about how to handle palindromes
 ---
 

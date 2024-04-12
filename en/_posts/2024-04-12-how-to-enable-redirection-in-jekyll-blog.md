@@ -10,9 +10,8 @@ tags:
   - redirection
   - jekyll-redirect-from
 created_at: 2024-04-12 10:52:24 +09:00
-last_modified_at: 2024-04-12 11:22:06 +09:00
-header:
-  teaser: /assets/images/uncategorized-teaser-7.png
+last_modified_at: 2024-04-12 16:19:33 +09:00
+random-teaser: true
 excerpt: Steps to set redirection from old URL to new URL in Jekyll-based blog using jekyll-redirect-from plugin.
 ---
 
