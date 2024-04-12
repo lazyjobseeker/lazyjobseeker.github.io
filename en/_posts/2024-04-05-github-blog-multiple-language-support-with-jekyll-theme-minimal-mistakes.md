@@ -8,7 +8,7 @@ tags:
   - "Minimal Mistakes"
   - "Multi-Languages"
 created_at: 2024-04-05 08:44:57 +09:00
-last_modified_at: 2024-04-12 06:27:47 +09:00
+last_modified_at: 2024-04-12 09:16:38 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-6.png
 excerpt: How I implemented multi-language support for my Jekyll-based Github Pages blog without plugins.
@@ -616,7 +616,7 @@ As explained already, when `Jekyll` processes my posts living in `en/_posts`, th
 
 `Minimal Mistakes` theme shows all the categories a post holds at the end of the post by default, and therefore my English posts all show additional category `en` unless I change some codes.
 
-To avoid this I changed `_includes/category-list.html` file, making it `en` keyword is ignored in rendering category enumeration section at the end of a post.
+To avoid this I changed `_includes/category-list.html` file, making it ignore `en` keyword in rendering category enumeration section.
 
 ```html
 {% raw %}{% case site.category_archive.type %}

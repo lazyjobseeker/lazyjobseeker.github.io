@@ -31,6 +31,15 @@ h6 {
   line-height: 1.2;
   font-family: $header-font-family;
   font-weight: bold;
+  > code {
+    background: $code-background-color;;
+    border-radius: $border-radius;
+    &:before,
+    &:after {
+      letter-spacing: -0.2em;
+      content: "\00a0"; /* non-breaking space*/
+    }
+  }
 }
 
 h1 {
@@ -169,7 +178,7 @@ td > code {
   padding-top: 0.1rem;
   padding-bottom: 0.1rem;
   font-size: 0.8em;
-  background: $border-color; /* $code-background-color; */
+  background: $code-background-color; /* $code-background-color; */
   border-radius: $border-radius;
   &:before,
   &:after {
