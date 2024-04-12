@@ -10,7 +10,7 @@ tags:
   - redirection
   - jekyll-redirect-from
 created_at: 2024-04-12 10:52:24 +09:00
-last_modified_at: 2024-04-12 11:16:28 +09:00
+last_modified_at: 2024-04-12 11:22:06 +09:00
 header:
   teaser: /assets/images/uncategorized-teaser-7.png
 excerpt: Steps to set redirection from old URL to new URL in Jekyll-based blog using jekyll-redirect-from plugin.
@@ -56,4 +56,4 @@ redirect_from:
   - /redirect-me/
 ```
 
-There is no rendered page for `https://lazyjobseeker.github.io/en/redirect-me/`, but it redirects to this page.  Try checking how this works by inserting above address in search bar or hitting this link [링크](https://lazyjobseeker.github.io/redirect-me/).
+There is no rendered page for `https://lazyjobseeker.github.io/en/redirect-me/`, but it redirects to this page.  Try checking how this works by inserting above address in search bar or hitting this link [링크](https://lazyjobseeker.github.io/en/redirect-me/).
