@@ -2,12 +2,10 @@
 translated: true
 title: "adb shell의 chmod, chown 명령어"
 category: programming
-redirect_from:
-  - /programming/231204-chmod-chown/
 tags:
   - adb
 created_at: 2023-12-04 12:00:02 +09:00
-last_modified_at: 2024-04-13 07:08:34 +09:00
+last_modified_at: 2024-04-13 21:44:16 +09:00
 excerpt: "adb shell 환경에서 파일 권한과 소유자를 변경하는 chmod 명령어와 chown 명령어를 사용해 봅니다"
 quiz_file: /assets/json/chmod-chown.json
 ---

@@ -2,12 +2,10 @@
 translated: true
 title: "Bard 전기화학 3판 - Ch. 1"
 category: electrochemistry
-redirect_from:
-  - /electrochemistry/ajbard-electrochemistry-chapter-1/
 tags:
   - electrochemistry
 created_at: 2024-02-27 12:30:11 +09:00
-last_modified_at: 2024-04-13 07:54:52 +09:00
+last_modified_at: 2024-04-13 21:45:22 +09:00
 excerpt: "Allen J. Bard의 <Electrochemical Methods: Fundamentals and Applications (3rd Ed.)> 챕터 1 정리"
 ---
 

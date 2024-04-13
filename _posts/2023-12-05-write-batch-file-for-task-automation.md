@@ -2,12 +2,10 @@
 translated: true
 title: "배치 파일(.bat)로 반복 작업 자동화"
 category: programming
-redirect_from:
-  - /programming/231205-write-batch-file-for-task-automation/
 tags:
   - windows
 created_at: 2023-12-05 12:00:00 +09:00
-last_modified_at: 2024-04-13 07:54:08 +09:00
+last_modified_at: 2024-04-13 21:46:04 +09:00
 excerpt: "윈도우즈 환경에서 반복 작업을 자동화할 수 있도록 배치 파일을 작성하고 활용하는 방법"
 ---
 

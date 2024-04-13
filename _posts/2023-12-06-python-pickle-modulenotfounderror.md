@@ -2,13 +2,11 @@
 translated: true
 title: "pickle 관련 오류 조치 방법"
 category: programming
-redirect_from:
-  - /programming/231206-python-pickle-modulenotfounderror/
 tags:
   - python
   - pickle
 created_at: 2023-12-05 01:35:24 +09:00
-last_modified_at: 2024-04-13 07:54:21 +09:00
+last_modified_at: 2024-04-13 21:45:40 +09:00
 excerpt: "python의 직렬화 모듈 pickle 사용 시 ModuleNotFoundError가 발생하는 경우 해결 방법"
 ---
 
