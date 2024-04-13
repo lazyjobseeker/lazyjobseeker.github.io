@@ -8,9 +8,7 @@ tags:
   - jekyll
   - github-blog
 created_at: 2024-02-28 10:25:00 +09:00
-last_modified_at: 2024-04-12 11:12:52 +09:00
-header:
-  teaser: /assets/images/uncategorized-teaser-8.png
+last_modified_at: 2024-04-13 07:55:05 +09:00
 excerpt: "Github Pages와 Jekyll 기반으로 작성된 블로그를 스마트폰 및 태블릿 등 모바일 환경에서 Git을 이용해 형상관리하고 로컬 빌드 산출물을 확인하는 방법을 정리합니다"
 ---
 

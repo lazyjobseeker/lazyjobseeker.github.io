@@ -7,9 +7,7 @@ redirect_from:
 tags:
   - adb
 created_at: 2023-12-04 12:00:02 +09:00
-last_modified_at: 2024-04-12 10:54:46 +09:00
-header:
-  teaser: /assets/images/uncategorized-teaser-2.png
+last_modified_at: 2024-04-13 07:08:34 +09:00
 excerpt: "adb shell 환경에서 파일 권한과 소유자를 변경하는 chmod 명령어와 chown 명령어를 사용해 봅니다"
 quiz_file: /assets/json/chmod-chown.json
 ---

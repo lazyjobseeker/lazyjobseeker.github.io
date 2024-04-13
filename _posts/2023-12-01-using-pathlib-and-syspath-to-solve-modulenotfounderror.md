@@ -7,9 +7,7 @@ redirect_from:
 tags:
   - python
 created_at: 2023-12-01 02:04:33 +09:00
-last_modified_at: 2024-04-09 17:18:07 +09:00
-header:
-  teaser: /assets/images/uncategorized-teaser-7.png
+last_modified_at: 2024-04-13 07:08:08 +09:00
 excerpt: "내가 만든 python 패키지를 import하려고 할 때 발생하는 ModuleNotFoundError 해결하기"
 ---
 

@@ -7,9 +7,7 @@ redirect_from:
 tags:
   - pourbaix-diagram
 created_at: 2024-03-15 09:24:59 +09:00
-last_modified_at: 2024-04-12 11:13:41 +09:00
-header:
-  teaser: /assets/images/uncategorized-teaser-5.png
+last_modified_at: 2024-04-13 07:59:57 +09:00
 excerpt: 포베 다이어그램(Pourbaix diagram)으로 불리는 전위-산도(Potential-pH) 도표를 그리는 방법 및 읽는 방법에 대해 정리합니다.
 ---
 

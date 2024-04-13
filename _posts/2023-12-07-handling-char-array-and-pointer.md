@@ -6,10 +6,8 @@ tags:
   - C++
 redirect_from:
   - /programming/231207-handling-char-array-and-pointer/
-created_at: 2023-12-05 13:35:24 +09:00
-last_modified_at: 2024-04-12 10:54:57 +09:00
-header:
-  teaser: /assets/images/uncategorized-teaser-5.png
+created_at: 2023-12-05 01:35:24 +09:00
+last_modified_at: 2024-04-13 07:54:33 +09:00
 excerpt: C++에서 vector에 char array들을 저장하는 방법을 알아 봅니다
 ---
 

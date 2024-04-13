@@ -6,10 +6,8 @@ redirect_from:
   - /programming/231208-coding-test-palindromes/
 tags:
   - algorithm
-created_at: 2023-12-08 17:07:36 +09:00
-last_modified_at: 2024-04-12 11:12:44 +09:00
-header:
-  teaser: /assets/images/uncategorized-teaser-6.png
+created_at: 2023-12-08 05:07:36 +09:00
+last_modified_at: 2024-04-13 07:54:41 +09:00
 excerpt: 회문(palindrome; 팰린드롬)을 주제로 한 알고리즘 문제들 공부하기
 ---
 
