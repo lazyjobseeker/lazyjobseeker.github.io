@@ -2,8 +2,6 @@
 translated: true
 title: "자바스크립트로 수식과 그래프 표시"
 category: programming
-redirect_from:
-  - /programming/javascript-math-rendering-and-graphing-libraries/
 tags:
   - minimal-mistakes
   - jekyll
@@ -11,7 +9,7 @@ tags:
   - katex
   - jsxgraph
 created_at: 2024-03-08 11:13:00 +09:00
-last_modified_at: 2024-04-13 07:59:44 +09:00
+last_modified_at: 2024-04-13 21:50:06 +09:00
 excerpt: "Github 블로그에 수학식 및 화학식 표시를 위한 Javascript 라이브러리 적용. 수학식 표시를 위한 Katex 라이브러리와 함수 그래프 표시를 위한 JSXGraph 라이브러리 적용 과정 정리."
 ---
 
