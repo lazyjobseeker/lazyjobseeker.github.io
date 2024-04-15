@@ -1,11 +1,10 @@
 ---
-translated: true
 title: "Winding Number Algorithm to Determine Point-Polygon Inclusion"
 category: programming
 tags:
   - python
 created_at: 2023-12-03 03:34:31 +09:00
-last_modified_at: 2024-04-12 06:09:35 +09:00
+last_modified_at: 2024-04-15 09:42:39 +09:00
 excerpt: "Implementing winding-number algorithm to determine if a point is placed inside a polygon"
 ---
 

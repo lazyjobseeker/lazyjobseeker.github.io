@@ -1,12 +1,11 @@
 ---
-translated: true
 title: Butler-Volmer Equation
 category: electrochemistry
 tags:
   - butler-volmer
   - electrode-kinetics
 created_at: 2024-03-05 11:43:24 +09:00
-last_modified_at: 2024-04-12 06:07:27 +09:00
+last_modified_at: 2024-04-15 09:44:07 +09:00
 excerpt: Derivation of Butler-Volmer equation from Gibbs free energy-dependent expression of rate constants.
 ---
 

@@ -1,5 +1,4 @@
 ---
-translated: true
 title: 버틀러-볼머 식의 이해
 category: electrochemistry
 tags:
@@ -7,7 +6,7 @@ tags:
   - electrode
   - kinetics
 created_at: 2024-03-05 11:43:24 +09:00
-last_modified_at: 2024-04-13 21:44:24 +09:00
+last_modified_at: 2024-04-15 09:46:03 +09:00
 excerpt: 속도상수와 반응좌표-자유에너지 도식을 통한 버틀러-볼머 식(Butler-Volmer Equation)의 유도 과정 및 이해
 ---
 

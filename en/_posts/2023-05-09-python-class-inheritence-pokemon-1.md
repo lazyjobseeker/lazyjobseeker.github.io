@@ -1,11 +1,10 @@
 ---
-translated: true
 title: "[Python] Class"
 category: programming
 tags:
   - python
 created_at: 2023-05-10 06:59:45 +09:00
-last_modified_at: 2024-04-12 06:14:18 +09:00
+last_modified_at: 2024-04-15 09:42:14 +09:00
 excerpt: "Let's brief how to define and use classes in python."
 ---
 

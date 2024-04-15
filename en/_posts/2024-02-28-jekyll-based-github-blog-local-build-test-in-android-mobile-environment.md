@@ -1,11 +1,10 @@
 ---
-translated: true
 title: "How to Maintain Your Github Blog from Mobile Devices"
 category: programming
 tags:
   - jekyll
 created_at: 2024-02-28 10:25:00 +09:00
-last_modified_at: 2024-04-12 06:07:45 +09:00
+last_modified_at: 2024-04-15 09:44:01 +09:00
 excerpt: "How to use Git with Android mobile devices to maintain Jekyll-based static blog hosted by Github Pages."
 ---
 

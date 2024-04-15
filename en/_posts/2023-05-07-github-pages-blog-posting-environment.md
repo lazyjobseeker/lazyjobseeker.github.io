@@ -1,11 +1,10 @@
 ---
-translated: true
 title: "Tools for Blog Posting in Mobile Environment"
 category: programming
 tags:
   - devlog
 created_at: 2023-05-07 11:17:13 +09:00
-last_modified_at: 2024-04-12 06:14:01 +09:00
+last_modified_at: 2024-04-15 09:42:08 +09:00
 excerpt: "Applications I am using to maintain blogs in mobile environment"
 ---
 

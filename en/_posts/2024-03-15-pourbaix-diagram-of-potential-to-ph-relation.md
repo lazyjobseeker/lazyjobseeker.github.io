@@ -1,11 +1,10 @@
 ---
-translated: true
 title: Pourbaix Diagrams
 category: electrochemistry
 tags:
   - pourbaix-diagram
 created_at: 2024-03-15 09:24:59 +09:00
-last_modified_at: 2024-04-12 06:05:36 +09:00
+last_modified_at: 2024-04-15 09:44:23 +09:00
 excerpt: How to interpret Pourbaix diagram or potential-pH diagram, with step-by-step instruction to draw ones for water and iron system.
 ---
 

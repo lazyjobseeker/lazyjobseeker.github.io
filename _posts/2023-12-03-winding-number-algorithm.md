@@ -1,11 +1,10 @@
 ---
-translated: true
 title: "점과 다각형의 포함관계 판정: Winding Number 알고리즘"
 category: programming
 tags:
   - python
 created_at: 2023-12-03 03:34:31 +09:00
-last_modified_at: 2024-04-13 21:46:20 +09:00
+last_modified_at: 2024-04-15 09:45:31 +09:00
 excerpt: "2차원 평면에서 다각형과 점이 주어졌을 때 점이 다각형 안에 있는지 판정할 수 있는 Winding Number 알고리즘을 구현해 봅니다"
 ---
 

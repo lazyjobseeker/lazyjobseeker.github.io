@@ -1,5 +1,4 @@
 ---
-translated: true
 title: How to Serve Jekyll-Github Blog Multilingual
 category: programming
 tags:
@@ -7,7 +6,7 @@ tags:
   - minimal-mistakes
   - multi-languages
 created_at: 2024-04-05 08:44:57 +09:00
-last_modified_at: 2024-04-12 06:05:20 +09:00
+last_modified_at: 2024-04-15 09:44:18 +09:00
 excerpt: How I implemented multi-language support for my Jekyll-based Github Pages blog without plugins.
 ---
 

@@ -1,5 +1,4 @@
 ---
-translated: true
 title: "Embedding Equations and Graphs in Jekyll Blog"
 category: programming
 tags:
@@ -9,7 +8,7 @@ tags:
   - katex
   - jsxGraph
 created_at: 2024-03-08 11:13:00 +09:00
-last_modified_at: 2024-04-12 06:07:17 +09:00
+last_modified_at: 2024-04-15 09:44:32 +09:00
 excerpt: "Application of JavaScript libraries to enable mathematical equation rendering (Katex) and graphing (JSXGraph)."
 ---
 

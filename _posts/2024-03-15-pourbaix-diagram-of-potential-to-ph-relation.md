@@ -1,11 +1,10 @@
 ---
-translated: true
 title: 포베 다이어그램 (Poubaix Diagram)
 category: electrochemistry
 tags:
   - pourbaix-diagram
 created_at: 2024-03-15 09:24:59 +09:00
-last_modified_at: 2024-04-13 21:54:18 +09:00
+last_modified_at: 2024-04-15 09:46:11 +09:00
 excerpt: 포베 다이어그램(Pourbaix diagram)으로 불리는 전위-산도(Potential-pH) 도표를 그리는 방법 및 읽는 방법에 대해 정리합니다.
 ---
 

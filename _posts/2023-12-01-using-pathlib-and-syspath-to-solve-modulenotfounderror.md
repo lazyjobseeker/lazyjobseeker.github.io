@@ -1,11 +1,10 @@
 ---
-translated: true
 title: "pathlib과 sys로 ModuleNotFoundError 해결하기"
 category: programming
 tags:
   - python
 created_at: 2023-12-01 02:04:33 +09:00
-last_modified_at: 2024-04-13 21:45:08 +09:00
+last_modified_at: 2024-04-15 09:45:25 +09:00
 excerpt: "내가 만든 python 패키지를 import하려고 할 때 발생하는 ModuleNotFoundError 해결하기"
 ---
 

@@ -1,11 +1,10 @@
 ---
-translated: true
 title: "[Python] 클래스 상속 개념과 활용"
 category: programming
 tags:
   - python
 created_at: 2023-05-12 07:43:00 +09:00
-last_modified_at: 2024-04-13 21:45:45 +09:00
+last_modified_at: 2024-04-15 09:45:14 +09:00
 excerpt: "만들어 둔 클래스를 상속하여 새로운 클래스를 만드는 방법을 알아 봅시다."
 ---
 

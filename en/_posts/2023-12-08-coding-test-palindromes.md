@@ -1,11 +1,10 @@
 ---
-translated: true
 title: "Algorithm Topic: Palindromes"
 category: programming
 tags:
   - algorithm
 created_at: 2023-12-08 05:07:36 +09:00
-last_modified_at: 2024-04-12 06:08:01 +09:00
+last_modified_at: 2024-04-15 09:43:55 +09:00
 excerpt: Algorithm problems about how to handle palindromes
 ---
 

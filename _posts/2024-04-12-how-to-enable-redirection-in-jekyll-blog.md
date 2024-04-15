@@ -1,5 +1,4 @@
 ---
-translated: true
 title: 지킬 블로그에서 페이지 리디렉션하기
 category: programming
 redirect_from:
@@ -10,7 +9,7 @@ tags:
   - redirection
   - jekyll-redirect-from
 created_at: 2024-04-03 10:15:27 +09:00
-last_modified_at: 2024-04-13 08:00:13 +09:00
+last_modified_at: 2024-04-15 09:46:16 +09:00
 excerpt: 지킬 기반의 Github Pages 블로그에서 jekyll-redirect-from 플러그인을 이용해 페이지 리디렉션을 제공하는 방법.
 ---
 

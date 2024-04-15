@@ -1,5 +1,4 @@
 ---
-translated: true
 title: "Jekyll 로컬 빌드, 파이썬 future annotations"
 category: programming
 tags:
@@ -7,7 +6,7 @@ tags:
   - python
   - "minimal mistakes"
 created_at: 2023-11-25 01:28:00 +09:00
-last_modified_at: 2024-04-13 21:46:26 +09:00
+last_modified_at: 2024-04-15 09:45:20 +09:00
 excerpt: "Jekyll 블로그를 로컬 PC에서 미리보기 하는 방법, python에서 작성한 클래스 내에서 해당 클래스에 대한 타입 힌팅(type hinting)을 사용하기 위해 __future__ 모듈을 사용하는 방법"
 ---
 

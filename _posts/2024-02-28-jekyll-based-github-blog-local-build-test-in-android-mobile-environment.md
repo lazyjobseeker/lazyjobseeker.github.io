@@ -1,12 +1,11 @@
 ---
-translated: true
 title: "모바일 환경에서 깃허브 블로그 관리하기"
 category: programming
 tags:
   - jekyll
   - github-blog
 created_at: 2024-02-28 10:25:00 +09:00
-last_modified_at: 2024-04-13 21:44:51 +09:00
+last_modified_at: 2024-04-15 09:45:56 +09:00
 excerpt: "Github Pages와 Jekyll 기반으로 작성된 블로그를 스마트폰 및 태블릿 등 모바일 환경에서 Git을 이용해 형상관리하고 로컬 빌드 산출물을 확인하는 방법을 정리합니다"
 ---
 
