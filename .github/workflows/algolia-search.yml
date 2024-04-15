@@ -12,6 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Algolia Jekyll Action
-        uses: lazyjobseeker.algolia-jekyll-action@master
+        uses: dieghernan/algolia-jekyll-action@main
         with:
           APIKEY: '${{ secrets.ALGOLIA_API_KEY }}'
