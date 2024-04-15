@@ -14,4 +14,4 @@ jobs:
       - name: Algolia Jekyll Action
         uses: dieghernan.algolia-jekyll-action@main
         with:
-          APIKEY: '${{ secrets.ALGOLIA_API_KEY }}''
+          APIKEY: '${{ secrets.ALGOLIA_API_KEY }}'
