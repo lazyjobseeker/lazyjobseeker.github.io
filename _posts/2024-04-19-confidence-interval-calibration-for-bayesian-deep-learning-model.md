@@ -4,8 +4,8 @@ category: machine-learning
 tags:
   - machine-learning
   - bayesian
-created_at: 2024-04-19 08:28:43 +09:00
-last_modified_at: 2024-04-19 20:12:45 +09:00
+created_at: 2024-04-19 20:13:05 +09:00
+last_modified_at: 2024-04-19 20:29:06 +09:00
 excerpt: 베이지언 심층학습 회귀모델의 신뢰구간을 실제 관측치와 결맞게 보정하는 방법.
 ---
 
@@ -28,6 +28,8 @@ Kuleshov, Fenner, Ermon는 2018년 발표한 논문[^1]에서 어떤 특정한 �
 $$\frac{\sum _{t=1}^{T}\Bbb{I}\lbrace y_t\le F_t^{-1}(p)\rbrace}{T}\rightarrow p\quad\forall p \in \lbrack0,1\rbrack\tag{1}$$
 
 이 때 $F_t^{-1}(p)$는 예측기가 추정한 분포 $H(x_t)\sim N(m_{x_t}, \sigma_{x_t})$ 에서 구간 $\lbrack -\infty, y\rbrack$에 대한 적분이 $p$가 되도록 하는 $y$의 값입니다.
+
+반대로 $F_t(y)$는 구간 $\lbrack -\infty, y\rbrack$에 대한 분포 $H(x_t)\sim N(m_{x_t}, \sigma_{x_t})$의 적분값 자체, 즉 누적분포함수(cumulative distribution function)을 의미합니다.  $F_t$라는 표기만으로는 이것이 예측기 $H$로부터 얻어진 분포 $H(x_t)$의 함수표현을 내포한다는 것을 알기 어렵기 때문에, $F_t(y)$ 대신 $\lbrack H(x_t)\rbrack(y)$라고 쓰기도 합니다.
 
 위의 조건은 보다 일반적인 경우에 적용될 수 있는 느슨한 조건입니다.  우리가 일반적으로 정규분포와 관련지어 생각하는 신뢰구간의 관점에서는 $F_t^{-1}(p)$를 계산하는 방법이 재정의되어야 할 텐데, 구체적으로는 적분을 계산하는 구간을 $\lbrack -\infty, y\rbrack$에서 $\lbrack m_x-y, m_x+y\rbrack$로 변경해야 할 것입니다.
 
