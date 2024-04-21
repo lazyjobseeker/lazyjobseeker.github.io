@@ -6,7 +6,7 @@ tags:
   - minimal-mistakes
   - multi-languages
 created_at: 2024-04-05 08:44:57 +09:00
-last_modified_at: 2024-04-15 09:46:13 +09:00
+last_modified_at: 2024-04-21 21:11:58 +09:00
 excerpt: 지킬 테마 Minimal Mistakes로 만든 Github 블로그에 별도 다국어 지원 플러그인(polyglot, jekyll-multiple-languages-plugin) 없이 다국어 지원을 구현한 과정을 정리합니다.
 ---
 
@@ -21,26 +21,26 @@ excerpt: 지킬 테마 Minimal Mistakes로 만든 Github 블로그에 별도 다
 - **전제**: 한글로 작성된 어떤 문서의 퍼마링크가 `a`이고, 이 문서의 영어로 번역된 버전이 존재한다면, 영문 문서의 퍼마링크는 반드시 `en/a` 꼴로만 주어진다.
 - 어떤 문서에 대한 영어(한글) 번역 문서가 있다면, 상단 마스트헤드 영역에 번역된 문서 페이지로 이동 가능한 **토글 버튼**을 제공한다.
 
-![Toggle Button in Korean Page](https://drive.google.com/thumbnail?id=1XAFm9BNOh2lhPKw37O5vdgVUysf0ES2N&sz=w1000){: width="400" .align-center .shadow}
+{% include img-gdrive alt="Toggle Button in Korean Page" id="1XAFm9BNOh2lhPKw37O5vdgVUysf0ES2N" %}
 
-![Toggle Button in English Page](https://drive.google.com/thumbnail?id=1-IZLOfVRfiX7uiCn5lPfi9mCWe32izFt&sz=w1000){: width="400" .align-center .shadow}
+{% include img-gdrive alt="Toggle Button in English Page" id="1-IZLOfVRfiX7uiCn5lPfi9mCWe32izFt" %}
 
 - 바닐라 테마의 `home` 레이아웃, 즉 **Recent Posts** 영역이 정상적으로 동작한다.
 
-![Paginated Index Page in Korean](https://drive.google.com/thumbnail?id=1iKCOo6ieSx0_GEjW7hnlg8CuOSB0YbFJ&sz=w1000){: width="400" .align-center .shadow}
+{% include img-gdrive alt="Paginated Index Page in Korean" id="1iKCOo6ieSx0_GEjW7hnlg8CuOSB0YbFJ" %}
 
-![Paginated Index Page in English](https://drive.google.com/thumbnail?id=1jm6tKqgLUqkzc-2Yufzh9rESsyKKbQPe&sz=w1000){: width="400" .align-center .shadow}
+{% include img-gdrive alt="Paginated Index Page in English" id="1jm6tKqgLUqkzc-2Yufzh9rESsyKKbQPe" %}
 
 - 마스트헤드 및 사이드바의 모든 링크가 정상적으로 동작한다.
 - **이전·다음 글 보기** 버튼들이 정상적으로 동작한다.
 
-![Previous and Next Page](https://drive.google.com/thumbnail?id=1H26X7XH4EAXJB7_HuNA2T1uIyEKnHzO-&sz=w1000){: width="400" .align-center .shadow}
+{% include img-gdrive alt="Previous and Next Page" id="1H26X7XH4EAXJB7_HuNA2T1uIyEKnHzO-" %}
 
 - 연관 포스트를 표시하는 **YOU MAY ALSO ENJOY** 영역이 정상적으로 동작한다.
 
-![YOU MAY ALSO ENJOY in Korean Page](https://drive.google.com/thumbnail?id=1cU6oihM7R1oAz91QOWI7wDA4FXaevpdo&sz=w1000){: width="600" .align-center .shadow}
+{% include img-gdrive alt="YOU MAY ALSO ENJOY in Korean Page" id="1cU6oihM7R1oAz91QOWI7wDA4FXaevpdo" %}
 
-![YOU MAY ALSO ENJOY in English Page](https://drive.google.com/thumbnail?id=19ZbY55-gDmx29M54it5_hC1bsxVow-Hd&sz=w1000){: width="600" .align-center .shadow}
+{% include img-gdrive alt="YOU MAY ALSO ENJOY in English Page" id="19ZbY55-gDmx29M54it5_hC1bsxVow-Hd" %}
 
 ## 영문 컨텐츠 폴더 만들기
 
@@ -175,9 +175,9 @@ lazyjobseeker.github.io
 
 이 때, 모든 포스트를 한 페이지에 보여주는 것이 아니고, `_config.yml`의 `paginate` 변수 값에 해당하는 갯수만큼씩 나누어 보여 줍니다.  블로그의 총 포스트 개수가 `paginate` 값보다 크면, `/page2/`, `/page3/`... 과 같은 퍼마링크를 갖는 여러 페이지로 자동으로 분할하여 빌드해 줍니다.  또한, 각 페이지 사이를 이동할 수 있는 내비게이터를 최하단에 제공합니다.
 
-![Paginated Index Page in Korean](https://drive.google.com/thumbnail?id=1iKCOo6ieSx0_GEjW7hnlg8CuOSB0YbFJ&sz=w1000){: width="400" .align-center .shadow}
+{% include img-gdrive alt="Paginated Index Page in Korean" id="1iKCOo6ieSx0_GEjW7hnlg8CuOSB0YbFJ" %}
 
-![Paginated Index Page in English](https://drive.google.com/thumbnail?id=1jm6tKqgLUqkzc-2Yufzh9rESsyKKbQPe&sz=w1000){: width="400" .align-center .shadow}
+{% include img-gdrive alt="Paginated Index Page in English" id="1jm6tKqgLUqkzc-2Yufzh9rESsyKKbQPe" %}
 
 이처럼 블로그의 모든 포스트들을 여러 페이지에 걸쳐 나누어 보여줄 수 있도록 하기 위해 필요한 기능을 **페이지네이션(pagination)**이라고 합니다.
 

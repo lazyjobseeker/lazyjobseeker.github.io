@@ -5,7 +5,7 @@ tags:
   - machine-learning
   - bayesian
 created_at: 2024-04-19 20:13:05 +09:00
-last_modified_at: 2024-04-19 20:29:06 +09:00
+last_modified_at: 2024-04-21 21:01:50 +09:00
 excerpt: 베이지언 심층학습 회귀모델의 신뢰구간을 실제 관측치와 결맞게 보정하는 방법.
 ---
 
@@ -39,7 +39,7 @@ $$\frac{\sum _{t=1}^{T}\Bbb{I}\lbrace y_t\le F_t^{-1}(p)\rbrace}{T}\rightarrow p
 
 **식 1**의 의미를 설명하기 위해 하나의 예시를 생각해보겠습니다.  우리는 데이터와 머신러닝을 제법 잘 다루는 농부인데, 강수량과 일조량 등 농사와 관련하여 중요한 몇 가지 변수들을 입력 벡터로 하여 수확량을 예측하는 베이지언 심층학습 회귀 예측기 $H$를 가지고 있다고 해 봅시다.
 
-![베이지언 심층학습 회귀 예측기(1)](https://drive.google.com/thumbnail?id=1GOjJS8CqVWmw42bCms61iIvFhjvjirtF&sz=w1000){: width="500" .align-center .shadow}
+{% include img-gdrive alt="베이지언 심층학습 회귀 예측기(1)" id="1GOjJS8CqVWmw42bCms61iIvFhjvjirtF" %}
 
 이 모델이 어느 해의 수확량 분포를 $N(m_x, \sigma_x)$으로 예측했다고 할 때, 그 해의 실제 수확량 $y$가 정확히 $m_x$와 일치한다면 아주 행복하겠지만, 일반적으로는 그렇지 않을 것입니다.  하지만 단일 스칼라 출력만을 내놓는 일반적인 회귀 모델과 달리 여러분의 모델은 수확량의 분포를 제공할 능력이 있고, 이것을 이용하면 적당한 확률 $p$에 대한 신뢰구간을 생각할 수 있습니다.
 
@@ -86,7 +86,7 @@ $R$은 $\^{P}$의 정의로부터 단조증가한다는 것을 쉽게 알 수 �
 
 실제로 신뢰구간을 보정해야 하는 경우로는 어떤 형태들을 생각할 수 있을까요?  아래 그림에서, CDF는 누적분포함수(Cumulated Distribution Function)이고,  보조모델 $R$을 학습하기 위해 사용해야 하는 데이터셋 $\mathcal{D}$에 대해 입력인 $\lbrack H(x_t)\rbrack(y_t)$를 $x$축, 출력이자 레이블인 $\^{P}(\lbrack(H(x_t)\rbrack(y_t))$를 $y$축에 둔 것과 같다는 것을 알 수 있습니다.
 
-![베이지언 심층학습 회귀 예측기(2)](https://drive.google.com/thumbnail?id=1bL5gPWz-5cmnHfQuzWvXr2sIvC__QJYM&sz=w1000){: width="500" .align-center .shadow}
+{% include img-gdrive alt="베이지언 심층학습 회귀 예측기(2)" id="1bL5gPWz-5cmnHfQuzWvXr2sIvC__QJYM" %}
 
 이제 모델이 예측한 분포함수와 실제 값의 분포를 비교했을 때, 실제 값의 분포가 예측기에 의한 각 회차의 예측에서 평균치를 밑도는 영역에 더 많이 분포했다고 해 보겠습니다.  그러면 실제 데이터를 이용해 구성한 CDF는 누적분포 값이 작은 영역에서는 급격히 증가하고, 큰 영역에서는 느리게 증가할 것입니다.  이 경우 예측기는 전반적으로 결과를 과대 예측(overestimate)하고 있는 것이 될 것입니다.  반대의 경우는 과소 예측(underestimate)이 됩니다.  만일 예측기의 예측으로부터 구성한 CDF가 레이블로부터 구성한 CDF와 동일하다면, 초록색으로 표시된 항등함수, 즉 **잘 교정된 예측기**가 될 것입니다.
 

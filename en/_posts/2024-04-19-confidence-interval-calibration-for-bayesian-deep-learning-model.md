@@ -5,8 +5,8 @@ tags:
   - machine-learning
   - bayesian
 created_at: 2024-04-19 20:13:37 +09:00
-last_modified_at: 2024-04-19 21:28:43 +09:00
-excerpt: 베이지언 심층학습 회귀모델의 신뢰구간을 실제 관측치와 결맞게 보정하는 방법.
+last_modified_at: 2024-04-21 21:19:44 +09:00
+excerpt: How to calibrate confidence intervals from bayesian deep regressors to cohere with observations.
 ---
 
 ## Bayesian Deep-Learning Regressor
@@ -35,7 +35,7 @@ Even though our everyday concept of confidence interval is not found from above 
 
 To elaborate the meaning of **Equation 1** let's consider an example.  We are farmers proficient with data science and machine learning.  We have a bayesian deep regressor $H$ forecasting given year's yield based on an input vector comprised of some variables such as amount of railfall and sunlight.
 
-![베이지언 심층학습 회귀 예측기(1)](https://drive.google.com/thumbnail?id=1GOjJS8CqVWmw42bCms61iIvFhjvjirtF&sz=w1000){: width="500" .align-center .shadow}
+{% include img-gdrive alt="Bayesian Deep-Learning Regression Forecaster (1)" id="1GOjJS8CqVWmw42bCms61iIvFhjvjirtF" %}
 
 We would be pretty happy if $H$ give us expected distribution of yield $N(m_x, \sigma_x)$ and we find actual yield of the year turns out to be $m_x$ always, but in general this should not be the case.  But as our model output is probability distribution rather than fixed scholar, we can try to draw confidence interval for some probability $p$, 0.9 for example.
 
@@ -78,7 +78,7 @@ We can use bayesian models from `gpytorch` and GPR implemented in `pytorch` or s
 
 In which cases we need to recalibrate our CIs using recalibration model $R$?  Blow image plots data from $\mathcal{D}$ on coordinate, $\lbrack H(x_t)\rbrack(y_t)$ as $x$-axis and $\^{P}(\lbrack(H(x_t)\rbrack(y_t))$ as $y$ axis.
 
-![베이지언 심층학습 회귀 예측기(2)](https://drive.google.com/thumbnail?id=1bL5gPWz-5cmnHfQuzWvXr2sIvC__QJYM&sz=w1000){: width="500" .align-center .shadow}
+{% include img-gdrive alt="Bayesian Deep-Learning Regression Forecaster (2)" id="1bL5gPWz-5cmnHfQuzWvXr2sIvC__QJYM" %}
 
 Now, let's say for some model an dataset actual $y$ values had trend falling short of distribution mean $m_x$ of each step's forecast.  Then true CDF constructed from actual data will look like steeply increase when confidence level $p$ is low and plateaued at higher confidence level.  Such forecaster could be thought to be **overestimating** in outputing predictions.  **Underestimating** case can also be considered similarly.  If CDF constructed from forecaster's forecast is same with that constructed from actual data, identity function will form on $\mathcal{D}$ or **calibrated forecaster**.
 

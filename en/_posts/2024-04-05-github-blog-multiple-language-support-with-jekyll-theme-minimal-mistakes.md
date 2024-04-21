@@ -6,7 +6,7 @@ tags:
   - minimal-mistakes
   - multi-languages
 created_at: 2024-04-05 08:44:57 +09:00
-last_modified_at: 2024-04-15 09:44:18 +09:00
+last_modified_at: 2024-04-21 21:10:59 +09:00
 excerpt: How I implemented multi-language support for my Jekyll-based Github Pages blog without plugins.
 ---
 
@@ -23,26 +23,26 @@ Below I provided the list of requirements I wanted my blog to fully fulfill afte
 - **A premise**: If a document written in Korean has permalink `a` and it has an English-translated version, permalink of English doc must be in `en/a` format.
 - There should be a **toggle button** which directs user to translated page.
 
-![Toggle Button in Korean Page](https://drive.google.com/thumbnail?id=1XAFm9BNOh2lhPKw37O5vdgVUysf0ES2N&sz=w1000){: width="400" .align-center .shadow}
+{% include img-gdrive alt="Toggle Button in Korean Page" id="1XAFm9BNOh2lhPKw37O5vdgVUysf0ES2N" %}
 
-![Toggle Button in English Page](https://drive.google.com/thumbnail?id=1-IZLOfVRfiX7uiCn5lPfi9mCWe32izFt&sz=w1000){: width="400" .align-center .shadow}
+{% include img-gdrive alt="Toggle Button in English Page" id="1-IZLOfVRfiX7uiCn5lPfi9mCWe32izFt" %}
 
 - `home` layout of vanilla `Minimal Mistakes` theme, which has **Recent Posts** area, should reasonably work with language toggle feature.
 
-![Paginated Index Page in Korean](https://drive.google.com/thumbnail?id=1iKCOo6ieSx0_GEjW7hnlg8CuOSB0YbFJ&sz=w1000){: width="400" .align-center .shadow}
+{% include img-gdrive alt="Paginated Index Page in Korean" id="1iKCOo6ieSx0_GEjW7hnlg8CuOSB0YbFJ" %}
 
-![Paginated Index Page in English](https://drive.google.com/thumbnail?id=1jm6tKqgLUqkzc-2Yufzh9rESsyKKbQPe&sz=w1000){: width="400" .align-center .shadow}
+{% include img-gdrive alt="Paginated Index Page in English" id="1jm6tKqgLUqkzc-2Yufzh9rESsyKKbQPe" %}
 
 - Every hyperlinks in masthead and sidebar must work reasonably and texts also should be able to change adaptively to current page's language.
 - **Previous·Next posts** buttons for in-post navigator UI should work reasonably.
 
-![Previous and Next Page](https://drive.google.com/thumbnail?id=1H26X7XH4EAXJB7_HuNA2T1uIyEKnHzO-&sz=w1000){: width="400" .align-center .shadow}
+{% include img-gdrive alt="Previous and Next Page" id="1H26X7XH4EAXJB7_HuNA2T1uIyEKnHzO-" %}
 
 - **YOU MAY ALSO ENJOY** area where related posts are listed must work reasonably.
 
-![YOU MAY ALSO ENJOY in Korean Page](https://drive.google.com/thumbnail?id=1cU6oihM7R1oAz91QOWI7wDA4FXaevpdo&sz=w1000){: width="600" .align-center .shadow}
+{% include img-gdrive alt="YOU MAY ALSO ENJOY in Korean Page" id="1cU6oihM7R1oAz91QOWI7wDA4FXaevpdo" %}
 
-![YOU MAY ALSO ENJOY in English Page](https://drive.google.com/thumbnail?id=19ZbY55-gDmx29M54it5_hC1bsxVow-Hd&sz=w1000){: width="600" .align-center .shadow}
+{% include img-gdrive alt="YOU MAY ALSO ENJOY in English Page" id="19ZbY55-gDmx29M54it5_hC1bsxVow-Hd" %}
 
 Let me explain every single details I have done to make above features work.
 
@@ -177,9 +177,9 @@ I moved on to defining several custom `Liquid` variables, which alters its conte
 
 Home page of `Minimal Mistakes` shows titles and excerpts of all the post in my blog.  In doing so, the theme does not list all the posts in single page, but refer to global variable `site.paginate` defined in `_config.yml` to show only specific number of posts at a page.  If there are total number of posts more than `site.paginate` value, additional pages are built with `/page2/`, `/page3/`... as permalinks.  Furthermore, a navigator is provided at the bottom of pages.
 
-![Paginated Index Page in Korean](https://drive.google.com/thumbnail?id=1iKCOo6ieSx0_GEjW7hnlg8CuOSB0YbFJ&sz=w1000){: width="400" .align-center .shadow}
+{% include img-gdrive alt="Paginated Index Page in Korean" id="1iKCOo6ieSx0_GEjW7hnlg8CuOSB0YbFJ" %}
 
-![Paginated Index Page in English](https://drive.google.com/thumbnail?id=1jm6tKqgLUqkzc-2Yufzh9rESsyKKbQPe&sz=w1000){: width="400" .align-center .shadow}
+{% include img-gdrive alt="Paginated Index Page in English" id="1jm6tKqgLUqkzc-2Yufzh9rESsyKKbQPe" %}
 
 Such a feature is called **Pagination**.  When it comes to pagination-realted features of `Minimal Mistakes` theme, UI components like bottom navigator is powered by the theme itself but other features like mutliple-page building resorts to `jekyll-paginate` plugin.
 

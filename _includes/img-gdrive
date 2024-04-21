@@ -1,0 +1,1 @@
+![{{ include.alt }}]({{ include.id | prepend: "https://drive.google.com/thumbnail?id=" | append: "&sz=w1000" }}){: width="500" .align-center .shadow}
