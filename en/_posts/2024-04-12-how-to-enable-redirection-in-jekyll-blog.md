@@ -1,4 +1,5 @@
 ---
+published: false
 title: How to Set Redirection for Jekyll Blog
 category: programming
 redirect_from:
@@ -9,7 +10,7 @@ tags:
   - redirection
   - jekyll-redirect-from
 created_at: 2024-04-12 10:52:24 +09:00
-last_modified_at: 2024-04-15 09:44:12 +09:00
+last_modified_at: 2024-04-21 22:19:17 +09:00
 excerpt: Steps to set redirection from old URL to new URL in Jekyll-based blog using jekyll-redirect-from plugin.
 ---
 

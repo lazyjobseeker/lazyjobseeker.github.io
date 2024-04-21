@@ -6,7 +6,7 @@ tags:
   - minimal-mistakes
   - multi-languages
 created_at: 2024-04-05 08:44:57 +09:00
-last_modified_at: 2024-04-21 21:10:59 +09:00
+last_modified_at: 2024-04-21 21:36:54 +09:00
 excerpt: How I implemented multi-language support for my Jekyll-based Github Pages blog without plugins.
 ---
 
@@ -59,7 +59,7 @@ lazyjobseeker.github.io
     └─ _posts
 ```
 
-**Several `_posts` Folders<br>`_posts` is not meant to be unique in your proejct.  `Jekyll` tries to render all the markdowns residing in all folders named `_posts` throughout your project.  If there is another `_posts` folder like `a/_posts`, for example, posts built from this folder is regarded to have `a` as one of the categories.
+**Several `_posts` Folders**<br>`_posts` is not meant to be unique in your proejct.  `Jekyll` tries to render all the markdowns residing in all folders named `_posts` throughout your project.  If there is another `_posts` folder like `a/_posts`, for example, posts built from this folder is regarded to have `a` as one of the categories.
 {: .notice--info}
 
 ## Global Variable Settings in `_config.yml`
@@ -159,7 +159,7 @@ Throughout the whole story, here comes the most important part.  I set some addi
 
 ### Language-Dependent Variables
 
-As I already had modified `_config.yml` to render `lang` attribute for all the posts, for any post I could access `page.lang` variable to tell if a given post was in Korean (`ko`) or English (`en).
+As I already had modified `_config.yml` to render `lang` attribute for all the posts, for any post I could access `page.lang` variable to tell if a given post was in Korean (`ko`) or English (`en`).
 
 I moved on to defining several custom `Liquid` variables, which alters its content according to the value of `page.lang`.
 

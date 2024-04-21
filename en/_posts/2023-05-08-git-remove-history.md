@@ -1,10 +1,11 @@
 ---
+published: false
 title: "[Git] Removing All Commit History"
 category: programming
 tags:
   - devlog
 created_at: 2023-05-08 01:33:28 +09:00
-last_modified_at: 2024-04-15 09:42:11 +09:00
+last_modified_at: 2024-04-21 22:18:23 +09:00
 excerpt: "How to remove all commit history from a git repository."
 ---
 

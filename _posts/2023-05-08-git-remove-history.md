@@ -1,10 +1,11 @@
 ---
+published: false
 title: "[Git] 저장소 커밋 히스토리 모두 삭제하기"
 category: programming
 tags:
   - devlog
 created_at: 2023-05-08 01:33:28 +09:00
-last_modified_at: 2024-04-15 09:45:07 +09:00
+last_modified_at: 2024-04-21 22:14:48 +09:00
 excerpt: "깃에서 커밋 히스토리 모두 삭제하기"
 ---
 
