@@ -5,39 +5,73 @@ tags:
   - machine-learning
   - bayesian
 created_at: 2024-04-19 20:13:37 +09:00
-last_modified_at: 2024-04-24 17:07:36 +09:00
+last_modified_at: 2024-04-24 23:01:49 +09:00
 excerpt: How to calibrate confidence intervals from bayesian deep regressors to cohere with observations.
 ---
 
 ## PyBaMM
 
-`PyBaMM`은 `python` 언어로 작성된 오픈소스 배터리 시뮬레이션 패키지입니다.
+`PyBaMM`은 **Python** 기반의 오픈소스 배터리 모델링 및 시뮬레이션 패키지입니다.  [공식 홈 페이지](https://pybamm.org/)를 통해 매뉴얼 및 예제들을 다양하게 제공하고 있고, API 문서화가 잘 이루어져 있으며 지속적으로 업데이트가 이루어지고 있고 사용자 토론 및 개발자 답변도 활발한 편입니다.  **Comsol Multiphysics**등의 전문 소프트웨어를 유료 라이센싱하여 배터리 모델링을 사용할 수 없는 경우 충분한 대안이 될 수 있을 것으로 기대됩니다.
 
+`pip`를 이용해 즉시 설치할 수 있습니다.
 
-## 배터리 시뮬레이션 예제
+```
+pip install pybamm
+```
 
-아래와 같은 간단한 코드로 간단한 배터리 시뮬레이션을 수행할 수 있습니다.  아래의 코드는 Chen(2020)[^1]에 공개된 파라미터 세트를 이용하여 시뮬레이션을 수행합니다.
+## 내장 모델을 이용한 시뮬레이션
+
+### 기본 시뮬레이션
+
+가장 간단하게는 개발자들이 사전에 구성해 둔 모델들을 이용하여 배터리 시뮬레이션을 수행해볼 수 있습니다.  아래의 코드는 도일-풀러-뉴먼(Doyle-Fuller-Newman; DFN) 모델을 이용한 배터리의 방전 시뮬레이션을 위한 코드입니다.  Chen(2020)[^1] 논문에서 공개된 파라미터 세트를 이용하여 시뮬레이션을 수행합니다. 
 
 [^1]: [C.-H. Chen *et al.*, "Development of Experimental Techniques for Parametrization of Multi-Scale Lithium-Ion Battery Models", *J. Electrochem. Soc.*, **167**, 080534 (2020).](https://dx.doi.org/10.1149/1945-7111/ab9050)
 
 ```python
 import pybamm
 
-model = pybamm.lithium_ion_DFN()
+# Load built-in DFN model
+model = pybamm.lithium_ion.DFN()
+
+# Load built-in DFN parameter set from Chen(2020)
 parameter_values = pybamm.ParameterValues("Chen2020")
 
+# Execute simulation with specified parameter set
 sim = pybamm.Simulation(model, parameter_values=parameter_values)
 sim.solve([0, 3600])
 sim.plot()
 ```
 
-`paramter_values`는 `PyBaMM`의 내장 클래스인 `ParameterValues` 객체입니다.  특정 문자열이 포함된 파라미터 이름을 검색할 수 있는 `search` 메서드를 제공합니다.
+시뮬레이션 실행이 완료되면 아래와 같은 `matplotlib` 그래프 패널 형태로 결과를 확인할 수 있습니다.
+
+{% include img-gdrive alt="PyBaMM simulation result" id="1vHuNtEIGm2H3-3tnzZ_B9ISfZ87qClCs" %}
+
+`sim.solve([0, 3600])` 메서드를 실행할 때 전달하는 `[0, 3600]`은 시뮬레이션을 수행할 시간 구간이며 초 단위로 주어집니다.  이외에는 아무 조건도 지정해 주지 않았는데, 코드 실행 결과 약 4V 정도까지 충전된 배터리를 3600초 동안 5A의 전류로 방전 실험을 진행한 그래프를 얻었습니다.
+
+이런 결과를 얻은 이유는 `parameter_values`에 지정되어 있는 기본 파라미터 정보들을 사용하였기 때문입니다.
+
+위 코드에서 사용된 `parameter_values`는 `PyBaMM`의 내장 클래스인 `ParameterValues` 객체입니다.  배터리 모델에 사용되는 파라미터의 명칭 및 값 정보들을 가지고 있습니다.  `search` 메서드를 지원하는데, 문자열을 인자로 넘기면 해당 문자열이 이름에 포함되어 있는 파라미터들을 찾아 줍니다.
 
 ```python
-parameter_values.search("Positive")
+parameter_values.search("Current")
 
->>> 실행결과 업데이트
+>>> Current function [A]    5.0
+Negative current collector conductivity [S.m-1] 58411000.0
+Negative current collector density [kg.m-3]     8960.0
+Negative current collector specific heat capacity [J.kg-1.K-1]  385.0
+Negative current collector thermal conductivity [W.m-1.K-1]     401.0
+Negative current collector thickness [m]        1.2e-05
+Negative electrode exchange-current density [A.m-2]     <function graphite_LGM50_electrolyte_exchange_current_density_Chen2020 at 0x000001D064F6E7A0>
+Positive current collector conductivity [S.m-1] 36914000.0
+Positive current collector density [kg.m-3]     2700.0
+Positive current collector specific heat capacity [J.kg-1.K-1]  897.0
+Positive current collector thermal conductivity [W.m-1.K-1]     237.0
+Positive current collector thickness [m]        1.6e-05
+Positive electrode exchange-current density [A.m-2]     <function nmc_LGM50_electrolyte_exchange_current_density_Chen2020 at 0x000001D064F6E3B0>
+SEI reaction exchange current density [A.m-2]   1.5e-0
 ```
+
+
 
 ### 상수 파라미터 변경하기
 
