@@ -5,7 +5,7 @@ tags:
   - machine-learning
   - bayesian
 created_at: 2024-04-19 20:13:37 +09:00
-last_modified_at: 2024-04-24 23:01:49 +09:00
+last_modified_at: 2024-04-25 17:10:43 +09:00
 excerpt: How to calibrate confidence intervals from bayesian deep regressors to cohere with observations.
 ---
 
@@ -21,7 +21,7 @@ pip install pybamm
 
 ## 내장 모델을 이용한 시뮬레이션
 
-### 기본 시뮬레이션
+### 정전류 방전 및 충전 시뮬레이션하기
 
 가장 간단하게는 개발자들이 사전에 구성해 둔 모델들을 이용하여 배터리 시뮬레이션을 수행해볼 수 있습니다.  아래의 코드는 도일-풀러-뉴먼(Doyle-Fuller-Newman; DFN) 모델을 이용한 배터리의 방전 시뮬레이션을 위한 코드입니다.  Chen(2020)[^1] 논문에서 공개된 파라미터 세트를 이용하여 시뮬레이션을 수행합니다. 
 
@@ -48,9 +48,7 @@ sim.plot()
 
 `sim.solve([0, 3600])` 메서드를 실행할 때 전달하는 `[0, 3600]`은 시뮬레이션을 수행할 시간 구간이며 초 단위로 주어집니다.  이외에는 아무 조건도 지정해 주지 않았는데, 코드 실행 결과 약 4V 정도까지 충전된 배터리를 3600초 동안 5A의 전류로 방전 실험을 진행한 그래프를 얻었습니다.
 
-이런 결과를 얻은 이유는 `parameter_values`에 지정되어 있는 기본 파라미터 정보들을 사용하였기 때문입니다.
-
-위 코드에서 사용된 `parameter_values`는 `PyBaMM`의 내장 클래스인 `ParameterValues` 객체입니다.  배터리 모델에 사용되는 파라미터의 명칭 및 값 정보들을 가지고 있습니다.  `search` 메서드를 지원하는데, 문자열을 인자로 넘기면 해당 문자열이 이름에 포함되어 있는 파라미터들을 찾아 줍니다.
+이런 결과를 얻은 이유는 `parameter_values`에 지정되어 있는 기본 파라미터 정보들을 사용하였기 때문입니다.  `parameter_values`는 PyBaMM 내장 클래스인 `ParameterValues` 객체로 배터리 모델에 사용되는 파라미터의 명칭 및 값 정보들을 가지고 있습니다.  `search` 메서드를 지원하는데, 문자열을 인자로 넘기면 해당 문자열이 이름에 포함되어 있는 파라미터들을 찾아 줍니다.
 
 ```python
 parameter_values.search("Current")
@@ -71,13 +69,43 @@ Positive electrode exchange-current density [A.m-2]     <function nmc_LGM50_elec
 SEI reaction exchange current density [A.m-2]   1.5e-0
 ```
 
+"Current" 라는 문자열을 검색했을 때 `Current function [A]`라는 아이템이 있는 것을 확인할 수 있는데, 별도의 시험 시나리오를 지정해 주지 않으면 이 값을 이용하여 정전류 방전을 수행하게 됩니다.  방전 전류를 (-)로 기준잡기 때문에 충전 시나리오를 테스트하려면 음수 값을 넣어 주어야 합니다.  또한 `initial_soc` 파라미터를 별도로 지정하지 않으면 파라미터 세트에 있는 리튬이온 농도를 그대로 사용하는데, 파라미터 세트가 방전 상태를 나타내는지 충전 상태를 나타내는지에 따라 결과가 다르게 됩니다.  `Chen2020` 파라미터 세트는 만충전 상태를 기준으로 기술되어 있습니다.  충전 상태를 시뮬레이션하려면 예를 들어 아래와 같이 할 수 있습니다.
 
+```python
+import pybamm
 
-### 상수 파라미터 변경하기
+model = pybamm.lithium_ion.DFN()
+parameter_values = pybamm.ParameterValues("Chen2020")
+parameter_values['Current Function[A]'] = -5
+sim = pybamm.simulation(model, parameter_values=parameter_values)
+sim.solve([0,3600], initial_soc=0)
+sim.plot()
+```
+
+### 충방전 시퀀스 지정하기
+
+충방전 시퀀스를 작성하여 사용할 수도 있는데, 거의 자연어로 명령하는 것에 가까운 포맷으로 `Experiment` 객체를 작성해줍니다.
+
+```python
+experiment = pybamm.Experiment(
+    [
+        (
+            "Discharge at C/20 for 40 hours or until 2.75V",
+            "Rest for 1 hour",
+            "Charge at 3A until 3.7 V",
+            "Charge at 2A until 3.9 V",
+            "Charge at 1A until 4.2 V",
+            "Hold at 4.2V until 0.02C",
+            "Rest for 1 hour",
+        ),
+    ]
+)
+
+```
+
+### 커스텀 파라미터 사용하기
 
 상수형 파라미터를 변경하는 것은 간단합니다.  그냥 숫자만 바꾸어 주면 됩니다.
-
-### 함수 파라미터 변경하기
 
 함수 형태로 주어지는 파라미터들도 있습니다.  예를 들어, 양극소재의 개회로전압을 나타내는 `Positive electrode OCP [V]`는 Chen(2020)에서 분석된 배터리 양극(NCM 811)의 물성을 반영하는 함수입니다.
 
