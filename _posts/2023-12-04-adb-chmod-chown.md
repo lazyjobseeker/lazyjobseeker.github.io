@@ -1,10 +1,11 @@
 ---
+revision: 1
 title: "adb shell의 chmod, chown 명령어"
 category: programming
 tags:
   - adb
 created_at: 2023-12-04 12:00:02 +09:00
-last_modified_at: 2024-04-15 09:45:35 +09:00
+last_modified_at: 2024-04-28 10:44:36 +09:00
 excerpt: "adb shell 환경에서 파일 권한과 소유자를 변경하는 chmod 명령어와 chown 명령어를 사용해 봅니다"
 quiz_file: /assets/json/chmod-chown.json
 ---
@@ -80,3 +81,36 @@ adb shell chown bob:pop a.txt
 -rwxrw-r-- 1 bob pop 2023-12-04 15:40 a.txt
 ```
 
+<!--
+
+## 3.
+
+조금 더 구체적으로, 모든 유저 및 그룹에는 유저 아이디(UID)와 그룹 아이디(GID)라는 정보가 존재합니다.  이 정보는 `id` 커맨드를 이용해 접근 가능한 정보입니다.
+
+프라이머리 그룹이라는 개념이 있는데, 현재 사용자는 자기 자신의 프라이머리 그룹을 가지고 있으며, 현재 사용자가 만드는 파일은 프라이머리 그룹의 권한을 상속합니다.
+
+그러나 `setgid g+s [디렉토리 경로]` 명령을 통해  `setgid` 비트를 활성화하면, 해당 디렉토리 하위에 생성되는 파일들은 파일을 생성한 사용자의 프라이머리 그룹이 아닌 디렉토리의 그룹 권한을 따라갑니다.
+
+
+
+https://superuser.com/questions/1527784/confused-by-groups-and-the-linux-permission-model
+
+UID, GID
+
+https://superuser.com/questions/1527784/confused-by-groups-and-the-linux-permission-model
+
+Meaning of permissions for files are fairly straightforward, r means you can open the file for reading, w means you can open that file for writing (thus modify its contents) and x means you can run this file as an executable (whether it's a binary or a script.)
+
+For directories, it's a little more subtle. r means you can list the files in that directory (for example, with ls /path/to/dir), w means you can create new files in that directory (or delete existing files from that directory.) But you need x to be able to access any of the files in that directory, if you don't have x on a directory, you can't cd to that directory and you can't really open files inside that directory, even if you know they exist. (This allows for quirky setups, where with r but without x, you can list the filenames but you can't open any of the files, while with x but without r you can open files in the directory only if you know their names already, since you can't list the filenames in the directory.)
+
+새 그룹 만들기
+
+https://source.android.com/docs/devices/admin/multi-user-testing?hl=ko
+
+
+그룹 관련 조작 - 새 그룹 만들고 그룹 사이를 이동하기
+
+https://android.stackexchange.com/questions/58808/is-there-a-way-to-switch-android-users-from-the-command-line
+
+공유 폴더 만들기 예제
+-->
