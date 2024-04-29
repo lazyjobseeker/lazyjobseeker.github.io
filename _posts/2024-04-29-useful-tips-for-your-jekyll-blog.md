@@ -4,10 +4,14 @@ category: programming
 tags:
   - jekyll
   - minimal-mistakes
-created_at: 2024-04-26 12:55:13 +09:00
-last_modified_at: 2024-04-26 01:48:19 +09:00
+redirect_from:
+  - /redirect-me/
+created_at: 2024-04-29 08:57:26 +09:00
+last_modified_at: 2024-04-29 20:43:43 +09:00
 excerpt: 지킬 블로그 설정 및 운영에 유용한 팁 모음.
 ---
+
+`Jekyll`로 작성하여 `Github Pages`를 통해 블로그 호스팅을 하는 경우 유용한 팁들입니다.
 
 ## 구글 드라이브 이미지 링크
 
@@ -15,31 +19,55 @@ excerpt: 지킬 블로그 설정 및 운영에 유용한 팁 모음.
 
 구글 드라이브에 이미지를 넣어 놓고 링크하는 방식을 사용하면 이미지 저장 공간을 절약할 수 있습니다.  우선, 구글 드라이브에 이미지를 하나 넣어 놓고, 링크를 가져와 보겠습니다.
 
-대충 링크
+```
+https://drive.google.com/file/d/1lRde51cNGYFmbS4p__7j9y0XKId2w0qR/view?usp=drive_link
+```
 
-여기에서, 구글 드라이브가 이 파일에 부여하는 `id`를 확인할 수 있습니다.  이 값을 아래 양식에 넣어 주면 구글 드라이브 이미지를 마크다운 파일에서 링크로 가져올 수 있습니다.  이 방식은 단순히 리포지토리 공간을 절약할 수 있다는 것 외에도 장점이 있는데, 고유 아이디 값이 파일명을 바꾸더라도 변하지 않는다는 것입니다.  레포지토리 내부 에셋으로 이미지 파일을 포함하고 직접 이미지를 게시하는 경우 이미지 이름을 변경하고 싶으면 링크 주소를 다시 써 줘야 하지만 구글 드라이브에서 파일명을 바꾸는 것은 `id`에 영향을 주지 않기 때문에 아무렇게나 파일명을 변경할 수 있습니다.
+여기에서, 구글 드라이브가 이 파일에 부여하는 `id`를 확인할 수 있습니다.  `/d/`와 `/view?` 사이에 있는 문자열이 이 이미지의 `id`입니다.
 
-반대로 단점은 이미지를 새 것으로 교체하고 싶을 때, 새 이미지를 드라이브에 넣어 주면 이전 파일과 같은 이름을 쓰더라도 아이디가 변경된다는 것입니다.  따라서 파일을 교체해 주었다면 이전 파일과 이름이 같더라도 이미지 링크에서 아이디 부분을 변경해 주어야 합니다.
+이 값을 아래와 같은 양식에 넣어 주면 구글 드라이브 이미지를 마크다운 파일에서 불러들일 수 있습니다.
 
-URL 양식이 구글 드라이브 정책에 따라 달라지기 때문에, 어느 순간 구글 드라이브의 URL 양식이 바뀌어 버리면 그동안 링크해 두었던 이미지들이 한 번에 모두 쓸모없어지는 경우가 발생할 수 있습니다.  실제로 구글 드라이브 호스팅 방식으로 이미지를 제공하는 블로그들 중 상당수가 최근의 변경으로 인해 이미지 깨짐 현상을 겪고 있는 것을 알 수 있습니다.
+```markdown
+![이미지 설명](https://drive.google.com/thumbnail?id=ID값&sz=w1000)
+```
 
-URL 양식이 변경된 것을 깨닫고 수정을 하려고 해도 이미 많은 이미지들을 기존 URL 형식으로 링크해 두었다면 모든 포스팅을 찾아가 하나하나 변경해 주는 것이 여간 큰 일이 아닐 것입니다.  아래와 같이 `_include` 폴더에 공통 양식을 만들어 두고 사용하면, 나중에 변경 사항이 생기더라도 이 파일만 변경해 주면 됩니다.
+**ID값** 부분에 아래와 같이 위의 링크에서 얻은 값을 넣어 줍니다.
+
+```markdown
+![미니어처 트랙터](https://drive.google.com/thumbnail?id=1lRde51cNGYFmbS4p__7j9y0XKId2w0qR&sz=w1000)
+```
+
+그러면 아래와 같이 이미지를 넣어줄 수 있습니다.
+
+![미니어처 트랙터](https://drive.google.com/thumbnail?id=1lRde51cNGYFmbS4p__7j9y0XKId2w0qR&sz=w1000)
+
+이러한 방식을 사용하면 리포지토리 공간을 절약할 수 있습니다.  또한 아이디 값이 구글 드라이브에서 파일명을 바꾸더라도 변하지 않기 때문에 편리합니다.
+
+레포지토리 내부 에셋으로 업로드한 이미지 파일을 이용하는 경우, 이미지 이름을 변경하고 싶으면 변경된 파일명에 맞추어 하이퍼링크를 손봐 주어야 하기 때문에 번거로움이 있습니다.
+
+물론 이것은 반대로 단점이 될 수도 있는데, 이미지를 새 것으로 교체하고 싶은 경우, 새 이미지를 드라이브에 넣어 주면 이전 파일과 같은 이름을 쓰더라도 `id`값이 변경되어 버립니다.  따라서 파일을 교체해 주었다면 이전 파일과 이름이 같더라도 이미지 링크의 `id` 값을 새로 알아내 바꾸어 주어야 합니다.
+
+구글 드라이브에서 이미지 링크를 걸기 위한 URL 양식이 구글 드라이브의 정책에 따라 달라지기 때문에, 어느 순간 구글 정책 변경으로 그 동안 블로그에 링크해 두었던 구글 드라이브 이미지들의 링크가 모두 깨지는 경우가 발생할 수 있습니다.
+
+URL 양식이 변경된 것을 깨닫고 수정을 하려고 해도, 이미 많은 이미지들을 하나의 URL 형식으로 호스팅하고 있다면 모든 포스트에서 이미지 링크 부분을 찾아가 변경해 주는 것이 번거로울 것입니다.  저는 아래와 같이 `_include` 폴더에 공통 양식을 만들어 사용하고 있습니다.  그림자 효과와 중앙 정렬 및 이미지 클릭시 전체 이미지를 볼 수 있도록 하는 내용이 추가되어 있습니다.
 
 ```liquid
-{% capture imgpth %}{{ include.id | prepend: "https://drive.google.com/thumbnail?id=" | append: "&sz=w1000" }}{% endcapture %}
-[![{{ include.alt }}]({{ imgpth }}){: width="800" .align-center .shadow}]({{ imgpth }})
+{% raw %}{% capture imgpth %}{{ include.id | prepend: "https://drive.google.com/thumbnail?id=" | append: "&sz=w1000" }}{% endcapture %}
+[![{{ include.alt }}]({{ imgpth }}){: width="800" .align-center .shadow}]({{ imgpth }}){% endraw %}
 ```
 {: file="img-gdrive"}
 
-마크다운 파일 안에서 아래와 같이 호출할 수 있습니다.
+이 파일은 마크다운 파일 안에서 아래와 같이 호출할 수 있습니다.
 
 ```liquid
-{% include img-gdrive alt="평화로운 자연" id="" %}
+{% include img-gdrive alt="미니어처 트랙터" id="1lRde51cNGYFmbS4p__7j9y0XKId2w0qR" %}
 ```
+
+{% include img-gdrive alt="미니어처 트랙터" id="1lRde51cNGYFmbS4p__7j9y0XKId2w0qR" %}
 
 ## 페이지 리디렉션
 
-`Jekyll`로 만든 `Github Pages` 블로그에 [다국어 지원 기능](https://lazyjobseeker.github.io/posts/github-blog-multiple-language-support-with-jekyll-theme-minimal-mistakes)을 구현하면서 기존에 사용하던 퍼마링크 구조를 변경하였습니다.  기존 주소로 구글 검색엔진 색인이 되어 있었는데, 퍼마링크를 변경하면 기존 검색 결과에 노출된 링크들이 `404 Not Found`와 함께 작동하지 않을 것이고 SEO에 손상이 갈 것이라고 생각했습니다.
+`Jekyll`로 만든 `Github Pages` 블로그에 [**다국어 지원 기능**](https://lazyjobseeker.github.io/posts/github-blog-multiple-language-support-with-jekyll-theme-minimal-mistakes)을 구현하면서 기존에 사용하던 퍼마링크 구조를 변경하였습니다.  기존 주소로 구글 검색엔진 색인이 되어 있었는데, 퍼마링크를 변경하면 기존 검색 결과에 노출된 링크들이 `404 Not Found`와 함께 작동하지 않을 것이고 SEO에 손상이 갈 것이라고 생각했습니다.
 
 다행히 `Jekyll` 플러그인 `jekyll-redirect-from`을 이용하여 리디렉션을 설정하는 방법이 있었습니다.  플러그인을 적용하고 사용하는 방법을 정리합니다.
 
@@ -70,16 +98,16 @@ whitelist:
 
 ### 페이지 리디렉션 설정하기
 
-플러그인을 적용하고 나면, 원하는 페이지의 front matter에 `redirect_from`값을 설정해 줍니다.  아래 예시는 실제로 이 페이지의 front matter에 적용되어 있는 설정입니다.
+플러그인을 적용하고 나면, 원하는 페이지의 front matter에 `redirect_from`값을 설정해 줍니다.
 
 ```yaml
 redirect_from:
   - /redirect-me/
 ```
 
-`https://lazyjobseeker.github.io/redirect-me/`는 존재하는 파일이 아닙니다.  하지만 리디렉션이 적용되어 있기 때문에, 위 주소로 접근을 시도하면 이 페이지로 돌아오게 됩니다.  주소창에 위 주소를 넣어 보거나 이 [링크](https://lazyjobseeker.github.io/redirect-me/)에서 확인해 볼 수 있습니다.
+`https://lazyjobseeker.github.io/redirect-me/`는 존재하는 파일이 아닙니다.  하지만 위와 같이 리디렉션을 적용하면, 위 주소로 접근을 시도했을 때 이 페이지로 돌아오게 됩니다.  주소창에 위 주소를 넣어 보거나 이 [**링크**](https://lazyjobseeker.github.io/redirect-me/)에서 확인해 볼 수 있습니다.
 
-## 수식 렌더링 활성화하기
+## 수식 렌더링 및 그래프 그리기
 
 Minimal Mistakes 테마의 Github Pages 블로그에 수식 렌더링을 위한 자바스크립트 라이브러리 Katex와 그래핑 라이브러리 JSXGraph를 적용하였습니다.  적용 및 문제 해결 과정을 정리합니다. 
 
@@ -89,7 +117,7 @@ Minimal Mistakes 테마의 Github Pages 블로그에 수식 렌더링을 위한 
 
 #### Katex 적용하기 (기본)
 
-[Katex 공식 페이지](https://katex.org/docs/browser)에서는 아래 코드를 `head`에 적용하도록 가이드하고 있습니다.
+[**Katex 공식 페이지**](https://katex.org/docs/browser)에서는 아래 코드를 `head`에 적용하도록 가이드하고 있습니다.
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
