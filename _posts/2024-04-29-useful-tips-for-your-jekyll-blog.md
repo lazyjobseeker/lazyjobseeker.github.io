@@ -7,7 +7,7 @@ tags:
 redirect_from:
   - /redirect-me/
 created_at: 2024-04-29 08:57:26 +09:00
-last_modified_at: 2024-04-29 20:43:43 +09:00
+last_modified_at: 2024-04-29 21:02:24 +09:00
 excerpt: 지킬 블로그 설정 및 운영에 유용한 팁 모음.
 ---
 
@@ -60,7 +60,7 @@ URL 양식이 변경된 것을 깨닫고 수정을 하려고 해도, 이미 많�
 이 파일은 마크다운 파일 안에서 아래와 같이 호출할 수 있습니다.
 
 ```liquid
-{% include img-gdrive alt="미니어처 트랙터" id="1lRde51cNGYFmbS4p__7j9y0XKId2w0qR" %}
+{% raw %}{% include img-gdrive alt="미니어처 트랙터" id="1lRde51cNGYFmbS4p__7j9y0XKId2w0qR" %}{% endraw %}
 ```
 
 {% include img-gdrive alt="미니어처 트랙터" id="1lRde51cNGYFmbS4p__7j9y0XKId2w0qR" %}

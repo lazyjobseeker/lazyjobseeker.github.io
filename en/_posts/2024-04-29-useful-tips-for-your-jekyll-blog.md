@@ -7,7 +7,7 @@ tags:
 redirect_from:
   - /en/redirect-me/
 created_at: 2024-04-29 20:21:22 +09:00
-last_modified_at: 2024-04-29 20:54:53 +09:00
+last_modified_at: 2024-04-29 21:02:04 +09:00
 excerpt: Tips for setting your Jekyll blog.
 ---
 
@@ -54,7 +54,7 @@ If there comes another change in URL format for posting Google Drive images, it 
 This file can be called in markdown file.  When calling it, I pass alt description for image and file `id` as additional arguments.
 
 ```liquid
-{% include img-gdrive alt="Miniature Tractor" id="1lRde51cNGYFmbS4p__7j9y0XKId2w0qR" %}
+{% raw %}{% include img-gdrive alt="Miniature Tractor" id="1lRde51cNGYFmbS4p__7j9y0XKId2w0qR" %}{% endraw %}
 ```
 
 {% include img-gdrive alt="Miniature Tractor" id="1lRde51cNGYFmbS4p__7j9y0XKId2w0qR" %}
