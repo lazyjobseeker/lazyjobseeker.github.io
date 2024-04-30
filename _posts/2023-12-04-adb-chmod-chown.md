@@ -5,7 +5,7 @@ category: programming
 tags:
   - adb
 created_at: 2023-12-04 12:00:02 +09:00
-last_modified_at: 2024-04-29 19:54:37 +09:00
+last_modified_at: 2024-04-30 10:05:52 +09:00
 excerpt: "adb shell 환경에서 파일 권한과 소유자를 변경하는 chmod 명령어와 chown 명령어를 사용해 봅니다"
 quiz_file: /assets/json/chmod-chown.json
 ---
@@ -46,6 +46,8 @@ adb shell ls -l a.txt
 - rws = 이진수 111 = 7
 
 따라서, **chmod 000**은 어떤 파일/디렉토리에 대해 읽기/쓰기/실행 권한을 모두 허용하지 않는 것이며, **chmod 777**은 모든 권한을 허용하는 것이 됩니다.
+
+{% include img-gdrive alt="chmod 사용법 - 옥탈 코드 방식 예시" id="1i7VHZkMERCmuWO0c3ZCJLgS2j6ZXWIoW" %}
 
 chmod + 옥탈 코드 형식으로 권한을 지정하는 예시를 살펴봅시다.  사용법은 `adb shell chmod [3자리 권한 숫자열] [권한을 조정할 파일명]`입니다.
 

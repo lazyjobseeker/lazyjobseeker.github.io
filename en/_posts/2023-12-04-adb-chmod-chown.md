@@ -4,7 +4,7 @@ category: programming
 tags:
   - adb
 created_at: 2023-12-04 12:00:02 +09:00
-last_modified_at: 2024-04-15 09:42:43 +09:00
+last_modified_at: 2024-04-30 10:06:48 +09:00
 excerpt: "How to use chmod and chwon commands for modifying file permissions and owners."
 quiz_file: /assets/json/chmod-chown.json
 ---
@@ -32,6 +32,8 @@ For example, from above output we get to know following:
 Consisely, there are three different agents called **owner**, **group**, and others.  And for each of them can have a combination of three permissions (read, write, execute).  Therefore, to fully describe the permission level for given path, there are 9 different permissions to be determined with one additional identifier to tell if the path points a file or a directory.  Total 10 characters are hence used to detail permission status for a given path.
 
 If we want to alter permission level of a file/directory, `chmod` command can be used with all these details.  But we do not pass, full string like `-rwxrwxrwx` with `chmod` command.  Rather, a three-digit-number, each digit of which corresponds to specific combination of permissions, is passed with `chmod`.
+
+{% include img-gdrive alt="Using chmod - octal code example" id="1i7VHZkMERCmuWO0c3ZCJLgS2j6ZXWIoW" %}
 
 Let's turn to an example:
 
