@@ -7,11 +7,19 @@ tags:
 redirect_from:
   - /redirect-me/
 created_at: 2024-04-29 08:57:26 +09:00
-last_modified_at: 2024-04-29 21:02:24 +09:00
+last_modified_at: 2024-05-02 15:20:54 +09:00
 excerpt: 지킬 블로그 설정 및 운영에 유용한 팁 모음.
 ---
 
 `Jekyll`로 작성하여 `Github Pages`를 통해 블로그 호스팅을 하는 경우 유용한 팁들입니다.
+
+## cdn.jsdelivr.net의 SSL 이슈
+
+[**github 이슈 보드 링크**](https://github.com/jsdelivr/jsdelivr/issues/18565)
+
+2024년 5월 2일 확인된 문제로, `cdn.jsdelivr.net`의 SSL 관련 이슈 발생으로 `cdn`을 통해 로드되는 웹폰트 및 js 파일들이 모두 작동하지 않는 문제가 있습니다.  이로 인해 이 블로그의 경우 웹폰트 / 수식 표시 / 아이콘 표시 / 사이트 내부 검색엔진이 동작하지 않았습니다.
+
+위 이슈 보드에 코멘트되고있는 해결 방법 중 `cdn`을 `fastly`로 변경하는 것으로 임시 해결한 상태입니다.
 
 ## 구글 드라이브 이미지 링크
 

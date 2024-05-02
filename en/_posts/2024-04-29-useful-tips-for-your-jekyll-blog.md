@@ -7,11 +7,19 @@ tags:
 redirect_from:
   - /en/redirect-me/
 created_at: 2024-04-29 20:21:22 +09:00
-last_modified_at: 2024-04-29 21:02:04 +09:00
+last_modified_at: 2024-05-02 15:23:36 +09:00
 excerpt: Tips for setting your Jekyll blog.
 ---
 
 Here I summarized my tips of running `Jekyll`-based static blogs hosted by `github pages`.  Give it a look and wish you can find some tips applicable to yours!
+
+## SSL Issue of cdn.jsdelivr.net
+
+[**github issue board**](https://github.com/jsdelivr/jsdelivr/issues/18565)
+
+This issue was reported in May 2nd, 2024.  Web services resorting to `cdn.jsdelivr.net` was struck, reportedly from the issue board above by SSL-related failure.  This blog was also affected: web font loading failure, KaTeX math equations and JSXGraphs broken, icons broken, and Algolia-based internal search engine vanished. 
+
+A solution from above issue board was replacing `cdn` with `fastly`, which worked for my case.
 
 ## Image Hosting via Google Drive
 
