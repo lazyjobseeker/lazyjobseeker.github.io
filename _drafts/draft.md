@@ -41,6 +41,12 @@ The excellent structural stability of petroleum coke can be attributed to the am
 
 알골리아에 가입하고, `index`를 만든다.  Minimal Mistakes 기준으로는 config.yml 세팅만 해 주면 된다.
 
+# Chirpy 스타일의 클립보드 복사기 만들기
+
+- 거의 다 왔다
+- JQuery 기본 사용법
+- 부트스트랩
+
 <br>
 # fff
 

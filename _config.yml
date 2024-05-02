@@ -442,3 +442,6 @@ defaults:
         
 # Random Post Teaser src
 teaser-img-src: "assets/images/carousel-teasers/"
+
+# Clipboard Copy - In success
+copy_code_succeed: Copied!

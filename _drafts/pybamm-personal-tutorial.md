@@ -5,7 +5,7 @@ tags:
   - machine-learning
   - bayesian
 created_at: 2024-04-19 20:13:37 +09:00
-last_modified_at: 2024-04-25 17:10:43 +09:00
+last_modified_at: 2024-05-02 21:38:43 +09:00
 excerpt: How to calibrate confidence intervals from bayesian deep regressors to cohere with observations.
 ---
 
@@ -253,4 +253,95 @@ V = solution['Voltage [V]'].entries
 
 plt.plot(Q, V)
 plt.show()
+```
+
+```python
+import pybamm
+import numpy as np
+import matplotlib.pyplot as plt
+
+model = pybamm.lithium_ion.DFN(
+    {"SEI": "solvent-diffusion limited"}
+)
+parameter_values = pybamm.ParameterValues("Chen2020")
+
+probe_experiment = pybamm.Experiment(
+    [
+        (
+            "Charge at 1 A until 4.2V",
+            "Hold at 4.2V until 0.01C",
+            "Rest for 4 Hour",
+            "Discharge at 0.5A until 2.5V",
+        )
+    ]
+)
+
+cycle_experiment = pybamm.Experiment(
+    [
+        (
+            "Charge at 1.5A until 4.2V",
+            "Discharge at 5A until 2.5V",
+        )
+    ]
+)
+
+def get_probe_dchg_cap(solution: pybamm.Solution):
+    dchgcaps = solution.cycls[-1].steps[3]["Discharge capacity [A.h]"].entries
+    return dchgcaps[-1] - dchgcaps[0]
+
+def get_cycle_dchg_cap(solution: pybamm.Solution):
+    dchgcaps = solution.cycls[-1].steps[1]["Discharge capacity [A.h]"].entries
+    return dchgcaps[-1] - dchgcaps[0]
+
+N = 10
+M = 50
+
+probe_sols = []
+probe_cycs = []
+probe_caps = []
+
+cycle_sols = []
+cycle_cycs = []
+cycle_caps = []
+
+curr_cycle = 1
+print(f'Cycle - {curr_cycle}')
+sim = pybamm.Simulation(model,
+					    parameter_values = parameter_values,
+					    experiment = probe_experiment)
+probe_sol = sim.solve()
+probe_sols.append(probe_sol)
+probe_caps.append(get_probe_dchg_cap(probe_sol))
+probe_cycs.append(curr_cycle)
+start_sol = probe_sol
+curr_cycle += 1
+
+for i in range(N):
+    for j in range(M):
+        sim = pybamm.Simulation(model,
+                                parameter_values = parameter_values,
+                                experiment = cycle_experiment)
+        cycle_sol = sim.solve(starting_solution = start_sol)
+        cycle_sols.append(cycle_sol)
+        cycle_caps.append(get_cycle_dchg_cap(cycle_sol))
+        cycle_cycs.append(curr_cycle)
+        print(f'Cycle - {curr_cycle}')
+        curr_cycle += 1
+        start_sol = cycle_sol
+
+	sim = pybamm.Simulation(model,
+						    parameter_values = parameter_values,
+						    experiment = probe_experiment)
+	probe_sol = sim.solve(starting_solution = start_sol)
+	probe_sols.append(probe_sol)
+	probe_caps.append(get_probe_dchg_cap(probe_sol))
+	probe_cycs.append(curr_cycle)
+	start_sol = probe_sol
+	curr_cycle += 1
+
+plt.scatter(cycle_cycs, cycle_caps)
+plt.scatter(probe_cycs, probe_caps)
+plt.ylim(0, 5.2)
+plt.show()
+
 ```

@@ -22,6 +22,11 @@ div {
   }
 }
 
+@mixin ml-mr($value) {
+  margin-left: $value;
+  margin-right: $value;
+}
+
 .code-header {
   @extend %no-cursor;
   overflow: hidden;
@@ -41,7 +46,7 @@ div {
     i {
       font-size: 1rem;
       width: $code-icon-width;
-      color: var(--code-header-icon-color);
+      color: $code-header-icon-color;
 
       &.small {
         font-size: 70%;
@@ -58,7 +63,7 @@ div {
       content: attr(data-label-text);
       font-size: 0.7rem; // 0.85rem;
       font-weight: 600;
-      color: var(--code-header-text-color);
+      color: $code-header-text-color;
     }
   }
 
@@ -66,7 +71,6 @@ div {
   button {
     @extend %cursor-pointer;
     @extend %rounded;
-
     border: 1px solid transparent;
     height: $code-header-height;
     width: $code-header-height;
@@ -74,16 +78,16 @@ div {
     background-color: inherit;
 
     i {
-      color: var(--code-header-icon-color);
+      color: $code-header-icon-color;
     }
 
     &[timeout] {
       &:hover {
-        border-color: var(--clipboard-checked-color);
+        border-color: $clipboard-checked-color;
       }
 
       i {
-        color: var(--clipboard-checked-color);
+        color: $clipboard-checked-color;
       }
     }
 
@@ -99,4 +103,54 @@ div {
       }
     }
   }
+}
+
+/* overwrite bootstrap muted */
+.text-muted {
+  color: $text-muted-color !important;
+}
+
+/* Overwrite bootstrap tooltip */
+.tooltip-inner {
+  font-size: 0.7rem;
+  font-family: "YEONGJUSeonbiTTF";
+  max-width: 220px;
+  text-align: left;
+  color: $code-header-text-color;
+  border-radius: 4px;
+  padding: 0.1rem 0.1rem 0.1rem 0.1rem;
+}
+
+/* Overwrite bootstrap outline button */
+.btn.btn-outline-primary {
+  &:not(.disabled):hover {
+    border-color: #007bff !important;
+  }
+}
+
+.disabled {
+  color: rgb(206, 196, 196);
+  pointer-events: auto;
+  cursor: not-allowed;
+}
+
+.hide-border-bottom {
+  border-bottom: none !important;
+}
+
+.input-focus {
+  box-shadow: none;
+  border-color: var(--input-focus-border-color) !important;
+  background: center !important;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.left {
+  float: left;
+  margin: 0.75rem 1rem 1rem 0;
+}
+
+.right {
+  float: right;
+  margin: 0.75rem 0 1rem 1rem;
 }
