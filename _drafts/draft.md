@@ -1,15 +1,27 @@
 ---
 created_at: 2024-04-29 21:18:45 +09:00
-last_modified_at: 2024-04-29 21:18:56 +09:00
+last_modified_at: 2024-05-03 03:01:22 +09:00
 ---
 # 잡다한 것들
 ---
-
 ## 잘 되던 `pip`가 갑자기 안 될 때
 
 `pip --upgrade` 이후에 발생한 현상이다.  python -m ensurepip`를 해 주면 된다.
 
-<br>
+## 커밋 히스토리 삭제
+
+https://stackoverflow.com/questions/13716658/how-to-delete-all-commit-history-in-github
+
+커밋이 쌓이면서 저장소 크기가 점점 커지기 때문에 적당한 시점에 이전 커밋 히스토리를 모두 제거해 줄 필요가 있다.  이 블로그는 공부용 블로그라 아무렇게나 만들고 푸시하는 커밋이 많아 쓸모없는 이력이 빨리 쌓인다.
+
+```shell
+git checkout --orphan latest_branch
+git add -A
+git commit -am "commit message"
+git branch -D main //내 경우에는 master였다
+git branch -m main //현재 브랜치 이름 변경
+git push -f origin main // 오류 무시하고 원격 저장소에 푸시
+```
 
 # Lithium Ion Batteries: Literature Digest
 ---
@@ -35,25 +47,24 @@ The excellent structural stability of petroleum coke can be attributed to the am
 
 ##
 
-<br>
 # 알골리아 서치 엔진 세팅
 ---
 
 알골리아에 가입하고, `index`를 만든다.  Minimal Mistakes 기준으로는 config.yml 세팅만 해 주면 된다.
 
 # Chirpy 스타일의 클립보드 복사기 만들기
-
+---
 - 거의 다 왔다
 - JQuery 기본 사용법
 - 부트스트랩
 
-<br>
-# fff
+# 말해보카
+---
 
+# US
+---
 ## SSN
 
 입국 후 14일 후 신청 가능하며, 주소 확인을 한다 (거주지 서류가 필요).
 
-
-
-#
+# 
