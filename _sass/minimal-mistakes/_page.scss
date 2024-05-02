@@ -97,6 +97,10 @@ body {
     border-bottom: 2px solid $border-color; // Default: 1px solid $border-color;
   }
   
+  li {
+    line-height: 1.8em;
+  }
+  
   p {
     line-height: 2em;
   }

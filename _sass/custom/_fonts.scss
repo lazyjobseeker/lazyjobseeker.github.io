@@ -54,6 +54,13 @@
     unicode-range: U+AC00-D7A3, U+0030-0039;
 }
 @font-face {
+    font-family: 'NanumSquareNeo-code';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range: U+AC00-D7A3;
+}
+@font-face {
     font-family: 'NanumSquareNeo-en';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
     font-weight: normal;

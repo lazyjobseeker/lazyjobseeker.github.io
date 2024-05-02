@@ -16,7 +16,7 @@ $indent-var: 1.3em !default;
 $base-font: 'NanumSquareNeo-kr', 'NanumSquareNeo-en'; // 240421 NanumSquareNeo-Variable is malfunctioning
 $serif: $base-font !default; //"Noto Serif", "Noto Serif KR", serif; Georgia, Times, serif !default;
 $sans-serif: $base-font, -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", sans-serif !default; // "NanumSquareNeo-Variable"
-$monospace: 'NanumSquareNeo-kr', 'Consolas', monospace !default;
+$monospace: 'NanumSquareNeo-code', 'Consolas', monospace !default;
 $masthead-site-title: 'S-CoreDream-7ExtraBold';
 $masthead-site-subtitle: 'S-CoreDream-6Bold';
 $archive-title: 'S-CoreDream-5Medium';
