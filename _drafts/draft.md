@@ -1,6 +1,6 @@
 ---
 created_at: 2024-04-29 21:18:45 +09:00
-last_modified_at: 2024-05-03 03:01:22 +09:00
+last_modified_at: 2024-05-03 10:22:42 +09:00
 ---
 # 잡다한 것들
 ---
@@ -67,4 +67,83 @@ The excellent structural stability of petroleum coke can be attributed to the am
 
 입국 후 14일 후 신청 가능하며, 주소 확인을 한다 (거주지 서류가 필요).
 
-# 
+# 자기 자신에 대한 타입 힌팅
+
+
+## 파이썬 __future__ 모듈로 클래스 안에서 자기 자신 타입힌팅 하기
+
+아래와 같이 아이스크림 클래스를 만들고, serve 메서드로 자기 자신(즉, 아이스크림 인스턴스)을 리턴하도록 했습니다.  
+```python
+class IceCream:
+  def __init__(self):
+    print("Delicious icecream is here.")
+  def serve(self):
+    print("Have your icecream!")
+    return self
+```
+
+이 때, `IceCream.serve`의 리턴 타입이 `IceCream`인 것이 분명하기 때문에, 아래와 같이 타입 힌팅을 적용하고 싶은데, 잘 되지 않습니다.
+```python
+class IceCream:
+  def __init__(self):
+    print("Delicious icecream is here.")
+  def serve(self) -> IceCream:
+    print("Have your icecream!")
+    return self
+```
+
+이 경우, **Python 3.7** 이상을 사용하고 있다면, `__future__`의 `annotations` 모듈을 임포트하면 잘 동작합니다.
+```python
+from __future__ import annotations
+
+class IceCream:
+  def __init__(self):
+    print("Delicious icecream is here.")
+  def serve(self) -> IceCream:
+    print("Have your icecream!")
+    return self
+```
+
+### References
+
+1. [stackoverflow-33533148](https://stackoverflow.com/questions/33533148/how-do-i-type-hint-a-method-with-the-type-of-the-enclosing-class)
+
+## 2. Use Self Type-Hinting using `__future__`
+
+Consider an `IceCream` custom class as example.  `serve` method is prepared, which returns itself (an instance of `IceCream').
+
+```python
+class IceCream:
+  def __init__(self):
+    print("Delicious icecream is here.")
+  def serve(self):
+    print("Have your icecream!")
+    return self
+```
+
+It is obvious that `type(IceCream().serve()` return `IceCream`.  So I want to provide type hinting to manifest this.  But it does not work well with error.
+
+```python
+class IceCream:
+  def __init__(self):
+    print("Delicious icecream is here.")
+  def serve(self) -> IceCream:
+    print("Have your icecream!")
+    return self
+```
+
+If you are struggling with similar issue and working with **Python 3.7** or higher, you can import `annotations` module from `__future__` to solve this.
+
+```python
+from __future__ import annotations
+
+class IceCream:
+  def __init__(self):
+    print("Delicious icecream is here.")
+  def serve(self) -> IceCream:
+    print("Have your icecream!")
+    return self
+```
+
+### References
+1. [stackoverflow-33533148](https://stackoverflow.com/questions/33533148/how-do-i-type-hint-a-method-with-the-type-of-the-enclosing-class)

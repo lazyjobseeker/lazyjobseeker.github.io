@@ -1,24 +1,25 @@
 ---
-title: "Jekyll Local Build and Using future annotations in Python"
+revision: 1
+title: "Build Test in Local for a Jekyll Website"
 category: programming
 tags:
   - jekyll
   - python
   - minimal-mistakes
 created_at: 2023-11-25 01:28:00 +09:00
-last_modified_at: 2024-04-15 09:42:30 +09:00
+last_modified_at: 2024-05-03 11:07:17 +09:00
 excerpt: "1) How to preview Jekyll blog in local environment. 2) How to use __future__ module to provide type hinting for custom class."
 ---
 
-## 1. How to Preview Jekyll Blog in Local
+## How to Preview Jekyll Blog in Local
 
 If you are using `github pages` to host your webpage statically built with `Jekyll`, and you are checking the result of your changes by directly pushing the changes to remote repository, don't do that.  You can install `Ruby` in your local PC and run local server to pre-render all the changes you make before pushing to your repository.
 
-### 1.1. Install Ruby on Your Local PC
+### Install Ruby on Your Local PC
 
 Install `Ruby` on your PC ([**Install Ruby**](https://rubyinstaller.org/downloads/)).
 
-### 1.2. Run Jekyll Local Server
+### Run Jekyll Local Server
 
 Open comand prompt and run `bundle exec jekyll serve`.
 
@@ -77,48 +78,55 @@ Configuration file: D:/repositories/lazyjobseeker.github.io/_config.yml
                     ...done in 4.4363946 seconds.
 ```
 
+### Options for Jekyll Commands
+
+There are some options you can use in testing your `jekyll` website.
+
+`build`: You can only build your static web pages but not serve them in your localhost address.  `_site` directory builds only if you use this command.
+
+```
+bundle exec jekyll serve
+```
+
+`serve --draft`: This option makes your draft posts stored in `_draft` directory visible.  You can test how your drafts will look like using this command.
+
+```
+bundle exec jekyll serve --draft
+```
+
+`serve --incremental`: Rather than build the whole site whenever changes made to your source file, if this option is used, rebuild occurs only when a post or page is subject to change on its source, boosting the regeneration speed.
+
+```
+bundle exec jekyll serve --incremental
+```
+
+`serve --livereload`: Automatically refreshes localhost webpage when rebuild occurs.  If your local environment is sufficiently fast, you can experience almost live-preview of your page while you are editing the resource in text editor.
+
+
+```
+bundle exec jekyll serve --livereload
+```
+
+In using `livereload` option main bonus is you can almost immediately check how your change affects in page rendering.  So combining it with `incremental` option is desired to boost the build speed.  Thus I frequently use below option.
+
+```
+bundle exec jekyll serve --draft --incremental --livereload
+```
+
+Below is my editing environment in tablet, where I write using Obsidian and preview how it renders on livereloading localhost server.
+
+{% include img-gdrive alt="Jekyll Livereload" id="1NctSyHV_o98tTUZQWyZKc2TSV32Co9E3" %}
+
+`--future`: `jekyll` does not build a post if the date designation in filename is a future date from current system date.  This option enables such posts to be rendered.
+
+You can include future-dated posts in your `_post` folder if you have completed posts but want to publish them after some designated date.  But if you are hosting using `Github Pages`, you need to send a commit to trigger page build.  If you do not have proper commits to make you can [**send empty commit**](https://freecodecamp.org/news/how-to-push-an-empty-commit-with-git/).
+
+```
+git commit --allow-empty -m "Commit Message"
+git push origin master
+```
+
 ### References
 1. [https://tyami.github.io](https://tyami.github.io/blog/jekyll-local-server-start-batch/#%EB%A1%9C%EC%BB%AC-%EC%84%9C%EB%B2%84-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EC%97%90%EB%9F%AC)
 2. [https://ehdtnn.tistory.com/763](https://ehdtnn.tistory.com/763)
 3. [https://2sehi.github.io](https://2sehi.github.io/blog/56_Github-Blog/)
-
-
-## 2. Use Self Type-Hinting using `__future__`
-
-Consider an `IceCream` custom class as example.  `serve` method is prepared, which returns itself (an instance of `IceCream').
-
-```python
-class IceCream:
-  def __init__(self):
-    print("Delicious icecream is here.")
-  def serve(self):
-    print("Have your icecream!")
-    return self
-```
-
-It is obvious that `type(IceCream().serve()` return `IceCream`.  So I want to provide type hinting to manifest this.  But it does not work well with error.
-
-```python
-class IceCream:
-  def __init__(self):
-    print("Delicious icecream is here.")
-  def serve(self) -> IceCream:
-    print("Have your icecream!")
-    return self
-```
-
-If you are struggling with similar issue and working with **Python 3.7** or higher, you can import `annotations` module from `__future__` to solve this.
-
-```python
-from __future__ import annotations
-
-class IceCream:
-  def __init__(self):
-    print("Delicious icecream is here.")
-  def serve(self) -> IceCream:
-    print("Have your icecream!")
-    return self
-```
-
-### References
-1. [stackoverflow-33533148](https://stackoverflow.com/questions/33533148/how-do-i-type-hint-a-method-with-the-type-of-the-enclosing-class)

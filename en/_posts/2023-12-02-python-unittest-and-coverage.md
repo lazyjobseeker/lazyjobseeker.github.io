@@ -4,14 +4,14 @@ category: programming
 tags:
   - python
 created_at: 2023-12-01 01:45:54 +09:00
-last_modified_at: 2024-04-15 09:42:36 +09:00
+last_modified_at: 2024-05-03 13:44:18 +09:00
 excerpt: "How to use unittest library to test my code and check code coverage using coverage library."
 ---
 
 Here I summarized how to test my code using `unittest`, a built-in library for code test in python, and how to check code coverage using `coverge` package.
 
 
-## 1. Create Unit Tests and Execute using `unittest`
+## Create Unit Tests and Execute using `unittest`
 
 I wrote some math-library as follows.  Having functions for elementary algebraic operation defined in `math.py`, I want to test them using `test.py` script.
 
@@ -22,7 +22,7 @@ mathlibrary
  └─ test.py
 ```
 
-### 1.1 Write Test Code
+### Write Test Code
 
 I wrote `math.py` first.  The code looks like this.
 
@@ -40,7 +40,7 @@ def divide(a: float, b: float) -> float:
     return a/b
 ```
 
-### 1.2. Write Unit Test Classes and Methods 
+### Write Unit Test Classes and Methods 
 
 Now, I need to create my unit tests in `test.py`.  Note that there is a basic class `TestCase` which I should inherit when I make my own test `class`.  Individual tests are defined as `method` under my custom class for testing.
 
@@ -89,11 +89,11 @@ Ran 5 tests in 0.001s
 OK
 ```
 
-## 2. Check Test Coverage with `coverage`
+## Check Test Coverage with `coverage`
 
 I also can get statistic report on the portion of codebase covered by the tests I wrote.  `coverage` package supports this.
 
-### 2.1. Install `coverage`
+### Install `coverage`
 
 If you don't have `coverage` package yet you need to install it first by running `pip install coverage` command.
 
@@ -104,7 +104,7 @@ Collecting coverage
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 203.2/203.2 kB 6.2 MB/s eta 0:00:00
 ```
 
-### 2.2. Check Code Coverage
+### Check Code Coverage
 
 Now I can run `coverage run test.py` in command prompt to get the code coverage statistics with `test.py`.
 
