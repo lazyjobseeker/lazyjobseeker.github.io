@@ -1,17 +1,17 @@
 ---
-title: 파이밤(PyBaMM)으로 배터리 모델링하기
-category: machine-learning
+title: 파이밤(PyBaMM)으로 배터리 모델링하기 - 1
+category: lithium-ion-battery
 tags:
-  - machine-learning
-  - bayesian
-created_at: 2024-04-19 20:13:37 +09:00
-last_modified_at: 2024-05-03 13:41:37 +09:00
+  - battery
+  - modelling
+created_at: 2024-05-03 14:36:07 +09:00
+last_modified_at: 2024-05-03 15:27:12 +09:00
 excerpt: 배터리 모델링 오픈소스 PyBaMM 소개 및 사용 방법 정리
 ---
 
 ## PyBaMM
 
-`PyBaMM`은 **Python** 기반의 오픈소스 배터리 모델링 및 시뮬레이션 패키지입니다.  [공식 홈 페이지](https://pybamm.org/)를 통해 매뉴얼 및 예제들을 다양하게 제공하고 있고, API 문서화가 잘 이루어져 있으며 지속적으로 업데이트가 이루어지고 있고 사용자 토론 및 개발자 답변도 활발한 편입니다.  **Comsol Multiphysics**등의 전문 소프트웨어를 유료 라이센싱하여 배터리 모델링을 사용할 수 없는 경우 충분한 대안이 될 수 있을 것으로 기대됩니다.
+`PyBaMM`은 **Python** 기반의 오픈소스 배터리 모델링 및 시뮬레이션 패키지입니다.  [**공식 홈 페이지**](https://pybamm.org/)를 통해 매뉴얼 및 예제들을 다양하게 제공하고 있고, API 문서화가 잘 이루어져 있으며 지속적으로 업데이트가 이루어지고 있고 사용자 토론 및 개발자 답변도 활발한 편입니다.  **Comsol Multiphysics**등의 전문 소프트웨어를 유료 라이센싱하여 배터리 모델링을 사용할 수 없는 경우 충분한 대안이 될 수 있을 것으로 기대됩니다.
 
 `pip`를 이용해 즉시 설치할 수 있습니다.
 
@@ -151,7 +151,37 @@ cycle_experiment = pybamm.Experiment(
 )
 ```
 
-`Simulation` 객체에서 `solve` 메서드를 호출하면 시뮬레이션 결과를 포함하는 결과물이 `Solution` 객체로 반환됩니다.  `solve` 과정에서 수행된 각 `Experiment`는 1회의 사이클로 취급됩니다.  `solve`를 수행할 때 `starting_solution` 인자에 이전 `solve` 결과로 얻은 `Solution` 객체를 넘겨 주면 초기 상태에서 시뮬레이션을 시작하는 대신 기존 시뮬레이션 결과로 얻어진 내부 변수들을 유지한 상태로 다음 시뮬레이션을 계속 수행할 수 있습니다.  이 경우 갱신되는 `Solution` 객체에는 이전 단계들에서의 시뮬레이션 수행 결과들이 모두 누적되어 저장됩니다.
+`Simulation` 객체에서 `solve` 메서드를 호출하면 시뮬레이션 결과를 포함하는 결과물이 `Solution` 객체로 반환됩니다.  `solve` 과정에서 수행된 각 `Experiment`는 내부에 루프를 포함하지 않는 한 1회의 사이클로 취급됩니다.  다만 내부에 루프가 포함되어 있다면 루프 횟수만큼 개별 사이클을 진행하는 것으로 계산됩니다.  예를 들어 설명해 보겠습니다.
+
+아래와 같이 짜여진 `Experiment` 객체의 경우, 충전-방전을 2회 수행하여 직관적으로는 2번의 다른 사이클을 진행한 것처럼 생각할 수 있지만 `PyBaMM`에서는 1사이클로 취급합니다.
+
+```python
+pybamm.Experiment(
+    [
+        (
+            "Charge at 1.5A until 4.2V",
+            "Discharge at 5A until 2.5V",
+            "Charge at 1.5A until 4.2V",
+            "Discharge at 5A until 2.5V",
+        )
+    ]
+)
+```
+
+아래의 정의는 위의 정의와 동일하지만 2번의 루프를 수행하도록 되어 있어, 충전-방전을 한 사이클로 2사이클의 시뮬레이션을 수행한 것처럼 처리됩니다.
+
+```python
+pybamm.Experiment(
+    [
+        (
+            "Charge at 1.5A until 4.2V",
+            "Discharge at 5A until 2.5V",
+        )
+    ] * 2
+)
+```
+
+`solve`를 수행할 때 `starting_solution` 인자에 이전 `solve` 결과로 얻은 `Solution` 객체를 넘겨 주면 초기 상태에서 시뮬레이션을 시작하는 대신 기존 시뮬레이션 결과로 얻어진 내부 변수들을 유지한 상태로 다음 시뮬레이션을 계속 수행할 수 있습니다.  이 경우 갱신되는 `Solution` 객체에는 이전 단계들에서의 시뮬레이션 수행 결과들이 모두 누적되어 저장됩니다.
 
 `Solution` 객체를 전달받았을 때 방전 용량을 계산하는 함수를 작성해 주겠습니다.  `Solution` 객체는 이전 사이클들의 시뮬레이션 수행 결과를 포함하는 `cycles` 리스트를 가지고 있습니다.  이 리스트의 원소들은 역시 모두 `Solution` 객체이며, 지금까지 수행된 시뮬레이션 결과들을 각 사이클 별로 가지고 있습니다.
 
