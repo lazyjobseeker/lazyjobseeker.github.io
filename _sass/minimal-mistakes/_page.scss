@@ -90,11 +90,22 @@ body {
 }
 
 .page__content {
+
   h2 {
     font-family: $page-h2-title; // Default: No attribute;
     font-weight: normal; // Default: No attribute;
     padding-bottom: 0.5em;
     border-bottom: 2px solid $border-color; // Default: 1px solid $border-color;
+  }
+
+  h3 {
+    font-family: $page-h3-title; // Default: No attribute;
+    font-weight: normal; // Default: No attribute;
+  }
+
+  h4 {
+    font-family: $page-h4-title; // Default: No attribute;
+    font-weight: normal; // Default: No attribute;
   }
   
   li {

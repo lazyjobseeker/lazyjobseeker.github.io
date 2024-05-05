@@ -13,15 +13,17 @@ $paragraph-indent: false !default; // true, false (default)
 $indent-var: 1.3em !default;
 
 /* system typefaces */
-$base-font: 'NanumSquareNeo-kr', 'NanumSquareNeo-en'; // 240421 NanumSquareNeo-Variable is malfunctioning
+$base-font: 'Base-kr', 'Base-en'; // 240421 NanumSquareNeo-Variable is malfunctioning
 $serif: $base-font !default; //"Noto Serif", "Noto Serif KR", serif; Georgia, Times, serif !default;
 $sans-serif: $base-font, -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", sans-serif !default; // "NanumSquareNeo-Variable"
-$monospace: 'NanumSquareNeo-code', 'Consolas', monospace !default;
+$monospace: 'Base-code-kr', 'Consolas', monospace !default;
 $masthead-site-title: 'S-CoreDream-7ExtraBold';
 $masthead-site-subtitle: 'S-CoreDream-6Bold';
 $archive-title: 'S-CoreDream-5Medium';
 $page-h1-title: 'S-CoreDream-6Bold';
 $page-h2-title: 'S-CoreDream-6Bold';
+$page-h3-title: 'S-CoreDream-5Medium';
+$page-h4-title: 'S-CoreDream-4Regular';
 
 /* sans serif typefaces */
 $sans-serif-narrow: $sans-serif !default;
