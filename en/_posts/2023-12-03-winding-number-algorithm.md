@@ -4,7 +4,7 @@ category: programming
 tags:
   - python
 created_at: 2023-12-03 03:34:31 +09:00
-last_modified_at: 2024-04-15 09:42:39 +09:00
+last_modified_at: 2024-05-06 00:48:31 +09:00
 excerpt: "Implementing winding-number algorithm to determine if a point is placed inside a polygon"
 ---
 
@@ -12,7 +12,7 @@ excerpt: "Implementing winding-number algorithm to determine if a point is place
 
 **Winding Number Algorithm** is an algorithm to determine if a point is located inside a polygon or not.
 
-![](/assets/images/20231203-winding-number-algorithm.png){: width="600" .align-center}
+{% include img-gdrive alt="Winding number algorithm" id="1_kl89dX1XsrOMeqqihb89RYRh_qK7g0u" %}
 
 The basic idea looks like above image.  If we cast a ray starting from the point we want to determine its inclusion inside a given polygon, and if the ray makes **odd** numbers of intersection with the polygon, the point lays inside the polygon.
 
@@ -20,7 +20,7 @@ Let's brief how can I implement this in `python`.  Before moving on, a conventio
 
 For a square like below,  list **[(0,0),(0,1),(1,1),(1,0)]** can describe this square, for example.
 
-![](/assets/images/20231203-square-example.png){: width="300" .align-center}
+{% include img-gdrive alt="Example Square" id="1fxhhxvBL5x2xRhavm0GgA5SkmXLBLxIn" %}
 
 ## 2. Implementation
 
@@ -58,7 +58,7 @@ The ray can be cast along any direction, but in this example I will cast it in $
 
 And if the $y$-coordinate of $P$ locates between the $y$-coordinates of segment-comprising points, ray will interect the segment, so increase counter by 1 for `winding number` variable. **...(3)**
 
-![](/assets/images/20231203-square-cornercase.png){: width="300" .align-center}
+{% include img-gdrive alt="Cornercases" id="14ek7Ow5kcww4lrYaujrcOSOg2vEmHadc" %}
 
 It needs to be noted that there is a corner-case to be handled.  When $y$-coordinate of $P$ is same with one of the points comprising a segment, I let the winding number increase by 0.5 than 1.  Unless I do this, the vertex whose $y$ coordinate coincide with that of $P$ contribute twice in winding number calculation and spoil the result. **...(4)**
 

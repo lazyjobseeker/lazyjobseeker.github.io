@@ -4,7 +4,7 @@ category: programming
 tags:
   - python
 created_at: 2023-11-05 11:57:00 +09:00
-last_modified_at: 2024-05-03 14:33:54 +09:00
+last_modified_at: 2024-05-06 00:42:50 +09:00
 excerpt: "How to 1) install python and setting PATH variable and 2) package custom python project using setuptools package for distribution."
 ---
 
@@ -18,7 +18,7 @@ However, sometimes you might want to maintain multiple versions of pythons or si
 
 I installed [Python 3.10](https://www.python.org/downloads/release/python-3100/).
 
-![Python Version Check](/assets/images/python-path-versioncheck.png){: width="600" .align-center}
+{% include img-gdrive alt="Python Version Check" id="1H5slD0obw4mvz2MYzcpUxtOUGKCuEhcT" %}
 
 After installation you can check it was successful by running `python --version` command in your command prompt.  If you checked **Add Python to PATH** during installaton this must work in most cases, as it makes your system know the what it should do when you type `python` in the command prompt.
 
@@ -26,21 +26,23 @@ After installation you can check it was successful by running `python --version`
 
 Now let's check how my `PATH` variables look like.  In my case I was able to access [Control Panel]-[System Properties] to check this.
 
-![Python PATH Setting - 1](/assets/images/python-path-1.png){: width="600" .align-center}
+{% include img-gdrive alt="Python PATH Setting-1" id="12QMRoLDe41PZrdgJZfW1mfzRDvj1sjYC" %}
+
 
 Now click [Environment Variables...] button, and from bottom panel of [System Variables] activate `Path` and click `Edit` button.
 
-![Python PATH Setting - 2](/assets/images/python-path-2.png){: width="600" .align-center}
+{% include img-gdrive alt="Python PATH Setting-2" id="1nqXyZkp_RqCoIssLUdvpCkYnQnBhhAKE" %}
 
-![Python PATH Setting - 3](/assets/images/python-path-3.png){: width="600" .align-center}
+{% include img-gdrive alt="Python PATH Setting-3" id="1EBkgjXA16HIW4z3je8WCns_jH7dzBU1z" %}
 
 You can see above kinds of paths are registered as `Path` variable.
 
-![Python PATH Setting - 4](/assets/images/python-path-4.png){: width="600" .align-center}
+{% include img-gdrive alt="Python PATH Setting-4" id="10b4ksMl4gZF9iS22O5h6HMWulwsLnFND" %}
 
 First of all, `/Python310` directory contains `python.exe` executable file.  So when you type `python` in the command prompt, what system actually do is finding this `exe` file and execute it.  If you force to rename `python.exe` file, you can make it fail.  Try for fun!
 
-![Python PATH Setting - 5](/assets/images/python-path-5.png){: width="600" .align-center}
+{% include img-gdrive alt="Python PATH Setting-5" id="1csOI5ihb4pr5_pZ7T7ostCQzYgMtR5Hl" %}
+
 On the other hands, in `/Python310/Scripts` you can find `pip.exe`.  `pip` is a package management system of Python and `pip.exe` is executable file for this package.  So after installing python you can use command like `pip install` to install packages you need with assistance of `pip`.
 
 ![Python PIP Version Check](/assets/images/python-path-pip-versioncheck.png){: width="600" .align-center}

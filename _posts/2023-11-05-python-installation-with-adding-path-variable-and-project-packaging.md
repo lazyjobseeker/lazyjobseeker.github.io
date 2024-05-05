@@ -4,7 +4,7 @@ category: programming
 tags:
   - python
 created_at: 2023-11-05 11:57:00 +09:00
-last_modified_at: 2024-05-03 14:32:05 +09:00
+last_modified_at: 2024-05-06 00:43:24 +09:00
 excerpt: "python을 설치하고 환경 변수를 설정하는 방법, setuptools 패키지를 이용해 내가 만든 python 패키지를 배포 가능한 형태로 만드는 방법"
 ---
 
@@ -18,7 +18,7 @@ excerpt: "python을 설치하고 환경 변수를 설정하는 방법, setuptool
 
 [파이썬 3.10 버전](https://www.python.org/downloads/release/python-3100/)을 설치했다. 원래 최신 버전인 3.12를 설치하려고 했는데, 작업 중인 프로젝트가 동작하는 pytorch 라이브러리가 3.12 버전 파이썬을 아직 지원하지 않았다.
 
-![파이썬 버전 체크하기](/assets/images/python-path-versioncheck.png){: width="600" .align-center}
+{% include img-gdrive alt="파이썬 버전 체크하기" id="1H5slD0obw4mvz2MYzcpUxtOUGKCuEhcT" %}
 
 파이썬 설치 후에는 `python --version` 명령으로 정상 설치 여부 및 버전 정보를 확인할 수 있다. `python`이라는 명령어를 명령프롬프트에서 인식할 수 있게 된 것이 바로 환경 변수에 새 파이썬 관련 경로가 등록되었기 때문이다.
 
@@ -26,24 +26,25 @@ excerpt: "python을 설치하고 환경 변수를 설정하는 방법, setuptool
 
 환경 변수가 어떻게 등록되어 있는지 확인해 보자. 나는 윈도우 10을 사용하고 있고 [제어판]-[시스템 환경 변수 편집] 메뉴로 접근해서 관련 내용을 확인할 수 있다.
 
-![환경 변수 편집하기-1](/assets/images/python-path-1.png){: width="600" .align-center}
+{% include img-gdrive alt="환경 변수 편집하기-1" id="12QMRoLDe41PZrdgJZfW1mfzRDvj1sjYC" %}
 
 [환경 변수] 버튼을 누르고, [시스템 변수]의 Path를 확인해 보자.
 
-![환경 변수 편집하기-2](/assets/images/python-path-2.png){: width="600" .align-center}
+{% include img-gdrive alt="환경 변수 편집하기-2" id="1nqXyZkp_RqCoIssLUdvpCkYnQnBhhAKE" %}
 
-![환경 변수 편집하기-3](/assets/images/python-path-3.png){: width="600" .align-center}
+{% include img-gdrive alt="환경 변수 편집하기-3" id="1EBkgjXA16HIW4z3je8WCns_jH7dzBU1z" %}
 
 위와 같은 경로가 시스템 환경 변수로 등록되어 있는 것을 알 수 있다. 대관절 저 폴더들에 뭐가 들어 있길래 `python --version` 같은 명령을 사용할 수 있게 되었을까?
 
-![환경 변수 편집하기-4](/assets/images/python-path-4.png){: width="600" .align-center}
+{% include img-gdrive alt="환경 변수 편집하기-4" id="10b4ksMl4gZF9iS22O5h6HMWulwsLnFND" %}
 
 우선 `/Python310` 디렉토리에는 `python.exe` 실행 파일이 들어 있다. 명령 프롬프트에 `python`이라고 적어 넣을 때, 사실은 저 파일을 실행하라고 명령하는 것이다. 실제로 저 실행 파일의 이름을 바꾸어 버리면 `python --version` 같은 명령들이 제대로 동작하지 않는다.
 
-![환경 변수 편집하기-5](/assets/images/python-path-5.png){: width="600" .align-center}
+{% include img-gdrive alt="환경 변수 편집하기-5" id="1csOI5ihb4pr5_pZ7T7ostCQzYgMtR5Hl" %}
+
 한편 `/Python310/Scripts` 경로에서는 `pip.exe`를 찾을 수 있다. 파이썬의 패키지 관리 시스템 프로그램인 pip의 실행 파일이다. 파이썬 설치 과정에서 이 경로가 여기에 등록되었기 때문에 파이썬 설치 이후 명령 프롬프트에서 별다른 작업을 하지 않아도 `pip install` 명령으로 패키지 설치 작업을 할 수 있다.
 
-![버전 확인하기](/assets/images/python-path-pip-versioncheck.png){: width="600" .align-center}
+{% include img-gdrive alt="1Lp8FPt8QFNkfpslCavRIE7L1-Zvr0Y-5" id="1csOI5ihb4pr5_pZ7T7ostCQzYgMtR5Hl" %}
 
 pip 버전 확인도 파이썬 버전 확인과 동일하게 할 수 있다.
 
