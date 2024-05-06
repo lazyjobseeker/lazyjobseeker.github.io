@@ -7,7 +7,7 @@ tags:
   - marcus-model
   - kinetics
 created_at: 2024-03-05 11:43:24 +09:00
-last_modified_at: 2024-05-06 15:57:37 +09:00
+last_modified_at: 2024-05-06 22:57:19 +09:00
 excerpt: The concept of Marcus microscopic model for isoenergetic, radiationless and configuration-preserving electron transfer is detailed.
 ---
 
@@ -28,19 +28,37 @@ In the infant stage of its development, the reacting species were thought to bum
 
 Here the term **homogeneous** and **heterogeneous** needs to be elaborated.  Most simply, homogeneous reaction does not involves electrode but heterogeneous reaction does.  Furthermore, each kind of reaction is further divided into **outer-sphere** and **inner-sphere** reactions.  This classification is based on proximity of reacting species to each other, for outer-sphere reaction the reacting species are less intimate.  For example, in *heterogeneous outer-sphere* reaction, reacting species are a species in solution and electrode surface, and they are separated by solvent layer and not in direct contact to each other.  But in *inner-sphere* case, reacting species can get closer to the electrode surface and electon transfer occurs through some chemical bonding (ex. there is a ligand molecule briging electrode surface to reacting species).  The concept is similar for homogeneous reaction but in homogeneous case there are two different reacting species (oxidized and reduced), no electrode surface involved.
 
+## Rate Constant
+
+As introduced above, there are two different types of reactions - heterogeneous and homogeneous.  Before moving on further, we narrow our case to a simple reduction process of oxidized species $O$ to reduced species $R$.  And I also use a notation $K_\text{P,O}$ for the equilibrium constant of reaction between precursor state ($P$) and oxidized form ($O$).
+
+An important conclusion deriving in formulation of rate constant is that the overall reaction rate can be written in following form, regardless of the given reaction is heterogeneous or homogeneous:
+
+$$ k_\text{f} = k_{\text{f,pre}}K_\text{P,O} \tag{1} $$
+
+Where $k_\text{f,pre}$ is rate constant for the reaction $\ce{O -> P}$.  Please note that our goal is deriving expression for $k_\text{f}$ which is for the reaction $\ce{O -> R}$ but now we are considering new state $P$ which exist in between.
+
+Then we further assume that $k_\text{f,pre}$ takes well-accepted Arrhenius form, giving:
+
+$$ k_\text{f} = K_\text{P,O}A'exp(-\Delta G_f^\ddagger / RT) \tag{2} $$
+
+One can further refactor $A$' in **(2)** by introducing ***nuclear frequency factor*** $\nu_n$ and ***transmission coefficient*** $\kappa_\text{el}$.
+
+With all above elaboration, remaining is to find expression for $-\Delta G_f^\ddagger$.
+
 ## Reaction Coordinate vs. Free Energy Plot
 
-Let's consider a simple redox reaction involving single electron transfer and reaction coordinate *vs.* free energy plot.  From above **Preliminary Concepts**, we limit our consideration to *outer-sphere heterogeneous* case.
+Let's consider a simple redox reaction involving single electron transfer and reaction coordinate *vs.* free energy plot.  Here we limit our consideration to *outer-sphere heterogeneous* case.
 
-$$\ce{O + e -> R} \tag{1}$$
+$$\ce{O + e -> R} \tag{3}$$
 
 And further assume that we can plot free energies of $O$ and $R$ on the plot, having quadratic expression like below:
 
-$$G^{0}_{O}(q)=(k/2)(q-q_O)^2 \tag{2}$$
+$$G^{0}_{O}(q)=(k/2)(q-q_O)^2 \tag{4}$$
 
-$$G^{0}_{R}(q)=(k/2)(q-q_R)^2+\Delta G^0 \tag{3}$$
+$$G^{0}_{R}(q)=(k/2)(q-q_R)^2+\Delta G^0 \tag{5}$$
 
-Then we can plot $(2)$ and $(3)$ as follows.
+Then we can plot $(4)$ and $(5)$ as follows.
 
 {% include jsxgraph.html graphName="240314-marcus-0" jxgNo=0 width=300 height=300 caption="Reaction coordinate vs. free energy"%}
 
@@ -54,12 +72,12 @@ Take a look at the path for forward-reaction($\ce{O + e -> R}$).  Starting from 
 
 To formulate activation energies of forward and backward reactions and thereby predict rate constants of those reactions, we have to calculate the coordinate of electron transfer ($q^\ddagger$) first.
 
-$$q^\ddagger =\frac{q_R+q_O}{2}+\frac{\Delta G_0}{k(q_R-q_O)}\tag{4}$$ 
+$$q^\ddagger =\frac{q_R+q_O}{2}+\frac{\Delta G_0}{k(q_R-q_O)}\tag{6}$$ 
 
 If we write $G_O(q_O)=0$, activation energy for forward reaction ($\Delta G^\ddagger_f$) can be found.
 
 $$\Delta G^\ddagger_f=\frac{k(q_R-q_O)^2}{8}\left[1+\frac{2\Delta G_0}{k(q_R-q_O)
-^2}\right]^2 \tag{5}$$
+^2}\right]^2 \tag{7}$$
 
 Similar sequence can be done to get the same for backward reaction ($\Delta G^\ddagger_b$).
 
@@ -67,13 +85,17 @@ Similar sequence can be done to get the same for backward reaction ($\Delta G^\d
 
 **Reorganization energy** is defined as follows:
 
-$$\lambda = \frac{k}{2}(q_R-q_O)^2\tag{6}$$
+$$\lambda = \frac{k}{2}(q_R-q_O)^2\tag{8}$$
 
-With $(6)$, we can simplify $(5)$.
+With $(8)$, we can simplify $(7)$.
 
-$$\Delta G^\ddagger_f=\frac{\lambda}{4}\left(1+\frac{\Delta G_0}{\lambda}\right)^2 \tag{7}$$
+$$\Delta G^\ddagger_f=\frac{\lambda}{4}\left(1+\frac{\Delta G_0}{\lambda}\right)^2 \tag{9}$$
 
 Reorganization energy is the amount of energy required to distort the reactant ($O$) from its stable state ($q_O$) to that of product ($q_R$), without allowing electron transfer at transition state.
+
+## Butler-Volmer Kinetics and Marcus Theory
+
+An important appreciation should be given to the linkage between Marcus theory and Butler-Volmer (BV) kinetics, which I will only brief here.  By plugging Gibbs free energy terms into rate constant forms like **(2)**, one can affirm that rate constants from Marcus theory leads to BV-type expression for *reaction current vs. overpotential* relation.  Most of BV kinetics' characteristic holds for its Marcus theory version.  However, an astonishing deviation from BV kinetics' expectation also comes out - the **Inverted region**.
 
 ## Marcus Inverted Region
 

@@ -302,6 +302,7 @@ defaults:
       path: "_posts"
       type: posts
     values:
+      revision: 0
       lang: ko
       toc: true
       # toc_sticky: true
@@ -322,6 +323,7 @@ defaults:
       path: "_drafts"
       type: posts
     values:
+      revision: 0
       lang: ko
       toc: true
       # toc_sticky: true
@@ -342,6 +344,7 @@ defaults:
       path: "en/_posts"
       type: posts
     values:
+      revision: 0
       lang: en
       toc: true
       # toc_sticky: true
@@ -362,6 +365,7 @@ defaults:
       path: "en/_drafts"
       type: posts
     values:
+      revision: 0
       lang: en
       toc: true
       # toc_sticky: true
@@ -382,6 +386,7 @@ defaults:
       path: "_docs"
       type: pages
     values:
+      revision: 0
       layout: single
       author_profile: true
       read_time: true
@@ -395,6 +400,7 @@ defaults:
       path: "en/_docs"
       type: pages
     values:
+      revision: 0
       layout: single
       author_profile: true
       read_time: true
