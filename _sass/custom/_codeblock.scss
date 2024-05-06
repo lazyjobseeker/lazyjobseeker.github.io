@@ -113,7 +113,7 @@ div {
 /* Overwrite bootstrap tooltip */
 .tooltip-inner {
   font-size: 0.7rem;
-  font-family: "YEONGJUSeonbiTTF";
+  font-family: $copy-success-font;
   max-width: 220px;
   text-align: left;
   color: $code-header-text-color;

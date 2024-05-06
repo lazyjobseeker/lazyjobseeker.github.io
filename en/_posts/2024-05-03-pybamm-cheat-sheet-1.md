@@ -1,11 +1,11 @@
 ---
-title: Battery Modeling with PyBaMM - 1
+title: Battery Modeling with PyBaMM (1)
 category: lithium-ion-battery
 tags:
   - battery
   - modelling
 created_at: 2024-05-03 14:37:54 +09:00
-last_modified_at: 2024-05-03 15:52:50 +09:00
+last_modified_at: 2024-05-06 09:06:28 +09:00
 excerpt: How to use open-source battery modeling package PyBaMM
 ---
 
@@ -83,6 +83,10 @@ sim.solve([0,3600], initial_soc=0)
 sim.plot()
 ```
 
+You can get charging simulation result by running above code.
+
+{% include img-gdrive alt="5A Charging Simulation" id="1wiUgt-0ai0ZsOz9PvlynDyHBzAhotOk8" %}
+
 ### Writing Down Custom Experiment
 
 Rather than setting constant current value, you can also design more complex charging/discharging profiles geared towards your own purpose of test.  For this, you need to create `Experiment` object and fill the experimental details.  A cool point in writing down the sequence in `PyBaMM` is that it is closer to *writing down* what you want than filling in tables as it does when you handle battery cyclers. 
@@ -105,6 +109,25 @@ experiment = pybamm.Experiment(
 )
 
 ```
+
+to use custom-written `Experiment` object, pass it as `experiment` argument in creating `Simulation` object.
+
+```python
+import pybamm
+
+model = pybamm.lithium_ion.DFN()
+parameter_values = pybamm.ParameterValues("Chen2020")
+parameter_values['Current function [A]'] = -5
+sim = pybamm.Simulation(model,
+					    parameter_values=parameter_values,
+					    experiment=experiment)
+sim.solve(initial_soc=0)
+sim.plot()
+```
+
+Note that `[0, 3600]` argument used in `solve` method call is removed.  As `experiment` object contains full detail of our wanted test, we do not need to manifest simulation time anymore.
+
+{% include img-gdrive alt="Custom charging simulation" id="10S6rRFknVNArj2JdHmlA2jBpEowrLcrr" %}
 
 ### Cycle Life Test
 
@@ -129,7 +152,7 @@ probe_experiment = pybamm.Experiment(
         (
             "Charge at 1 A until 4.2V",
             "Hold at 4.2V until 0.01C",
-            "Rest for 4 Hour",
+            "Rest for 4 hours",
             "Discharge at 0.5A until 2.5V",
         )
     ]
@@ -226,7 +249,7 @@ Now I write down long cycle test and draw cycle retention graph.  After standard
 
 ```python
 N = 10
-M = 50
+M = 100
 
 probe_sols = []
 probe_cycs = []
@@ -273,9 +296,10 @@ for i in range(N):
 
 plt.scatter(cycle_cycs, cycle_caps)
 plt.scatter(probe_cycs, probe_caps)
-plt.ylim(0, 5.2)
 plt.show()
 ```
+
+{% include img-gdrive alt="1000-cycle-test" id="1p2y28UNy3l92yo43sG4Rd-Vvg8fqRBxF" %}
 
 ### Using Customized Parameters
 
@@ -323,7 +347,7 @@ def nmc_LGM50_ocp_Chen2020(sto):
 
 When you see the raw code as above, you can find that this is just a custom function defined with aid of `numpy`.  You can freely define your own and replace existing parameter function.
 
-Below I found some different fitted function applicable for lithium ion phosphate (LFP) cathode material, based on work of Li(2021)[^2]
+Below I found some different fitted function applicable for NCM cathode material, based on work of Li(2021)[^2]
 
 [^2]: [J. Li, M. Zhao, C. Dai, Z. Wang, and M. Pecht, "A Mathematical Method for Open-Circuit Potential Curve Aquisition for Lithium-Ion Batteries", *J. Electroanal. Chem.*, **895**, 115488 (2021).](https://dx.doi.org/10.1016/j.jelechem.2021.115488)
 
@@ -334,7 +358,7 @@ def ncm_ocp_Li2021(sto):
 
     u_eq = (
         4.065
-        - 0.2076 * np.tanh((sto - 0.4)/0.06264))
+        - 0.2076 * np.tanh((sto - 0.4)/0.06264)
         - 0.06572 * np.tanh((sto - 0.572)/0.04231)
         - 0.01478 * np.tanh((sto - 0.745)/0.09524)
         + 0.002814 * np.tanh((sto - 0.4445)/0.01732)
@@ -350,4 +374,17 @@ def ncm_ocp_Li2021(sto):
     return u_eq
 ```
 
-I can use this function to run my LFP battery model.  But for sure we need to be careful because adjusting a battery model does not limits to modifying cathode OCP only but all other related properties should be appropriately modified.
+I can use this function to run my NCM battery model.  But for sure we need to be careful because adjusting a battery model does not limits to modifying cathode OCP only but all other related properties should be appropriately modified.
+
+
+```python
+model = pybamm.lithium_ion.DFN()
+parameter_values = pybamm.ParameterValues("Chen2020")
+parameter_values['Positive electrode OCP [V]'] = ncm_ocp_Li2021
+
+sim = pybamm.Simulation(model, parameter_values=parameter_values)
+sim.solve([0, 3600])
+sim.plot()
+```
+
+{% include img-gdrive alt="커스텀 OCP 함수 적용하기" id="1PsJYMeFhUa2sp01m-qBw5Y71zw8Kkemd" %}

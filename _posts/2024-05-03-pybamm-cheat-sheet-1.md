@@ -1,11 +1,11 @@
 ---
-title: 파이밤(PyBaMM)으로 배터리 모델링하기 - 1
+title: 파이밤(PyBaMM)으로 배터리 모델링하기 (1)
 category: lithium-ion-battery
 tags:
   - battery
   - modelling
 created_at: 2024-05-03 14:36:07 +09:00
-last_modified_at: 2024-05-03 15:27:12 +09:00
+last_modified_at: 2024-05-06 09:05:05 +09:00
 excerpt: 배터리 모델링 오픈소스 PyBaMM 소개 및 사용 방법 정리
 ---
 
@@ -79,11 +79,15 @@ import pybamm
 
 model = pybamm.lithium_ion.DFN()
 parameter_values = pybamm.ParameterValues("Chen2020")
-parameter_values['Current Function[A]'] = -5
-sim = pybamm.simulation(model, parameter_values=parameter_values)
+parameter_values['Current function [A]'] = -5
+sim = pybamm.Simulation(model, parameter_values=parameter_values)
 sim.solve([0,3600], initial_soc=0)
 sim.plot()
 ```
+
+위 코드를 실행하면, 아래와 같이 됩니다.
+
+{% include img-gdrive alt="5A 충전 시뮬레이션" id="1wiUgt-0ai0ZsOz9PvlynDyHBzAhotOk8" %}
 
 ### 커스텀 충방전 시퀀스 작성하기
 
@@ -103,8 +107,26 @@ experiment = pybamm.Experiment(
         ),
     ]
 )
-
 ```
+
+`Experiment` 객체를 사용하기 위해서는 `Simulation` 객체를 만들 때 `experiment` 인자로 넘겨 주면 됩니다.
+
+```python
+import pybamm
+
+model = pybamm.lithium_ion.DFN()
+parameter_values = pybamm.ParameterValues("Chen2020")
+parameter_values['Current function [A]'] = -5
+sim = pybamm.Simulation(model,
+					    parameter_values=parameter_values,
+					    experiment=experiment)
+sim.solve(initial_soc=0)
+sim.plot()
+```
+
+`solve`를 호출할 때 시뮬레이션 시간을 명시했던 `[0, 3600]`를 빼 주었습니다.  `experiment` 객체의 내용에 어떤 충전/방전을 어느 시간 및 종지 조건에 따라 진행할지 모두 명시되어 있기 때문에 시뮬레이션 시간의 별도 명시가 불필요합니다.
+
+{% include img-gdrive alt="커스텀 MSCCCV 충전 시뮬레이션" id="10S6rRFknVNArj2JdHmlA2jBpEowrLcrr" %}
 
 ### 사이클 시험 시뮬레이션하기
 
@@ -131,7 +153,7 @@ probe_experiment = pybamm.Experiment(
         (
             "Charge at 1 A until 4.2V",
             "Hold at 4.2V until 0.01C",
-            "Rest for 4 Hour",
+            "Rest for 4 hours",
             "Discharge at 0.5A until 2.5V",
         )
     ]
@@ -203,7 +225,7 @@ def get_cycle_dchg_cap(solution: pybamm.Solution):
 
 ```python
 N = 10
-M = 50
+M = 100
 
 probe_sols = []
 probe_cycs = []
@@ -250,9 +272,10 @@ for i in range(N):
 
 plt.scatter(cycle_cycs, cycle_caps)
 plt.scatter(probe_cycs, probe_caps)
-plt.ylim(0, 5.2)
 plt.show()
 ```
+
+{% include img-gdrive alt="1000-사이클-테스트" id="1p2y28UNy3l92yo43sG4Rd-Vvg8fqRBxF" %}
 
 ### 커스텀 파라미터 사용하기
 
@@ -298,7 +321,7 @@ def nmc_LGM50_ocp_Chen2020(sto):
 
 새로운 함수를 정의하여 이러한 함수 파라미터들 역시 변경해줄 수 있습니다.  배터리 4대소재의 변경에 따라 자유롭게 함수 파라미터를 변경하고 시뮬레이션을 수행할 수 있습니다.
 
-아래의 예시는 LFP 양극의 OCP를 Li(2021)[^2]의 작업을 참고하여 변경해 본 것입니다.
+아래의 예시는 NCM 양극의 OCP를 Li(2021)[^2]의 작업을 참고하여 변경해 본 것입니다.
 
 [^2]: [J. Li, M. Zhao, C. Dai, Z. Wang, and M. Pecht, "A Mathematical Method for Open-Circuit Potential Curve Aquisition for Lithium-Ion Batteries", *J. Electroanal. Chem.*, **895**, 115488 (2021).](https://dx.doi.org/10.1016/j.jelechem.2021.115488)
 
@@ -309,7 +332,7 @@ def ncm_ocp_Li2021(sto):
 
     u_eq = (
         4.065
-        - 0.2076 * np.tanh((sto - 0.4)/0.06264))
+        - 0.2076 * np.tanh((sto - 0.4)/0.06264)
         - 0.06572 * np.tanh((sto - 0.572)/0.04231)
         - 0.01478 * np.tanh((sto - 0.745)/0.09524)
         + 0.002814 * np.tanh((sto - 0.4445)/0.01732)
@@ -326,3 +349,15 @@ def ncm_ocp_Li2021(sto):
 ```
 
 이제 이 함수를 이용하여 `Positive electrode OCP [V]` 파라미터를 업데이트하고 시뮬레이션을 수행할 수 있습니다.
+
+```python
+model = pybamm.lithium_ion.DFN()
+parameter_values = pybamm.ParameterValues("Chen2020")
+parameter_values['Positive electrode OCP [V]'] = ncm_ocp_Li2021
+
+sim = pybamm.Simulation(model, parameter_values=parameter_values)
+sim.solve([0, 3600])
+sim.plot()
+```
+
+{% include img-gdrive alt="커스텀 OCP 함수 적용하기" id="1PsJYMeFhUa2sp01m-qBw5Y71zw8Kkemd" %}
