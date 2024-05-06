@@ -1,7 +1,8 @@
 ---
 created_at: 2024-04-29 21:18:45 +09:00
-last_modified_at: 2024-05-03 10:22:42 +09:00
+last_modified_at: 2024-05-06 10:45:21 +09:00
 ---
+
 # 잡다한 것들
 ---
 ## 잘 되던 `pip`가 갑자기 안 될 때
@@ -46,6 +47,9 @@ hard carbon -> low coulombic efficiency, large initial irreversible capacity, vo
 The excellent structural stability of petroleum coke can be attributed to the amorphous carbon regions, which act as covalent joints to pin the graphtic layers together.
 
 ##
+
+# GoatCounter
+---
 
 # 알골리아 서치 엔진 세팅
 ---

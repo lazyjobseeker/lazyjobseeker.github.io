@@ -1,4 +1,5 @@
 ---
+revision: 1
 title: Marcus Model of Electron Transfer
 category: electrochemistry
 tags:
@@ -6,11 +7,11 @@ tags:
   - marcus-model
   - kinetics
 created_at: 2024-03-05 11:43:24 +09:00
-last_modified_at: 2024-04-15 09:44:27 +09:00
+last_modified_at: 2024-05-06 15:57:37 +09:00
 excerpt: The concept of Marcus microscopic model for isoenergetic, radiationless and configuration-preserving electron transfer is detailed.
 ---
 
-## 1. Summary
+## Summary
 
 **Marcus microscopic model** explains how the kinetics of electron transfer reaction is determined.  Formulation of Marcus model is based on three crucial assumptions:
 
@@ -19,9 +20,17 @@ excerpt: The concept of Marcus microscopic model for isoenergetic, radiationless
 
 Marcus model starts from assumption that free-energies of oxidized species ($O$) and reduced species ($R$) could both be described in quadratic form, formulating explicit equation explaining rate constants of forward- and backward-reaction.  In this process, the concept of **reorganization energy ($\lambda$)** is posed to be important.  Furthermore, the theory predicts the existence of so-called **Marcus inverted region**, where rate constants of reactions cannot be increased further by increasing the applied overpotential.
 
-## 2. Reaction Coordinate vs. Free Energy Plot
+## Preliminary Concepts
 
-Let's consider a simple redox reaction involving single electron transfer and reaction coordinate *vs.* free energy plot.
+In the infant stage of its development, the reacting species were thought to bump into each other by brownian motion of hard spheres.  After it further developed to consider so-called *precursor state*, which is termed to designate a coupling between 1) electrode and reacting species, or 2) oxidized and reduced species.  The former case describes *heterogeneous* reaction and the latter describes *homogeneous* case.  Any of those two coupled pair is considered to be an *unimolecular* entity, meaning that a combined free energy is assigned to the pair and any change to the free energy is regared to arise from the change in internal confirmation of an single entity. 
+
+{% include img-gdrive alt="Homogeneous and Heterogeneous Reactions" id="1k8IkDUFKtOdfs32rCABJ-VUvWYDLilap" %}
+
+Here the term **homogeneous** and **heterogeneous** needs to be elaborated.  Most simply, homogeneous reaction does not involves electrode but heterogeneous reaction does.  Furthermore, each kind of reaction is further divided into **outer-sphere** and **inner-sphere** reactions.  This classification is based on proximity of reacting species to each other, for outer-sphere reaction the reacting species are less intimate.  For example, in *heterogeneous outer-sphere* reaction, reacting species are a species in solution and electrode surface, and they are separated by solvent layer and not in direct contact to each other.  But in *inner-sphere* case, reacting species can get closer to the electrode surface and electon transfer occurs through some chemical bonding (ex. there is a ligand molecule briging electrode surface to reacting species).  The concept is similar for homogeneous reaction but in homogeneous case there are two different reacting species (oxidized and reduced), no electrode surface involved.
+
+## Reaction Coordinate vs. Free Energy Plot
+
+Let's consider a simple redox reaction involving single electron transfer and reaction coordinate *vs.* free energy plot.  From above **Preliminary Concepts**, we limit our consideration to *outer-sphere heterogeneous* case.
 
 $$\ce{O + e -> R} \tag{1}$$
 
@@ -54,7 +63,7 @@ $$\Delta G^\ddagger_f=\frac{k(q_R-q_O)^2}{8}\left[1+\frac{2\Delta G_0}{k(q_R-q_O
 
 Similar sequence can be done to get the same for backward reaction ($\Delta G^\ddagger_b$).
 
-## 3. Reorganization Energy
+## Reorganization Energy
 
 **Reorganization energy** is defined as follows:
 
@@ -66,7 +75,7 @@ $$\Delta G^\ddagger_f=\frac{\lambda}{4}\left(1+\frac{\Delta G_0}{\lambda}\right)
 
 Reorganization energy is the amount of energy required to distort the reactant ($O$) from its stable state ($q_O$) to that of product ($q_R$), without allowing electron transfer at transition state.
 
-## 4. Marcus Inverted Region
+## Marcus Inverted Region
 
 An important prediction from Marcus theory is existence of **inverted region**.  Let's examine this interesting phenomenon with an interactive plot below.
 
