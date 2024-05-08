@@ -32,9 +32,9 @@ vector<char[]> v;
 v.push_back(test);
 ```
 
-which I thought was the very thing I wanted to do.  It would work by simply modifying `test []` to `{'apple', 'banana', 'strawberry'}`.
+which I thought was the very thing I wanted to do.  I was under impression that it would work for me by simply modifying `test []` to `{'apple', 'banana', 'strawberry'}`.
 
-And below answer is the one with most votes:
+When I struck by below answer with the most upvotes.
 
 > You cannot store arrays in vectors (or in any other standard library container).  The things that standard library containers store must be copyable and assignable, and arrays are neither of these.
 
