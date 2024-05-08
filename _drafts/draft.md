@@ -1,7 +1,62 @@
 ---
 created_at: 2024-04-29 21:18:45 +09:00
-last_modified_at: 2024-05-06 10:45:21 +09:00
+last_modified_at: 2024-05-09 00:31:31 +09:00
 ---
+
+# Job Hunting in the US 🗽
+
+## What I have achieved
+
+My journey in battery industry dates back to my Ph.D. course.  Back then I joined a lab in Seoul National University's Materials Science & Engineering department.  Professor Byungwoo Park was leading the lab and our lab's main focus was on energy materials - solar cells and batteries.
+
+Actually, the main topic I was committed to was solar cells.  I have collaborated through my Ph.D. course with Professor Moonsub Shim and Dr. Joseph Flanagan from the UIUC.  The collaboration was a total package to me and along the way I learned a whole lot of things of handling international collaboration project.
+
+Technically my field of research was to tailor the pore structure inside photoelectrode.  In brief, photoelectrode is simply a thin film made from $\ce{TiO2}$ nanoparticles.  Sutably porous structure is desired inside the photoelectrode, because it determines the amount of light absorber materials it can accomodate inside.  Dr. Flanagan's field of work was the synthesis of novel type of light absorber materials, which had relatively larger, rod-shaped one which was less accommodated in photoelectrodes with conventional pore structure.
+
+I challenged this topic by endowing the photoelectrode a hierachically ordered pore structure.  Addition of sacirificial microbeads in the process of photoelectrode fabrication enabled me to have binomial pore structure, where large and small pores are mingled together.  Compared to conventional pore structure where small pores dominated, new pore structure could uptake more rod-type light harvesters, thereby boosting the overall power conversion efficiency (PCE).  In developing hierachical pore structure I developed pore percolation simulation using self-invented Monte-Carlo simulation code with FORTRAN.
+
+Fortunately to me, I also had chances to be engaged in our lab's battery research.  Most of battery works I worked for was on developing olivine-type cathode materials, analysing an 
+
+Ph.D. Course:  Heterojunction nanorod solar cells and lithium ion batteries.  SEM, TEM and XRD characterization of synthesized materials.
+
+Samsung Electronics - Battery Group:  I worked with battery vendors such as Samsung SDI, ATL, LISHEN to deliver battery product with required properties on time.
+
+After working as battery engineer, I moved on to Advanced Battery Lab. and started working on machine-learning based state-of-health algorithm for mobile devices.  A problem was that the pace of our battery cell development is too fast so our team should repeatedly fine-tune the model when newly developed cell came out.
+
+I introduced simple Arrhenius-type calibration for apparent battery resistance, and it worked to improve the accuracy of model.  Furthermore, our codebase was in its infant stage and battery data generated from variously set cycler settings existed fragmented here and there.  I elaborated to gather and cleaned up them altogether to build large internal battery cycling database.
+
+I also found that Samsung's internal system is yet matured for future maintenance, as there was no unified format to curate battery cycling data from different equipments or operaters.  Unification could have been done by instituting basic rules applying for all operator/equipment but it could not let already produced data follow the new disciplines.  So I built for myself from scratch a Python module which is geared towards curating battery cycler data into single unified format and attached GUI supports.  GUI support substantially reduced processing time and communication loss inside our team.
+
+Next mission was handling safety issue.  I worked on devising an recurrent neural network based model to determine whether a cell is abused in a way or not.  For this I have carried out different types of abuse test, gathered the results and did cleanup for them to be used as training dataset.
+
+I also developed an abuse-test failure prediction model based on 
+## Behavioral Questions
+
+- 해당 포지션에 왜 끌렸는지
+- 현재 회사에서의 일상을 알려달라
+- Tell me about yourself
+	- Walk me through your resume
+- How have you worked with other teams in your previous roles?
+- Tell me about a time you found a problem and solved it at work.
+- Why do you want to work at this company?
+- Why do you want to leave your job?
+- What is your greatest achievement?
+- Where do you see yourself in 5 years time?
+- Strength?
+- Weaknesses?
+- Describe your leadership style.
+
+## 내가 하고 싶은 질문
+
+
+## 참고자료
+
+- https://neversayneverr.tistory.com/52
+- https://neversayneverr.tistory.com/108
+- https://www.themuse.com/advice/behavioral-interview-questions-answers-examples
+- 
+
+
 
 # 잡다한 것들
 ---

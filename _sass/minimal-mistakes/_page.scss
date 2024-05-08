@@ -91,6 +91,14 @@ body {
 
 .page__content {
 
+  h1 {
+    font-family: $page-h1-title; // Default: No attribute;
+    font-weight: normal; // Default: No attribute;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid $border-color; // Default: 1px solid $border-color;    
+  }
+
   h2 {
     font-family: $page-h2-title; // Default: No attribute;
     font-weight: normal; // Default: No attribute;
