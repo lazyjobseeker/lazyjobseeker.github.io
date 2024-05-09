@@ -3,7 +3,7 @@ created_at: 2024-04-29 21:18:45 +09:00
 last_modified_at: 2024-05-09 00:31:31 +09:00
 ---
 
-# Job Hunting in the US 🗽
+# 🗽
 
 ## What I have achieved
 
@@ -15,7 +15,7 @@ Technically my field of research was to tailor the pore structure inside photoel
 
 I challenged this topic by endowing the photoelectrode a hierachically ordered pore structure.  Addition of sacirificial microbeads in the process of photoelectrode fabrication enabled me to have binomial pore structure, where large and small pores are mingled together.  Compared to conventional pore structure where small pores dominated, new pore structure could uptake more rod-type light harvesters, thereby boosting the overall power conversion efficiency (PCE).  In developing hierachical pore structure I developed pore percolation simulation using self-invented Monte-Carlo simulation code with FORTRAN.
 
-Fortunately to me, I also had chances to be engaged in our lab's battery research.  Most of battery works I worked for was on developing olivine-type cathode materials, analysing an 
+Fortunately to me, I also had chances to be engaged in our lab's battery research.  Most of battery works I worked for was on developing olivine-type cathode materials, analyzing the electrochemical properties and microscopic morphologies with microscopy techniques.
 
 Ph.D. Course:  Heterojunction nanorod solar cells and lithium ion batteries.  SEM, TEM and XRD characterization of synthesized materials.
 
@@ -29,13 +29,17 @@ I also found that Samsung's internal system is yet matured for future maintenanc
 
 Next mission was handling safety issue.  I worked on devising an recurrent neural network based model to determine whether a cell is abused in a way or not.  For this I have carried out different types of abuse test, gathered the results and did cleanup for them to be used as training dataset.
 
-I also developed an abuse-test failure prediction model based on 
-## Behavioral Questions
+## Dent Prediction Model
 
-- 해당 포지션에 왜 끌렸는지
-- 현재 회사에서의 일상을 알려달라
-- Tell me about yourself
-	- Walk me through your resume
+I also developed an abuse-test failure prediction model based on 
+## General Questions
+
+- What attracted you to the position.
+- Let me know your daily routine in current company.
+- Tell me about yourself (walk me through your resume)
+	- I have worked for 5 years and currently working as Battery Engineer in Samsung Mobile.  Before joining in to industry I got my Ph.D. degree in Seoul National university.  My main thesis concerned with the utilization of novel type of light harversters for solar cells and I delved into the internal structure of porous electrode used to uptake as many light harvesting nanorods as possible.
+	- During this period my research topic also covered characterization and analysis of battery materials.  I engaged in our lab's endeavor to develop high-performance olivine-type cathode materials, carrying out morphological and electrochemical characterizations.
+	- After graduation I joined Battery Group of Samsung Electronics, Korea.  Before setting about modeling and ML algorithm development works, in the first year I experienced battery cell development process and engaged with battery vendor companies, Samsung SDI in Korea and
 - How have you worked with other teams in your previous roles?
 - Tell me about a time you found a problem and solved it at work.
 - Why do you want to work at this company?
