@@ -1,6 +1,6 @@
 ---
 created_at: 2024-04-29 21:18:45 +09:00
-last_modified_at: 2024-05-09 00:31:31 +09:00
+last_modified_at: 2024-05-09 21:01:02 +09:00
 ---
 
 # 🗽
@@ -34,23 +34,68 @@ Next mission was handling safety issue.  I worked on devising an recurrent neura
 I also developed an abuse-test failure prediction model based on 
 ## General Questions
 
-- What attracted you to the position.
-- Let me know your daily routine in current company.
-- Tell me about yourself (walk me through your resume)
-	- I have worked for 5 years and currently working as Battery Engineer in Samsung Mobile.  Before joining in to industry I got my Ph.D. degree in Seoul National university.  My main thesis concerned with the utilization of novel type of light harversters for solar cells and I delved into the internal structure of porous electrode used to uptake as many light harvesting nanorods as possible.
-	- During this period my research topic also covered characterization and analysis of battery materials.  I engaged in our lab's endeavor to develop high-performance olivine-type cathode materials, carrying out morphological and electrochemical characterizations.
-	- After graduation I joined Battery Group of Samsung Electronics, Korea.  Before setting about modeling and ML algorithm development works, in the first year I experienced battery cell development process and engaged with battery vendor companies, Samsung SDI in Korea and
-- How have you worked with other teams in your previous roles?
-- Tell me about a time you found a problem and solved it at work.
-- Why do you want to work at this company?
-- Why do you want to leave your job?
-- What is your greatest achievement?
-- Where do you see yourself in 5 years time?
-- Strength?
-- Weaknesses?
-- Describe your leadership style.
+### What attracted you to the position
 
-## 내가 하고 싶은 질문
+When I searched for the details what you and your colleague are working on, I was impressed that your team is practically producing series of tangible cells designed and delivered based on data-driven approach.  Working in Samsung Electronics I have contacted several companies allegedly delivering outputs based on data-driven designs and machine learning, only little had tangible results.  It impressed me and convinced me that one works for the position could deliver their knowledge in data-driven approach, machine learning and battery industry as actual tangible product.
+
+### Let me know your daily routine in current company
+
+Currently I am working to improve and maintain the state-of-health estimation algorithm equipped on Samsung Mobile devices.  My role is not limited to SW implementation side.  It covers validation in cell and device level so I do extra works like designing DOEs which can possibly induce malfunction for existing algorithm and improve it.
+
+On the other hands I work to develop battery safety prediction model and life cycle prediction model, both of which are also based on machine learning approaches.  For safety prediction model I have been developing finite element analysis model combined with machine learning.  In Samsung Electronics we have a safety test protocol called dent test and my task is to provide a framework which can predict the result of that test - the result is either the cell explodes or not at the end -.  In simplified words, I can extact some spatial strain map from dent test environment and input the map to a trained model.  The model then outputs the probability if some combination of material properties would lead to a cell can endure the test or not.
+
+And I have also worked to develop life prediction model for lithium ion cells.  Basically I have used approach modified from that of Prof. William Cheuh and colleagues.  As an academic paper, in their report they could use cycling data from 126 different cells.  But in Samsung Electronics we could not take such an approach.  Because Samsung Develops so many different types of batteries and we can only test fixed amount of batteries before launching a smartphone model.  So rather than having a vast array of cycling data obtained from battery cells of single kind, 
+
+### Tell me about yourself / Walk me through your resume
+
+I received my Ph.D. in Materials Science and Engineering.  Main topic of my thesis was about tailoring the pore structure of nanoporous electrode for novel photovoltaics, but I engaged in battery research in our lab and co-authored publications on olivine-type cathode materials and lithium-air batteries.  Most of my contribution was for electrochemical and structural characterization of materials.
+
+After graduation I joined Battery Group in Samsung Electronics, South Korea, where I have been working by now.  Right after joining I first experienced the whole process of battery industry, working with major battery providers such as Samsung Electronics in Korea, ATL in China.  I engaged in a few different battery development project which had distinct set of requirements to be met.
+
+So after this early stage I think I got to get the full grasp of how battery industry works and moved on to develop ML-based solutions.  There were three main topics.  With teammates I have developed state-of-health estimation algorithm and it is currently being deployed to every single commercial mobile devices, except for wearble devices yet.
+
+### How have you worked with other teams in your previous roles?
+
+There are roughly three different categories of teams I have been working with.
+
+First team is Samsung Research in India-Bangalore, I worked with most of time in developing core algorithms and resolving technical issues we got from the field regarding our deployed algorithm.
+
+Second team is battery manufacturers.  Communication with them has also been always important because we need to attain battery cycling data to fine-tune our algorithm and the timeline for smartphone model has to be met.  So I have contacted them frequently, suggest better way of data acquisition to smooth the whole process.  
+
+The last team is factory line engineers, who acutally assemble and test all the functions before shipping.  As we have implemented some factory test routine to validate our algorithm in manufacture line, we were on call to reply and handle any issue raised from the line.
+
+### Why do you want to leave your job?
+
+I learned a lot from Samsung Electronics, from the basic picture of the whole industry to machine-learning based approaches.  But I have always felt like contribute to bigger cause.
+
+### Tell me about a time you found a problem and solved it at work
+
+I have thought that as a large company Samsung Electronics would have been full of quality data and so it would be a haven for a researcher working on data-driven modeling and machine learning models.  But I only found that there was little infrastructure I can resort to.  Data was unorganized and fragmented.  Every smartphone models had separate group of engineers individually working on acquiring battery test and cycling data.  As data was not important for them once their smartphone model was launched, after launching a model data were abandoned and started to hibernate in nowhere.
+
+So I first started to develop internal codebase which can cleanup and curate all the data obtained from different cycler setup.  I further added some GUI feature to the codebase for other engineers to readily use.  After that I found it became far productive working on ML tasks.  Currently the codebase I have built is in use for all the engineers committed to deploy state-of-health estimation model.
+
+### What is your greatest achievement?
+
+The state-of-health estimation solution saved a whole lot of cost for my company.  Actually, our solution worked at framework level rather than being embedded to battery pack as embedded algorithm.  Introducing embedded algorithm required extra cost for battery pack production so replacing it with our solution contributed to large save of production cost.
+
+And I also conducted closed-loop-optimization to search for optimal charging profile, using the life prediction model I developed.  The approach was able to find optimal charging protocol 20x faster than conventional approach, and demonstrated about 11% of increased life at EOL with marginal increase in charging time.
+
+### Where do you see yourself in 5 years time?
+
+Currently I am working as battery engineer and I am satisfied with that.  But I believe that integration of photovoltaics with battery ESS system also would be a big thing at some time.  I hope I will be fully exercising my expertise covering energy harvesting and storage and developing kind of fully self-regenerating ESS.
+
+### Strengths and Weaknesses
+
+
+### Describe your leadership style
+
+I believe that I should help others willingly to make them feel good working with me.  So I think I always search for the way I can help or improve others' work. 
+
+### Do you have any questions for us?
+
+#### Chemix Inc.
+
+- I am curious about the business model.  It looks like your team leveraged ML approach and developed different
 
 
 ## 참고자료
