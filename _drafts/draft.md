@@ -1,8 +1,7 @@
 ---
 created_at: 2024-04-29 21:18:45 +09:00
-last_modified_at: 2024-05-09 21:01:02 +09:00
+last_modified_at: 2024-05-14 14:55:05 +09:00
 ---
-
 # 🗽
 
 ## What I have achieved
@@ -28,6 +27,14 @@ I introduced simple Arrhenius-type calibration for apparent battery resistance, 
 I also found that Samsung's internal system is yet matured for future maintenance, as there was no unified format to curate battery cycling data from different equipments or operaters.  Unification could have been done by instituting basic rules applying for all operator/equipment but it could not let already produced data follow the new disciplines.  So I built for myself from scratch a Python module which is geared towards curating battery cycler data into single unified format and attached GUI supports.  GUI support substantially reduced processing time and communication loss inside our team.
 
 Next mission was handling safety issue.  I worked on devising an recurrent neural network based model to determine whether a cell is abused in a way or not.  For this I have carried out different types of abuse test, gathered the results and did cleanup for them to be used as training dataset.
+
+## Technical Perspectives 
+
+- Accuracy of SOH model?
+- Accuracy of RUL model?
+
+arxiv.org/pdf/1412.6572 (이안 굿펠로우)
+
 
 ## Dent Prediction Model
 
@@ -98,14 +105,58 @@ I believe that I should help others willingly to make them feel good working wit
 - I am curious about the business model.  It looks like your team leveraged ML approach and developed different
 
 
-## 참고자료
+## References
 
 - https://neversayneverr.tistory.com/52
 - https://neversayneverr.tistory.com/108
 - https://www.themuse.com/advice/behavioral-interview-questions-answers-examples
 - 
 
+As a battery R&D engineer working for mobile device manufacturer, I have deep understanding of how to work with multidisciplinary teams.
 
+- On R&D side I have worked with Samsung Research India-Bangalore (SRI-B) team and aligned their expertise with Samsung HQ requirements in deploying battery SOH algorithms.
+
+- On product validation side I have been closely engaged with Samsung's product reliability validation team, being in close contact around the clock to acquire battery test data (life cycle /  safety) and fine-tune SOH model based on the data.
+
+- Finally, as the developed SOH model is being deployed to commercial device, I also have consulted line engineers to troubleshoot any issues raised regarding test protocols.
+
+
+# DeepONet: Learning Nonlinear Operators for Identifying Differential Equations based on the Universal Approximation Theorem of Operators
+---
+
+arxiv.org/pdf/1910.03193
+
+- Powerful result less recognized: neural network with a single hidden layer can approximate accurately any nonlinear continuous operator.
+
+## Outline
+
+- Universal approximation theorem
+- 
+
+## Structure of DeepONet
+
+- Two sub-networks
+	- Branch net: encode input function at a fixed number of sensors.
+	- Trunk net: encode locations for the output functions.
+
+
+# Technical Meeting
+---
+
+## Battery State of Health
+
+- 
+
+## Cycle Life Prediction
+
+
+
+## Charging Profile Optimization
+
+
+## Safety Test Simulation
+
+An impact of what this modeling outputs is that it provides measureable indices we can resort to when we do safety-oriented battery development.  Basically, if we have a given combination of design parameters, like the thickness of metal foil substrates and active materials, we can get probability output how a cell made out of the design will respond to any given exerted force during dent test.  Using this model we could tabulate $F_{50}$ values which is a baseline force.  We can tell a cell with large $F_{50}$ is more tolerant with failure during dent test.  And for batteries with same $F_{50}$ we can order their robustness based on $\alpha$ value.  We can say lower $\alpha$ cells are more robust, because they do not have lagging tail of failure probability which implies there are tracing odds of failure even with low exerted force.
 
 # 잡다한 것들
 ---
@@ -255,3 +306,4 @@ class IceCream:
 
 ### References
 1. [stackoverflow-33533148](https://stackoverflow.com/questions/33533148/how-do-i-type-hint-a-method-with-the-type-of-the-enclosing-class)
+
