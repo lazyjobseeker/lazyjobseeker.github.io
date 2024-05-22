@@ -1,11 +1,12 @@
 ---
-title: "Tools for Blog Posting in Mobile Environment"
+revision: 1
+title: Tools for Blog Posting in Mobile Environment
 category: programming
 tags:
   - devlog
 created_at: 2023-05-07 11:17:13 +09:00
-last_modified_at: 2024-04-15 09:42:08 +09:00
-excerpt: "Applications I am using to maintain blogs in mobile environment"
+last_modified_at: 2024-05-22 23:21:15 +09:00
+excerpt: Applications I am using to maintain blogs in mobile environment
 ---
 
 ## Post and Code Editor
@@ -40,13 +41,17 @@ Maybe one of the most useful plugin I think, especially in terms of maintaining 
 
 ##### Novel Word Count
 
-This plugin allows you to see the number of words, last modified date, number of characters or so.
+This plugin allows you to see the number of words, last modified date, number of characters or so.  You can also fine-tune the policies for counting.  For example, you can ask the plugin to ignore code blocks or comments from word/character counts.  Currently I am using it by ignoring codeblocks/comments to see the genuine length of content free from them.
 
 ##### Remotely Save
 
 Even though there is a paid service for storage sync between devices called **Obsidian Sync**, but you can resort to this community plugin.  This plugin allows you to use third-party cloud service like DropBox or Onedrive to be hurb storage where you can sync from different devices and therefore maintaining sync between mutliple devices.
 
 I am using 1-minute setting for **Schedule for Auto Run** option, and activated **Run Once on Start Up Automatically**.
+
+##### Floating TOC
+
+This plugin enables you to have an automatically generated and updated table of contents, floating on the left side of obsidian window.  You can easily navigate throughout your markdown file, as the items in generated TOC include hyperlinks directing you to the corresponding headings.
 
 ##### Periodic Notes
 
@@ -80,7 +85,7 @@ Even though Obsidian Git did not work for me, it is not that flawed as Obsidian 
 
 ### Code Editor - ACode
 
-Obsidian is a strong markdown editor but except for some types of files including markdown (`.md`), vanilla obsidian cannot edit such files.  So I am using different application **ACode** to edit HTML, CSS and JS files.  There are a bunch of code editors with similarly powerful, but I prefer ACode because it is one of a handful of options featuring file tree display.
+Obsidian is a strong markdown editor but except for some types of files including markdown (`.md`), vanilla obsidian cannot edit such files.  So I am using different application **ACode** to edit HTML, CSS and JS files.  There are a bunch of code editors with similarly powerful, but I prefer ACode because it is one of a handful of options featuring file tree display.  Free version is bit messy to use due to the ads, which you can mitigate by activating paid version.  For me it was worthwhile to activate by paying a bit.
 
 ## Git
 
