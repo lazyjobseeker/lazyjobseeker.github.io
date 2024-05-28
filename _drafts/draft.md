@@ -1,6 +1,6 @@
 ---
 created_at: 2024-04-29 21:18:45 +09:00
-last_modified_at: 2024-05-14 14:55:05 +09:00
+last_modified_at: 2024-05-27 16:46:13 +09:00
 ---
 # 🗽
 
@@ -306,4 +306,22 @@ class IceCream:
 
 ### References
 1. [stackoverflow-33533148](https://stackoverflow.com/questions/33533148/how-do-i-type-hint-a-method-with-the-type-of-the-enclosing-class)
+
+# PINN
+---
+
+- Meshless Physics-Informed Deep Learning Method for Three-Dimensional Solid Mechanics
+	- Moreover, when explicit FEM is used for quasi-static simulations,care must be taken so that the inertia effects are insignificant.
+	- Deep Collocation Method: Collocation method simply means the way to pick up many different points from simulation domain and feeding it as inputs of neural networks.
+	- $\mathcal{L} = MSE_G + \lambda_u MSE_u + \lambda_t MSE_t + \lambda_i MSE_i$
+	- The DNN model maps the coordinates $X$ of the sampled points to the displacement field 
+- Deep Learning in Sheet Metal Bending with a Novel Theory-Guided Deep Neural Network
+- Identification of Material Parameters from Full-Field Displacement Data Using Physics-Informed Neural Networks
+- Teaching Solid Mechanics to Artificial Intelligence - A Fast Solver for Heterogeneous Materials
+	- DAMASK: Dusseldorf Advanced Material Simulation Kit
+- Feed-Forward Neural Networks for Failure Mechanics Problems
+- FEAnalyst - PrePoMax Tutorial 30 - Nonlinear buckling of cylindrical shell
+- Andreas Baer Engineering - Structural Simulation | Tensile testing | PrePoMax
+- 
+
 
