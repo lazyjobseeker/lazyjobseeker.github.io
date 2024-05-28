@@ -4,7 +4,7 @@ category: programming
 tags:
   - python
 created_at: 2023-11-05 11:57:00 +09:00
-last_modified_at: 2024-05-06 00:43:24 +09:00
+last_modified_at: 2024-05-29 03:24:13 +09:00
 excerpt: "python을 설치하고 환경 변수를 설정하는 방법, setuptools 패키지를 이용해 내가 만든 python 패키지를 배포 가능한 형태로 만드는 방법"
 ---
 
@@ -44,7 +44,7 @@ excerpt: "python을 설치하고 환경 변수를 설정하는 방법, setuptool
 
 한편 `/Python310/Scripts` 경로에서는 `pip.exe`를 찾을 수 있다. 파이썬의 패키지 관리 시스템 프로그램인 pip의 실행 파일이다. 파이썬 설치 과정에서 이 경로가 여기에 등록되었기 때문에 파이썬 설치 이후 명령 프롬프트에서 별다른 작업을 하지 않아도 `pip install` 명령으로 패키지 설치 작업을 할 수 있다.
 
-{% include img-gdrive alt="1Lp8FPt8QFNkfpslCavRIE7L1-Zvr0Y-5" id="1csOI5ihb4pr5_pZ7T7ostCQzYgMtR5Hl" %}
+{% include img-gdrive alt="pip 버전 확인" id="1Lp8FPt8QFNkfpslCavRIE7L1-Zvr0Y-5" %}
 
 pip 버전 확인도 파이썬 버전 확인과 동일하게 할 수 있다.
 

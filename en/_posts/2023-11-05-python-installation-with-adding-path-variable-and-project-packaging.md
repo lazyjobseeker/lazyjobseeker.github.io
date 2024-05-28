@@ -4,7 +4,7 @@ category: programming
 tags:
   - python
 created_at: 2023-11-05 11:57:00 +09:00
-last_modified_at: 2024-05-06 00:42:50 +09:00
+last_modified_at: 2024-05-29 03:24:27 +09:00
 excerpt: "How to 1) install python and setting PATH variable and 2) package custom python project using setuptools package for distribution."
 ---
 
@@ -45,7 +45,7 @@ First of all, `/Python310` directory contains `python.exe` executable file.  So 
 
 On the other hands, in `/Python310/Scripts` you can find `pip.exe`.  `pip` is a package management system of Python and `pip.exe` is executable file for this package.  So after installing python you can use command like `pip install` to install packages you need with assistance of `pip`.
 
-![Python PIP Version Check](/assets/images/python-path-pip-versioncheck.png){: width="600" .align-center}
+{% include img-gdrive alt="pip version check" id="1Lp8FPt8QFNkfpslCavRIE7L1-Zvr0Y-5" %}
 
 You can check version of your installed `pip` also in the same manner of checking python version.
 
