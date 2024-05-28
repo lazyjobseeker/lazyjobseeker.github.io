@@ -5,7 +5,7 @@ category: programming
 tags:
   - devlog
 created_at: 2023-05-07 11:17:13 +09:00
-last_modified_at: 2024-05-22 23:21:15 +09:00
+last_modified_at: 2024-05-29 03:16:29 +09:00
 excerpt: Applications I am using to maintain blogs in mobile environment
 ---
 
@@ -25,11 +25,15 @@ To input chemical equation, `\ce{}` can be used inside `$` or `$$` wrappers.  Fo
 
 $$\ce{2H2 + O2 -> 2H2O}$$
 
+The whole list of available formulations could be found [here](https://katex.org/docs/supported.html).
+
 #### Recommended Plugins
 
 ##### Linter
 
-Maybe one of the most useful plugin I think, especially in terms of maintaining github blog because of its `Lint On Save` feature with automated timestamping.
+Maybe one of the most useful plugin I think, especially in terms of maintaining github blog because of its `Lint On Save` feature with automated timestamping.  This feature rids you of manually changing the modified date item in YAML front matter, as just hitting `Ctrl + s` works for that.
+
+Some of the detailed setting for me are like:
 
 - **General Settings**
     - [x] Lint on Save: Automatically update some YAML front matter when document is saved or `Ctrl+S` shortcut is hit.
@@ -41,7 +45,7 @@ Maybe one of the most useful plugin I think, especially in terms of maintaining 
 
 ##### Novel Word Count
 
-This plugin allows you to see the number of words, last modified date, number of characters or so.  You can also fine-tune the policies for counting.  For example, you can ask the plugin to ignore code blocks or comments from word/character counts.  Currently I am using it by ignoring codeblocks/comments to see the genuine length of content free from them.
+This plugin allows you to see the number of words, last modified date, number of characters or so.  You can also fine-tune the policies for counting.  For example, you can ask the plugin to ignore code blocks or comments from word/character counts.  Currently I am using it by ignoring codeblocks/comments to see the genuine length of content free from them, and trying to assure the length of any posts is longer than 1000 words.
 
 ##### Remotely Save
 
