@@ -1,6 +1,6 @@
 ---
 created_at: 2024-04-29 21:18:45 +09:00
-last_modified_at: 2024-05-27 16:46:13 +09:00
+last_modified_at: 2024-05-29 18:01:42 +09:00
 ---
 # 🗽
 
@@ -310,18 +310,58 @@ class IceCream:
 # PINN
 ---
 
-- Meshless Physics-Informed Deep Learning Method for Three-Dimensional Solid Mechanics
+- (Paper) Meshless Physics-Informed Deep Learning Method for Three-Dimensional Solid Mechanics
 	- Moreover, when explicit FEM is used for quasi-static simulations,care must be taken so that the inertia effects are insignificant.
 	- Deep Collocation Method: Collocation method simply means the way to pick up many different points from simulation domain and feeding it as inputs of neural networks.
 	- $\mathcal{L} = MSE_G + \lambda_u MSE_u + \lambda_t MSE_t + \lambda_i MSE_i$
 	- The DNN model maps the coordinates $X$ of the sampled points to the displacement field 
-- Deep Learning in Sheet Metal Bending with a Novel Theory-Guided Deep Neural Network
-- Identification of Material Parameters from Full-Field Displacement Data Using Physics-Informed Neural Networks
-- Teaching Solid Mechanics to Artificial Intelligence - A Fast Solver for Heterogeneous Materials
+- (Paper) Deep Learning in Sheet Metal Bending with a Novel Theory-Guided Deep Neural Network
+- (Paper) Identification of Material Parameters from Full-Field Displacement Data Using Physics-Informed Neural Networks
+- (Paper) Teaching Solid Mechanics to Artificial Intelligence - A Fast Solver for Heterogeneous Materials
 	- DAMASK: Dusseldorf Advanced Material Simulation Kit
-- Feed-Forward Neural Networks for Failure Mechanics Problems
+- (Paper) Feed-Forward Neural Networks for Failure Mechanics Problems
+- (Paper) Physics Informed Neural Network for Dynamic Stress Prediction
+- (Paper) MFLP-PINN: A Physics-Informed Neural Network for Multiaxial Fatigue Life Prediction
 - FEAnalyst - PrePoMax Tutorial 30 - Nonlinear buckling of cylindrical shell
 - Andreas Baer Engineering - Structural Simulation | Tensile testing | PrePoMax
+
+
+# DIGEST
+---
+
+- Heating test condition is 130 Deg. limit test is being done.
+- Winding, Injection, PIEF, Degas
+	- PIEF: Polarization-Induced Electric Field
+- 0.5C 600 cycle -> Thickness change within 8% desired
+- Current density can be set low to ensure better life expectancy
+- J Power Sources XG Yang (Li plating and cycle life)
+- Q5 Battery Post-Mortem
+	- Electrolyte: EC/PC/DEC
+	- 16 J/R layers
+	- 3.3 mAcm2
+	- S/A overhang Top 1.5 other 0.9
+	- A/C overhang Top 0.73 other 0.35
+	- NP ratio 1.05
+- S Atalay et al J Power Sources 2020 Lithium Plating
+- 한계외력 실험하고 발화외력의 평균과 표준편차로 리스크함수 도출
+	- 발화외력은 정규분포, 리스크펑션은 적분
 - 
 
+
+# PrePoMax
+---
+
+## FEAnalyst Tutorial
+
+- Tutorial 43
+- Tutorial 42
+	- Don't we need to make compound two parts of a gear together?
+	- Second order mesh
+- Tutorial 41
+- Tutorial 40
+- Tutorial 39
+	- Auxetic -> Negative poisson's ratio
+- Tutorial 38
+- Tutorial 37
+- 
 
