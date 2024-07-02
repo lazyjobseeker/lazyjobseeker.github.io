@@ -1,0 +1,27 @@
+{% assign qId = "quiz" %}
+{% if page.lang == 'ko' %}
+  <script>
+    var quiz_pass = '정답!';
+    var quiz_fail = '오답!';
+  </script>
+{% elsif page.lang == 'en' %}
+  <script>
+    var quiz_pass = 'Correct!';
+    var quiz_fail = 'Incorrect!';
+  </script>
+{%endif%}
+<div class="quiz-container" id="{{ qId | append: include.jsonIdx }}" >
+  <div class="quiz-title"> Quiz {{ include.quizNum }} </div>
+  <div class="quiz">
+    <p class="quiz-text">Quiz Text</p>
+    <div class="choices">
+      <button class="choice" onclick="checkAnswer({{ include.jsonIdx }}, 0)">A1</button>
+      <button class="choice" onclick="checkAnswer({{ include.jsonIdx }}, 1)">A2</button>
+      <button class="choice" onclick="checkAnswer({{ include.jsonIdx }}, 2)">A3</button>
+      <button class="choice" onclick="checkAnswer({{ include.jsonIdx }}, 3)">A4</button>
+    </div>
+    <div class="feedback-container">
+      <p class="feedback"></p>
+    </div>
+  </div>
+</div>

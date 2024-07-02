@@ -1,0 +1,26 @@
+[
+  {
+    "question": "다음 중 성격이 다른 하나는?",
+    "choices": ["손흥민", "리오넬 메시", "오타니 쇼헤이", "위르겐 클린스만"],
+    "correct": 2,
+    "explanations": ["", "", "손흥민과 메시, 클린스만은 모두 축구 선수입니다. 오타니는 야구 선수입니다.", ""] 
+  },
+  {
+    "question": "반짝반짝 ______",
+    "choices": ["피 땀 눈물", "작은 별", "톰과 제리", "마동석"],
+    "correct": 1,
+    "explanations": ["반짝반짝 <b>피 땀 눈물</b>은 조금 이상한 것 같아요...", "반짝반짝은 <b>작은 별</b>이죠", "반짝반짝 <b>톰과 제리</b>는 조금 이상한 것 같아요...", "반짝반짝 <b>마동석</b>은 조금 이상한 것 같아요..."] 
+  },
+  {
+    "question": "Who does belong to different category?",
+    "choices": ["Lionel Messi", "Kylian Mbappe", "Patrick Mahomes", "Robin van Persie"],
+    "correct": 2,
+    "explanations": ["", "", "Patrick Mahomes is American football player, while others are soccer players.", ""] 
+  },
+  {
+    "question": "The early bird catches the ______",
+    "choices": ["shark", "worm", "Floyd Mayweather Jr.", "zebra"],
+    "correct": 1,
+    "explanations": ["Maybe some birds could, but...", "", "Maybe some birds could, but...", "Maybe some birds could, but..."] 
+  }
+]

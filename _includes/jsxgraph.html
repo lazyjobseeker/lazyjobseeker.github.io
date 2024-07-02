@@ -1,0 +1,37 @@
+<div id="{{ 'jxg' | append: include.jxgNo }}" class="jxgbox" style="width:{{include.width}}px; height:{{include.height}}px; margin:auto"></div>
+{% assign jxgNo = include.jxgNo %}
+<script>
+  var dBrdAttr = {
+    boundingbox: [-4.5, 4, 4.5, -0.5],
+    axis:false,
+    showCopyright:false,
+    showNavigation:false,
+    zoom:{enabled: false},
+    pan:{enabled: false}
+  }
+  var dFontAttr = {
+    fontSize:16,
+    fixed:true
+  }
+  var dFontVert = {
+    fontSize:16,
+    fixed:true,
+    rotate:90
+  }
+  var dFontMobile = {
+    fontSize:16,
+  }
+  var dPointAttr = {
+    visible:false,
+    fixed:true
+  }
+</script>
+{% include jsxgraphs/{{ include.graphName | append: ".html"}} %}
+{% if page.lang == 'ko' %}
+  {% assign fig_label = '그림' %}
+{% else %}
+  {% assign fig_label = 'Figure' %}
+{% endif %}
+
+**{{ fig_label }} {{ include.jxgNo | plus: 1 }}.** {{ include.caption }}
+{: .text-center}

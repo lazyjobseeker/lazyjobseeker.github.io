@@ -1,0 +1,20 @@
+[
+  {
+    "question": "example.dat 파일의 권한을 rwxrw---- 로 변경하기 위해 실행해야 하는 명령은?",
+    "choices": ["chmod 143 example.dat",
+                "chmod 760 example.dat",
+                "chmod 640 example.dat",
+                "chmod 254 example.dat"],
+    "correct": 1,
+    "explanations": ["143은 --xr---wx이 됩니다.","","640은 rw-r-----이 됩니다.","254는 -wr-x-r--이 됩니다."]
+  },
+  {
+  "question": "How can you alter permissions for example.dat file to rwxrw----?",
+  "choices": ["chmod 143 example.dat",
+              "chmod 760 example.dat",
+              "chmod 640 example.dat",
+              "chmod 254 example.dat"],
+  "correct": 1,
+  "explanations": ["143 corresponds to --xr---wx","","640 corresponds to rw-r-----","254 corresponds to -wr-x-r--"]
+  }
+]

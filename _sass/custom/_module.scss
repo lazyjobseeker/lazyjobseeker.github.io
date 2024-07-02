@@ -1,0 +1,20 @@
+/*
+* Mainly scss modules, only imported to `assets/css/main.scss`
+*/
+
+/* ---------- scss placeholder --------- */
+
+%no-cursor {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+%cursor-pointer {
+  cursor: pointer;
+}
+
+%rounded {
+  border-radius: $base-radius;
+}

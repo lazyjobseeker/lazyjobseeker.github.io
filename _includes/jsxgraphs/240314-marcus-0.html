@@ -1,0 +1,78 @@
+<script>
+  function draw() {
+    var brd = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', dBrdAttr);
+    var kO = 0.5;
+    var kR = 0.5;
+    var qO = -1.5;
+    var qR = 1.5;
+    var GO = 0.8;
+    var GR = 0.5;
+    var offset = 0.2;
+    var pivot = -0.23;
+    var left = pivot-offset;
+    var right = pivot+offset;
+    function marcusO(x) { return (kO/2)*parabola(x-qO) + GO; }
+    function marcusR(x) { return (kR/2)*parabola(x-qR) + GR; }
+    var intersect = marcusO(pivot) - 0.05;
+    brd.create('functiongraph',
+      [(x) => marcusO(x), -5.5, 5.5], {
+      strokeColor:'red', dash:2 });
+    brd.create('functiongraph',
+      [(x) => marcusR(x), -5.5, 5.5], {
+      strokeColor:'red', dash:2 });
+    brd.create('functiongraph',
+      [(x) => marcusO(x), -5.5, left], {
+      strokeColor:'red', strokeWidth:3 });
+    brd.create('functiongraph',
+      [(x) => marcusR(x), right, 5.5], {
+      strokeColor:'red', strokeWidth:3 });
+    var p = brd.create('point', [pivot, intersect], dPointAttr);
+    var pO = brd.create('point', [left, marcusO(left)], dPointAttr);
+    var pR = brd.create('point', [right, marcusR(right)], dPointAttr);
+    brd.create('spline', [pO, p, pR], {
+      strokeColor:'red', strokeWidth:3
+    });
+    brd.create('line', [[qO, 0], [qO, marcusO(qO)]], {
+      straightFirst:false, straightLast:false,
+      fixed:true, strokeWidth:1, dash:2 });
+    brd.create('line', [[qR, 0], [qR, marcusO(qR)]], {
+      straightFirst:false, straightLast:false,
+      fixed:true, strokeWidth:1, dash:2 });
+    brd.create('line', [[pivot, 0], p], {
+      straightFirst:false, straightLast:false,
+      fixed:true, strokeWidth:1, dash:2 });
+    brd.create('line', [[qO-1, marcusO(qO)], [qR+1, marcusO(qO)]], {
+      straightFirst:true, straightLast:false,
+      fixed:true, strokeWidth:1, dash:2 });
+    brd.create('line', [[qR-1, marcusR(qR)], [qR, marcusR(qR)]], {
+      straightFirst:true, straightLast:false,
+      fixed:true, strokeWidth:1, dash:2 });
+    brd.create('line', [[pivot-1, intersect], [qR+1, intersect]], {
+      straightFirst:true, straightLast:false,
+      fixed:true, strokeWidth:1, dash:2 });
+    brd.create('line', [[qR-0.3, marcusO(qR)], [qR+0.3, marcusO(qR)]], {
+      straightFirst:false, straightLast:false,
+      fixed:true, strokeWidth:1, dash:2 });
+    brd.create('arrow', [[qO-0.5, marcusO(qO)], [qO-0.5, marcusR(qR)]], {
+      fixed:true, strokeWidth:2 });
+    brd.create('arrow', [[qR+0.5, marcusO(qR)], [qR+0.5, marcusO(qO)]], {
+      fixed:true, strokeWidth:2 });
+    brd.create('arrow', [[qO, marcusO(qO)], [qO, intersect]], {
+      fixed:true, strokeWidth:2 });
+    brd.create('arrow', [[qR, marcusR(qR)], [qR, intersect]], {
+      fixed:true, strokeWidth:2 });
+    brd.create('text', [-1.66, -0.27, "q<sub>O</sub>"], dFontAttr);
+    brd.create('text', [1.38, -0.27, "q<sub>R</sub>"], dFontAttr);
+    brd.create('text', [-0.23, -0.27, "q<sub>&#8225;</sub>"], dFontAttr);
+    brd.create('text', [-4.3, 1.25, "G<sup>&#8225</sup>"], dFontAttr);
+    brd.create('text', [-4.3, 0.95, "G<sub>O</sub><sup>0</sup>(q<sub>O</sub>)"], dFontAttr);
+    brd.create('text', [-4.3, 0.65, "G<sub>R</sub><sup>0</sup>(q<sub>R</sub>)"], dFontAttr);
+    brd.create('text', [-1.7, 1.26, "ΔG<sub>f</sub><sup>&#8225</sup>"], dFontAttr);
+    brd.create('text', [1.06, 1.26, "ΔG<sub>b</sub><sup>&#8225</sup>"], dFontAttr);
+    brd.create('text', [-2.8, 0.4, "ΔG<sub>0</sub>"], dFontAttr);
+    brd.create('text', [-3, 1.6, "O + e"], dFontAttr);
+    brd.create('text', [3.2, 1.6, "R"], dFontAttr);
+    brd.create('text', [1.76, 1.82, "λ"], dFontAttr);
+  }
+  draw();
+</script>

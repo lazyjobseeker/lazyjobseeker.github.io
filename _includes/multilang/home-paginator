@@ -1,0 +1,19 @@
+<!-- multilang/home-paginator -->
+{%- include multilang/get-lang-posts -%}
+{%- assign ppp = site.posts_per_page -%}
+{%- assign total_page_counter = 0 -%}
+{%- assign first_post_idx = page.page_no | minus: 1 | times: ppp -%}
+{%- assign last_post_idx = first_post_idx | plus: ppp | minus: 1 -%}
+{%- assign total_pages = 1 -%}
+{%- for post in lang_posts -%}
+  {%- assign total_page_counter = total_page_counter | plus: 1 -%}
+  {%- if total_page_counter == ppp -%}
+    {%- assign total_pages = total_pages | plus: 1 -%}
+    {%- assign total_page_counter = 0 -%}    
+  {%- endif -%}
+{%- endfor -%}
+
+{%- assign current_page_posts = "" | split: ',' -%}
+{%- for idx in (first_post_idx..last_post_idx) -%}
+  {%- assign current_page_posts = current_page_posts | push: lang_posts[idx] -%}
+{%- endfor -%}

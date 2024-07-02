@@ -1,0 +1,28 @@
+<!-- multilang/get-lang-vairables -->
+{%- if page.lang == 'ko' -%}
+  {%- assign display_title = site.display-title.ko -%}
+  {%- assign display_subtitle = site.display-subtitle.ko -%}
+  {%- assign author_bio = author.bio.ko -%}
+  {%- assign first_page_path = site.url -%}
+  {%- assign prefix = '' -%}
+  {%- if page.translated -%}
+    {%- assign target_url_ko = page.url | absolute_url -%}
+    {%- assign target_url_en = page.url | prepend: '/en' | absolute_url -%}
+  {%- else -%}
+    {%- assign target_url_ko = page.url -%}
+    {%- assign target_url_en = nil -%}
+  {%- endif -%}
+{%- elsif page.lang == 'en' -%}
+  {%- assign display_title = site.display-title.en -%}
+  {%- assign display_subtitle = site.display-subtitle.en -%}
+  {%- assign author_bio = author.bio.en -%}
+  {%- assign first_page_path = site.url | append: '/' | append: page.lang -%}
+  {%- assign prefix = page.lang | prepend: '/' -%}
+  {%- if page.translated -%}
+    {%- assign target_url_ko = page.url | replace: '/en/', '/' | absolute_url -%}
+    {%- assign target_url_en = page.url | absolute_url -%}
+  {%- else -%}
+    {%- assign target_url_ko = nil -%}
+    {%- assign target_url_en = page.url -%}
+  {%- endif -%}
+{%- endif -%}

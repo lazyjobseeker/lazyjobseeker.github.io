@@ -1,0 +1,45 @@
+<script>
+  function draw0() {
+    var brdAttr = dBrdAttr;
+    brdAttr["boundingbox"] = [-4.5, 3.5, 4.5, -1]
+    var board = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', brdAttr);
+    var gibbsO = board.create('functiongraph',
+      [(x) => gibbs(1.5, x+2), -3.5, 3.5], {
+        strokeColor:'red'});
+    var gibbsR = board.create('functiongraph',
+      [(x) => gibbs(1.5, -1*(x-2)), -3.5, 3.5], {
+        strokeColor:'blue'});
+    var textR = board.create('text',
+      [2.3, -0.5, "R"], dFontAttr);
+    var textO = board.create('text',
+      [-3, -0.5, "O+e<sup>-</sup>"], dFontAttr);
+    var textG0c = board.create('text',
+      [-3.8, 1, "ΔG<sup>&#8225;</sup><sub>0c</sub>"], dFontAttr);
+    var textG0a = board.create('text',
+      [2.6, 1, "ΔG<sup>&#8225;</sup><sub>0a</sub>"], dFontAttr);
+    var p2 = board.create('point',
+      [0, 1.91], {name: 'A', size:2, fixed:true});
+    var p3 = board.create('point',
+      [-3, 1.91], dPointAttr);
+    var p4 = board.create('point',
+      [3, 1.91], dPointAttr);
+    var line1 = board.create('line',
+      [p3, p4], {
+        straightFirst:false, straightLast: false, dash:2});
+    var p5 = board.create('point',
+      [-2.5, 0], dPointAttr);
+    var p6 = board.create('point',
+      [-2.5, 1.91], dPointAttr);
+    var line2 = board.create('arrow',
+      [p5, p6], {
+        straightFirst:false, straightLast: false, dash:2});
+    var p7 = board.create('point',
+      [2.5, 0], dPointAttr);
+    var p8 = board.create('point',
+      [2.5, 1.91], dPointAttr);
+    var line3 = board.create('arrow',
+      [p7, p8], {
+        straightFirst:false, straightLast: false, dash:2});
+  }
+  draw0();
+</script>
