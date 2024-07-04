@@ -5,7 +5,7 @@ category: programming
 tags:
   - python
 created_at: 2023-11-05 11:57:00 +09:00
-last_modified_at: 2024-06-19 01:25:32 +09:00
+last_modified_at: 2024-07-04 09:48:02 +09:00
 excerpt: How to 1) install python and setting PATH variable and 2) package custom python project using setuptools package for distribution.
 ---
 
@@ -123,4 +123,37 @@ When you run above command, `.tar` and `whl` files both output as results.  If y
 
 ### Providing Standalone Executable - pyinstaller
 
+Oftentimes you may need to distribute your python projects as a stand-alone executable.  Such a case actually happen for example when you elaborated your solution but the potential users are not SW-acquainted engineers.  `pyinstaller` is a decent option in such cases.
 
+First of all, we need to install `pyinstaller`
+
+```bash
+pip install pyinstaller
+```
+
+The simplist way to build `exe` file using pyinstaller is to move to the source directory where the `.py` file you want to convert into `exe` and to execute below command,
+
+```
+pyinstaller example.py
+```
+
+given the file I want to convert into `exe` is `example.py`.
+
+You can use more detailed specifications by writing down your custom `.spec` file.  An example `.spec` file is formatted as follows.
+
+```
+a = Analysis(['minimal.py'],
+         pathex=['/Developer/PItests/minimal'],
+         binaries=None,
+         datas=None,
+         hiddenimports=[],
+         hookspath=None,
+         runtime_hooks=None,
+         excludes=None)
+pyz = PYZ(a.pure)
+exe = EXE(pyz,... )
+coll = COLLECT(...)
+```
+
+**Dependency to Visual Studio**  Pyinstaller-generated executables need ***Visual Studio 2015 or later*** to be run!  If you get complaints from your program's users that your executable is not working on their PC, make sure they have proper VS intalled on their PC.  This might settle the issue in most cases. 
+{: .notice--info}
