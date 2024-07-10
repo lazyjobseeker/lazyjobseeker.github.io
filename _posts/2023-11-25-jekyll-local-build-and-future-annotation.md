@@ -7,7 +7,7 @@ tags:
   - python
   - "minimal mistakes"
 created_at: 2023-11-25 01:28:00 +09:00
-last_modified_at: 2024-05-03 11:06:32 +09:00
+last_modified_at: 2024-06-06 14:06:02 +09:00
 excerpt: "Jekyll 블로그를 로컬 PC에서 미리보기 하는 방법, python에서 작성한 클래스 내에서 해당 클래스에 대한 타입 힌팅(type hinting)을 사용하기 위해 __future__ 모듈을 사용하는 방법"
 ---
 
@@ -90,7 +90,7 @@ Configuration file: D:/repositories/lazyjobseeker.github.io/_config.yml
 bundle exec jekyll build
 ```
 
-`serve --draft`: `_draft` 폴더에 있는 포스트들도 실제로 빌드된 것처럼 보여줍니다.
+`serve --drafts`: `_drafts` 폴더에 있는 포스트들도 실제로 빌드된 것처럼 보여줍니다.
 
 ```
 bundle exec jekyll serve --draft

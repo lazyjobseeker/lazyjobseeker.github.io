@@ -1,11 +1,12 @@
 ---
-title: "Python Installation, Setting, Project Packaging"
+revision: 1
+title: Python Installation, Setting, Project Packaging
 category: programming
 tags:
   - python
 created_at: 2023-11-05 11:57:00 +09:00
-last_modified_at: 2024-05-29 03:24:27 +09:00
-excerpt: "How to 1) install python and setting PATH variable and 2) package custom python project using setuptools package for distribution."
+last_modified_at: 2024-07-04 09:48:02 +09:00
+excerpt: How to 1) install python and setting PATH variable and 2) package custom python project using setuptools package for distribution.
 ---
 
 ## Installation and  `PATH` Variable Setting
@@ -27,7 +28,6 @@ After installation you can check it was successful by running `python --version`
 Now let's check how my `PATH` variables look like.  In my case I was able to access [Control Panel]-[System Properties] to check this.
 
 {% include img-gdrive alt="Python PATH Setting-1" id="12QMRoLDe41PZrdgJZfW1mfzRDvj1sjYC" %}
-
 
 Now click [Environment Variables...] button, and from bottom panel of [System Variables] activate `Path` and click `Edit` button.
 
@@ -52,6 +52,8 @@ You can check version of your installed `pip` also in the same manner of checkin
 ## `setuptools` for Project Packaging
 
 If you have worked on your own python packages and got some results, your next natural eager is packaging it and distribute for many different users or inside your team.
+
+### Example Usage
 
 Assume I have `myproject` counstructed as follows.  I want other people to be able to install my ambitious `coffemaster`, by their running `pip install coffeemaster` or so, rather than sending my zipped source code via e-mail and asking them to unzip it and locate at proper location in there PC (as it is dumb).  Furthermore, I am also tired of being asked from my team about what dependency libraries they have to install in their local to avoid stupid `ModuleNotFoundError` or so.
 
@@ -84,7 +86,7 @@ setup(
     version='0.0.1',
     packages=find_packages(),
     install_requires = [
-	    'pytorch',
+	    'torch',
 	    'pandas>=1.4.2'
     ],
     package_data={'examplecoffee': ['tallSizeAmericano.txt']}
@@ -99,4 +101,59 @@ I can attach this `.tar.gz` file when I release new version from my repository o
 
 If I run `python setup.py bdist_wheel`, `.whl` file results.  It seems that they say [`.whl` format is better](https://stackoverflow.com/questions/31401762/python-packaging-wheels-vs-tarball-tar-gz) than tarball(`.tar.gz`) format.
 
-But in my case `.whl` format didn't work better than tarball.  What I expected was to install `coffeemaster` only in the target environment, but when using `.whl` formatted binary file three different packages of `coffeemaster`, `drinktypes`, and `coffeebeans` were installed altogether.  Currently I am only using `sdist` command therefore.
+But in my case `.whl` format didn't work better than tarball.  What I expected was to install `coffeemaster` only in the target environment, but when using `.whl` formatted binary file three different packages of `coffeemaster`, `drinktypes`, and `coffeebeans` were installed altogether.  Currently I am only using `sdist` command therefore.  This phenomenon seems not to happen but depending on the environment.  I am not sure up until now why such case occur.
+
+### Updates from setuptools 58.3.0.
+
+It is said that from setuptools version 58.3.0. use of `python setup.py sdist` and `python setup.py bdist_wheel` was deprecated.
+
+Above two build commands are replaced by single command below:
+
+```bash
+python -m build
+```
+
+To run this, you may need to install `build` to your local environment first:
+
+```bash
+pip install build
+```
+
+When you run above command, `.tar` and `whl` files both output as results.  If you need only one of them, you can add additional argument `--sdist` or `--wheel`.
+
+### Providing Standalone Executable - pyinstaller
+
+Oftentimes you may need to distribute your python projects as a stand-alone executable.  Such a case actually happen for example when you elaborated your solution but the potential users are not SW-acquainted engineers.  `pyinstaller` is a decent option in such cases.
+
+First of all, we need to install `pyinstaller`
+
+```bash
+pip install pyinstaller
+```
+
+The simplist way to build `exe` file using pyinstaller is to move to the source directory where the `.py` file you want to convert into `exe` and to execute below command,
+
+```
+pyinstaller example.py
+```
+
+given the file I want to convert into `exe` is `example.py`.
+
+You can use more detailed specifications by writing down your custom `.spec` file.  An example `.spec` file is formatted as follows.
+
+```
+a = Analysis(['minimal.py'],
+         pathex=['/Developer/PItests/minimal'],
+         binaries=None,
+         datas=None,
+         hiddenimports=[],
+         hookspath=None,
+         runtime_hooks=None,
+         excludes=None)
+pyz = PYZ(a.pure)
+exe = EXE(pyz,... )
+coll = COLLECT(...)
+```
+
+**Dependency to Visual Studio**  Pyinstaller-generated executables need ***Visual Studio 2015 or later*** to be run!  If you get complaints from your program's users that your executable is not working on their PC, make sure they have proper VS intalled on their PC.  This might settle the issue in most cases. 
+{: .notice--info}

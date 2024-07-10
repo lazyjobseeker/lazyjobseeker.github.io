@@ -112,7 +112,11 @@ author:
   avatar           : # "/assets/images/logo.png"
   bio              :
     ko: "재빠른 나무늘보 - 일하는 것처럼 보인다면 착각입니다."
+<<<<<<< HEAD
     en: "Quick sloth - If you see me working, you are mistaken."
+=======
+    en: "A quick sloth - If you see me working, you are mistaken."
+>>>>>>> d34835ab4b2e5be5050c41aed10a73dc72a40b37
   location         : "Republic of Korea"
   email            :
   links:

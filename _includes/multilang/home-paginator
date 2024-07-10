@@ -1,4 +1,5 @@
 <!-- multilang/home-paginator -->
+
 {% include multilang/get-lang-posts %}
 {% assign ppp = site.posts_per_page %}
 {% assign total_page_counter = 0 %}
@@ -17,3 +18,4 @@
 {% for idx in (first_post_idx..last_post_idx) %}
   {% assign current_page_posts = current_page_posts | push: lang_posts[idx] %}
 {% endfor %}
+

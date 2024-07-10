@@ -4,7 +4,7 @@ category: programming
 tags:
   - python
 created_at: 2023-11-05 11:57:00 +09:00
-last_modified_at: 2024-05-29 03:24:13 +09:00
+last_modified_at: 2024-06-15 15:00:45 +09:00
 excerpt: "python을 설치하고 환경 변수를 설정하는 방법, setuptools 패키지를 이용해 내가 만든 python 패키지를 배포 가능한 형태로 만드는 방법"
 ---
 
@@ -79,7 +79,7 @@ setup(
     version='0.0.1',
     packages=find_packages(),
     install_requires = [
-	    'pytorch',
+	    'torch',
 	    'pandas>=1.4.2'
     ],
     package_data={'examplecoffee': ['tallSizeAmericano.txt']}

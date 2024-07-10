@@ -1,14 +1,14 @@
 ---
-revision: 1
-title: "Build Test in Local for a Jekyll Website"
+revision: 2
+title: Build Test in Local for a Jekyll Website
 category: programming
 tags:
   - jekyll
   - python
   - minimal-mistakes
 created_at: 2023-11-25 01:28:00 +09:00
-last_modified_at: 2024-05-03 11:07:17 +09:00
-excerpt: "1) How to preview Jekyll blog in local environment. 2) How to use __future__ module to provide type hinting for custom class."
+last_modified_at: 2024-06-21 01:01:59 +09:00
+excerpt: 1) How to preview Jekyll blog in local environment. 2) How to use __future__ module to provide type hinting for custom class.
 ---
 
 ## How to Preview Jekyll Blog in Local
@@ -88,10 +88,10 @@ There are some options you can use in testing your `jekyll` website.
 bundle exec jekyll serve
 ```
 
-`serve --draft`: This option makes your draft posts stored in `_draft` directory visible.  You can test how your drafts will look like using this command.
+`serve --drafts`: This option makes your draft posts stored in `_drafts` directory visible.  You can test how your drafts will look like using this command.
 
 ```
-bundle exec jekyll serve --draft
+bundle exec jekyll serve --drafts
 ```
 
 `serve --incremental`: Rather than build the whole site whenever changes made to your source file, if this option is used, rebuild occurs only when a post or page is subject to change on its source, boosting the regeneration speed.
@@ -101,7 +101,6 @@ bundle exec jekyll serve --incremental
 ```
 
 `serve --livereload`: Automatically refreshes localhost webpage when rebuild occurs.  If your local environment is sufficiently fast, you can experience almost live-preview of your page while you are editing the resource in text editor.
-
 
 ```
 bundle exec jekyll serve --livereload
@@ -125,6 +124,44 @@ You can include future-dated posts in your `_post` folder if you have completed 
 git commit --allow-empty -m "Commit Message"
 git push origin master
 ```
+
+Sometimes you might just want to build your static site outputs but not to serve your hompage.  In such case you can use `bundle exec jekyll build`.  The `_site` folder in your jekyll project root, where your static site outputs (html pages) are included, will regenerate if you use this command.  But your local server will not be served in this case.
+
+### Connect to Local Jekyll Site from Other Device
+
+If you are running your Jekyll static site on a device (PC or Mobile), you access to your locally-serving website from different device.
+
+To do this, you firstly need to serve your Jekyll page with `--host` option:
+
+```bash
+bundle exec jekyll serve --host 0.0.0.0
+```
+
+Then you need to check the IP of the device on which your Jekyll website is locally being served.  For example, suppose my local device was tablet and its IP was `192.168.000.000`.
+
+I can access to my Jekyll page being served by the tablet using below address:
+
+```bash
+192.168.000.000:4000
+```
+
+To access a Jekyll page from the device different from that is running as server, both devices should share a network.  For example, both devices have to use same Wi-Fi.  It also works if one of the devices is providing mobile hot-spot and the other is connected to it.
+
+In above example I passed `0.0.0.0` after `--host` argument.  This could make the hyperlinks to home page to be `0.0.0.0` rather than `192.168.000.000`.  To prevent this discrepancy breaks your links to home page, you can simply do:
+
+```bash
+bundle exec jekyll serve --host 192.168.0.0
+```
+
+When you trigger the `jekyll serve` command.
+
+Other options also work well with `--host`.  So, you can use incremental and livereload options together.
+
+```
+bundle exec jekyll serve --host 192.168.0.0 --incremental --livereload
+```
+
+Using above command, for example, you can make your tablet to serve your website as local server and see how it looks from your smartphone.  If you have markdown editor and edit any content of a page, you can see your changes live-update on your smartphone.
 
 ### References
 1. [https://tyami.github.io](https://tyami.github.io/blog/jekyll-local-server-start-batch/#%EB%A1%9C%EC%BB%AC-%EC%84%9C%EB%B2%84-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EC%97%90%EB%9F%AC)
