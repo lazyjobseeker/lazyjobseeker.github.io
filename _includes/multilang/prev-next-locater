@@ -1,21 +1,22 @@
-<!-- multilang/prev-next-locater -->
+<!-- multilang/prev-next-locater START -->
 {% include multilang/get-lang-posts %}
 
 {% assign last_idx = lang_posts.size | minus: 1 %}
-{% for idx in (0..lang_posts.size) %}
-  {% assign prev_idx = idx | plus: 1 %}
-  {% assign next_idx = idx | minus: 1 %}
-  {% if page.id == lang_posts[idx].id %}
-    {% if idx == 0 %}
+{%- for idx in (0..lang_posts.size) -%}
+  {%- assign prev_idx = idx | plus: 1 -%}
+  {%- assign next_idx = idx | minus: 1 -%}
+  {%- if page.id == lang_posts[idx].id -%}
+    {%- if idx == 0 -%}
       {% assign post_prev = lang_posts[prev_idx] %}
       {% assign post_next = lang_posts[idx] %}
-    {% elsif idx == last_idx %}
+    {%- elsif idx == last_idx -%}
       {% assign post_prev = lang_posts[idx] %}
       {% assign post_next = lang_posts[next_idx] %}
-    {% else %}
+    {%- else -%}
       {% assign post_prev = lang_posts[prev_idx] %}
       {% assign post_next = lang_posts[next_idx] %}
-    {% endif %}
+    {%- endif -%}
     {% break %}
-  {% endif %}
-{% endfor %}
+  {%- endif -%}
+{%- endfor -%}
+<!-- multilang/prev-next-locater END -->

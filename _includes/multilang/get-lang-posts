@@ -1,7 +1,8 @@
-<!-- multilang/get-lang-posts -->
+<!-- multilang/get-lang-posts START -->
 {% assign lang_posts = "" | split: ',' %}
-{% for post in site.posts %}
-  {% if post.lang and post.lang == page.lang %}
+{%- for post in site.posts -%}
+  {%- if post.lang and post.lang == page.lang -%}
     {% assign lang_posts = lang_posts | push: post %}
-  {% endif %}
-{% endfor %}
+  {%- endif -%}
+{%- endfor -%}
+<!-- multilang/get-lang-posts END -->

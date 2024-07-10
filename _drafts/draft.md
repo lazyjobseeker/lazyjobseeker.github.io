@@ -1,6 +1,6 @@
 ---
 created_at: 2024-04-29 21:18:45 +09:00
-last_modified_at: 2024-05-29 18:01:42 +09:00
+last_modified_at: 2024-05-30 21:49:14 +09:00
 ---
 # 🗽
 
@@ -121,8 +121,10 @@ As a battery R&D engineer working for mobile device manufacturer, I have deep un
 - Finally, as the developed SOH model is being deployed to commercial device, I also have consulted line engineers to troubleshoot any issues raised regarding test protocols.
 
 
-# DeepONet: Learning Nonlinear Operators for Identifying Differential Equations based on the Universal Approximation Theorem of Operators
+# DeepONet
 ---
+
+DeepONet: Learning Nonlinear Operators for Identifying Differential Equations based on the Universal Approximation Theorem of Operators
 
 arxiv.org/pdf/1910.03193
 

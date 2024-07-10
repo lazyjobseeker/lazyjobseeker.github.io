@@ -1,9 +1,11 @@
-<!-- multilang/get-counter-post -->
-{% capture pageid %}{{ page.id | split: "/" | last }}{% endcapture %}
-{% for post in site.posts %}
-  {% capture postid %}{{ post.id | split: "/" | last }}{% endcapture %}
-  {% if post.lang and post.lang != page.lang and postid == pageid %}
-    {% assign counter_post = post %}
-    {% break %}
-  {% endif %}
-{% endfor %}
+
+<!-- multilang/get-counter-post START -->
+{% capture pageid -%}{{ page.id | split: "/" | last }}{% endcapture -%}
+{%- for post in site.posts -%}
+  {% capture postid -%}{{ post.id | split: "/" | last }}{% endcapture -%}
+  {%- if post.lang and post.lang != page.lang and postid == pageid -%}
+    {% assign counter_post = post -%}
+    {% break -%}
+  {%- endif -%}
+{%- endfor -%}
+<!-- multilang/get-counter-post END -->

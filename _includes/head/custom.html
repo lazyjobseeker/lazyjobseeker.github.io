@@ -1,4 +1,6 @@
-<!-- start custom head snippets -->
+
+<!-- Custom Head Snippet (head/custom.html) START -->
+
 <!-- Google Adsense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9888600785015096" crossorigin="anonymous"></script>
 <!-- Clipboard -->
@@ -8,16 +10,21 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 <script src="/assets/js/clipboard.js"></script>
 <!-- Naver Search Advisor -->
-{% if page.lang and page.lang == 'ko' and page.page_no and page.page_no == 1 %}<meta name="naver-site-verification" content="e849c9ef4769c0606b6958592fc2e13a5c4e9a37" />{% endif %}
+{% if page.lang and page.lang == 'ko' and page.page_no and page.page_no == 1 -%}<meta name="naver-site-verification" content="e849c9ef4769c0606b6958592fc2e13a5c4e9a37" />{% endif -%}
 <!-- goatcounter -->
 <script data-goatcounter="https://lazyjobseeker.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<!-- Add hreflang for multiple language SEO support -->
+<!-- hreflang for multiple language SEO support -->
 {% include multilang/get-lang-variables %}
-{% if target_url_ko %}<link rel="alternate" hreflang="ko" href="{{target_url_ko}}">{% endif %}
-{% if target_url_en %}<link rel="alternate" hreflang="en" href="{{target_url_en}}">{% endif %}
-<!-- To add quiz in a post -->
-{% if page.quiz_file %}<script> var jsonpath = '{{ page.quiz_file }}'; </script>{% endif %}
-<!-- To enable JSX mathematical plotting -->
+{% if target_url_ko -%}
+<link rel="alternate" hreflang="ko" href="{{target_url_ko}}">
+{% endif -%}
+{% if target_url_en -%}
+<link rel="alternate" hreflang="en" href="{{target_url_en}}">
+{% endif -%}
+
+<!-- quiz in a post -->
+{% if page.quiz_file -%}<script> var jsonpath = '{{ page.quiz_file }}'; </script>{% endif -%}
+<!-- JSX mathematical plotting -->
 <link href="https://fastly.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" rel="stylesheet" type="text/css" />
 <script src="https://fastly.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js" type="text/javascript" charset="UTF-8"></script>
 <script src="/assets/js/custom-math-functions.js"></script>
@@ -26,4 +33,5 @@
 <link rel="icon" type="image/png" sizes="32x32" href="{{site.baseurl}}/assets/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="{{site.baseurl}}/assets/favicon/favicon-16x16.png">
 <link rel="manifest" href="{{site.baseurl}}/assets/favicon/site.webmanifest">
-<!-- end custom head snippets -->
+
+<!-- Custom Head Snippet (head/custom.html) END -->
