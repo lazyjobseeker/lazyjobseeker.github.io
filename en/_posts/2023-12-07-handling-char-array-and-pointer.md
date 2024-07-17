@@ -5,7 +5,7 @@ category: programming
 tags:
   - C++
 created_at: 2023-12-05 01:35:24 +09:00
-last_modified_at: 2024-05-07 16:06:32 +09:00
+last_modified_at: 2024-07-18 00:32:03 +09:00
 excerpt: How to store char arrays into a vector in C++
 ---
 
@@ -137,6 +137,67 @@ char word = "word";
 std::vector<std::string> v;
 v.push_back(word);
 ```
+
+To use `string` class, include `<string>` header first.
+
+```cpp
+#include <string>
+```
+
+Remind different usage of `cin` and `getline`:  `cin` receives an input until the stream hits a whitespace.  `getline` receives an input until the stream its `\n`.
+
+### How to Declare `string`s
+
+You can declare new string by some different ways.
+
+- Declare empty string
+```cpp
+std::string a;
+```
+- Declare with initialization
+```cpp
+std::string a = "apple";
+std::string b("banana");
+```
+- Declare by copying other string
+```cpp
+// if b was "apple", a declared as follows is also apple
+std::string a(b);
+```
+- Declare by referring char array
+```
+char a = {'a','p','p','l','e'};
+std::string b(a); // b is apple
+```
+- Use of `new` keyward
+```cpp
+std::string a = new std:string("apple");
+```
+
+### Member Functions
+
+`a` is a string object.
+- `a.at(idx)`: Returns `idx`-th letter *with out-of-range check*.
+- `a.at[idx]`: Returns `idx`-th letter *without out-of-range check*.
+- `a.front()`: Returns the very first letter of string.
+- `a.back()`: Returns the last letter of string.
+- `a.length()`: Returns the length of a given string.
+- `a.size()`: Returns the length of a given string.
+- `a.max_size()`: Returns the maximum length of string reachable.
+- `a.capacity()`: Returns memory size of given string.
+- `a.resize(n)`: Resize given string into length of *n*.  Append 0 to lenghten and remove tail-side elements to shorten.
+- `a.resize(n, 'a')`: Same with `.resize(n)` but appended letter is changed from 0 to 'a'.
+- `a.append(b)`: Concatenate string `a` with string `b`.
+- `a.append(b, n, m)`: Same with above but appended entity is changed to substring b\[n,n+m\]
+- `a.clear()`: Remove all characters stored in `a`
+- `a.erase()`: Remove all characters stored in `a`
+- `a.erase(n,m)`: Remove substring a\[n,n+m\] from `a`
+- `a.push_back('b')`: Append character at the end of string `a`
+- `a.pop_back()`: Remove last character from string `a`
+- `a.find(b)`: Try to find substring `b` from string `a`.  If found, the lowest `idx` which satisfies a\[idx\] == b\[idx\] is returned.
+- `a.find(b, n)`: Same with `a.find(b)` but source string is a substring of `a` starting from index `n`.
+- `a.find_first_of('b')`: Return smallest `idx` such that a\[idx\] = 'b'.
+- `a.find_last_of('b')`: Return largest `idx` such that a\[idx\] = 'b'.
 
 ## References
 
