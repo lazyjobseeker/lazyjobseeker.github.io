@@ -5,7 +5,7 @@ category: programming
 tags:
   - C++
 created_at: 2023-12-05 01:35:24 +09:00
-last_modified_at: 2024-07-18 00:32:03 +09:00
+last_modified_at: 2024-07-18 19:38:44 +09:00
 excerpt: How to store char arrays into a vector in C++
 ---
 
@@ -144,7 +144,7 @@ To use `string` class, include `<string>` header first.
 #include <string>
 ```
 
-Remind different usage of `cin` and `getline`:  `cin` receives an input until the stream hits a whitespace.  `getline` receives an input until the stream its `\n`.
+Remind different usage of `cin` and `getline`:  `cin` receives an input until the stream hits a whitespace.  `getline` receives an input until the stream its `\n`.  Getline can be used in conjunction with `cin` like `getline(cin, str)`.  Used with `getline`, input is not broken by whitespace and whole incoming line of characters are inserted to string `str`.
 
 ### How to Declare `string`s
 
@@ -154,7 +154,7 @@ You can declare new string by some different ways.
 ```cpp
 std::string a;
 ```
-- Declare with initialization
+- Declare with initialization by using ***raw string literal***
 ```cpp
 std::string a = "apple";
 std::string b("banana");
@@ -169,7 +169,7 @@ std::string a(b);
 char a = {'a','p','p','l','e'};
 std::string b(a); // b is apple
 ```
-- Use of `new` keyward
+- Use of `new` keyword
 ```cpp
 std::string a = new std:string("apple");
 ```
@@ -198,6 +198,20 @@ std::string a = new std:string("apple");
 - `a.find(b, n)`: Same with `a.find(b)` but source string is a substring of `a` starting from index `n`.
 - `a.find_first_of('b')`: Return smallest `idx` such that a\[idx\] = 'b'.
 - `a.find_last_of('b')`: Return largest `idx` such that a\[idx\] = 'b'.
+- `to_string(num)`: Return a string converted from a number `num`.
+- `to_stoi(str)`: Return an number converted from a string `str`.
+
+### Comparison Operation
+
+Two strings can be compared each other using comparision operators (`＜`, `＞`, `≤`, `≥`, `==`, `!=`).  Strings are compared based on their order in dictionary.  The ***earlier*** a string comes in dictionary, the ***smaller*** it is considered in comparison operation.
+
+```cpp
+string a = "apple";
+string b = "banana";
+
+cout << (a < b); // True
+cout << (a > b); // False
+```
 
 ## References
 

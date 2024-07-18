@@ -1,10 +1,11 @@
 ---
+revision: 1
 title: "Task Automation with Batch File (.bat)"
 category: programming
 tags:
   - windows
 created_at: 2023-12-05 12:00:00 +09:00
-last_modified_at: 2024-04-15 09:42:46 +09:00
+last_modified_at: 2024-07-19 00:06:20 +09:00
 excerpt: "How to write batch file to automate repeated tasks in windows environment."
 ---
 
@@ -160,4 +161,126 @@ Hello world
 
 C:\user>example.bat waldo
 Hello waldo
+```
+
+Passing multiple parameters is therefore also straightforward.
+
+```
+(example.bat)
+
+@echo off
+echo Hello! %1 %2 monring.
+```
+
+```
+C:\user>example.bat Mighty fine
+Hello! Mighty fine morning.
+```
+
+`%0` has different use - to refer to the path of current `.bat` file.
+
+## Receiving User input
+
+User input can be received using below format:
+
+```bash
+@ECHO OFF
+SET STR =
+SET /p STR="Enter any key: "
+ECHO You entered %STR%
+```
+
+## Store `echo`-ed Content into Clipboard
+
+`| CLIP` command can be appended after using `echo` to copy the echoed contents into current clipboard buffer.
+
+```bash
+@ECHO OFF
+SET STR =
+SET /p STR="Enter any key: "
+ECHO You entered %STR% and paste this sentence anywhere! | CLIP
+```
+
+Once you execute above batch file, you can paste "You entered banana and paste this sentence anywhere!" with `ctrl+v`
+
+```bash
+C:\user>example.bat banana
+You entered banana and paste this sentence anywhere!
+```
+
+## Calling A Batch File from Other One
+
+You can also embed pre-built batch file in the other one using `call` keyword:
+
+```bash
+@ECHO OFF
+echo I am an Apple!
+```
+{: file='apple.bat'}
+
+```bash
+@ECHO OFF
+echo I am a Banana!
+call apple.bat
+```
+{: file='banana.bat'}
+
+Above `banana.bat` calls `apple.bat` inside of it.
+
+```bash
+C:\user>example.bat
+I am a Banana!
+I am an Apple!
+```
+
+## Execute Batch File upon Booting
+
+We can also use our batch file to define some routine jobs to be done upon booting Windows.
+
+### Locate Batch File in Startup Folder
+
+- Use `win`+`R` command to pop up **run** dialog.
+- Enter `shell:startup` and execute to open **startup** folder.
+- Copy or move your batch file into **startup** folder.
+
+## Execute Python Code in Batch File
+
+We can automatedly execute your python code in batch file.
+
+```bash
+<path of python.exe> <path of .py file>
+```
+
+For example,
+
+```
+"C:\Users\username\anaconda3\python.exe" "C:\myproject\mycode.py"
+```
+
+
+
+## Execute Batch File in Python Code
+
+You can also call your batch file in python code.
+
+### Using `os`
+
+```python
+import os
+os.startfile("example.bat")
+```
+
+### Using `subprocess`
+
+```python
+import subprocess
+a = subprocess.Popen("example.bat")
+```
+
+If the location of `example.bat` is different from where above `.py` file is located, additional argument `cwd` is required.
+
+```python
+import subprocess
+cwd = f"C:\\examplefolder"
+a = subprocess.Popen("example.bat", cwd=cwd)
 ```
