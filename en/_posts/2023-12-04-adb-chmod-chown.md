@@ -1,10 +1,11 @@
 ---
+revision: 1
 title: "chmod, chown Commands in Adb Shell"
 category: programming
 tags:
   - adb
 created_at: 2023-12-04 12:00:02 +09:00
-last_modified_at: 2024-07-19 00:07:48 +09:00
+last_modified_at: 2024-07-24 22:20:12 +09:00
 excerpt: "How to use chmod and chwon commands for modifying file permissions and owners."
 quiz_file: /assets/json/chmod-chown.json
 ---
@@ -83,4 +84,93 @@ adb shell ls -l a.txt
 
 adb shell chown bob:pop a.txt
 -rwxrw-r-- 1 bob pop 2023-12-04 15:40 a.txt
+```
+
+## 3. Other Useful adb Commands
+
+Below listed commands are those have been useful through my work.  You do not need to remember every single commands.  Just get used to what you frequently use and build your own list.
+
+- Install apk
+```
+adb install path_of_apk_file
+```
+- Uninstall apk
+```
+adb uninstall apk_name
+```
+- Push a file to device
+```
+adb push filename.apk /target_directory_name
+```
+- Pull a file out of device to PC
+```
+adb pull target_file_name
+```
+- Get device log
+```
+adb logcat
+adb logcat -d Real-time update off
+adb logcat {% raw %}*{% endraw %}:v Log priority higher than v(verbose)
+Log priorities:
+Verbose < Debug < Info < Warning < Error < Fatal < Silent
+```
+- Reboot
+```
+adb reboot
+```
+- Reboot in recovery mode
+```
+adb reboot recovery
+```
+- Shut-down: If you add `-p` option in sending `reboot`, your device does not restart.  It just shuts down.
+```
+adb reboot -p
+```
+- Start service
+```
+adb shell am startservice -n SERVICE_NAME
+```
+- **Send an intent implicitly**: Sending an intent ***implicitly*** means that you don't specify the service to receive the intent you are sending out.  `-d` option can be used to add extra data.
+```
+adb shell am broadcast -a android.intent.action.ACTION_NAME -d extra_data
+```
+- **Send an intent explicitly**: In this case you specify the name of target package receiving the intent you broadcast.  Target service name is given with `-p` option.
+```
+adb shell am broadcast -a android.intent.action.ACTION_NAME -p target_package_name
+```
+- List all installed packages
+```
+adb shell pm list packages
+```
+- List all installed packages, filtered with specific string
+```
+adb shell pm list packages | findstr "some-string"
+```
+- Backup your device: This command will create `backup.adb` file.
+```
+adb backup -all
+```
+- Restore from backup
+```
+adb restore "path_to_backup.adb_file"
+```
+- Check PID (Process ID) of specific package
+```
+adb shell pidof PACKAGE_NAME
+```
+- After securing pid of a process, you can use `logcat` but restrict the result to lines from the process with that specific pid:
+```
+adb logcat --pid=PID-YOU-FOUND
+```
+- You can 1) find the PID of a package and 2) get specific logcat for that PID in a single line of command:
+```
+adb logcat --pid=$(adb shell pidof -s PACKAGE_NAME)
+```
+- Get battery log
+```
+adb shell dumpsys battery
+```
+- Get battery log (2)
+```
+adb shell dumpsys batterystats > PATH_TO_SAVE_DATA
 ```
