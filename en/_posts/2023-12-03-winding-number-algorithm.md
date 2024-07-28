@@ -4,8 +4,8 @@ title: Winding Number Algorithm to Determine Point-Polygon Inclusion
 category: programming
 tags:
   - python
-created_at: 2023-12-03 03:34:31 +09:00
-last_modified_at: 2024-07-28 10:17:26 +09:00
+created_at: 2023-12-03 03:34:31 UTC+09:00
+last_modified_at: 2024-07-28 22:34:04 UTC+09:00
 excerpt: Implementing winding-number algorithm to determine if a point is placed inside a polygon
 ---
 
@@ -135,4 +135,6 @@ It is said that:
 - If you know the target polygon is convex, ***wedge method*** is decent - $O(N)$ for preprocessing and $O(logN)$ for query.
 - Practically (when the number of nodes are limited and target polygons are usually concave) ***swath method*** and ***ray intersection method*** both decent.  If the number of $N$ increases, the former beats the latter.
 
-When you have a vectoral polygon composed of vertices $v = \lbrace v_i\rbrace _{i<N}$, swath method uses $N$ half-lines starting from each $v_i$.  
+When you have a vectoral polygon composed of vertices $v = \lbrace v_i\rbrace _{i<N}$, swath method uses $N$ half-lines starting from each $v_i$.  Suppose the projections of those $N$ lines on $y$-axis.  You would see these projections subdivides $y$-axis into $M$ sections (note that according to the shape of given polygon $M$ can largely differ from $N$).  Each of this subsection is called ***swath***.
+
+Now with $M$ ***swaths*** and the point $p$ in concern, you 1) find out which swath $y$-coordinate of $p$ belongs to and 2) use lay intersection method to determine the inclusivity.  Therefore, swath algorithm finally ends by calling lay intersection algorithm but preprocessing step is added for better efficiency.  An important point is that you can use *binary tree* structure when constructing the set of swaths.  After having binary tree, you can determine querying step (checking to which swath your given point $p$ belong) with $O(\log N)$ time complexity.  But the preprocess step is done with time complexity of $O(N\log N)$.  So swath method is more suited when there would be a log of queries to be made.
