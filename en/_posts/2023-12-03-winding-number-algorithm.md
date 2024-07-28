@@ -1,11 +1,12 @@
 ---
-title: "Winding Number Algorithm to Determine Point-Polygon Inclusion"
+revision: 1
+title: Winding Number Algorithm to Determine Point-Polygon Inclusion
 category: programming
 tags:
   - python
 created_at: 2023-12-03 03:34:31 +09:00
-last_modified_at: 2024-05-06 00:48:31 +09:00
-excerpt: "Implementing winding-number algorithm to determine if a point is placed inside a polygon"
+last_modified_at: 2024-07-28 10:17:26 +09:00
+excerpt: Implementing winding-number algorithm to determine if a point is placed inside a polygon
 ---
 
 ## 1. Basic Idea
@@ -97,3 +98,41 @@ False
 ```
 
 Winding number algorithm can be used to implement UI tool (ex. lasso tool of photoshop) which allows user to draw arbitrary closing shape to choose a set of points.
+
+## 4. Complexity
+
+There are already many posts introducing different methods applicable for solving this ***point-in-polygon*** determination problem.  So I just want to metion a different light, the time complexity of various approches suggested till now.  Googling will do if you are to see the detail of different approches.
+
+I would like to give some summary of below journal paper:
+
+C-W Huang and T-Y Shih, *"On the Complexity of Point-in-Polygon Algorithms"*, Computers & Geosciences 23(1) 109-118, 1997.
+
+Before moving on, let me note that the authors systematically divided the overall process of solving a point-in-polygon problem into three features: 1) preprocess, 2) storage, and 3) query. 
+
+- ***Preprocess*** is required if you need to build extra objects and store them in following steps.  Time complexity is $O(1)$ for any algorithm which does not require this step.
+- ***Storage*** is to described the required memory storage for the given algorithm so a related complexity is *space complexity*.
+- ***Query*** is the main step checking the given point's inclusion in the target polygon and time complexity is assessed.
+
+First of all, you can think of two different ways to handle polygons: 1) raster type and 2) vector type.  Rasterized polygons are given as ***a set of square grids***.  You might simply imagine a pixelated image.  When you magnify such an image you see an array of squares.
+
+It is said that:
+- ***Grid method*** is the most efficient one for raster-format inputs.
+
+For the grid method, preprocess is not required.  So the time complexity for preprocessing is $O(1)$.  Storage step features $O(N)$ space complexity.  Finally, the query step features $O(N)$ time complexity as in this scheme the coordinates of given point $p$ needs to be back-to-back compared with every single grid to confirm if there is any grid $G$ containingg $p$ (i.e. point is included in polygon) or not.
+
+When it comes to ***vectoral polygons***, grid method does not work.  There are several methods applicable:
+
+- Ray intersection
+- Sum of Angle
+- Swath
+- Sign of Offset
+- Sum of Area
+- Orientation
+- Wedge
+
+It is said that:
+- ***Swath method*** is efficient for vector-formatted inputs, with some sacrifice in space complexity.
+- If you know the target polygon is convex, ***wedge method*** is decent - $O(N)$ for preprocessing and $O(logN)$ for query.
+- Practically (when the number of nodes are limited and target polygons are usually concave) ***swath method*** and ***ray intersection method*** both decent.  If the number of $N$ increases, the former beats the latter.
+
+When you have a vectoral polygon composed of vertices $v = \lbrace v_i\rbrace _{i<N}$, swath method uses $N$ half-lines starting from each $v_i$.  

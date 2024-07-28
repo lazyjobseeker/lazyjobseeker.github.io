@@ -5,10 +5,30 @@ category: programming
 tags:
   - adb
 created_at: 2023-12-04 12:00:02 +09:00
-last_modified_at: 2024-07-24 22:20:12 +09:00
+last_modified_at: 2024-07-27 05:07:57 +09:00
 excerpt: "How to use chmod and chwon commands for modifying file permissions and owners."
 quiz_file: /assets/json/chmod-chown.json
 ---
+
+## 0. Installation of ADB in Windows
+
+Before started, we need to install ADB (Android Debug Bridge) on our PC.  Visit [this link](https://developer.android.com/tools/releases/platform-tools?hl=ko) to download and install the version meets your requirement.
+
+It is most likely that you do not need to make any further action to use the `adb` command in command prompt.  But if is not your case, you need to manually add the path of `adb.exe` file as an entry of system PATH variables.  Unless you changed the installation path, `adb.exe` file resides in below path:
+
+```bash
+C:\Users\<your_account_name>\AppData\Local\Android\sdk\platform-tools
+```
+
+If everything goes well, you can check your `adb` is well installed by running the version-check command as follows:
+
+```bash
+C:\users\user>adb version
+Android Debug Bridge version 1.0.36
+Revision e02fe72a18c3-android
+```
+
+ADB is a versatile tool used during Android application development process, offering various devices to control/log any target device supported.
 
 ## 1. chmod
 
