@@ -5,7 +5,7 @@ category: programming
 tags:
   - python
 created_at: 2023-12-03 03:34:31 UTC+09:00
-last_modified_at: 2024-07-28 22:34:04 UTC+09:00
+last_modified_at: 2024-07-28 22:34:34 UTC+09:00
 excerpt: Implementing winding-number algorithm to determine if a point is placed inside a polygon
 ---
 
