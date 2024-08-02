@@ -1,11 +1,12 @@
 ---
-title: "Solve ModuleNotFoundError Error with `pathlib` and `sys`"
+revision: 1
+title: Solve ModuleNotFoundError Error with `pathlib` and `sys`
 category: programming
 tags:
   - python
-created_at: 2023-12-01 02:04:33 +09:00
-last_modified_at: 2024-04-15 09:42:32 +09:00
-excerpt: "How to solve ModuleNotFoundError using pathlib and sys"
+created_at: 2023-12-01 02:04:33 UTC+09:00
+last_modified_at: 2024-08-02 22:34:02 UTC+09:00
+excerpt: How to solve ModuleNotFoundError using pathlib and sys
 ---
 
 If you are trying to run your custom python package but its location is not registered as `PATH` variable, you will encounter irritating `ModuleNotFoundError`.  Let's see how to solve this using `pathlib` and `sys`.
@@ -67,6 +68,31 @@ print(sys.path)
 
 Hence, **D:\\\Program Files\\\Python\\\Python310\\\lib\\\site-packages** is my local `site-packages` path, if I locate my project under which I can avoid `ModuleNotFoundError` errors due to my system not knowing the location of my custum project.
 
+## 3. Using Well-Established IDE
+
+If you are using IDE like **VSCode**, **PyCharm** or so, they usually provide an environment where you can work seamlessly with your custom packages 
+
+{% include img-gdrive alt="How VSCode work to enable you to import your custom project (1)" id="1-fIKkL3EjQjUQ0BeQiQMxoFtqZrAP2KQ" %}
+
+Here you can see how I tried to call `apple` function defined in custom module `myproject`, in VSCode environment.  I did not add the path of directory where `myproject` reside, but `example.py` works and `apple` function can be executed.  This is one of the merit you have in using well-established IDE like VSCode.
+
+But the underlying concept is not different.  The reason why you can import `myproject` without putting further effort is just because VSCode takes the job instead of you.  To show this, you can try adding extra lines and print the contents of `sys.path` when `example.py` is being executed:
+
+{% include img-gdrive alt="How VSCode work to enable you to import your custom project (2)" id="1-kighZNg4oLTpAFO6QFCwx13fF5LHmIM" %}
+
+You can see the path of `pytest_example` directory, one of my current working directory open in VSCode, is automatically added as one of the entries of `sys.path` list.  Therefore, it is not a magic, but just IDE is doing some more work for you.
+
+## 4. Miscellaneous Cases
+
+Above observation makes you how to tackle various other cases of encountering `ModuleNotFoundErrors`:
+
+### 4.1. Working with Wrong Python
+
+Suppose you happen to have installed two different python (3.8 and 3.9).  Your custom module is located in `site-packages` directory associated with your python 3.9, but you try to work with python 3.8.  Such case can induce `ModuleNotFoundError` because different versions of python installed in your environment refers to different `site-packages` directory.  One may wonder how it can even be possible for one to misuse python 3.8 when they already installed newer version of python 3.9.  But such case can happen.  For example, one possibley have missed replacing the PATH variable for python excutable from older version to newer one when installing python 3.9.  In such case, if they run `python` on command prompt, python 3.8 will be triggered.
+
+### 4.2. Uninstalled Package
+
+Sometimes one might wonder why their `ModuleNotFoundError` for some package like `numpy` does not go away even after installing that missing package following the online instructions.  This could also be a continuation of the problem described above.  If you installed `numpy` following instructions but that was for installing `numpy` to different version of python than the one you exactly want to work with, the error will persist.  So it is important to make sure you have installed your package to proper version/environment of python where you want to use that package.
 ## References
 1. [pathlib documentation](https://docs.python.org/ko/3/library/pathlib.html)
 2. [pathlib object have to be changed to str type](https://stackoverflow.com/questions/44315815/python-pathlib-path-object-not-converting-to-string)

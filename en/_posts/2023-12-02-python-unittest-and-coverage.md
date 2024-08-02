@@ -1,15 +1,15 @@
 ---
-title: "Testing Python Code with unittest and coverage"
+revision: 1
+title: Testing Python Code with unittest and coverage
 category: programming
 tags:
   - python
-created_at: 2023-12-01 01:45:54 +09:00
-last_modified_at: 2024-05-03 13:44:18 +09:00
-excerpt: "How to use unittest library to test my code and check code coverage using coverage library."
+created_at: 2023-12-01 01:45:54 UTC+09:00
+last_modified_at: 2024-08-02 22:17:04 UTC+09:00
+excerpt: How to use unittest library to test my code and check code coverage using coverage library.
 ---
 
 Here I summarized how to test my code using `unittest`, a built-in library for code test in python, and how to check code coverage using `coverge` package.
-
 
 ## Create Unit Tests and Execute using `unittest`
 
@@ -129,3 +129,117 @@ unittestandcoverage\test.py          20      0   100%
 -----------------------------------------------------
 TOTAL                                28      0   100%
 ```
+
+## pytest
+
+`pytest` is also a framework you can use to test your codes.  You need `python 3.8` or higher to use `pytest`.
+
+### Installation
+
+```bash
+pip install -U pytest
+```
+
+### Usage
+
+There are some rules in nomenclatures for the files used for testing using `pytest`:
+
+- File name takes the form of `test_*.py` or `*_test.py`
+- Class name takes the form of `Test*`
+- Class method/function names take the form of `test_*`
+
+To run the test, there are several ways you can trigger it.
+
+- `pytest` command runs all test files in current directory.
+- `pytest <dir-name>/` runs all test files in `<dir-name>` directory
+- `pytest <file-name>` runs specific test file named `<file-name>`
+
+### Fixtures
+
+In testing your codes, you get to repeatedly find that your tests including some necessary but redundant portion.  For example, you may need to load some raw data file repeatedly.  Or you may need to create instances of a class before running a test.
+
+```python
+import pytest
+
+# Import custom class, a mighty Dragon, for testing
+# Instances of Dragon can fire_breath() and fly()
+# fire_breath returns string "fire"
+# fly returns stirng "fly"
+from my_project import Dragon
+
+@pytest.fixture
+def summon_dragon():
+	dragon = Dragon()
+	return dragon
+
+def test_fire_breath(summon_dragon):
+	assert summon_dragon.fire_breath() == "breath"
+
+def test_fly(summon_dragon):
+	assert summon_dragon.fly() == "fly"
+```
+
+By decorating `summon_dragon` as fixture, repetition of creating `dragon` instance can be avoided.  You can pass the fixture function `summon_dragon` as an argument of your test functions, which automatically enables your test function to access `dragon` inside of itself.
+
+Without using fixture concept, the tests had to be like:
+
+```python
+import pytest
+
+# Import custom class, a mighty Dragon, for testing
+# Instances of Dragon can fire_breath() and fly()
+# fire_breath returns string "fire"
+# fly returns stirng "fly"
+from my_project import Dragon
+
+def summon_dragon():
+	dragon = Dragon()
+	return dragon
+
+def test_fire_breath():
+	assert summon_dragon().fire_breath() == "breath"
+
+def test_fly():
+	assert summon_dragon().fly() == "fly"
+```
+
+You can also ***chain*** multiple fixtures.
+
+```python
+@pytest.fixture
+def on_plate():
+    return []
+
+@pytest.fixture
+def add_icecream(on_plate):
+    on_plate.append("Icecream")
+
+@pytest.fixture(autouse=True)
+def add_waffle(on_plate, add_icecream):
+    on_plate.append("Waffle")
+
+def test_on_plate(on_plate):
+    assert on_plate == ["Icecream", "Waffle"]	
+```
+
+Notice `autouse` argument of fixture `add_waffle`.  This argument enables `add_waffle` to be run without explicitly using it on our test functoin `test_on_plate`.  As `add_waffle` includes another fixture `add_icecream`, it is called first and the string `"Icecream"` is appended to empty list (which is called by `on_plate`) before the other string `"Waffle"` is appended.
+
+A noteworthy point about chained fixtures is that how `pytest` deals with the case if any one of the fixtures chained together contains error (and therefore raise some type of error).  It is said that `pytest` does not *attempt* to run any test any of the fixtures for which contain error.  As the test is not *attempted* to be executed, we cannot interpret failure in such case as a failed test.
+
+#### Scope of Fixture
+
+We can set `scope` for fixtures.
+
+```python
+@pytest.fixture(scope="<scope>")
+```
+
+`<scope>` can be one of below, where the default setting is `function`.
+
+- function
+- class
+- module
+- package
+- session
+
+If the scope of a fixture is `session`, for example, that fixture is called only once during a given test session (i.e. when you run test file using `pytest <filename>.py` in command prompt)
