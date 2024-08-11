@@ -5,5 +5,6 @@ ended: "Feb. 2019"
 history:
   - department: "Materials Science and Engineering"
     job: "NA"
-site: "Seoul National University, Seoul, Republic of Korea"
+affiliation: "Seoul National University"
+site: "Seoul, Republic of Korea"
 ---

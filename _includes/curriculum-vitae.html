@@ -1,12 +1,12 @@
 <h2> 🎓 EDUCATION & CAREER </h2>
 <div style = "margin-bottom: 50px">
   {% for career in site.career reversed %}
-      <div><font size = 4><b> {{- career.title -}} </b></font></div>
+      <div><font size = 5><b> {{- career.title -}} </b></font></div>
       <div>
-        <font size = 2><b> {{ career.started | append: " - " | append: career.ended}} </b></font>
+        <font size = 3><b>{{ career.affiliation }} | {{ career.started | append: " - " | append: career.ended}}</b></font>
       </div>
       <div>
-        <font size = 3>
+        <font size = 4>
           {% for pos in career.history %}
             {{- pos.department | append: "<br>" -}}
             {% if pos.job != "NA" %}
@@ -16,7 +16,7 @@
               {% endfor %}
             {% endif %}
           {% endfor %}
-          {{ career.site | append: "<br><br>" }}
+          {{ career.site | append: "<br><br>"}}
         </font>
       </div>
   {% endfor %}

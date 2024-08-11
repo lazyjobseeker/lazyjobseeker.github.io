@@ -2,6 +2,7 @@
 lang: en
 translated: true
 title: CURRICULUM VITAE
+classes: wide
 category: Sangheon Lee
 last_modified_at: 2024-03-27 15:29:04 +09:00
 permalink: /en/docs/curriculum_vitae/

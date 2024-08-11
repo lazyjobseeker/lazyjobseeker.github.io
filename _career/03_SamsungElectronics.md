@@ -9,5 +9,6 @@ history:
     - "Failure analysis and diagnosis"
     - "Data-driven cycle life prediction"
     - "State-of-health estimation"
-site: "Samsung Electronics, Suwon, Republic of Korea"
+affiliation: "Samsung Electronics Co. Ltd."
+site: "Suwon, Republic of Korea"
 ---

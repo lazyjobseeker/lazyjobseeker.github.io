@@ -5,7 +5,7 @@ tags:
   - machine-learning
   - pytorch
 created_at: 2024-08-05 20:19:54 UTC+09:00
-last_modified_at: 2024-08-11 17:01:54 UTC+09:00
+last_modified_at: 2024-08-11 21:01:04 UTC+09:00
 excerpt: 물리기반 인공신경망(PINN) 컨셉에 따른 손실함수 적용을 통하여 편미분방정식 형태의 물리식 규제를 갖는 관측치를 이용한 신경망 학습 결과를 개선하는 방법 및 PyTorch 예제 코드
 ---
 
@@ -269,7 +269,7 @@ plt.colorbar()
 
 결과가 기존 바닐라 모델과 어떻게 달라지는지 살펴봅시다.  이미지 상단에 존재하던, 물리적으로 정합하지 않은 물결무늬 형태가 사라진 것을 알 수 있습니다.  이러한 결과를 통해, 물리현상을 규제하는 편미분방정식의 충족 수준을 손실함수에 포함하는 PINN의 접근이 학습 결과를 개선하는 방식을 확인할 수 있습니다.
 
-{% include img-gdrive alt="Training Result of PINN model" id="100qPCf9g8cN3FzZ8bTc7cur0nHKYCF4l" %}
+{% include img-gdrive alt="PINN 적용 시 학습 결과" id="100qPCf9g8cN3FzZ8bTc7cur0nHKYCF4l" %}
 
 위에서는 `Adam` 옵티마이저만을 사용했지만, `LBFGS` 옵티마이저를 함께 사용하여 수렴성을 개선하는 방법이 사용될 수 있습니다.  이 경우 `Adam` 옵티마이저를 이용한 사전 학습 에폭을 가진 뒤, 최종적으로 `LBFGS` 옵티마이저를 이용하게 됩니다.
 

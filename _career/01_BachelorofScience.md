@@ -9,5 +9,6 @@ history:
     job: "NA"
   - department: "- Department of Mathematical Sciences"
     job: "NA"
-site: "Seoul National University, Seoul, Republic of Korea"
+affiliation: "Seoul National University"
+site: "Seoul, Republic of Korea"
 ---
