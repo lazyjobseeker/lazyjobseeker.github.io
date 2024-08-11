@@ -305,7 +305,7 @@ defaults:
       revision: 0
       lang: ko
       toc: true
-      # toc_sticky: true
+      toc_sticky: true
       show_date: true
       layout: single
       author_profile: false
@@ -326,7 +326,7 @@ defaults:
       revision: 0
       lang: ko
       toc: true
-      # toc_sticky: true
+      toc_sticky: true
       show_date: true
       layout: single
       author_profile: false
@@ -347,7 +347,7 @@ defaults:
       revision: 0
       lang: en
       toc: true
-      # toc_sticky: true
+      toc_sticky: true
       show_date: true
       layout: single
       author_profile: false
@@ -368,7 +368,7 @@ defaults:
       revision: 0
       lang: en
       toc: true
-      # toc_sticky: true
+      toc_sticky: true
       show_date: true
       layout: single
       author_profile: false
