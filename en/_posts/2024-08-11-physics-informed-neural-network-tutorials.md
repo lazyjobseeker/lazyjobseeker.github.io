@@ -4,8 +4,8 @@ category: machine-learning
 tags:
   - machine-learning
   - pytorch
-created_at: 2024-08-05 20:19:54 UTC+09:00
-last_modified_at: 2024-08-11 19:50:28 UTC+09:00
+created_at: 2024-08-05 08:19:54 +09:00
+last_modified_at: 2024-08-20 05:16:57 +09:00
 excerpt: Concepts of physics-informed neural network (PINN) and tutorial codes written and explained in python
 ---
 
@@ -423,7 +423,7 @@ print(jac.T[0].sum())
 
 This observation confirms that the Jacobian $\text{J}$ in Eq. (4) is same with the transpose of `jac`, or`jac.T`.
 
-#### Model with Vector-Valued Output (2)
+### Model with Vector-Valued Output (2)
 
 With above approach we could get any partial derivatives of models whose output is scalar- and vector-valued.  But in vector-valued output model case, above code gets into trouble in handling batched input.
 
