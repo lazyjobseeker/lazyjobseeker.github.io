@@ -2,7 +2,7 @@
 title: On-Device Personalized Charging Strategy With an Aging Model for Lithium-Ion Batteries Using Deep Reinforcement Learning
 authors:
 - first_name: Ankit
-  last_name: Yadoo
+  last_name: Yadu
   role: first
 - first_name: Subramanian B.
   last_name: Swernath
@@ -30,4 +30,6 @@ page_start: 1
 page_end: 11
 art_no: false
 doi: 10.1109/TASE.2023.3307168
+created_at: 2024-06-16 11:36:51 +09:00
+last_modified_at: 2024-09-03 09:47:33 +09:00
 ---
