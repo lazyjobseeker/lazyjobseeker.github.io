@@ -292,8 +292,9 @@ compress_html:
     envs: development
 
 collections:
-  - publications
   - career
+  - publications
+  - patents
 
 # Defaults
 defaults:

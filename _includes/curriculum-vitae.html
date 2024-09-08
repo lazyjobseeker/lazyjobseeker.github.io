@@ -1,23 +1,23 @@
+<div>
+Battery engineer with PhD and over 5 years of professional experience in battery cell development, machine-learning based algorithm development, electrochemical modeling, and mechanical simulations.
+</div>
+
 <h2> 🎓 EDUCATION & CAREER </h2>
 <div style = "margin-bottom: 50px">
   {% for career in site.career reversed %}
-      <div><font size = 5><b> {{- career.title -}} </b></font></div>
+      <h3>{{ career.title }}</h3>
+      <b>{{ career.affiliation }} | {{ career.started | append: " - " | append: career.ended}}</b>
       <div>
-        <font size = 3><b>{{ career.affiliation }} | {{ career.started | append: " - " | append: career.ended}}</b></font>
-      </div>
-      <div>
-        <font size = 4>
-          {% for pos in career.history %}
-            {{- pos.department | append: "<br>" -}}
-            {% if pos.job != "NA" %}
-              {{- pos.job | prepend: "&nbsp;&nbsp;- " | append: "<br>" -}}
-              {% for dscr in pos.job_dscrs %}
-                {{ dscr | prepend: "&nbsp;&nbsp;&nbsp;&nbsp;- " | append: "<br>" -}}
-              {% endfor %}
-            {% endif %}
-          {% endfor %}
-          {{ career.site | append: "<br><br>"}}
-        </font>
+        {% for pos in career.history %}
+          {{- pos.department | append: "<br>" -}}
+          {%- if pos.job != "NA" -%}
+            {{- pos.job | prepend: "&nbsp;&nbsp;&nbsp;&nbsp;✔ " | append: "<br>" -}}
+            {% for dscr in pos.job_dscrs %}
+              {{ dscr | prepend: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• " | append: "<br>" -}}
+             {% endfor %}
+          {%- endif -%}
+        {% endfor %}
+        {{- career.site -}}
       </div>
   {% endfor %}
 </div>
@@ -25,53 +25,88 @@
 <div>
   {% assign counter = site.publications.size | plus: 1 %}
   {% for pub in site.publications reversed %}
-      <font size = 4><b>
-        {% assign counter = counter | minus: 1 %}
-        {% if counter < 10 %}
-          {{ counter | prepend: "0" | append: ". " | append: pub.title | append: "<br>" }}
-        {% else %}
-          {{ counter | append: ". " | append: pub.title | append: "<br>" }}
+  <b>
+    {% assign counter = counter | minus: 1 %}
+    {% if counter < 10 %}
+      {{ counter | prepend: "0" | append: ". " | append: pub.title | append: "<br>" }}
+    {% else %}
+      {{ counter | append: ". " | append: pub.title | append: "<br>" }}
+    {% endif %}
+  </b>
+    {% for author in pub.authors %}
+      {% capture name %} {{- author.first_name }} {{ author.last_name -}} {% endcapture %}
+      {% if author.is_me == true %}
+        {% capture name %} {{- name | prepend: "<b><u>" | append: "</u></b>" -}} {% endcapture %}
+      {% endif %}
+      {% if author.last_author == true %}
+        {% capture name %} {{- name | prepend: "and " -}} {% endcapture %}
+      {% else %}
+        {% capture name %} {{- name | append: "," -}} {% endcapture %}
+      {% endif %}
+      {% if author.role == "first_equally" %}
+        {% capture name %} {{- name | append: "<sup>+</sup>" -}} {% endcapture %}
+        {% if author.correspondence == true %}
+          {% capture name %} {{- name | append: "<sup>,*</sup>" -}} {% endcapture %}
         {% endif %}
-      </b></font>
-      <font size = 3>
-        {% for author in pub.authors %}
-          {% capture name %} {{- author.first_name }} {{ author.last_name -}} {% endcapture %}
-          {% if author.is_me == true %}
-            {% capture name %} {{- name | prepend: "<b><u>" | append: "</u></b>" -}} {% endcapture %}
-          {% endif %}
-          {% if author.last_author == true %}
-            {% capture name %} {{- name | prepend: "and " -}} {% endcapture %}
-          {% else %}
-            {% capture name %} {{- name | append: "," -}} {% endcapture %}
-          {% endif %}
-          {% if author.role == "first_equally" %}
-            {% capture name %} {{- name | append: "<sup>+</sup>" -}} {% endcapture %}
-            {% if author.correspondence == true %}
-              {% capture name %} {{- name | append: "<sup>,*</sup>" -}} {% endcapture %}
-            {% endif %}
-          {% elsif author.correspondence == true %}
-            {% capture name %} {{- name | append: "<sup>*</sup>" -}} {% endcapture %}
-          {% endif %}
-          {{ name }}
-        {% endfor %}
-        {{ pub.journal_title | prepend: "<br><i><u>" | append: "</u></i>" }}
-        {{ pub.volume | prepend: "<b>" | append: "</b>" -}}
-        {% if pub.issue != false %}
-          {{- pub.issue | prepend: "(" | append: ")," -}}
-        {% else %}
-          {{- "," -}}
+      {% elsif author.correspondence == true %}
+        {% capture name %} {{- name | append: "<sup>*</sup>" -}} {% endcapture %}
+      {% endif %}
+      {{ name }}
+    {% endfor %}
+    {{ pub.journal_title | prepend: "<br><i><u>" | append: "</u></i>" }}
+    {{ pub.volume | prepend: "<b>" | append: "</b>" -}}
+    {% if pub.issue != false %}
+      {{- pub.issue | prepend: "(" | append: ")," -}}
+    {% else %}
+      {{- "," -}}
+    {% endif %}
+    {% if pub.page_start != false %}
+      {{- pub.page_start -}}
+      {% if pub.page_end != false %}
+        {{- pub.page_end | prepend: "-" -}}
+      {% endif %}
+    {% elsif pub.art_no != false %}
+      {{- pub.art_no -}}
+    {% endif %}
+    {{ pub.year | prepend: "(" | append: ")<br>" -}}
+    {{ "DOI: " | append: pub.doi }}
+    {{- "<br><br>" -}}
+  {% endfor %}
+</div>
+ 
+<h2> 🛠️ PATENTS </h2>
+<div>
+  {% assign counter = site.patents.size | plus: 1 %}
+  {% for pat in site.patents reversed %}
+    <b>
+      {% assign counter = counter | minus: 1 %}
+      {% if counter < 10 %}
+        {{ counter | prepend: "0" | append: ". " | append: pat.title | append: "<br>" }}
+      {% else %}
+        {{ counter | append: ". " | append: pat.title | append: "<br>" }}
+      {% endif %}
+    </b>
+    {% for author in pat.authors %}
+      {% capture name %} {{- author.first_name }} {{ author.last_name -}} {% endcapture %}
+      {% if author.is_me == true %}
+        {% capture name %} {{- name | prepend: "<b><u>" | append: "</u></b>" -}} {% endcapture %}
+      {% endif %}
+      {% if author.last_author == true %}
+        {% if pat.authors.size != 1 %}
+          {% capture name %} {{- name | prepend: "and " -}} {% endcapture %}
         {% endif %}
-        {% if pub.page_start != false %}
-          {{- pub.page_start -}}
-          {% if pub.page_end != false %}
-            {{- pub.page_end | prepend: "-" -}}
-          {% endif %}
-        {% elsif pub.art_no != false %}
-          {{- pub.art_no -}}
-        {% endif %}
-        {{ pub.year | prepend: "(" | append: ")<br>" -}}
-        {{ "DOI: " | append: pub.doi }}
-        {{- "<br><br>" -}}
-      </font>
+      {% else %}
+        {% capture name %} {{- name | append: "," -}} {% endcapture %}
+      {% endif %}
+      {{ name }}
+    {% endfor %}
+    <br>
+    {%- if pat.reg_no -%}
+      {{ pat.location }} Patent {{ pat.reg_no }}
+    {%- elsif pat.app_no -%}
+      {{ pat.location }} Patent App. No. {{ pat.app_no }}
+    {%- endif -%}
+    {{ pat.year | prepend: " (" | append: ")" }}
+    {{- "<br><br>" -}}
   {% endfor %}
 </div>
