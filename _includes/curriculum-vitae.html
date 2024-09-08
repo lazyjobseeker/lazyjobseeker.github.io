@@ -2,30 +2,32 @@
 Battery engineer with PhD and over 5 years of professional experience in battery cell development, machine-learning based algorithm development, electrochemical modeling, and mechanical simulations.
 
 <h2> 🎓 EDUCATION & CAREER </h2>
-<div style = "margin-bottom: 50px">
+<div>
   {% for career in site.career reversed %}
-      <h3>{{ career.title }}</h3>
-      <b>{{ career.affiliation }} | {{ career.started | append: " - " | append: career.ended}}</b>
-      <div>
-        {% for pos in career.history %}
-          {{- pos.department | append: "<br>" -}}
-          {% for job in pos.jobs %}
+    <b class="cv__careertitle">{{ career.title }}</b><br>
+    <b>{{ career.affiliation }} | {{ career.started | append: " - " | append: career.ended}}</b>
+    <div>
+      {% for pos in career.history %}
+        {{- pos.department | append: "<br>" -}}
+        {% for job in pos.jobs %}
+          <ul>
+          {%- if job.title != "NA" -%}
+            <li>{{- job.title -}}</li>
             <ul>
-            {%- if job.title != "NA" -%}
-              <li>{{- job.title -}}</li>
-              <ul>
-              {% for dscr in job.dscrs %}
-                <li>{{- dscr -}}</li>
-              {% endfor %}
-              </ul>
-            {%- endif -%}
+            {% for dscr in job.dscrs %}
+              <li>{{- dscr -}}</li>
+            {% endfor %}
             </ul>
-          {% endfor %}
+          {%- endif -%}
+          </ul>
         {% endfor %}
-        {{- career.site -}}
-      </div>
+      {% endfor %}
+      {{- career.site -}}
+    </div>
+    <br>
   {% endfor %}
 </div>
+
 <h2> 📚 PUBLICATIONS </h2>
 <div>
   {% assign counter = site.publications.size | plus: 1 %}
