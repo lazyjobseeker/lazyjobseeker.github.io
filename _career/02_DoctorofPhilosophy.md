@@ -4,7 +4,8 @@ started: "Mar. 2013"
 ended: "Feb. 2019"
 history:
   - department: "Department of Materials Science and Engineering"
-    job: "NA"
+    jobs:
+      - title: "NA"
 affiliation: "Seoul National University"
 site: "Seoul, Republic of Korea"
 ---

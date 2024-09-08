@@ -89,6 +89,17 @@ body {
   font-size: $type-size-4;
 }
 
+.cv__contents {
+  ul {
+    margin-top: 0em;
+    margin-bottom: 0em;
+  }
+  li {
+    line-height: 1.5em !important; 
+    margin-bottom: 0em;
+  }
+}
+
 .page__content {
 
   h1 {

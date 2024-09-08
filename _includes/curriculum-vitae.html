@@ -1,6 +1,5 @@
-<div>
+<section class="cv__contents">
 Battery engineer with PhD and over 5 years of professional experience in battery cell development, machine-learning based algorithm development, electrochemical modeling, and mechanical simulations.
-</div>
 
 <h2> 🎓 EDUCATION & CAREER </h2>
 <div style = "margin-bottom: 50px">
@@ -10,12 +9,18 @@ Battery engineer with PhD and over 5 years of professional experience in battery
       <div>
         {% for pos in career.history %}
           {{- pos.department | append: "<br>" -}}
-          {%- if pos.job != "NA" -%}
-            {{- pos.job | prepend: "&nbsp;&nbsp;&nbsp;&nbsp;✔ " | append: "<br>" -}}
-            {% for dscr in pos.job_dscrs %}
-              {{ dscr | prepend: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• " | append: "<br>" -}}
-             {% endfor %}
-          {%- endif -%}
+          {% for job in pos.jobs %}
+            <ul>
+            {%- if job.title != "NA" -%}
+              <li>{{- job.title -}}</li>
+              <ul>
+              {% for dscr in job.dscrs %}
+                <li>{{- dscr -}}</li>
+              {% endfor %}
+              </ul>
+            {%- endif -%}
+            </ul>
+          {% endfor %}
         {% endfor %}
         {{- career.site -}}
       </div>
@@ -110,3 +115,5 @@ Battery engineer with PhD and over 5 years of professional experience in battery
     {{- "<br><br>" -}}
   {% endfor %}
 </div>
+
+</section>
