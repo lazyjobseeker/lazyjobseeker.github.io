@@ -22,9 +22,9 @@ programming:
       - title: "JAVA"
 
 docs:
-  - title: Sangheon Lee
+  - title: "SANGHEON LEE"
     children:
-      - title: "Curriculum Vitae"
+      - title: "CURRICULUM VITAE"
         url: /docs/curriculum_vitae/
 #      - title: "About"
 #        url: /docs/about/

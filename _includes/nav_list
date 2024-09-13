@@ -22,5 +22,11 @@
         {% endif %}
       </li>
     {% endfor %}
+      <li>
+        <span class="nav__sub-title"></span>
+        <ul>
+          <li><b>Today </b><span id="gc_daily"></span> | <b>Total </b><span id="gc_total"></span></li>
+        <ul>
+      </li>
   </ul>
 </nav>

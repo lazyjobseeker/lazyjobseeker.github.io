@@ -1,6 +1,28 @@
 
 <!-- Custom Head Snippet (head/custom.html) START -->
 
+<!-- Site Stat by GoatCounter -->
+<script data-goatcounter="https://lazyjobseeker.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+    var t = setInterval(function() {
+        if (window.goatcounter && window.goatcounter.visit_count) {
+            clearInterval(t)
+            const today = new Date();
+            var daily = new XMLHttpRequest();
+            daily.addEventListener('load', function() {
+                document.querySelector('#gc_daily').innerText = JSON.parse(this.responseText).count.replace(/\s/g, "");
+            })
+            daily.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json?start=' + today.toISOString().substr(0,10))
+            daily.send()
+            var total = new XMLHttpRequest();
+            total.addEventListener('load', function() {
+                document.querySelector('#gc_total').innerText = JSON.parse(this.responseText).count.replace(/\s/g, "");
+            })
+            total.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json')
+            total.send()
+        }
+    })
+</script>
 <!-- Google Adsense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9888600785015096" crossorigin="anonymous"></script>
 <!-- Clipboard -->
