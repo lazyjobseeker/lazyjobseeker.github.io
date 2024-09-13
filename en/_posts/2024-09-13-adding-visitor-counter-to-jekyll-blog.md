@@ -5,7 +5,7 @@ tags:
   - jekyll
   - minimal-mistakes
 created_at: 2024-09-13 22:05:32 UTC+09:00
-last_modified_at: 2024-09-14 02:33:57 UTC+09:00
+last_modified_at: 2024-09-14 06:48:54 UTC+09:00
 excerpt: How to add a custom visitor counter to your jekyll-based github blog using an open-source web analytics **GoatCounter**.
 ---
 There is no simple way to add a visitor counter to your personal blog if you are hosting yours using a static web-site generator like `Jekyll`.  Fortunately, there is an open-source web analytics platform [GoatCounter](https://www.goatcounter.com/), developed and being maintained by [Martin Tournoij](https://github.com/arp242), which you can use to implement visitor counter display.
@@ -92,24 +92,24 @@ Now let's move on to the application of above JSON raw data to embody the visito
 First of all, below code was added to my custom header file `custom.html`.
 
 ```html
-<script data-goatcounter="https://my-code.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<!-- Site Stat by GoatCounter -->
+<script data-goatcounter="https://lazyjobseeker.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script>
     var t = setInterval(function() {
         if (window.goatcounter && window.goatcounter.visit_count) {
             clearInterval(t)
-            var now = new Date();
-            var todayUTC = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+            var today = new Date();
             var daily = new XMLHttpRequest();
             daily.addEventListener('load', function() {
                 document.querySelector('#gc_daily').innerText = JSON.parse(this.responseText).count.replace(/\s/g, "");
             })
-            daily.open('GET', 'https://my-code.goatcounter.com/counter/TOTAL.json?start=' + todayUTC.toISOString().slice(0, 10))
+            daily.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json?start=' + today.toISOString().slice(0, 10))
             daily.send()
             var total = new XMLHttpRequest();
             total.addEventListener('load', function() {
                 document.querySelector('#gc_total').innerText = JSON.parse(this.responseText).count.replace(/\s/g, "");
             })
-            total.open('GET', 'https://my-code.goatcounter.com/counter/TOTAL.json')
+            total.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json')
             total.send()
         }
     })
