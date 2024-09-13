@@ -7,12 +7,13 @@
     var t = setInterval(function() {
         if (window.goatcounter && window.goatcounter.visit_count) {
             clearInterval(t)
-            const today = new Date();
+            var now = new Date();
+            var todayUTC = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
             var daily = new XMLHttpRequest();
             daily.addEventListener('load', function() {
                 document.querySelector('#gc_daily').innerText = JSON.parse(this.responseText).count.replace(/\s/g, "");
             })
-            daily.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json?start=' + today.toISOString().substr(0,10))
+            daily.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json?start=' + todayUTC.toISOString().slice(0, 10))
             daily.send()
             var total = new XMLHttpRequest();
             total.addEventListener('load', function() {
