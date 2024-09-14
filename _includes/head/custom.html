@@ -20,7 +20,7 @@
             yesterday_cnt.addEventListener('load', function() {
                 document.querySelector('#gc_yesterday').innerText = JSON.parse(this.responseText).count.replace(/\s/g, "");
             })
-            yesterday_cnt.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json?start=' + yesterday.toISOString().slice(0, 10))
+            yesterday_cnt.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json?start=' + yesterday.toISOString().slice(0, 10) + '&end=' + today.toISOString().slice(0, 10))
             yesterday_cnt.send()
             var total_cnt = new XMLHttpRequest();
             total_cnt.addEventListener('load', function() {
