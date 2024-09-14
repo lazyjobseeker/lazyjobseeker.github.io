@@ -5,7 +5,7 @@ tags:
   - jekyll
   - minimal-mistakes
 created_at: 2024-09-13 22:05:32 UTC+09:00
-last_modified_at: 2024-09-14 15:52:11 UTC+09:00
+last_modified_at: 2024-09-14 15:56:47 UTC+09:00
 excerpt: How to add a custom visitor counter to your jekyll-based github blog using an open-source web analytics **GoatCounter**.
 ---
 There is no simple way to add a visitor counter to your personal blog if you are hosting yours using a static web-site generator like `Jekyll`.  Fortunately, there is an open-source web analytics platform [GoatCounter](https://www.goatcounter.com/), developed and being maintained by [Martin Tournoij](https://github.com/arp242), which you can use to implement visitor counter display.
@@ -144,7 +144,7 @@ Some remarks:
 `_includes/nav_list` file was modified to have `<span>` elements having proper IDs:
 
 ```html
-{% assign navigation = site.data.navigation[include.nav] %}
+{% raw %}{% assign navigation = site.data.navigation[include.nav] %}
 {% include multilang/get-lang-variables %}
 <nav class="nav__list">
   {% if page.sidebar.title %}<h3 class="nav__title" style="padding-left: 0;">{{ page.sidebar.title }}</h3>{% endif %}
@@ -178,6 +178,6 @@ Some remarks:
         <ul>
       </li>
   </ul>
-</nav>
+</nav>{% endraw %}
 ```
 {: file="_includes/nav_list"}
