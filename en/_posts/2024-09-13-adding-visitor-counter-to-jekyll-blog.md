@@ -5,7 +5,7 @@ tags:
   - jekyll
   - minimal-mistakes
 created_at: 2024-09-13 22:05:32 UTC+09:00
-last_modified_at: 2024-09-14 15:56:47 UTC+09:00
+last_modified_at: 2024-09-14 17:34:32 UTC+09:00
 excerpt: How to add a custom visitor counter to your jekyll-based github blog using an open-source web analytics **GoatCounter**.
 ---
 There is no simple way to add a visitor counter to your personal blog if you are hosting yours using a static web-site generator like `Jekyll`.  Fortunately, there is an open-source web analytics platform [GoatCounter](https://www.goatcounter.com/), developed and being maintained by [Martin Tournoij](https://github.com/arp242), which you can use to implement visitor counter display.
@@ -122,7 +122,7 @@ First of all, below code was added to my custom header file `custom.html`.
             yesterday_cnt.addEventListener('load', function() {
                 document.querySelector('#gc_yesterday').innerText = JSON.parse(this.responseText).count.replace(/\s/g, "");
             })
-            yesterday_cnt.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json?start=' + yesterday.toISOString().slice(0, 10))
+            yesterday_cnt.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json?start=' + yesterday.toISOString().slice(0, 10) + '&end=' + today.toISOString().slice(0, 10))
             yesterday_cnt.send()
             var total_cnt = new XMLHttpRequest();
             total_cnt.addEventListener('load', function() {
