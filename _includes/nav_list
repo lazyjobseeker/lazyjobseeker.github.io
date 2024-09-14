@@ -22,10 +22,13 @@
         {% endif %}
       </li>
     {% endfor %}
+    <!-- Site Stat Powered by GoatCounter -->
       <li>
         <span class="nav__sub-title"></span>
         <ul>
-          <li><b>Today </b><span id="gc_daily"></span> | <b>Total </b><span id="gc_total"></span></li>
+          <li><span style="display:inline-block; width:50%; max-width:130px"><b>TODAY </b></span><span id="gc_today"></span></li>
+          <li><span style="display:inline-block; width:50%; max-width:130px"><b>YESTERDAY </b></span><span id="gc_yesterday"></span></li>
+          <li><span style="display:inline-block; width:50%; max-width:130px"><b>TOTAL </b></span><span id="gc_total"></span></li>
         <ul>
       </li>
   </ul>

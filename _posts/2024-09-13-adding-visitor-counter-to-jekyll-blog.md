@@ -5,12 +5,12 @@ tags:
   - jekyll
   - minimal-mistakes
 created_at: 2024-09-13 22:05:32 UTC+09:00
-last_modified_at: 2024-09-14 06:49:04 UTC+09:00
+last_modified_at: 2024-09-14 15:53:02 UTC+09:00
 excerpt: 오픈소스 웹 애널리틱스 플랫폼 goatcounter를 이용하여 지킬 기반 깃허브 블로그에 방문자 카운터를 만드는 방법을 정리합니다.
 ---
 `Jekyll`과 같은 정적 웹사이트 생성기를 이용해 만든 개인 블로그에는 자체적으로 방문자 카운터를 넣을 방법이 없습니다.  다행히 무료로 사용 가능한 오픈소스 웹 애널리틱스 플랫폼 중 프로그래머 [Martin Tournoij](https://github.com/arp242)가 개발하여 운영하고 있는 [GoatCounter](https://www.goatcounter.com/)를 이용하여 방문자 카운터 기능을 직접 구현할 수 있습니다.
 
-이 포스팅에서는 **Minimal Mistakes** 테마를 사용하고 있는 이 블로그에 GoatCounter API를 이용한 방문자 카운터를 넣은 과정을 정리해 보았습니다.  이 포스팅을 참고하여 직접 방문자 카운터를 만들어도 좋고,  GoatCounter 기반으로 개별 포스트의 페이지뷰 숫자를 제공하도록 미리 구현해 둔 [Satellite🛰️](https://byanko55.github.io/)와 같은 테마를 사용해 보아도 좋겠습니다. 
+이 포스팅에서는 **Minimal Mistakes** 테마를 사용하고 있는 이 블로그에 GoatCounter API를 이용한 방문자 카운터를 넣은 과정을 정리해 보았습니다.  이 포스팅을 참고하여 직접 방문자 카운터를 만들어도 좋고,  GoatCounter 기반으로 개별 포스트의 페이지뷰 숫자를 제공하도록 미리 구현해 둔 [Chirpy](https://chirpy.cotes.page/) 나 [Satellite🛰️](https://byanko55.github.io/)와 같은 테마를 사용해 보아도 좋겠습니다.
 
 ## GoatCounter 계정 만들기
 
@@ -81,7 +81,17 @@ https://my-code.goatcounter.com/counter/TOTAL.json?start=2024-03-01&end=2024-06-
 ```
 {: file="passing queries"}
 
-JSON 파일에 접근하면 `count` 및 `count_unique` 키가 있는데 두 값이 같습니다.  `count_unique`는 호환성을 위한 레거시 키라고 하니 `count`값만 사용한다고 생각하면 됩니다.
+JSON 파일에 접근하면 `count` 및 `count_unique` 키가 있는데, 두 값이 같습니다.
+
+```json
+{
+  "count": "2 771",
+  "count_unique": "2 771"
+}
+```
+{:file = "GoatCounter JSON Example"}
+
+`count_unique`는 호환성을 위한 레거시 키라고 하니 `count`값만 사용한다고 생각하면 됩니다.
 
 ### 테마에 적용하기
 
@@ -95,28 +105,36 @@ JSON 파일에 접근하면 `count` 및 `count_unique` 키가 있는데 두 값�
         if (window.goatcounter && window.goatcounter.visit_count) {
             clearInterval(t)
             var today = new Date();
-            var daily = new XMLHttpRequest();
-            daily.addEventListener('load', function() {
-                document.querySelector('#gc_daily').innerText = JSON.parse(this.responseText).count.replace(/\s/g, "");
+            var yesterday = new Date(today)
+            yesterday.setDate(yesterday.getDate() - 1)
+            var today_cnt = new XMLHttpRequest();
+            today_cnt.addEventListener('load', function() {
+                document.querySelector('#gc_today').innerText = JSON.parse(this.responseText).count.replace(/\s/g, "");
             })
-            daily.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json?start=' + today.toISOString().slice(0, 10))
-            daily.send()
-            var total = new XMLHttpRequest();
-            total.addEventListener('load', function() {
+            today_cnt.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json?start=' + today.toISOString().slice(0, 10))
+            today_cnt.send()
+            var yesterday_cnt = new XMLHttpRequest();
+            yesterday_cnt.addEventListener('load', function() {
+                document.querySelector('#gc_yesterday').innerText = JSON.parse(this.responseText).count.replace(/\s/g, "");
+            })
+            yesterday_cnt.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json?start=' + yesterday.toISOString().slice(0, 10))
+            yesterday_cnt.send()
+            var total_cnt = new XMLHttpRequest();
+            total_cnt.addEventListener('load', function() {
                 document.querySelector('#gc_total').innerText = JSON.parse(this.responseText).count.replace(/\s/g, "");
             })
-            total.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json')
-            total.send()
+            total_cnt.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json')
+            total_cnt.send()
         }
     })
-</script>
 ```
 {: file="_includes/head/custom.html"}
 
 몇 가지 살펴볼 만한 내용만 요약하면:
 - 소스 js 파일 `//gc.zgo.at/count.js`가 로드되기 전에 JSON 파일이 호출되는 것을 막기 위해 `setInterval`을 사용했습니다.  인터벌을 주지 않으면 간혹 새로고침을 할 때 카운터가 정상적으로 업데이트되지 않습니다.
-- JSON 파일에 쿼리를 넘길 때 **오늘 하루**에 대해 쿼리하는 방법이 없습니다 (`?start=day`가 안 됨).  `Date()`와 `Date.UTC()`, `toISOString()`을 이용해 (시스템의 시간대를 고려한) 오늘 날짜를  `yyyy-mm-dd` 꼴로 만들어 넘겼습니다.
-- 일일 방문자 수는 `gc_daily` ID를 갖는 요소를, 전체 방문자 수는 `gc_total` ID를 갖는 요소를 찾아 넣어 주도록 했습니다.  값이 정상적인 위치에 들어가도록 html 요소에서 실제로 이들 id를 갖는 요소를 만들어 주어야 합니다.  저는 Minimal Mistakes 테마의 **사이드바** 말단 부분에 이들 ID를 갖는 `<span>`요소들을 만들어 주었습니다.
+- JSON 파일에 쿼리를 넘길 때 **오늘 하루**에 대해 쿼리하는 방법이 없습니다 (`?start=day`가 안 됨).  `Date()`와 `toISOString()`을 이용해 오늘 날짜를  `yyyy-mm-dd` 꼴로 만들어 넘겼습니다.  다만 이 경우 협정세계시(UTC)가 사용되기 때문에 한국 시간대 맞춘 날짜를 사용할 수는 없어 시간대를 맞추고자 한다면 조정이 필요합니다.
+- 일일 방문자 수는 `gc_today` ID, 어제 방문자 수는 `gc_yesterday`, 전체 방문자 수는 `gc_total` ID를 갖는 요소를 찾아 넣어 주도록 했습니다.  값이 정상적인 위치에 들어가도록 html 요소에서 실제로 이들 id를 갖는 요소를 만들어 주어야 합니다.  저는 Minimal Mistakes 테마의 **사이드바** 말단 부분에 이들 ID를 갖는 `<span>`요소들을 만들어 주었습니다.
+- JSON 파일에서 얻을 수 있는 `count` 값은 1000 단위마다 공백으로 끊어져 있는 문자열 형태의 숫자입니다.  공백을 제거하기 위해 `replace` 메서드를 사용했습니다.
 
 마지막으로 `_includes/nav_list` 파일을 수정하여 `gc_daily`와 `gc_total`을 각각 ID로 갖는 `<span>` 요소들을 만들어 주었습니다.
 
@@ -145,14 +163,16 @@ JSON 파일에 접근하면 `count` 및 `count_unique` 키가 있는데 두 값�
         {% endif %}
       </li>
     {% endfor %}
-    <!-- 방문자 카운터 시작 -->
+    <!-- 방문자 카운터 추가 -->
       <li>
         <span class="nav__sub-title"></span>
         <ul>
-          <li><b>Today </b><span id="gc_daily"></span> | <b>Total </b><span id="gc_total"></span></li>
+          <li><span style="display:inline-block; width:50%; max-width:130px"><b>TODAY </b></span><span id="gc_today"></span></li>
+          <li><span style="display:inline-block; width:50%; max-width:130px"><b>YESTERDAY </b></span><span id="gc_yesterday"></span></li>
+          <li><span style="display:inline-block; width:50%; max-width:130px"><b>TOTAL </b></span><span id="gc_total"></span></li>
         <ul>
       </li>
-    <!-- 방문자 카운터 종료 -->
   </ul>
 </nav>
 ```
+{: file="_includes/nav_list"}

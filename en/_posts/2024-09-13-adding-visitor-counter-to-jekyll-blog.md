@@ -5,12 +5,12 @@ tags:
   - jekyll
   - minimal-mistakes
 created_at: 2024-09-13 22:05:32 UTC+09:00
-last_modified_at: 2024-09-14 06:48:54 UTC+09:00
+last_modified_at: 2024-09-14 15:52:11 UTC+09:00
 excerpt: How to add a custom visitor counter to your jekyll-based github blog using an open-source web analytics **GoatCounter**.
 ---
 There is no simple way to add a visitor counter to your personal blog if you are hosting yours using a static web-site generator like `Jekyll`.  Fortunately, there is an open-source web analytics platform [GoatCounter](https://www.goatcounter.com/), developed and being maintained by [Martin Tournoij](https://github.com/arp242), which you can use to implement visitor counter display.
 
-In this posting I would like to explain how I added a visitor counter to my github blog using GoatCounter.  My blog is based on a Jekyll theme **Minimal Mistakes**, for your information.  You can try to add your custom visitor counter as I did, or use a theme like [Satellite🛰️](https://byanko55.github.io/) which already implemented post-wise pageview counter using GoatCounter.
+In this posting I would like to explain how I added a visitor counter to my github blog using GoatCounter.  My blog is based on a Jekyll theme **Minimal Mistakes**, for your information.  You can try to add your custom visitor counter as I did, or use a theme like [Chirpy](https://chirpy.cotes.page/) and [Satellite🛰️](https://byanko55.github.io/) which already implemented post-wise pageview counter using GoatCounter.
 
 ## Creating GoatCounter Account
 
@@ -32,10 +32,11 @@ Now let's make our oun visitor counter feature.  [Official documentation](https:
 
 ### Using Preset
 
-You decide to use preset visitor counter (see below image to see how it looks like).  I believe that most of you would prefer to implement your own visitor counter blending better with your blogs/sites rather than using preset.  So I would like to skip the details of how to use this preset visitor counter.
+First of all, you can decide to use preset visitor counter (see below image to see how it looks like).
 
 ![기본 방문자 카운터](https://drive.google.com/thumbnail?id=10ajeKN8SG_hrGqVw0YJL9HO4uEadwXoN&sz=w400)
 
+ There are some options you can control.  For example, you can remove **stats by GoatCounter** text from above banner.  You can also give further style by adding custom CSS.  I believe that most of you would prefer to implement your own visitor counter blending better with your blogs/sites rather than using preset.  So I would like to skip the details of how to use this preset visitor counter.  Look through the official documentation if you are more likely to use this preset.
 ### Direct Access to Visitor Counts
 
 You can make a direct access to the visitor count numbers of individual pages.  There are JSON files you can access.  For example, if your website domain is `https://my-code.github.io`, visitor count value of individual URLs are updated to below JSON file every 30 minutes:
@@ -54,7 +55,7 @@ https://my-code.github.io/example
 https://my-code.goatcounter.com/counter/example.json
 ```
 
-There are some special cases.  By 'special cases' I mean 1) visitor count for home page (index.html) and 2) visitor count for your whole site (total visitors).
+There are some special cases.  By 'special cases' I mean 1) visitor count for **home page (index.html)** and 2) visitor count for your **whole site (total visitors)**.
 
 ```
 <!-- Home Page (index.html) -->
@@ -69,21 +70,31 @@ You can use `start`, `end` keywords to query visitor counts within specified ran
 Below you can find some examples where you can get the JSON data where the total visitor counts (remind that the page name `TOTAL` is reserved for site-total visitor count number) are being queried with different span of time.  `TOTAL` can be replaced with any proper permalink of pages in your site to get the pageview of individual pages.
  
 ```
-<!-- Last week -->
+<!-- Total Visitor Count: Last week -->
 https://my-code.goatcounter.com/counter/TOTAL.json?start=week
 
-<!-- Last month -->
+<!-- Total Visitor Count: Last month -->
 https://my-code.goatcounter.com/counter/TOTAL.json?start=month
 
-<!-- Last year -->
+<!-- Total Visitor Count: Last year -->
 https://my-code.goatcounter.com/counter/TOTAL.json?start=year
 
-<!-- Specific date range -->
+<!-- Total Visitor Count: Specific date range -->
 https://my-code.goatcounter.com/counter/TOTAL.json?start=2024-03-01&end=2024-06-01
 ```
 {: file="passing queries"}
 
-When you access the JSON file, there are two keys of `count` and `count_unique` whose values are both same.  `count_uniuqe` is a legacy key and therefore only the `count` key is used.
+When you access the JSON file by using the URLs above, there are two keys of `count` and `count_unique` whose values are both same.
+
+```json
+{
+  "count": "2 771",
+  "count_unique": "2 771"
+}
+```
+{:file = "GoatCounter JSON Example"}
+
+`count_uniuqe` is a legacy key and therefore only the `count` key is used.
 
 ### Apply to the Website
 
@@ -99,28 +110,36 @@ First of all, below code was added to my custom header file `custom.html`.
         if (window.goatcounter && window.goatcounter.visit_count) {
             clearInterval(t)
             var today = new Date();
-            var daily = new XMLHttpRequest();
-            daily.addEventListener('load', function() {
-                document.querySelector('#gc_daily').innerText = JSON.parse(this.responseText).count.replace(/\s/g, "");
+            var yesterday = new Date(today)
+            yesterday.setDate(yesterday.getDate() - 1)
+            var today_cnt = new XMLHttpRequest();
+            today_cnt.addEventListener('load', function() {
+                document.querySelector('#gc_today').innerText = JSON.parse(this.responseText).count.replace(/\s/g, "");
             })
-            daily.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json?start=' + today.toISOString().slice(0, 10))
-            daily.send()
-            var total = new XMLHttpRequest();
-            total.addEventListener('load', function() {
+            today_cnt.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json?start=' + today.toISOString().slice(0, 10))
+            today_cnt.send()
+            var yesterday_cnt = new XMLHttpRequest();
+            yesterday_cnt.addEventListener('load', function() {
+                document.querySelector('#gc_yesterday').innerText = JSON.parse(this.responseText).count.replace(/\s/g, "");
+            })
+            yesterday_cnt.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json?start=' + yesterday.toISOString().slice(0, 10))
+            yesterday_cnt.send()
+            var total_cnt = new XMLHttpRequest();
+            total_cnt.addEventListener('load', function() {
                 document.querySelector('#gc_total').innerText = JSON.parse(this.responseText).count.replace(/\s/g, "");
             })
-            total.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json')
-            total.send()
+            total_cnt.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json')
+            total_cnt.send()
         }
     })
-</script>
 ```
 {: file="_includes/head/custom.html"}
 
 Some remarks:
 - `setInterval()` is used to prevent JSON file being called before the source js file `//gc.zgo.at/count.js` being loaded.  Visitor counter number is not properly updated when a page is refreshed, if we do not give some interval between the loading of `count.js` file and querying JSON data.
-- There is no way to query daily visitor count but specific date needs to be passed (there is no query parameter for this like `?start=day`).  So `Date()`, `Date.UTC()`, and `toISOString()` was used to create `yyyy-mm-dd` formatted current date considering the client system's time zone.
-- Today visitor count and total visitor count were set to be replaced into the text element with predefined IDs - `gc_daily` and `gc_total`.  So I had to add actual html elements which have these IDs.  In my case I added `<span>` elements with these IDs at the end of sidebar.
+- There is no way to query daily visitor count but specific date needs to be passed (there is no query parameter for this like `?start=day`).  So `Date()` and `toISOString()` was used to create `yyyy-mm-dd` formatted current date.  But in this case the time zone is fixed to UTC so you need to do more measure to make this work with your website's preferred time zone.
+- Today/yesterday visitor count and total visitor count were set to be replaced into the text element with predefined IDs - `gc_today`, `gc_yesterday` and `gc_total`.  So I had to add actual html elements which have these IDs.  In my case I added `<span>` elements with these IDs at the end of sidebar.
+- `count` key from JSON files contain number string with thousands separators.  I used `replace` to remove them.
 
 `_includes/nav_list` file was modified to have `<span>` elements having proper IDs:
 
@@ -149,14 +168,16 @@ Some remarks:
         {% endif %}
       </li>
     {% endfor %}
-    <!-- Visitor counter starts -->
+    <!-- Site Stat Powered by GoatCounter -->
       <li>
         <span class="nav__sub-title"></span>
         <ul>
-          <li><b>Today </b><span id="gc_daily"></span> | <b>Total </b><span id="gc_total"></span></li>
+          <li><span style="display:inline-block; width:50%; max-width:130px"><b>TODAY </b></span><span id="gc_today"></span></li>
+          <li><span style="display:inline-block; width:50%; max-width:130px"><b>YESTERDAY </b></span><span id="gc_yesterday"></span></li>
+          <li><span style="display:inline-block; width:50%; max-width:130px"><b>TOTAL </b></span><span id="gc_total"></span></li>
         <ul>
       </li>
-    <!-- Visitor counter ends -->
   </ul>
 </nav>
 ```
+{: file="_includes/nav_list"}
