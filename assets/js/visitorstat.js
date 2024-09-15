@@ -2,7 +2,7 @@ var dates = [];
 var counts = [];
 var step;
 var today = new Date();
-var size = 7;
+var size = 28;
 
 const ctx = document.getElementById('myChart');
 chart = new Chart(ctx, {
@@ -57,6 +57,7 @@ for (step = 0; step < size; step++) {
     date_rqst.addEventListener('load', function () {
         counts.unshift(parseInt(JSON.parse(this.responseText).count.replace(/\s/g, "")));
         if (counts.length == size) {
+            chart.data.labels = dates;
             chart.data.datasets.data = counts;
             chart.update();
         }
