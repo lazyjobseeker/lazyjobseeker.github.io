@@ -25,12 +25,12 @@
     <!-- Site Stat Powered by GoatCounter -->
       <li>
         <span class="nav__sub-title">VISITOR COUNTS</span>
-        <div><canvas style="width:100%; min-height:150px; max-width:300px; margin-bottom:0.3em" id="myChart"></canvas></div>
+        <div><canvas style="width:100%; min-height:150px; margin-bottom:0.3em" id="myChart"></canvas></div>
         <!-- Visitor Chart -->
         <ul>
-          <li><span style="display:inline-block; width:50%; max-width:130px"><b>TODAY</b></span><span style="max-width:170px" id="gc_today"></span></li>
-          <li><span style="display:inline-block; width:50%; max-width:130px"><b>YESTERDAY</b></span><span style="max-width:170px" id="gc_yesterday"></span></li>
-          <li><span style="display:inline-block; width:50%; max-width:130px"><b>TOTAL</b></span><span style="max-width:170px" id="gc_total"></span></li>
+          <li><span style="display:inline-block; width:50%; max-width:130px"><b>TODAY</b></span><span id="gc_today"></span></li>
+          <li><span style="display:inline-block; width:50%; max-width:130px"><b>YESTERDAY</b></span><span id="gc_yesterday"></span></li>
+          <li><span style="display:inline-block; width:50%; max-width:130px"><b>TOTAL</b></span><span id="gc_total"></span></li>
         <ul>
       </li>
   </ul>
