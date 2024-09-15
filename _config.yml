@@ -238,7 +238,7 @@ permalink: /:title/ # /:categories/:title/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # Custom paginator
-posts_per_page: 8
+posts_per_page: 10
 
 # Plugins (previously gems:)
 plugins:
