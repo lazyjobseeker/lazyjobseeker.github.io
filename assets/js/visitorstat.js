@@ -49,7 +49,7 @@ var rqsts = [];
 var idx = size-1;
 function updateCounts() {
     counts[idx] = parseInt(JSON.parse(this.responseText).count.replace(/\s/g, ""));
-    idx -= 1;
+    idx--;
     chart.data.datasets.data = counts;
     chart.update();
 }
@@ -62,7 +62,7 @@ for (step = 0; step < size; step++) {
     todayisostring = tmptoday.toISOString();
     dates[size-step-1] = todayisostring.substring(8, 10);
     rqsts[step] = new XMLHttpRequest();
-    rqsts[step].addEventListener('load', updateCounts);
+    rqsts[step].onload = updateCounts;
     rqsts[step].open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json?start=' + todayisostring.slice(0, 10) + '&end=' + tomorrowisostring.slice(0, 10));
     rqsts[step].send();
 }
