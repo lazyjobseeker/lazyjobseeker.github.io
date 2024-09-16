@@ -45,6 +45,7 @@ chart = new Chart(ctx, {
     }
 });
 
+var rqsts = [];
 for (step = 0; step < size; step++) {
     var tmptomorrow = new Date(today);
     var tmptoday = new Date(today);
@@ -53,8 +54,8 @@ for (step = 0; step < size; step++) {
     tomorrowisostring = tmptomorrow.toISOString();
     todayisostring = tmptoday.toISOString();
     dates[size-step-1] = todayisostring.substring(8, 10);
-    var date_rqst = new XMLHttpRequest();
-    date_rqst.addEventListener('load', function () {
+    rqsts.push(new XMLHttpRequest());
+    rqsts[rqsts.length-1].addEventListener('load', function () {
         counts.unshift(parseInt(JSON.parse(this.responseText).count.replace(/\s/g, "")));
         if (counts.length == size) {
             chart.data.labels = dates;
@@ -62,8 +63,10 @@ for (step = 0; step < size; step++) {
             chart.update();
         }
     })
-    date_rqst.open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json?start=' + todayisostring.slice(0, 10) + '&end=' + tomorrowisostring.slice(0, 10));
-    date_rqst.send();
+    rqsts[rqsts.length-1].open('GET', 'https://lazyjobseeker.goatcounter.com/counter/TOTAL.json?start=' + todayisostring.slice(0, 10) + '&end=' + tomorrowisostring.slice(0, 10));
+}
+for (step = 0; step < size; step++) {
+    rqsts[step].send();
 }
 
 var today = new Date();
