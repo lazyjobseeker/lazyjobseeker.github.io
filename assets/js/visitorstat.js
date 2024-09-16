@@ -48,9 +48,11 @@ chart = new Chart(ctx, {
 var rqsts = [];
 function updateCounts() {
     counts.unshift(parseInt(JSON.parse(this.responseText).count.replace(/\s/g, "")));
-    chart.data.labels = dates;
-    chart.data.datasets.data = counts;
-    chart.update();
+    if (counts.length == dates.length) {
+        chart.data.labels = dates;
+        chart.data.datasets.data = counts;
+        chart.update();
+    }
 }
 for (step = 0; step < size; step++) {
     var tmptomorrow = new Date(today);
