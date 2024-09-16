@@ -13,12 +13,14 @@ chart = new Chart(ctx, {
         label: 'VISITORS',
         data: counts,
         borderWidth: 2,
-        pointBackgroundColor: '#42adff',
-        pointBorderColor: '#42adff',
-        borderColor: '#42adff',
-        pointRadius: 2.5,
+        pointBackgroundColor: 'rgba(66, 173, 255, 1)',
+        pointBorderColor: 'rgba(66, 173, 255, 1)',
+        backgroundColor: 'rgba(66, 173, 255, 0.5)',
+        borderColor: 'rgba(66, 173, 255, 1)',
+        pointRadius: 0,
         cubicInterpolationMode: 'monotone',
-        tension: 0.4
+        tension: 0.4,
+        fill: true
     }]
     },
     options: {
@@ -46,10 +48,14 @@ chart = new Chart(ctx, {
 });
 
 var rqsts = [];
+var remainingUpdates = size;
 function updateCounts() {
     counts[this.idx] = parseInt(JSON.parse(this.responseText).count.replace(/\s/g, ""));
-    chart.data.datasets.data = counts;
-    chart.update();
+    remainingUpdates--;
+    if (remainingUpdates == 0) {
+        chart.data.datasets.data = counts;
+        chart.update();
+    }
 }
 for (step = 0; step < size; step++) {
     var tmptomorrow = new Date(today);
