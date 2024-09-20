@@ -4,8 +4,8 @@ category: programming
 tags:
   - jekyll
   - minimal-mistakes
-created_at: 2024-09-13 22:05:32 UTC+09:00
-last_modified_at: 2024-09-14 17:34:40 UTC+09:00
+created_at: 2024-09-13 10:05:32 +09:00
+last_modified_at: 2024-09-20 10:16:51 +09:00
 excerpt: 오픈소스 웹 애널리틱스 플랫폼 goatcounter를 이용하여 지킬 기반 깃허브 블로그에 방문자 카운터를 만드는 방법을 정리합니다.
 ---
 `Jekyll`과 같은 정적 웹사이트 생성기를 이용해 만든 개인 블로그에는 자체적으로 방문자 카운터를 넣을 방법이 없습니다.  다행히 무료로 사용 가능한 오픈소스 웹 애널리틱스 플랫폼 중 프로그래머 [Martin Tournoij](https://github.com/arp242)가 개발하여 운영하고 있는 [GoatCounter](https://www.goatcounter.com/)를 이용하여 방문자 카운터 기능을 직접 구현할 수 있습니다.
@@ -51,7 +51,7 @@ https://my-code.goatcounter.com/counter/URL.json
 https://my-code.github.io/example
 
 <!-- 방문자 카운터가 업데이트되는 JSON 파일 -->
-https://my-code.goatcounter.com/counter/example.json
+https://my-code.goatcounter.com/counter//example.json
 ```
 
 특수한 케이스에 대한 방문자 카운터는 아래 주소에서 확인할 수 있습니다.  특수한 케이스란 1) **홈 페이지(index.html)**의 방문자 수 및 2) **사이트 전체**의 방문자 수를 말합니다.
