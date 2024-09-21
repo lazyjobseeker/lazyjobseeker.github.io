@@ -28,9 +28,9 @@
         <div><canvas style="width:100%; min-height:150px; margin-bottom:0.3em" id="myChart"></canvas></div>
         <!-- Visitor Chart -->
         <ul>
-          <li><span style="display:inline-block; width:50%; max-width:130px"><b>TODAY</b></span><span id="gc_today"></span></li>
-          <li><span style="display:inline-block; width:50%; max-width:130px"><b>YESTERDAY</b></span><span id="gc_yesterday"></span></li>
-          <li><span style="display:inline-block; width:50%; max-width:130px"><b>TOTAL</b></span><span id="gc_total"></span></li>
+          <li><span style="display:inline-block; width:7.5em"><b>TODAY</b></span><span id="gc_today"></span></li>
+          <li><span style="display:inline-block; width:7.5em"><b>YESTERDAY</b></span><span id="gc_yesterday"></span></li>
+          <li><span style="display:inline-block; width:7.5em"><b>TOTAL</b></span><span id="gc_total"></span></li>
         <ul>
       </li>
   </ul>
