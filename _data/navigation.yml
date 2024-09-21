@@ -17,7 +17,7 @@ programming:
   - title: "Coding Test"
     children:
       - title: "SW Expert Academy"
-        url: /docs/curriculum_vitae/
+        url: /docs/curriculum-vitae/
       - title: "C++"
       - title: "JAVA"
 
@@ -25,7 +25,7 @@ docs:
   - title: "SANGHEON LEE"
     children:
       - title: "CURRICULUM VITAE"
-        url: /docs/curriculum_vitae/
+        url: /docs/curriculum-vitae/
 #      - title: "About"
 #        url: /docs/about/
 #  - title: Interests

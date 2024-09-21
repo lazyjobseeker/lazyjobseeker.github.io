@@ -4,57 +4,54 @@ var step;
 var today = new Date();
 var size = 28;
 
-const ctx = document.getElementById('myChart');
-chart = new Chart(ctx, {
-    type: 'line',
-    data: {
-    labels: dates,
-    datasets: [{
-        label: 'VISITORS',
-        data: counts,
-        borderWidth: 2,
-        pointBackgroundColor: 'rgba(66, 173, 255, 1)',
-        pointBorderColor: 'rgba(66, 173, 255, 1)',
-        backgroundColor: 'rgba(66, 173, 255, 0.5)',
-        borderColor: 'rgba(66, 173, 255, 1)',
-        pointRadius: 0,
-        cubicInterpolationMode: 'monotone',
-        tension: 0.4,
-        fill: true
-    }]
-    },
-    options: {
-        plugins: {
-            legend: {
-                display: false
-            }
-        },
-        scales: {
-            x: {
-                grid: {
-                    display: true,
-                }
-            },
-            y: {
-                grid: {
-                    display: true,
-                },
-                beginAtZero: true
-            }
-        },
-        maintainAspectRatio: false,
-        responsive: true
-    }
-});
-
 var rqsts = [];
 var remainingUpdates = size;
 function updateCounts() {
     counts[this.idx] = parseInt(JSON.parse(this.responseText).count.replace(/\s/g, ""));
     remainingUpdates--;
     if (remainingUpdates == 0) {
-        chart.data.datasets.data = counts;
-        chart.update();
+        const ctx = document.getElementById('myChart');
+        chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+            labels: dates,
+            datasets: [{
+                label: 'VISITORS',
+                data: counts,
+                borderWidth: 2,
+                pointBackgroundColor: 'rgba(66, 173, 255, 1)',
+                pointBorderColor: 'rgba(66, 173, 255, 1)',
+                backgroundColor: 'rgba(66, 173, 255, 0.5)',
+                borderColor: 'rgba(66, 173, 255, 1)',
+                pointRadius: 0,
+                cubicInterpolationMode: 'monotone',
+                tension: 0.4,
+                fill: true
+            }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            display: true,
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: true,
+                        },
+                        beginAtZero: true
+                    }
+                },
+                maintainAspectRatio: false,
+                responsive: true
+            }
+        });
     }
 }
 for (step = 0; step < size; step++) {
