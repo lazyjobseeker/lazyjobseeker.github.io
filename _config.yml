@@ -20,11 +20,11 @@ title                    : "A Sloth's Attic"
 title_separator          : "-"
 subtitle                 :
 display-title:
-  ko: "나불나불 끄적끄적"
-  en: "Lazyjobseeker's Blog"
+  ko: "나무늘보의 다락방"
+  en: "A Sloth's Attic"
 display-subtitle:
   ko: "읽고 쓰고 그리고 기억하기"
-  en: "I read, write, draw and remember"
+  en: "I read, write and draw"
 name                     : "Sangheon Lee"
 description              : "My little workspace."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
