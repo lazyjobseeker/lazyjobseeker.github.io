@@ -175,11 +175,14 @@ a > code,
 li > code,
 figcaption > code,
 td > code {
-  padding-top: 0.1rem;
-  padding-bottom: 0.1rem;
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+  margin-right: 0.1em;
   font-size: 0.8em;
   background: $code-background-color; /* $code-background-color; */
   border-radius: $border-radius;
+  border: solid 1px $primary-color;
+  box-shadow: inset 0 -1px $primary-color;
   &:before,
   &:after {
     letter-spacing: -0.2em;
