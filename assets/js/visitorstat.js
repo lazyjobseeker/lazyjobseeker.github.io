@@ -39,7 +39,10 @@ function updateCounts() {
                     x: {
                         grid: {
                             display: true,
-                        }
+                        },
+                        ticks: {
+                            maxTicksLimit: 5
+                          }
                     },
                     y: {
                         grid: {
@@ -61,7 +64,7 @@ for (step = 0; step < size; step++) {
     tmptoday.setDate(tmptoday.getDate() - step);
     tomorrowisostring = tmptomorrow.toISOString();
     todayisostring = tmptoday.toISOString();
-    dates[size-step-1] = todayisostring.substring(8, 10);
+    dates[size-step-1] = todayisostring.substring(5, 10);
     rqsts[step] = new XMLHttpRequest();
     rqsts[step].idx = size-step-1;
     rqsts[step].onload = updateCounts;
