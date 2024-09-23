@@ -89,22 +89,6 @@ body {
   font-size: $type-size-4;
 }
 
-.cv__careertitle {
-  font-size: 1.1em !important;
-}
-
-.cv__contents {
-  ul {
-    margin-top: 0em;
-    margin-bottom: 0em;
-    padding-left: 1.5em;
-  }
-  li {
-    line-height: 1.5em !important; 
-    margin-bottom: 0em;
-  }
-}
-
 .page__content {
 
   h1 {
@@ -207,7 +191,26 @@ body {
     margin-top: -1.5em;
     padding-left: 1.25rem;
   }
+
+  .cv__careertitle {
+    font-size: 1.1em !important;
+  }
+
+  .cv__contents {
+    li {
+      line-height: 1.5em !important; 
+      margin-bottom: 0em;
+    }
+  }
+
+  ul {
+    margin-top: 0em;
+    margin-bottom: 0em;
+    padding-left: 1.5em;
+  }
+
 }
+
 
 .page__hero {
   position: relative;
