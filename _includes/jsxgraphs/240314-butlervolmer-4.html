@@ -1,5 +1,5 @@
 <script>
-  function draw3() {
+  function draw4() {
     var brdAttr = dBrdAttr;
     brdAttr["boundingbox"] = [-4.5, 3.5, 4.5, -1]
     var brd = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', brdAttr);
@@ -24,5 +24,5 @@
     var textAlpha = brd.create('text', [0.4, ()=>(G(topX()+2)+1+G(midX()+2))/2, "(1-α)FΔE"], dFontAttr);
     var textOneMinusAlpha = brd.create('text', [0.4, ()=>(G(topX()+2)+G(midX()+2))/2, "αFΔE"], dFontAttr);
   }
-  draw3();
+  draw4();
 </script>

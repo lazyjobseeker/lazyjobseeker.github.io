@@ -1,5 +1,5 @@
 <script>
-  function draw2() {
+  function draw1() {
     var brd = JXG.JSXGraph.initBoard('{{ "jxg" | append: jxgNo }}', dBrdAttr);
     var kO = 0.4;
     var kR = 0.4;
@@ -65,5 +65,5 @@
     brd.create('text', [qO-1, () => (marcusO(pX())+marcusO(qO))/2,
       "ΔG<sub>f</sub><sup>&#8225</sup>"], dFontAttr);
   }
-  draw2();  
+  draw1();  
 </script>
