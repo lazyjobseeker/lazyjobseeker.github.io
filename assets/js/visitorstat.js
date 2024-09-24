@@ -2,7 +2,7 @@ var dates = [];
 var counts = [];
 var step;
 var today = new Date();
-var size = 28;
+var size = 29;
 
 var rqsts = [];
 var remainingUpdates = size;
@@ -41,7 +41,11 @@ function updateCounts() {
                             display: true,
                         },
                         ticks: {
-                            maxTicksLimit: 5
+                            autoSkip: false,
+                            maxRotation: 0,
+                            callback: function(val, index) {
+                                return index % 7 === 0 ? this.getLabelForValue(val) : "";
+                            }
                           }
                     },
                     y: {
