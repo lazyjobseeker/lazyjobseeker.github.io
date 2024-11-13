@@ -5,7 +5,7 @@ tags:
   - jekyll
   - minimal-mistakes
 created_at: 2024-09-13 10:05:32 +09:00
-last_modified_at: 2024-09-20 10:16:51 +09:00
+last_modified_at: 2024-11-12 08:04:20 +09:00
 excerpt: 오픈소스 웹 애널리틱스 플랫폼 goatcounter를 이용하여 지킬 기반 깃허브 블로그에 방문자 카운터를 만드는 방법을 정리합니다.
 ---
 `Jekyll`과 같은 정적 웹사이트 생성기를 이용해 만든 개인 블로그에는 자체적으로 방문자 카운터를 넣을 방법이 없습니다.  다행히 무료로 사용 가능한 오픈소스 웹 애널리틱스 플랫폼 중 프로그래머 [Martin Tournoij](https://github.com/arp242)가 개발하여 운영하고 있는 [GoatCounter](https://www.goatcounter.com/)를 이용하여 방문자 카운터 기능을 직접 구현할 수 있습니다.
@@ -89,7 +89,7 @@ JSON 파일에 접근하면 `count` 및 `count_unique` 키가 있는데, 두 값
   "count_unique": "2 771"
 }
 ```
-{:file = "GoatCounter JSON Example"}
+{: file = "GoatCounter JSON Example"}
 
 `count_unique`는 호환성을 위한 레거시 키라고 하니 `count`값만 사용한다고 생각하면 됩니다.
 
