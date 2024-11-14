@@ -1,11 +1,12 @@
 ---
 title: "Attaining U.S. Permanent Residence in Korea via EB2-NIW" 
 category: immigration
+published: false
 tags:
   - EB2-NIW
   - immigration
 created_at: 2024-11-12 01:15:26 +09:00
-last_modified_at: 2024-11-13 08:12:54 +09:00
+last_modified_at: 2024-11-13 10:37:14 +09:00
 excerpt: How I received the U.S. permanent residence via EB2-NIW program.
 ---
 
