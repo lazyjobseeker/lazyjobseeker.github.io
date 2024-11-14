@@ -1,12 +1,11 @@
 ---
 title: 한국에서 EB2-NIW 미국 영주권 취득하기
 category: immigration
-published: false
 tags:
   - EB2-NIW
   - immigration
 created_at: 2024-11-12 01:15:26 +09:00
-last_modified_at: 2024-11-13 10:37:31 +09:00
+last_modified_at: 2024-11-13 11:37:17 +09:00
 excerpt: 취업이민 2순위 - 미국 국익면제 (EB2-NIW) 프로그램을 통해 한국 내에서 미국 고용주 스폰서 없이 미국 영주권을 취득한 과정을 정리합니다.
 ---
 
