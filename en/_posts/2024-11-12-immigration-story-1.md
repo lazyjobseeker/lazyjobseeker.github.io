@@ -5,7 +5,7 @@ tags:
   - EB2-NIW
   - immigration
 created_at: 2024-11-12 01:15:26 +09:00
-last_modified_at: 2024-11-13 11:37:35 +09:00
+last_modified_at: 2024-11-23 09:17:10 +09:00
 excerpt: How I received the U.S. permanent residence via EB2-NIW program.
 ---
 
@@ -56,7 +56,7 @@ The very first step of EB2-NIW process is writing and submitting the I-140 form 
 
 #### Recommendation Letters
 
-There are many documents required to fill out I-140 form, and among them it is often said that the **recommendation letters** are most important for your case to be approved. I was also advised from my Korean agency that they recommend more than two separate recommendation letters from professionals working in the US. The agency even pressed me to seriously consider to prepare a **Wish Letter**, which I think was not a official one but just a term they used to designate an even more powerful form of recommendation letter than others in that it includes detailed plans from the recommender on how he or she wants to work with the petitioner in near future. I got seven recommendation letters in total, and three of them were from professionals working in the US. But I could not receive any Wish Letter for my I-140.
+There are many documents required to fill out I-140 form, and among them it is often said that the **recommendation letters** are most important for your case to be approved. I was also advised from my Korean agency that they recommend more than two separate recommendation letters from professionals working in the US. The agency even pressed me to seriously consider to prepare a **Wish Letter**, which I think was not a official one but just a term they used to designate an even more powerful form of recommendation letter than others in that it includes detailed plans from the recommender on how he or she wants to work with the petitioner in near future. I got seven recommendation letters in total, and three of them were from professionals working in the US.  One of the three letters from the US residents was a Wish Letter.
 
 #### Priority Date
 
