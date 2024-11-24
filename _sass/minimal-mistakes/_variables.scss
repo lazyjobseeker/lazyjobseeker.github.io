@@ -27,8 +27,8 @@ $page-h3-title: 'S-CoreDream-6Bold';
 $page-h4-title: 'S-CoreDream-6Bold';
 
 /* sans serif typefaces */
-$sans-serif-narrow: $sans-serif !default;
-$helvetica: Helvetica, "Helvetica Neue", Arial, sans-serif !default;
+$sans-serif-narrow: $base-font !default;
+$helvetica: $base-font !default; // Helvetica, "Helvetica Neue", Arial, sans-serif !default;
 
 /* serif typefaces */
 $georgia: Georgia, serif !default;
@@ -37,9 +37,9 @@ $bodoni: "Bodoni MT", serif !default;
 $calisto: "Calisto MT", serif !default;
 $garamond: Garamond, serif !default;
 
-$global-font-family: $sans-serif !default; // $sans-serif
-$header-font-family: $sans-serif !default;
-$caption-font-family: $sans-serif !default;
+$global-font-family: $base-font !default; // $sans-serif
+$header-font-family: $base-font !default;
+$caption-font-family: $base-font !default;
 
 /* type scale */
 $type-size-1: 2.441em !default; // ~39.056px
