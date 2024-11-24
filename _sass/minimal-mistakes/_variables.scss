@@ -13,7 +13,7 @@ $paragraph-indent: false !default; // true, false (default)
 $indent-var: 1.3em !default;
 
 /* system typefaces */
-$base-font: 'Base-kr', 'Base-en'; // 240421 NanumSquareNeo-Variable is malfunctioning
+$base-font: 'Base-kr', 'Base-en', 'Base-spch'; // 240421 NanumSquareNeo-Variable is malfunctioning
 $serif: $base-font !default; //"Noto Serif", "Noto Serif KR", serif; Georgia, Times, serif !default;
 $sans-serif: $base-font !default;// "Roboto", "Segoe UI", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "NanumSquareNeo-Variable"
 $monospace: 'Base-code-kr', 'Consolas', monospace !default;
