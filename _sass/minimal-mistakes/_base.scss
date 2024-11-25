@@ -86,8 +86,10 @@ u {
 
 ins {
   text-decoration: none;
-  border-bottom: 0px !important;
-  margin-bottom: 1em !important;
+  .adsbygoogle {
+    border-bottom: 0px !important;
+    margin-bottom: 1em !important;
+  }
   a {
     color: inherit;
   }
