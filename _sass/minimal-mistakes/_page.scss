@@ -35,6 +35,10 @@ body {
   flex: 1 0 auto;
 }
 
+.google-auto-placed {
+  padding-bottom: 1em;
+}
+
 .page {
   @include breakpoint($large) {
     float: right;
