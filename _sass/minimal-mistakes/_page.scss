@@ -36,7 +36,9 @@ body {
 }
 
 .google-auto-placed {
-  padding-bottom: 1em;
+  .ap_container {
+    padding-bottom: 1em;
+  }
 }
 
 .page {
