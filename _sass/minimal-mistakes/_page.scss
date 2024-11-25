@@ -35,12 +35,6 @@ body {
   flex: 1 0 auto;
 }
 
-ins {
-  .adsbygoogle {
-    padding-bottom: 1em !important;
-  }
-}
-
 .page {
   @include breakpoint($large) {
     float: right;
