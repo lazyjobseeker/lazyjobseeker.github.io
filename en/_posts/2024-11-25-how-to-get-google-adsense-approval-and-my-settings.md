@@ -4,7 +4,7 @@ category: devlog
 tags:
   - google-adsense
 created_at: 2024-11-25 05:26:56 -05:00
-last_modified_at: 2024-11-26 02:28:12 -05:00
+last_modified_at: 2024-11-26 04:19:29 -05:00
 excerpt: Efforts I have made to get my blog approved for Google Adsense and some settings I found useful.
 published: true
 ---
@@ -49,9 +49,7 @@ Another
 
 ## Customizing Adsense Ads
 
-애드센스 승인을 받은 뒤에는 **광고 커스터마이징**을 했습니다.  구글이 제공하는 자동 광고 삽입 기능을 이용해 광고를 넣을 수도 있지만, 구조가 정형화되지 않은 개인 블로그에서는 블로그 레이아웃을 손상시키는 보기 싫은 광고가 들어가는 경우가 생길 수 있습니다.  수익화가 가능한 광고를 게재하는 것도 중요하지만, 광고가 포스트들의 가독성을 지나치게 해치지 않도록 하는 것이 중요합니다.
-
-제가 시행착오를 거치면서 적용한 몇 가지 설정들을 정리해 보겠습니다✏️.
+After approved, **customizing ads** was the next thing.  Google provides automated ad exposure feature, but in my case sometimes the automated insertion broke my blog layout.  It is important to monetize, but you need to be aware of how intact your contents can be maintained throughout the process.  Below I listed some trial-and-errors I had taken✏️.
 
 ### Inserting Manual Ads
 
