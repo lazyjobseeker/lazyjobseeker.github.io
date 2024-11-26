@@ -4,8 +4,8 @@ category: immigration
 tags:
   - EB2-NIW
   - immigration
-created_at: 2024-11-12 01:15:26 +09:00
-last_modified_at: 2024-11-23 09:17:46 +09:00
+created_at: 2024-11-11 11:15:26 -05:00
+last_modified_at: 2024-11-25 09:19:49 -05:00
 excerpt: 취업이민 2순위 - 미국 국익면제 (EB2-NIW) 프로그램을 통해 한국 내에서 미국 고용주 스폰서 없이 미국 영주권을 취득한 과정을 정리합니다.
 ---
 
@@ -84,7 +84,7 @@ I-140 제출 및 승인, DS-260 제출, DQ Letter 수령을 마친 청원자는 
 
 이민 문호는 [이 링크](https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html)를 통해 매 달 확인할 수 있습니다.
 
-![이민 문호 읽는 법](https://drive.google.com/thumbnail?id=1WIVJPlWq3kl8Ssjcm2TboaeEYaBRBoSl&sz=w1000)
+{% include img-gdrive alt="이민 문호 읽는 법" id="1WIVJPlWq3kl8Ssjcm2TboaeEYaBRBoSl" %}
 
 위 이미지에서 EB2 카테고리의 FAD를 읽어 보면, Employment-Based의 2nd를 보아야 하고, 한국은 별도 FAD를 운영하지 않는 국가로 All Chargeability Areas Except Those Listed에 해당합니다. 교차하는 셀의 날짜를 읽으면 15MAR23으로, 우선일자가 2023년 3월 15일 이전인 청원자에 대해서는 주한미국대사관 인터뷰 통지를 실시하지 않고 있다는 의미입니다. 모든 청원자가 인터뷰 대상이 될 수 있는 상태는 C로 표시하며 문호가 **열려 있다**고 하고, 그렇지 않은 경우 문호가 **닫혀 있다**고 합니다.
 

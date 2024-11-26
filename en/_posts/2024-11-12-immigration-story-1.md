@@ -4,8 +4,8 @@ category: immigration
 tags:
   - EB2-NIW
   - immigration
-created_at: 2024-11-12 01:15:26 +09:00
-last_modified_at: 2024-11-23 09:17:10 +09:00
+created_at: 2024-11-11 11:15:26 -05:00
+last_modified_at: 2024-11-25 09:20:09 -05:00
 excerpt: How I received the U.S. permanent residence via EB2-NIW program.
 ---
 
@@ -80,7 +80,7 @@ The US Department of States (DOS) seeks to control the number of immigrant visa 
 
 You can refer to [this link](https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html) to check the visa bulletins announced till now.
 
-![How to read a visa bulletin](https://drive.google.com/thumbnail?id=1WIVJPlWq3kl8Ssjcm2TboaeEYaBRBoSl&sz=w1000)
+{% include img-gdrive alt="How to read a visa bulletin" id="1WIVJPlWq3kl8Ssjcm2TboaeEYaBRBoSl" %}
 
 Let's try reading the FAD for EB2 visa from above image. We first need to go to the table for employment-based visas, and further proceed to the row header "2nd" (second preference). As South Korea does not correspond to the counturies where a separate dates are listed, check the column header "All Chargeability Areas Except Those Listed." Reading the crossing cell gives you 15MAR23. If every petitioners can be considered for final interview, letter C comes there. In above case, petitioners with PDs earlier than 15th Mar. 2023 can be considered to receive an interview invitation.
 
