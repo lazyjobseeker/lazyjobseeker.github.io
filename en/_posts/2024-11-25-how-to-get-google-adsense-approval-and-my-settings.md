@@ -4,7 +4,7 @@ category: devlog
 tags:
   - google-adsense
 created_at: 2024-11-25 05:26:56 -05:00
-last_modified_at: 2024-11-26 04:19:29 -05:00
+last_modified_at: 2024-11-26 05:49:57 -05:00
 excerpt: Efforts I have made to get my blog approved for Google Adsense and some settings I found useful.
 published: true
 ---
@@ -43,9 +43,7 @@ In this process **Obsidian** was quite useful.  `Novel Word Count` plugin allowe
 
 ### Adding ALT Tags to Images
 
-Another 
-
-6번의 애드센스 승인 고배 이후 시작한 다른 노력은 반드시 포스팅에 하나 이상의, **대체 텍스트(ALT 태그)**를 갖는 이미지를 삽입하는 것이었습니다.  단순히 이미지만 넣는 것이 아니라, 크롤러나 봇이 검색 가능한 텍스트를 포함해야 한다는 점이 중요합니다.  ALT 태그와 관련해서는 이미 온라인들에 많은 글들이 있어 이 정도로만 정리하겠습니다.
+One of other efforts I started after failed six times to get approval is to add at least one or more images having **Image Alt Text**.  Adding alt text is known to improve the visibility of your post by providing text-level anchors which crawlers or bots can refer to.  There are already many posts worth to read so I would like give no more emphasis on this.
 
 ## Customizing Adsense Ads
 
