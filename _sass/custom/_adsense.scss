@@ -12,7 +12,7 @@ div {
     }
 
     .googleads__belowtoc {
-        display: none;
+        display: none !important;
 
         @include breakpoint($large) {
         display: inline-block;
