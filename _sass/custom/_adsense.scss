@@ -9,13 +9,12 @@ div {
       justify-content: center;
 
       @include breakpoint($large) {
-        float: right;
-        width: calc(100% - #{$right-sidebar-width-narrow});
+        width: calc(100% - #{$right-sidebar-width-narrow}) !important;
         padding-right: $right-sidebar-width-narrow;
       }    
 
       @include breakpoint($x-large) {
-        width: calc(100% - #{$right-sidebar-width});
+        width: calc(100% - #{$right-sidebar-width}) !important;
         padding-right: $right-sidebar-width;
       }
 
