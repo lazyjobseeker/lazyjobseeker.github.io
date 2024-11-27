@@ -12,10 +12,14 @@ div {
     }
 
     .googleads__belowtoc {
-        display: none;
-
-        @include breakpoint($large) {
-            display: inline-block;
+        ins {
+            .adsbygoogle {
+                display: none;
+                @include breakpoint($large) {
+                    display: inline-block;
+                }
+            }
         }
     }
 }
+
