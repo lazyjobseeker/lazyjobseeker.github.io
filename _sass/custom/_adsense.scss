@@ -10,4 +10,12 @@ div {
             // display: inline-block !important;
         }
     }
+
+    .googleads__belowtoc {
+        display: none;
+
+        @include breakpoint($large) {
+        display: inline-block;
+        }
+    }
 }
