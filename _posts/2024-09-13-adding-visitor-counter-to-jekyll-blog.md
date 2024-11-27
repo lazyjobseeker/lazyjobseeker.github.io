@@ -4,8 +4,8 @@ category: programming
 tags:
   - jekyll
   - minimal-mistakes
-created_at: 2024-09-13 10:05:32 +09:00
-last_modified_at: 2024-11-12 08:04:20 +09:00
+created_at: 2024-09-12 09:05:32 -05:00
+last_modified_at: 2024-11-27 01:04:46 -05:00
 excerpt: 오픈소스 웹 애널리틱스 플랫폼 goatcounter를 이용하여 지킬 기반 깃허브 블로그에 방문자 카운터를 만드는 방법을 정리합니다.
 ---
 `Jekyll`과 같은 정적 웹사이트 생성기를 이용해 만든 개인 블로그에는 자체적으로 방문자 카운터를 넣을 방법이 없습니다.  다행히 무료로 사용 가능한 오픈소스 웹 애널리틱스 플랫폼 중 프로그래머 [Martin Tournoij](https://github.com/arp242)가 개발하여 운영하고 있는 [GoatCounter](https://www.goatcounter.com/)를 이용하여 방문자 카운터 기능을 직접 구현할 수 있습니다.
@@ -16,16 +16,15 @@ excerpt: 오픈소스 웹 애널리틱스 플랫폼 goatcounter를 이용하여 
 
 먼저 [GoatCounter](https://www.goatcounter.com/) 사이트에서 내 GoatCounter 계정을 만들어 주어야 합니다.  **☞ Sign Up** 버튼을 클릭합니다.
 
-![GoatCounter 사이트](https://drive.google.com/thumbnail?id=10NuyfX_xlB4-toR5eIvm3P8aMqu4iugH&sz=w1000)
+{% include img-gdrive alt="GoatCounter 사이트" id="10NuyfX_xlB4-toR5eIvm3P8aMqu4iugH" %}
 
 필요한 정보들을 입력하고 가입을 완료합니다.
 
-![GoatCounter 계정 만들기](https://drive.google.com/thumbnail?id=10QnxQIqmvw-MHiZQPcohRpOCmjwqSFeJ&sz=w1000)
+{% include img-gdrive alt="GoatCounter 계정 만들기" id="10QnxQIqmvw-MHiZQPcohRpOCmjwqSFeJ" %}
 
 가입 정보를 이용하여 로그인하면 아래와 같이 사이트 통계를 확인할 수 있게 됩니다.  위 예시의 경우 `Code`에 `my-code`를 입력하였기 때문에 `my-code.goatcounter.com`으로 접근하여 로그인이 가능합니다.  데이터가 쌓이게 되면 아래와 같은 웹 애널리틱스 정보를 열람할 수 있게 됩니다.
 
-![사이트 통계](https://drive.google.com/thumbnail?id=10Ul28CEGJYXJw5vaU9-O28Z5WX6CBFCi&sz=w1000)
-
+{% include img-gdrive alt="사이트 통계" id="10Ul28CEGJYXJw5vaU9-O28Z5WX6CBFCi" %}
 ## 방문자 카운터 만들기
 
 이제 방문자 카운터를 만들어 보겠습니다.  기본적인 방법은 [공식 문서](https://goatcounter.com/help/visitor-counter)에서 이미 잘 설명하고 있는데, 기본적으로 제공하는 프리셋을 이용하는 방법 혹은 API를 통해 제공되는 `JSON`객체에 직접 접근하는 방식을 사용할 수 있습니다.
@@ -34,7 +33,7 @@ excerpt: 오픈소스 웹 애널리틱스 플랫폼 goatcounter를 이용하여 
 
 프리셋을 사용하는 경우 아래와 같은 형태로 미리 구성된 방문자 카운터를 사용할 수 있습니다.  많은 경우 프리셋을 사용하기보다는 수치만 로드한 뒤 개인 블로그 디자인에 맞게 커스터마이즈하여 사용하는 것을 선호할 것이라고 생각하기 때문에, 프리셋을 사용하는 방법에 대한 자세한 설명은 생략하도록 하겠습니다.
 
-![기본 방문자 카운터](https://drive.google.com/thumbnail?id=10ajeKN8SG_hrGqVw0YJL9HO4uEadwXoN&sz=w400)
+{% include img-gdrive alt="기본 방문자 카운터" id="10ajeKN8SG_hrGqVw0YJL9HO4uEadwXoN" %}
 
 ### 방문자수 데이터에 직접 접근하기
 

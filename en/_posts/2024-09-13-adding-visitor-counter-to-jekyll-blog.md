@@ -4,8 +4,8 @@ category: programming
 tags:
   - jekyll
   - minimal-mistakes
-created_at: 2024-09-13 10:05:32 +09:00
-last_modified_at: 2024-09-20 10:17:08 +09:00
+created_at: 2024-09-12 09:05:32 -05:00
+last_modified_at: 2024-11-27 01:06:32 -05:00
 excerpt: How to add a custom visitor counter to your jekyll-based github blog using an open-source web analytics **GoatCounter**.
 ---
 There is no simple way to add a visitor counter to your personal blog if you are hosting yours using a static web-site generator like `Jekyll`.  Fortunately, there is an open-source web analytics platform [GoatCounter](https://www.goatcounter.com/), developed and being maintained by [Martin Tournoij](https://github.com/arp242), which you can use to implement visitor counter display.
@@ -16,15 +16,15 @@ In this posting I would like to explain how I added a visitor counter to my gith
 
 First of all, you need to create your new GoatCounter account.  Visit the [website](https://www.goatcounter.com/) and click **☞ Sign Up** button.
 
-![GoatCounter website](https://drive.google.com/thumbnail?id=10NuyfX_xlB4-toR5eIvm3P8aMqu4iugH&sz=w1000)
+{% include img-gdrive alt="GoatCounter website" id="10NuyfX_xlB4-toR5eIvm3P8aMqu4iugH" %}
 
 Complete your sigining-up by filling required fields up.
 
-![Creating goatcounter account](https://drive.google.com/thumbnail?id=10QnxQIqmvw-MHiZQPcohRpOCmjwqSFeJ&sz=w1000)
+{% include img-gdrive alt="Creating goatcounter account" id="10QnxQIqmvw-MHiZQPcohRpOCmjwqSFeJ" %}
 
 After signing up and logging in, you can see the visitor statistics of your website.  In above case you need to access to `my-code.goatcounter.com` to log in.  Statistics dashboard is like below image, which you can see similar after enough visitor count data is built up.
 
-![Site statistics by goatcounter](https://drive.google.com/thumbnail?id=10Ul28CEGJYXJw5vaU9-O28Z5WX6CBFCi&sz=w1000)
+{% include img-gdrive alt="Site statistics by goatcounter" id="10Ul28CEGJYXJw5vaU9-O28Z5WX6CBFCi" %}
 
 ## Creating Visitor Counter
 
@@ -34,7 +34,7 @@ Now let's make our oun visitor counter feature.  [Official documentation](https:
 
 First of all, you can decide to use preset visitor counter (see below image to see how it looks like).
 
-![기본 방문자 카운터](https://drive.google.com/thumbnail?id=10ajeKN8SG_hrGqVw0YJL9HO4uEadwXoN&sz=w400)
+{% include img-gdrive alt="Basic Visitor Counter" id="10ajeKN8SG_hrGqVw0YJL9HO4uEadwXoN" %}
 
  There are some options you can control.  For example, you can remove **stats by GoatCounter** text from above banner.  You can also give further style by adding custom CSS.  I believe that most of you would prefer to implement your own visitor counter blending better with your blogs/sites rather than using preset.  So I would like to skip the details of how to use this preset visitor counter.  Look through the official documentation if you are more likely to use this preset.
 ### Direct Access to Visitor Counts

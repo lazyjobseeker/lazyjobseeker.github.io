@@ -1,2 +1,3 @@
 {% capture imgpth %}{{ include.id | prepend: "https://drive.google.com/thumbnail?id=" | append: "&sz=w1000" }}{% endcapture %}
-[![{{ include.alt }}]({{ imgpth }}){: width="600" .align-center .shadow}]({{ imgpth }})
+[![{{ include.alt }}]({{ imgpth }}){: .align-center}]({{ imgpth }})
+<!-- {: width="600" .align-center .shadow } -->
