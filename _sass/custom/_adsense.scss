@@ -3,25 +3,36 @@
    ========================================================================== */
 
 div {
-    &.google-auto-placed {
-        &.ap_container {
-            display: inline-flex !important;
-            justify-content: center;
-            // display: inline-block !important;
-        }
-    }
+  &.google-auto-placed {
+    &.ap_container {
+      display: inline-flex !important;
+      justify-content: center;
 
-    .googleads__belowtoc > ins {
-        @media (max-width: $x-large) {
-            display: none !important;
-        }
-    }
+      @include breakpoint($large) {
+        float: right;
+        width: calc(100% - #{$right-sidebar-width-narrow});
+        padding-right: $right-sidebar-width-narrow;
+      }    
 
-    .customadsense__inarticle {
-        float: left;
-        margin-top: 1em;
-        padding-top: 1em;
-        width: 100%;
-        overflow: hidden;
+      @include breakpoint($x-large) {
+        width: calc(100% - #{$right-sidebar-width});
+        padding-right: $right-sidebar-width;
+      }
+
     }
+  }
+
+  .googleads__belowtoc > ins {
+    @media (max-width: $x-large) {
+      display: none !important;
+    }
+  }
+
+  .customadsense__inarticle {
+    float: left;
+    margin-top: 1em;
+    padding-top: 1em;
+    width: 100%;
+    overflow: hidden;
+  }
 }
