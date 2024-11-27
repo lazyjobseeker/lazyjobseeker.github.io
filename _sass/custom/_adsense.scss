@@ -15,7 +15,7 @@ div {
         display: none !important;
 
         @include breakpoint($large) {
-        display: inline-block;
+        display: inline-block !important;
         }
     }
 }
