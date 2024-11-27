@@ -11,11 +11,9 @@ div {
         }
     }
 
-    .googleads__belowtoc + ins {
-        .adsbygoogle {
-            @include breakpoint($x-large) {
-                display: inline-block;
-            }
+    .googleads__belowtoc > ins {
+        @media (max-width: $x-large) {
+            display: none !important;
         }
     }
 }
