@@ -12,10 +12,10 @@ div {
     }
 
     .googleads__belowtoc {
-        display: none !important;
+        display: none;
 
         @include breakpoint($large) {
-        display: inline-block !important;
+            display: inline-block;
         }
     }
 }
