@@ -5,7 +5,7 @@
 div {
     &.google-auto-placed {
         &.ap_container {
-            display: flex !important;
+            display: inline-flex !important;
             justify-content: center;
             // display: inline-block !important;
         }
