@@ -11,12 +11,10 @@ div {
         }
     }
 
-    .googleads__belowtoc {
-        ins {
-            .adsbygoogle {
-                @media (max-width: $x-large) {
-                    display: none !important;
-                }
+    .googleads__belowtoc + ins {
+        .adsbygoogle {
+            @include breakpoint($x-large) {
+                display: inline-block;
             }
         }
     }
