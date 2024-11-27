@@ -15,7 +15,7 @@ div {
         ins {
             .adsbygoogle {
                 display: none;
-                @include breakpoint($large) {
+                @include breakpoint($x-large) {
                     display: inline-block;
                 }
             }
