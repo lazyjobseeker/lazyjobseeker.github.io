@@ -23,7 +23,7 @@ function updateCounts() {
                 pointBorderColor: 'rgba(66, 173, 255, 1)',
                 backgroundColor: 'rgba(66, 173, 255, 0.5)',
                 borderColor: 'rgba(66, 173, 255, 1)',
-                pointRadius: 0,
+                pointRadius: 1,
                 cubicInterpolationMode: 'monotone',
                 tension: 0.4,
                 fill: true

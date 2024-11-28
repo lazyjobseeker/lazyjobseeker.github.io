@@ -25,7 +25,7 @@
     <!-- Site Stat Powered by GoatCounter -->
       <li>
         <span class="nav__sub-title">VISITOR COUNTS</span>
-        <div><canvas style="width:100%; min-height:150px; margin-bottom:0.3em" id="myChart"></canvas></div>
+        <div><canvas style="width:100%; min-height:120px; margin-bottom:0.3em" id="myChart"></canvas></div>
         <!-- Visitor Chart -->
         <ul>
           <li><span style="display:inline-block; width:7.5em"><b>TODAY</b></span><span id="gc_today"></span></li>
