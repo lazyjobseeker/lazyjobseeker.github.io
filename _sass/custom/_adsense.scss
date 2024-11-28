@@ -7,6 +7,8 @@ div {
     &.ap_container {
       display: inline-flex !important;
       justify-content: center;
+      overflow: hidden;
+      border: 1px solid $primary-color;
     }
   }
 
