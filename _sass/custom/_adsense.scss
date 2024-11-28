@@ -15,6 +15,11 @@ div {
     }
   }
 
+  .googleads__belowsidebar {
+    width: 90% !important;
+  }
+
+  .googleads__belowsidebar > ins,
   .googleads__belowtoc > ins {
     @media (max-width: $large) {
       display: none !important;
