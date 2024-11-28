@@ -21,11 +21,13 @@ div {
     }
   }
 
-  .customadsense__inarticle {
+  .customadsense__belowpaginator {
     float: left;
-    margin-top: 1em;
-    padding-top: 1em;
     width: 100%;
     overflow: hidden;
+    border: 1px solid $primary-color;
+    border-radius: 8px;
+    box-shadow: inset 0 -1px $primary-color;
+    margin: 1em 0 0.5em 0;
   }
 }
