@@ -2,7 +2,7 @@
 
 {% include multilang/get-lang-posts %}
 {% assign ppp = site.posts_per_page %}
-{% assign total_page_counter = 0 %}
+{% assign total_page_counter = -1 %}
 {% assign first_post_idx = page.page_no | minus: 1 | times: ppp %}
 {% assign last_post_idx = first_post_idx | plus: ppp | minus: 1 %}
 {% assign total_pages = 1 %}
