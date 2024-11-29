@@ -7,7 +7,7 @@ tags:
   - banking
   - SSN
 created_at: 2024-11-27 11:12:25 -05:00
-last_modified_at: 2024-11-28 07:27:58 -05:00
+last_modified_at: 2024-11-28 07:28:38 -05:00
 excerpt: What I prepared before landing at Boston, house renting process, opening a bank account, applying for new SSN, etc.
 published: true
 ---
@@ -104,7 +104,7 @@ I was told that the landlords or leasing office collects above payments only by 
 
 **Money order** is a sort of pre-paid check you can buy with **cash** or **debit card**.  You literally **buy** them from the sellers so you pay more (money order fee) than the value of money order you would like to buy.  Basically a money order is a sheet of paper which certifies that a given amount of money can be transferred from a sender to a receipient.  You can write down your name and the recipient's name on them and then it becomes valid, allowing your recipients to cash it.
 
-
+{% include img-gdrive alt="Money order" id="1-3nDpg4liXQbwseRwQbhv-3lRg_Vwrqg" %}
 
 You can buy money order from **Walgreens**, **CVSs**, and **US Postal Services**.  I have known that I can buy money orders using my Korean debit card, which was a problem.  All the CVSs I visited told me they do not sell money order.  One of three Walgreens said they do money order but I need cash for that.
 
