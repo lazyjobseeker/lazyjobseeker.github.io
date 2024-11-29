@@ -7,7 +7,7 @@ tags:
   - banking
   - SSN
 created_at: 2024-11-27 11:12:25 -05:00
-last_modified_at: 2024-11-28 07:02:02 -05:00
+last_modified_at: 2024-11-28 07:06:53 -05:00
 excerpt: What I prepared before landing at Boston, house renting process, opening a bank account, applying for new SSN, etc.
 published: true
 ---
@@ -98,7 +98,7 @@ If you applied and your landlord or leasing company approved your application, y
 
 I heard that paying last-month rent is a norm but it was not for my case in leasing apartments.  I am not sure if this is usual in renting an apartment unit or not🧐.
 
-I was told that the landlords or leasing office collect above payments only by certified ways of payment such as **money order** or **casher's check**.  They do not accept cash or allow you to tap/slide/insert your card in their office.  I paid my move-in costs via money order.  It was not so easy for me, as I am going to outline in next section.
+I was told that the landlords or leasing office collects above payments only by certified ways such as **money order** or **cashier's check**.  They do not accept cash or allow you to tap/slide/insert your card in their office.  I paid my move-in costs via money order.  It was not so easy for me, as I am going to outline in next section.
 
 ### Money Order
 
