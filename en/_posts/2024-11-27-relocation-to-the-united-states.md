@@ -63,7 +63,7 @@ If you are less experienced in renting a house in the US, or if you want to leas
 
 It would be great if you can be free from the broker fee whatever property you are interested in.  But if you contact an individually owned property and there are a specific realtry company dealing with it, you cannot avoid broker fee unless the listing says **"you would not be charged any broker fee"**.  I heard from a realtor that usually the broker fee is paid by tenants for better-quality units, or by landlords vice versa.  I have no statistic clue about this but it seemed reasonable that the landlords would not be willing to burden more while they property is nice and so there are already many potential tenants lined up🫤.
 
-ℹ️ **Broker Fee Disclosure Form**<br>While you are involved with realtors in touring, you could be asked to sign a formed named **Broker Fee Disclosure Form**.  It is basically a documents stating the unit you are going to tour is going to be associated with the realtor and you would be charged the broker fee if you are going to go for the unit and sign the lease agreement.  Usually a e-document is sent to you and you can sign it back to brokers with a few clicks.
+ℹ️ **Broker Fee Disclosure Form**<br>While you are involved with realtors in touring, you could be asked to sign a form named **Broker Fee Disclosure Form**.  It is basically a documents stating the unit you are going to tour is going to be associated with the realtor and you would be charged the broker fee if you are going to go for the unit and sign the lease agreement.  Usually a e-document is sent to you and you can sign it back to brokers with a few clicks.
 {: .notice--info}
 
 #### Visiting Leasing Office
