@@ -147,7 +147,7 @@ It seems that new SSN issurance task can be done only with prior online appointm
 
 {% include img-gdrive alt="SSA receipt" id="1-O8Oj8qvzUxnSD-d4GUcloZihsqsK3UK" %}
 
-Once again I proceeded to the desk with my passport having immigrant visa with temporary I-551 stamp.  I tried to bring my arrival/departure record or [I-94 form](https://i94.cbp.dhs.gov/home) also, but it was not successful as the I-94 site kept failing in displaying the records for me.  Instead I was able to access different menu in the site and some alternative page showing my list of arrival/departure to and from the US.  The SSA officer interviewed me once asked me if I have I-94 form I provided that.  As the officer told me that the page I gave to her was not the exact one, anyway I was able to receive a confirmation that my SSN will be delivered within a couple of weeks to my address.
+Once again I proceeded to the desk with my passport having immigrant visa with temporary I-551 stamp.  I tried to bring my arrival/departure record or [**I-94 form**](https://i94.cbp.dhs.gov/home) also, but it was not successful as the I-94 site kept failing in displaying the records for me.  Instead I was able to access different menu in the site and some alternative page showing my list of arrival/departure to and from the US.  The SSA officer interviewed me once asked me if I have I-94 form I provided that.  As the officer told me that the page I gave to her was not the exact one, anyway I was able to receive a confirmation that my SSN will be delivered within a couple of weeks to my address.
 
 ## Closing
 
