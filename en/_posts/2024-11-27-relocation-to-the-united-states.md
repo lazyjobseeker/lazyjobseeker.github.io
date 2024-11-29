@@ -7,7 +7,7 @@ tags:
   - banking
   - SSN
 created_at: 2024-11-27 11:12:25 -05:00
-last_modified_at: 2024-11-28 06:47:57 -05:00
+last_modified_at: 2024-11-28 07:02:02 -05:00
 excerpt: What I prepared before landing at Boston, house renting process, opening a bank account, applying for new SSN, etc.
 published: true
 ---
@@ -119,7 +119,7 @@ Only after that I gave up using my debit card and strolled around visiting ATMs 
 
 ### Setting up Utilities
 
-Finally I could receive my rent agreement and sign it, after I delivered the money orders.  After sending signed agreement the leasing staff told me I need to contact Eversource to set up my electricity for my unit.  I found it was avilable online, thought it should be a piece of cake🙃, didn't set it up right before the day of my my move-in.
+Finally I could receive my rent agreement and sign it, after I delivered the money orders to the leasing staff.  After sending signed agreement the leasing staff told me I need to contact Eversource to set up my electricity for my unit.  I found it was avilable online, thought it should be a piece of cake🙃, didn't set it up right before the day of my my move-in.
 
 Gallantly in high spirits I entered Eversource's website, only found that a form asking me my SSN.  I couldn't even skip the step.  I stumbled to search "Eversource electricity without SSN" and it read that I need to contact their customer center for further aid.
 
