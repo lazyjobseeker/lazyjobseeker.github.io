@@ -1,7 +1,7 @@
 ---
 title: "Staff Engineer"
 started: "Mar. 2019"
-ended: "Current"
+ended: "Oct. 2024"
 history:
   - department: "Advanced Battery Lab., Mobile eXperience (MX) Division"
     jobs:
