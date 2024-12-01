@@ -9,7 +9,7 @@ history:
       - title: "Machine-Learning Assisted CAE"
         dscrs:
         - Battery safety simulation combining mechanical CAE and physics-informed neural network (PINN)
-    site: "Seoul, Republic of Korea"
+    site: "Suwon, Republic of Korea"
   - position: "Staff Engineer"
     department: "Advanced Battery Lab., Mobile eXperience (MX) Division"
     started: "Mar. 2019"
@@ -25,5 +25,5 @@ history:
         - Led battery cell/pack development with partner companies
         - Conducted cell specification review
         - Conducted process auditing, product delivery/testing.
-    site: "Seoul, Republic of Korea"
+    site: "Suwon, Republic of Korea"
 ---
