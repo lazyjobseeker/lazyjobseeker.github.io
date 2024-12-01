@@ -4,27 +4,31 @@ Battery engineer with PhD and over 5 years of professional experience in battery
 <h2> 🎓 EDUCATION & CAREER </h2>
 <div>
   {% for career in site.career reversed %}
-    <b class="cv__careertitle">{{ career.title }}</b><br>
-    <b>{{ career.affiliation }} | {{ career.started | append: " - " | append: career.ended}}</b>
-    <div>
+  <div style = "margin-top: 0.5em; margin-bottom: 1em;">
+    <b class="cv__careertitle">{{ career.affiliation }}</b>
+    <div style = "margin-top: 0.5em; margin-left: 0.5em;">
       {% for pos in career.history %}
-        {{- pos.department | append: "<br>" -}}
-        {% for job in pos.jobs %}
-          <ul>
+      <div style = "margin-bottom: 0.5em;">
+        <b>{{ pos.position }}</b> | {{ pos.started | append: " - " | append: pos.ended}}<br>
+        {{ pos.department }}<br>
+        {%- for job in pos.jobs -%}
           {%- if job.title != "NA" -%}
+          <ul>
             <li>{{- job.title -}}</li>
             <ul>
-            {% for dscr in job.dscrs %}
+            {%- for dscr in job.dscrs -%}
               <li>{{- dscr -}}</li>
-            {% endfor %}
+            {%- endfor -%}
             </ul>
-          {%- endif -%}
           </ul>
-        {% endfor %}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if pos.remark -%}<ul><li>{{- pos.remark -}}</li></ul>{%- endif -%}
+        {{- pos.site -}}
+      </div>
       {% endfor %}
-      {{- career.site -}}
     </div>
-    <br>
+  </div>
   {% endfor %}
 </div>
 
