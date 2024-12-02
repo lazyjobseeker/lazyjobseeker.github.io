@@ -2,7 +2,7 @@
 affiliation: "Exponent Inc."
 history:
   - position: "Associate"
-    department: "Data Sciences Pracrtice"
+    department: "Data Sciences Practice"
     started: "Dec. 2024"
     ended: "Current"
     jobs:
