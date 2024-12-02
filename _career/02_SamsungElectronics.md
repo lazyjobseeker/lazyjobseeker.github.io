@@ -3,7 +3,7 @@ affiliation: "Samsung Electronics Co. Ltd."
 history:
   - position: "Staff Engineer"
     department: "Design Solution Group, Global Technology Research (GTR)"
-    started: "Mar. 2024"
+    started: "May 2024"
     ended: "Oct. 2024"
     jobs:
       - title: "Machine-Learning Assisted CAE"
