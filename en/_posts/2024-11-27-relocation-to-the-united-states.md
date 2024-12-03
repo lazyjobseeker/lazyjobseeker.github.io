@@ -152,7 +152,3 @@ Once again I proceeded to the desk with my passport having immigrant visa with t
 ## Closing
 
 There are so many things still needs to be done!  I will update this post as I complete them one by one🤗.
-
-<!--
-## 차량 렌트 / 리스 / 구매
--->
