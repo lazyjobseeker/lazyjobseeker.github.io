@@ -1,6 +1,3 @@
-const mycode = 'lazyjobseeker';
-const basequery = 'https://' + mycode + '.goatcounter.com/counter/TOTAL.json';
-
 var dates = [];
 var counts = [];
 var step;
@@ -75,7 +72,7 @@ for (step = 0; step < size; step++) {
     rqsts[step] = new XMLHttpRequest();
     rqsts[step].idx = size-step-1;
     rqsts[step].onload = updateCounts;
-    rqsts[step].open('GET', basequery + '?start=' + todayisostring.slice(0, 10) + '&end=' + tomorrowisostring.slice(0, 10));
+    rqsts[step].open('GET', basejson + '?start=' + todayisostring.slice(0, 10) + '&end=' + tomorrowisostring.slice(0, 10));
     rqsts[step].send();
 }
 
@@ -86,17 +83,17 @@ var today_cnt = new XMLHttpRequest();
 today_cnt.addEventListener('load', function() {
     document.querySelector('#gc_today').innerText = JSON.parse(this.responseText).count.replace(/\s/g, ",");
 })
-today_cnt.open('GET', basequery + '?start=' + today.toISOString().slice(0, 10));
+today_cnt.open('GET', basejson + '?start=' + today.toISOString().slice(0, 10));
 today_cnt.send()
 var yesterday_cnt = new XMLHttpRequest();
 yesterday_cnt.addEventListener('load', function() {
     document.querySelector('#gc_yesterday').innerText = JSON.parse(this.responseText).count.replace(/\s/g, ",");
 })
-yesterday_cnt.open('GET', basequery + '?start=' + yesterday.toISOString().slice(0, 10) + '&end=' + today.toISOString().slice(0, 10));
+yesterday_cnt.open('GET', basejson + '?start=' + yesterday.toISOString().slice(0, 10) + '&end=' + today.toISOString().slice(0, 10));
 yesterday_cnt.send();
 var total_cnt = new XMLHttpRequest();
 total_cnt.addEventListener('load', function() {
     document.querySelector('#gc_total').innerText = JSON.parse(this.responseText).count.replace(/\s/g, ",");
 })
-total_cnt.open('GET', basequery);
+total_cnt.open('GET', basejson);
 total_cnt.send();
