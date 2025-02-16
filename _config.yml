@@ -104,6 +104,8 @@ analytics:
   google:
     tracking_id          : "G-P0SKNHJCBJ"
     anonymize_ip         : # true, false (default)
+  goatcounter:
+    id                   : "slothsattic"
 
 
 # Site Author
