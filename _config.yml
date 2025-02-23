@@ -36,7 +36,7 @@ masthead_title           : # overrides the website title displayed in the masthe
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 300
 comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
+  provider               : "giscus" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
   disqus:
     shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
@@ -50,11 +50,11 @@ comments:
     theme                : # "github-light" (default), "github-dark"
     issue_term           : # "pathname" (default)
   giscus:
-    repo_id              : # Shown during giscus setup at https://giscus.app
-    category_name        : # Full text name of the category
-    category_id          : # Shown during giscus setup at https://giscus.app
+    repo_id              : "R_kgDOGZK-Ew" # Shown during giscus setup at https://giscus.app
+    category_name        : "Comments"
+    category_id          : "DIC_kwDOGZK-E84CnPqA" # Shown during giscus setup at https://giscus.app
     discussion_term      : # "pathname" (default), "url", "title", "og:title"
-    reactions_enabled    : # '1' for enabled (default), '0' for disabled
+    reactions_enabled    : 1 # '1' for enabled (default), '0' for disabled
     theme                : # "light" (default), "dark", "dark_dimmed", "transparent_dark", "preferred_color_scheme"
   staticman:
     branch               : # "master"
@@ -324,6 +324,7 @@ defaults:
       permalink: /posts/:title/
       random-teaser: # true
       translated: true
+      comments: true
   # _drafts-ko
   - scope:
       path: "_drafts"
@@ -366,6 +367,7 @@ defaults:
       permalink: /en/posts/:title/
       random-teaser: # true
       translated: true
+      comments: true
     # _drafts-en
   - scope:
       path: "en/_drafts"
