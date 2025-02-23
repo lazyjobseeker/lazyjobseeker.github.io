@@ -51,7 +51,7 @@ comments:
     issue_term           : # "pathname" (default)
   giscus:
     repo_id              : "R_kgDOGZK-Ew" # Shown during giscus setup at https://giscus.app
-    category_name        : "Comments"
+    category_name        : "Announcements"
     category_id          : "DIC_kwDOGZK-E84CnPqA" # Shown during giscus setup at https://giscus.app
     discussion_term      : # "pathname" (default), "url", "title", "og:title"
     reactions_enabled    : 1 # '1' for enabled (default), '0' for disabled
