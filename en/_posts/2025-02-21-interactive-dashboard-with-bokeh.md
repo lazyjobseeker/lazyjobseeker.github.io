@@ -6,7 +6,7 @@ tags:
   - dashboard
   - bokeh
 created_at: 2025-02-18 08:47:45 -05:00
-last_modified_at: 2025-02-21 03:58:30 -05:00
+last_modified_at: 2025-02-22 09:03:15 -05:00
 excerpt: How to build interactive web dashboard using python library bokeh
 published: true
 ---
@@ -147,7 +147,9 @@ curdoc().add_root(layout)
 ```
 {: file='example_python_callback.py'}
 
-  It is noticeable that in this case you cannot use `output_file` and `show` methods above which allowed us to generate standalone `html` file.  On the other words, you can use only `bokeh serve --show example.py` to run your dashboard above.  Then it will work for you to search through the `Item` column,
+You can see that `update` callback is passed to `on_change` method when it is called by `TextInput` widget's instance `search`.
+
+It is noticeable that in this case you cannot use `output_file` and `show` methods above which allowed us to generate standalone `html` file.  On the other words, you can use only `bokeh serve --show example.py` to run your dashboard above.  Then it will work for you to search through the `Item` column,
 
 {% include img-gdrive alt="Search Result" id="174ia1xD0ENNkzUdSt9SqyThBv6wKEc1X" %}
 
@@ -217,7 +219,7 @@ You can find this code generates `example_jscb.html` which can do the substring 
 - In the JavaScript code you write for the callback, you can access to the `ColumnDataSource` instances by their name in python code.  For example, there are objects named `source` and `backend` which we defined in python code.  For sure, these are not python objects but their mirrored clone in JavaScript language (I guess).
 - `ColumnDataSource` object named `backend` was additionally defined.  This is to enable redoing the search result and restore original table.  If you have `source` only, you cannot retrieve your original database once a search is triggered to overwrite `source` instance.  As `source` is the only instance we can change to the table shown in our dashboard, being able to clone `source` into any new instance in JavaScript code cannot help resolving this issue[^1].
 
-[^1] This statement is questionable.  Maybe we can clone `source` into new temporary instance and at least the cloned instance will be accessible until the browser closes.
+[^1]: This statement is questionable.  Maybe we can clone `source` into new temporary instance and at least the cloned instance will be accessible until the browser closes.
 
 ## Using HTMLTemplateFormatter
 
