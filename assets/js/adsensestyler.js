@@ -3,14 +3,13 @@ const elems2 = document.querySelectorAll('.adsbygoogle adsbygoogle-noablate');
 
 elems.forEach(elem => {
 
-    elem.style.clear = none;
+    elem.style.setProperty('clear', 'none');
     
     });
 
 
 elems2.forEach(elem => {
 
-    elem.style.clear = none;
+    elem.style.setProperty('clear', 'none');
     
     });
-    
