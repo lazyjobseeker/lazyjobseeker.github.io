@@ -6,7 +6,7 @@ tags:
   - battery
   - machine-learning
 created_at: 2025-03-03 04:06:10 -05:00
-last_modified_at: 2025-03-04 01:30:27 -05:00
+last_modified_at: 2025-03-04 11:45:57 -05:00
 excerpt: 머신러닝 기반 배터리 수명 예측 논문 정리
 published: true
 ---
@@ -46,16 +46,16 @@ $$ \operatorname*{min}\limits_{\phi}\Bbb{E}_{(\Delta\textbf{x},\Delta y)\in D}{\
 
 저자들은 문제 $\text{(ZL2)}$의 최적해를 찾는 데 있어 우선 데이터 전처리를 통해 $\Delta y$의 기대값이 0이 되도록 처리하면, $f$와 $g$가 모두 선형함수로 모델링하는 경우 두 함수가 동일한 최적 파라미터를 가진다는 점을 이용하여 intra-cell learning과 inter-cell learning을 결합합니다.
 
-간단한 버전의 증명은 $f_{\theta ^{*}}(x)={\text{w}_f^*}^T \textbf{x}$  and $g_{\phi ^{*}}(x)={\text{w}_g^*}^T \textbf{x}$ 이라고 두고, 아래 등식을 이용하는 것입니다.  아래 등식은 $\Delta y$의 기대값이 0이 되지 않으면 성립하지 않습니다.
+간단한 버전의 증명은 $g$의 최적해를 $g_{\phi^\ast}(x)=\text{w}_g^\ast \Delta\textbf{x}$로 두고 아래 등식을 이용하는 것입니다.  아래 등식은 $\Delta y$의 기대값이 0이 되지 않으면 성립하지 않습니다.
 
 $$ \begin{aligned}
-   &\Bbb{E}_{(\Delta\textbf{x},\Delta y)\in D}{\lVert {\text{w}_g^*}^T\Delta\textbf{x} - \Delta y \rVert}^2_2 = \newline
-   &\Bbb{E}_{(\textbf{x},y)\in D}{\lVert{\text{w}_g^*}^T\textbf{x} - y \rVert}^2_2 
-   +\Bbb{E}_{(\textbf{x}',y')\in D}{\lVert{\text{w}_g^*}^T\textbf{x}' - y' \rVert}^2_2
+   &\Bbb{E}_{(\Delta\textbf{x},\Delta y)\in D}{\lVert {\text{w}_g^\ast}^T\Delta\textbf{x} - \Delta y \rVert}^2_2 = \newline
+   &\Bbb{E}_{(\textbf{x},y)\in D}{\lVert{\text{w}_g^\ast}^T\textbf{x} - y \rVert}^2_2 
+   +\Bbb{E}_{(\textbf{x}',y')\in D}{\lVert{\text{w}_g^\ast}^T\textbf{x}' - y' \rVert}^2_2
    = \newline
-   &2 \times \Bbb{E}_{(\textbf{x},y)\in D}{\lVert{\text{w}_g^*}^T\textbf{x} - y \rVert}^2_2   \end{aligned} 
+   &2 \times \Bbb{E}_{(\textbf{x},y)\in D}{\lVert{\text{w}_g^\ast}^T\textbf{x} - y \rVert}^2_2   \end{aligned} 
    \tag{ZL3} $$
 
-$\textbf{w}_g^*$는 모델 $g$의 최적 파라미터로서 $(\text{ZL3})$의 좌변을 최소값이 되게 하는 값인데, 가장 우변을 살펴보면 이 값은 모델 $f$의 목적함수 값의 절반과 같다는 것을 알 수 있습니다.  등식이 성립하고 있기 때문에 $\textbf{w}_g^*$가 모델 $f$의 목적함수 또한 최소화하는 최적 파라미터가 되는 것을 알 수 있습니다.
+$\textbf{w}_g^\ast$는 모델 $g$의 최적 파라미터로서 $(\text{ZL3})$의 좌변을 최소값이 되게 하는 값인데, 가장 우변을 살펴보면 이 값은 모델 $f$의 목적함수 값의 절반과 같다는 것을 알 수 있습니다.  등식이 성립하고 있기 때문에 $\textbf{w}_g^\ast$가 모델 $f$의 목적함수 또한 최소화하는 최적 파라미터가 되는 것을 알 수 있습니다.
 
 [^2]: H Zhang, Y Li, S Zheng, Z Lu, X Gui, W Xu, and J Bian, "Battery Lifetime Prediction Across Diverse Ageing Conditions with Inter-Cell Deep Learning," *Nature Machine Intelligence* **7**, 270-277 (2025)

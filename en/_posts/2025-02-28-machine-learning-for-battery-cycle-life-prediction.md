@@ -6,7 +6,7 @@ tags:
   - battery
   - machine-learning
 created_at: 2025-03-03 04:06:10 -05:00
-last_modified_at: 2025-03-04 08:32:29 -05:00
+last_modified_at: 2025-03-04 11:43:49 -05:00
 excerpt: Review for data-driven and machine-learning models for battery cycle life prediction problem
 published: true
 ---
@@ -40,14 +40,14 @@ The additional problem proposed by authors is predicting the **difference** betw
 
 $$ \operatorname*{min}\limits_{\phi}\Bbb{E}_{(\Delta\textbf{x},\Delta y)\in D}{\lVert g_\phi(\Delta\textbf{x}) - \Delta y \rVert}^2_2 \tag{ZL2}$$
 
-The most important take is that when $f$ and $g$ are both linear models, they share the optimal solution.  This cross-optimality required the authors to preprocess their data to make $\Delta y$ zero-centered (have zero expectation value).  Short justification for this statement is given like this: if we have an optimal objective functions for models $f$ and $g$ to be $f_{\theta ^{*}}(x)={\text{w}_f^*}^T \textbf{x}$  and $g_{\phi ^{*}}(x)={\text{w}_g^*}^T \textbf{x}$, below holds:
+The most important take is that when $f$ and $g$ are both linear models, they share the optimal solution.  This cross-optimality required the authors to preprocess their data to make $\Delta y$ zero-centered (have zero expectation value).  Short justification for this statement is given like this: if we have an optimal objective function for model $g$ to be $g_{\phi^\ast}(x)=\text{w}_g^\ast \Delta\textbf{x}$, below holds:
 
 $$ \begin{aligned}
-   &\Bbb{E}_{(\Delta\textbf{x},\Delta y)\in D}{\lVert {\text{w}_g^*}^T\Delta\textbf{x} - \Delta y \rVert}^2_2 = \newline
-   &\Bbb{E}_{(\textbf{x},y)\in D}{\lVert{\text{w}_g^*}^T\textbf{x} - y \rVert}^2_2 
-   +\Bbb{E}_{(\textbf{x}',y')\in D}{\lVert{\text{w}_g^*}^T\textbf{x}' - y' \rVert}^2_2
+   &\Bbb{E}_{(\Delta\textbf{x},\Delta y)\in D}{\lVert {\text{w}_g^\ast}^T\Delta\textbf{x} - \Delta y \rVert}^2_2 = \newline
+   &\Bbb{E}_{(\textbf{x},y)\in D}{\lVert{\text{w}_g^\ast}^T\textbf{x} - y \rVert}^2_2 
+   +\Bbb{E}_{(\textbf{x}',y')\in D}{\lVert{\text{w}_g^\ast}^T\textbf{x}' - y' \rVert}^2_2
    = \newline
-   &2 \times \Bbb{E}_{(\textbf{x},y)\in D}{\lVert{\text{w}_g^*}^T\textbf{x} - y \rVert}^2_2   \end{aligned} 
+   &2 \times \Bbb{E}_{(\textbf{x},y)\in D}{\lVert{\text{w}_g^\ast}^T\textbf{x} - y \rVert}^2_2   \end{aligned} 
    \tag{ZL3} $$
 
 which can only be satisfied when $\textbf{w}_g^* = \textbf{w}_f^*$.
