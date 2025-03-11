@@ -24,7 +24,7 @@
     {% endfor %}
     <!-- Site Stat Powered by GoatCounter -->
       <li>
-        <span class="nav__sub-title">VISITOR COUNTS</span>
+        <span class="nav__sub-title">PAGEVIEWS</span>
         <div><canvas style="width:100%; min-height:120px; margin-bottom:0.3em" id="myChart"></canvas></div>
         <!-- Visitor Chart -->
         <ul>
