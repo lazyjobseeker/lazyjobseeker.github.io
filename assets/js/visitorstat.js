@@ -1,3 +1,4 @@
+// Visitor Statistics
 var dates = [];
 var counts = [];
 var step;
