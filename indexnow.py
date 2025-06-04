@@ -8,7 +8,7 @@ response.raise_for_status()  # fail fast if can't fetch
 url_list = response.json()  # This will be a list of URLs
 
 data1 = {
-    "host": "lazyjobseeker.github.io/",
+    "host": "lazyjobseeker.github.io",
     "key": "7c8d916aed354f77bb94d77e66fa202e",
     "keyLocation": "https://lazyjobseeker.github.io/7c8d916aed354f77bb94d77e66fa202e.txt",
     "urlList": url_list
@@ -24,7 +24,7 @@ response2.raise_for_status()  # fail fast if can't fetch
 url_list2 = response2.json()  # This will be a list of URLs
 
 data2 = {
-    "host": "lazyjobseeker.github.io/",
+    "host": "lazyjobseeker.github.io",
     "key": "988e928790a24ceb80bd704f7f067aaf",
     "keyLocation": "https://lazyjobseeker.github.io/988e928790a24ceb80bd704f7f067aaf.txt",
     "urlList": url_list2
