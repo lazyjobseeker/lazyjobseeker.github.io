@@ -24,7 +24,8 @@ jobs:
       - name: Install requests
         run: pip install requests
 
-      - name: Run IndexNow Notify
-        run:
-          - python indexnow-bing.py
-          - python indexnow-naver.py
+      - name: Run IndexNow Notify (Bing)
+        run: python indexnow-bing.py
+
+      - name: Run IndexNow Notify (Naver)
+        run: python indexnow-naver.py
