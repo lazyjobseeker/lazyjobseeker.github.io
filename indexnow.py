@@ -7,25 +7,25 @@ response.raise_for_status()  # fail fast if can't fetch
 
 url_list = response.json()  # This will be a list of URLs
 
-data = {
+data1 = {
     "host": "https://lazyjobseeker.github.io/",
     "key": "7c8d916aed354f77bb94d77e66fa202e",
     "keyLocation": "https://lazyjobseeker.github.io/7c8d916aed354f77bb94d77e66fa202e.txt",
     "urlList": url_list
 }
 
-headers = {'Content-Type': 'application/json; charset=utf-8'}
-r = requests.post("https://api.indexnow.org/IndexNow", json=data, headers=headers)
-print(r.status_code, r.text)
+headers1 = {'Content-Type': 'application/json; charset=utf-8'}
+r1 = requests.post("https://api.indexnow.org/IndexNow", json=data1, headers=headers1)
+print(r1.status_code, r1.text)
 
-"""
-data = {
+
+data2 = {
     "host": "https://lazyjobseeker.github.io/",
-    "key": "1b0522866f8b42049d0770c799fd11f5",
-    "keyLocation": "https://lazyjobseeker.github.io/1b0522866f8b42049d0770c799fd11f5.txt",
+    "key": "988e928790a24ceb80bd704f7f067aaf",
+    "keyLocation": "https://lazyjobseeker.github.io/988e928790a24ceb80bd704f7f067aaf.txt",
     "urlList": url_list
 }
 
-r = requests.post("https://searchadvisor.naver.com/indexnow", json=data, headers=headers)
-print(r.status_code, r.text)
-"""
+headers2 = {'Content-Type': 'application/json; charset=utf-8'}
+r2 = requests.post("https://searchadvisor.naver.com/indexnow", json=data2, headers=headers2)
+print(r2.status_code, r2.text)
