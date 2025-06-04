@@ -9,8 +9,8 @@ url_list = response.json()  # This will be a list of URLs
 
 data = {
     "host": "https://lazyjobseeker.github.io/",
-    "key": "1b0522866f8b42049d0770c799fd11f5",
-    "keyLocation": "https://lazyjobseeker.github.io/1b0522866f8b42049d0770c799fd11f5.txt",
+    "key": "6359bb3d6d76413dabb24aa77dfce27d",
+    "keyLocation": "https://lazyjobseeker.github.io/6359bb3d6d76413dabb24aa77dfce27d.txt",
     "urlList": url_list
 }
 
