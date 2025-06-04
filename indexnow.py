@@ -18,6 +18,7 @@ headers = {'Content-Type': 'application/json; charset=utf-8'}
 r = requests.post("https://api.indexnow.org/IndexNow", json=data, headers=headers)
 print(r.status_code, r.text)
 
+"""
 data = {
     "host": "https://lazyjobseeker.github.io/",
     "key": "1b0522866f8b42049d0770c799fd11f5",
@@ -27,3 +28,4 @@ data = {
 
 r = requests.post("https://searchadvisor.naver.com/indexnow", json=data, headers=headers)
 print(r.status_code, r.text)
+"""
