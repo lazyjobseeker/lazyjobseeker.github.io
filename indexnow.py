@@ -18,12 +18,16 @@ headers1 = {'Content-Type': 'application/json; charset=utf-8'}
 r1 = requests.post("https://api.indexnow.org/IndexNow", json=data1, headers=headers1)
 print(r1.status_code, r1.text)
 
+response2 = requests.get(json_url)
+response2.raise_for_status()  # fail fast if can't fetch
+
+url_list2 = response2.json()  # This will be a list of URLs
 
 data2 = {
     "host": "https://lazyjobseeker.github.io/",
     "key": "988e928790a24ceb80bd704f7f067aaf",
     "keyLocation": "https://lazyjobseeker.github.io/988e928790a24ceb80bd704f7f067aaf.txt",
-    "urlList": url_list
+    "urlList": url_list2
 }
 
 headers2 = {'Content-Type': 'application/json; charset=utf-8'}
