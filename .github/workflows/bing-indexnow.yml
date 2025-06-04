@@ -2,10 +2,10 @@ name: Build and Deploy with IndexNow
 
 on:
   workflow_run:
-  workflows:
-    - pages-build-deployment
-  types:
-    - completed
+    workflows:
+      - pages-build-deployment
+    types:
+      - completed
 
 jobs:
   notify_indexnow:
