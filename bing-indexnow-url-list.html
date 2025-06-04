@@ -4,7 +4,7 @@ permalink: /bing-indexnow-url-list.json
 ---
 
 [
-  {% for post in site.posts %}
+  {%- for post in site.posts -%}
     "{{ site.url }}{{ post.url }}"{% if forloop.last == false %},{% endif %}
-  {% endfor %}
+  {%- endfor -%}
 ]
