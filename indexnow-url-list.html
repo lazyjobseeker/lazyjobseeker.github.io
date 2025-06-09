@@ -10,5 +10,6 @@ permalink: /indexnow-url-list.json
     {%- assign post_date = post.last_modified_at | default: post.date | date: '%s' -%}
     {%- if post_date > base_date -%}
       "{{ site.url }}{{ post.url }}"{% if forloop.last == false %},{% endif %}
+    {%- endif -%}
   {%- endfor -%}
 ]
