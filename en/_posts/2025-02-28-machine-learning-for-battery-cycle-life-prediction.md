@@ -6,7 +6,7 @@ tags:
   - battery
   - machine-learning
 created_at: 2025-03-03 04:06:10 -05:00
-last_modified_at: 2025-03-04 11:43:49 -05:00
+last_modified_at: 2025-06-09 03:59:15 -05:00
 excerpt: Review for data-driven and machine-learning models for battery cycle life prediction problem
 published: true
 ---

@@ -3,8 +3,12 @@ layout: none
 permalink: /indexnow-url-list.json
 ---
 
+{%- assign base_date = 'now' | date: '%s' | minus: 172800 -%}
+
 [
   {%- for post in site.posts -%}
-    "{{ site.url }}{{ post.url }}"{% if forloop.last == false %},{% endif %}
+    {%- assign post_date = post.last_modified_at | default: post.date | date: '%s' -%}
+    {%- if post_date > base_date -%}
+      "{{ site.url }}{{ post.url }}"{% if forloop.last == false %},{% endif %}
   {%- endfor -%}
 ]
