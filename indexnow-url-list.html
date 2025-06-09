@@ -7,7 +7,7 @@ permalink: /indexnow-url-list.json
 
 {%- capture urls =%}
   {%- for post in site.posts -%}
-    {%- assign post_date = post.last_modified_at | default: post.date | date: '%s' -%}
+    {%- assign post_date = post.last_modified_at | default: post.date | date: '%s' | plus: 0 -%}
     {%- if post_date > base_date -%}
       "{{ site.url }}{{ post.url }}",
     {%- endif -%}
