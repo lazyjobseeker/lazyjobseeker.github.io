@@ -4,11 +4,17 @@ permalink: /indexnow-url-list.json
 ---
 
 {%- assign base_date = 'now' | date: '%s' | minus: 172800 -%}
-{%- assign recent_posts = site.posts | where_exp: "post", "post.last_modified_at | default: post.date | date: '%s' > base_date" -%}
-[
-  {%- assign urls = "" -%}
-  {%- for post in recent_posts -%}
-    {%- assign urls = urls | append: '"{{ site.url }}{{ post.url }}",' -%}
+
+{%- capture urls =%}
+  {%- for post in site.posts -%}
+    {%- assign post_date = post.last_modified_at | default: post.date | date: '%s' -%}
+    {%- if post_date > base_date -%}
+      "{{ site.url }}{{ post.url }}",
+    {%- endif -%}
   {%- endfor -%}
+{%- endcapture -%}
+
+[
   {{ urls | strip_last: "," }}
 ]
+
