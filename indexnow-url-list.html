@@ -3,7 +3,7 @@ layout: none
 permalink: /indexnow-url-list.json
 ---
 
-{%- assign base_date = 'now' | date: '%s' | plus: 0 | minus: 172800 -%}
+{%- assign base_date = 'now' | date: '%s' | plus: 0 | minus: 3600 -%}
 [
   {%- assign first = true -%}
   {%- for post in site.posts -%}
