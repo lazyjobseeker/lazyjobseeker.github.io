@@ -115,7 +115,7 @@ author:
   bio              :
     ko: "재빠른 나무늘보 🦥 - 일하는 것처럼 보인다면 착각입니다."
     en: "A quick sloth 🦥 - If you see me working, you are mistaken."
-  location         : "Greater Boston, United States" # "Republic of Korea"
+  location         : "Greater Boston, US" # "Republic of Korea"
   email            :
   links:
     - label: "Email"

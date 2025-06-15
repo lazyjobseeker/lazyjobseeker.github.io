@@ -1,12 +1,12 @@
 ---
-title: 깃허브 블로그에 웹 인덱싱 프로토콜 인덱스나우(IndexNow) 연동하기
+title: 깃허브 블로그에 인덱스나우(IndexNow) 연동하기
 category: programming
 tags:
   - DevLog
   - SEO
   - Jekyll
 created_at: 2025-06-10 09:56:42 -05:00
-last_modified_at: 2025-06-15 05:58:21 -05:00
+last_modified_at: 2025-06-15 12:43:53 -05:00
 excerpt: 크롤링봇 기반의 기존 웹 인덱싱을 대체하는 신규 프로토콜 인덱스나우(IndexNow)를 깃허브 페이지 기반의 지킬 블로그에 연동하고 Github Actions 워크플로우를 이용해 신규/변경 포스트 URL 보고 과정을 자동화하기.
 published: true
 ---
