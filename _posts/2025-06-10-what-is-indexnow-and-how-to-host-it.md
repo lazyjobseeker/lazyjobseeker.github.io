@@ -6,7 +6,7 @@ tags:
   - SEO
   - Jekyll
 created_at: 2025-06-10 09:56:42 -05:00
-last_modified_at: 2025-06-15 05:37:34 -05:00
+last_modified_at: 2025-06-15 05:42:38 -05:00
 excerpt: 크롤링봇 기반의 기존 웹 인덱싱을 대체하는 신규 프로토콜 인덱스나우(IndexNow)를 깃허브 페이지 기반의 지킬 블로그에 연동하고 Github Actions 워크플로우를 이용해 신규/변경 포스트 URL 보고 과정을 자동화하기.
 published: true
 ---
@@ -40,9 +40,9 @@ layout: none
 permalink: /indexnow-url-list.json
 ---
 
-{%- assign base_date = 'now' | date: '%s' | plus: 0 | minus: 3600 -%}
+{% raw %}{%- assign base_date = 'now' | date: '%s' | plus: 0 | minus: 3600 -%}{% endraw %}
 [
-  {%- assign first = true -%}
+  {% raw %}{%- assign first = true -%}
   {%- for post in site.posts -%}
     {%- assign post_date = post.last_modified_at | default: post.date | date: '%s' | plus: 0 -%}
     {%- if post_date > base_date -%}
@@ -50,7 +50,7 @@ permalink: /indexnow-url-list.json
       "{{ site.url }}{{ post.url }}"
       {%- assign first = false -%}
     {%- endif -%}
-  {%- endfor -%}
+  {%- endfor -%}{% endraw %}
 ]
 ```
 {: file="indexnow-url-list.html"}
@@ -121,7 +121,7 @@ on:
 
 jobs:
   notify_indexnow:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${% raw %}{{ github.event.workflow_run.conclusion == 'success' }}{% endraw %}
     runs-on: ubuntu-latest
 
     steps:
