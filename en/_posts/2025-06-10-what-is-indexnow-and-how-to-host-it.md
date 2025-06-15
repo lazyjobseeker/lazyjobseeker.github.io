@@ -6,7 +6,7 @@ tags:
   - SEO
   - Jekyll
 created_at: 2025-06-10 09:56:42 -05:00
-last_modified_at: 2025-06-15 05:37:41 -05:00
+last_modified_at: 2025-06-15 05:41:14 -05:00
 excerpt: Let's brief a web indexing protocol for SEO called IndexNow and demonstrate how I hosted it in my github pages blog and automated the process of reporting added/modified URLs to IndexNow API server using Github actions workflow.
 published: true
 ---
@@ -37,9 +37,9 @@ layout: none
 permalink: /indexnow-url-list.json
 ---
 
-{%- assign base_date = 'now' | date: '%s' | plus: 0 | minus: 3600 -%}
+{% raw %}{%- assign base_date = 'now' | date: '%s' | plus: 0 | minus: 3600 -%}{% endraw %}
 [
-  {%- assign first = true -%}
+  {% raw %}{%- assign first = true -%}
   {%- for post in site.posts -%}
     {%- assign post_date = post.last_modified_at | default: post.date | date: '%s' | plus: 0 -%}
     {%- if post_date > base_date -%}
@@ -47,7 +47,7 @@ permalink: /indexnow-url-list.json
       "{{ site.url }}{{ post.url }}"
       {%- assign first = false -%}
     {%- endif -%}
-  {%- endfor -%}
+  {%- endfor -%}{% endraw %}
 ]
 ```
 {: file="indexnow-url-list.html"}
@@ -117,7 +117,7 @@ on:
 
 jobs:
   notify_indexnow:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${% raw %}{{ github.event.workflow_run.conclusion == 'success' }}{% endraw %}
     runs-on: ubuntu-latest
 
     steps:
