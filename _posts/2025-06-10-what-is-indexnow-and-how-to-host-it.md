@@ -6,7 +6,7 @@ tags:
   - SEO
   - Jekyll
 created_at: 2025-06-10 09:56:42 -05:00
-last_modified_at: 2025-06-15 05:32:21 -05:00
+last_modified_at: 2025-06-15 05:37:34 -05:00
 excerpt: 크롤링봇 기반의 기존 웹 인덱싱을 대체하는 신규 프로토콜 인덱스나우(IndexNow)를 깃허브 페이지 기반의 지킬 블로그에 연동하고 Github Actions 워크플로우를 이용해 신규/변경 포스트 URL 보고 과정을 자동화하기.
 published: true
 ---
@@ -35,12 +35,10 @@ Bing 검색엔진에서 블로그 포스트 인덱싱 상태를 확인하기 위
 `indexnow-url-list.html` 파일을 만들고 `indexnow-url-list.json` 퍼마링크로 렌더링되도록 하였으며, 사이트 빌드가 진행되는 시간을 기준으로 1시간 이내에 변경된 포스트들의 URL 목록을 갖는 JSON Array를 내용으로 갖도록 하였습니다.  `post_date` 변수를 설정하면서 굳이 필요없어 보이는 liquid filter `plus: 0`을 사용하였는데,  liquid filter 문법에서 문자열로부터 변환된 타임스탬프는 별도의 산술연산이 후행되지 않으면 숫자가 아니라 문자열로 인식되어 이후의 if절에서 타입 불일치로 인한 비교 불가 오류가 발생하기 때문입니다.
 
 ```html
-{%-raw-%}
 ---
 layout: none
 permalink: /indexnow-url-list.json
 ---
-{%-endraw-%}
 
 {%- assign base_date = 'now' | date: '%s' | plus: 0 | minus: 3600 -%}
 [

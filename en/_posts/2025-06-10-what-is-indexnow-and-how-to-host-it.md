@@ -6,7 +6,7 @@ tags:
   - SEO
   - Jekyll
 created_at: 2025-06-10 09:56:42 -05:00
-last_modified_at: 2025-06-15 05:32:27 -05:00
+last_modified_at: 2025-06-15 05:37:41 -05:00
 excerpt: Let's brief a web indexing protocol for SEO called IndexNow and demonstrate how I hosted it in my github pages blog and automated the process of reporting added/modified URLs to IndexNow API server using Github actions workflow.
 published: true
 ---
@@ -32,12 +32,10 @@ While the concept is simple - you can just host a API key file and send HTTP req
 ### Create JSON File Having Recently Modified URLs
 
 ```html
-{%-raw-%}
 ---
 layout: none
 permalink: /indexnow-url-list.json
 ---
-{%-endraw-%}
 
 {%- assign base_date = 'now' | date: '%s' | plus: 0 | minus: 3600 -%}
 [
