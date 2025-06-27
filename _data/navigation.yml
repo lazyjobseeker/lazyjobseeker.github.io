@@ -32,15 +32,3 @@ docs:
         url: /posts-by-categories/
       - title: "Posts by Tags"
         url: /posts-by-tags/
-
-docs_en:
-  - title: "SANGHEON LEE"
-    children:
-      - title: "Curriculum Vitae"
-        url: /en/docs/curriculum-vitae/
-  - title: "Collections"
-    children:
-      - title: "Posts by Categories"
-        url: /en/posts-by-categories/
-      - title: "Posts by Tags"
-        url: /en/posts-by-tags/

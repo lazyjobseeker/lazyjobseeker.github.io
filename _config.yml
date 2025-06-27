@@ -363,7 +363,7 @@ defaults:
       share: true
       related: true
       sidebar:
-        nav: "docs_en"
+        nav: "docs"
       permalink: /en/posts/:title/
       random-teaser: # true
       translated: true
@@ -385,7 +385,7 @@ defaults:
       share: true
       related: true
       sidebar:
-        nav: "docs_en"
+        nav: "docs"
       permalink: /en/posts/:title/
       random-teaser: # true
       translated: true
@@ -452,7 +452,7 @@ defaults:
       page_no: 1
       author_profile: true
       sidebar:
-        nav: "docs_en"
+        nav: "docs"
         
 # Random Post Teaser src
 teaser-img-src: "assets/images/carousel-teasers/"
