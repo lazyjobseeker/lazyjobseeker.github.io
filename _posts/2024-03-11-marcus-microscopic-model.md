@@ -2,9 +2,9 @@
 title: 마커스 전자 교환 모델
 category: electrochemistry
 tags:
-  - marcus-model
-created_at: 2024-03-05 11:43:24 +09:00
-last_modified_at: 2024-04-15 09:46:08 +09:00
+  - electrochemistry
+created_at: 2024-12-02 05:21:48 -05:00
+last_modified_at: 2025-06-26 11:32:52 -05:00
 excerpt: 구조불변성 전자 교환 반응의 반응속도를 자유에너지 관점에서 설명하는 마커스 모델 (Marcus model) 정리
 ---
 

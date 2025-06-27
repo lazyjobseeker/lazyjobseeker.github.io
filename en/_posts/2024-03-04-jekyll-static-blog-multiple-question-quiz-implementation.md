@@ -4,9 +4,10 @@ category: programming
 tags:
   - minimal-mistakes
   - jekyll
+  - github-blog
   - javascript
-created_at: 2024-03-05 11:43:24 +09:00
-last_modified_at: 2024-04-15 09:44:04 +09:00
+created_at: 2024-12-02 05:21:48 -05:00
+last_modified_at: 2025-06-26 11:32:23 -05:00
 excerpt: "How to embed 4-choices quiz inside blog post generated using Jekyll."
 quiz_file: /assets/json/quiz_example.json
 ---

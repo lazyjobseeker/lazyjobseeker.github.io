@@ -1,12 +1,12 @@
 ---
-title: Posts by Categories
-layout: categories
-permalink: /posts-by-categories/
+title: Posts by Tags
+layout: tags
+lang: en
+translated: true
+permalink: /en/posts-by-tags/
 collection: posts
 entries_layout: list
 classes: wide
-lang: ko
-translated: true
 author_profile: true
 sidebar:
   nav: "docs"

@@ -2,11 +2,11 @@
 title: Integrating IndexNow in Github Pages Blog
 category: programming
 tags:
-  - DevLog
+  - devlog
   - SEO
-  - Jekyll
+  - jekyll
 created_at: 2025-06-10 09:56:42 -05:00
-last_modified_at: 2025-06-15 05:41:14 -05:00
+last_modified_at: 2025-06-26 11:37:45 -05:00
 excerpt: Let's brief a web indexing protocol for SEO called IndexNow and demonstrate how I hosted it in my github pages blog and automated the process of reporting added/modified URLs to IndexNow API server using Github actions workflow.
 published: true
 ---
