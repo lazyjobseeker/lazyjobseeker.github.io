@@ -24,7 +24,7 @@ function drawChart() {
         data: {
         labels: dates,
         datasets: [{
-            label: 'VISITORS',
+            label: 'PAGEVIEWS',
             data: counts,
             borderWidth: 2,
             pointBackgroundColor: 'rgba(66, 173, 255, 1)',
