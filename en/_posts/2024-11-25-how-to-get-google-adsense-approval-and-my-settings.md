@@ -4,7 +4,7 @@ category: devlog
 tags:
   - google-adsense
 created_at: 2024-11-25 05:26:56 -05:00
-last_modified_at: 2024-11-26 05:49:57 -05:00
+last_modified_at: 2025-07-03 11:05:32 -05:00
 excerpt: Efforts I have made to get my blog approved for Google Adsense and some settings I found useful.
 published: true
 ---
@@ -60,6 +60,8 @@ I made two unit ads - one **inarticle** and one **multiflex**.  I arranged them 
 
 ### CSS Setting
 
+#### Overriding `clear` Attribute of Injected Ads (Failed)
+
 Once you allow automated ads on your Adsense blog, automated ads are implemented inside the `<div>` elements holding `google-auto-placed` and `ap_container` classes.  An issue is that this Adsense-inherited `<div>` elements have a forced-attribute of `clear: both`, which sometimes wrecked my blog's layout.  For example, in some posts it added a large void region between main paragraphs and inserted ads.
 
 To solve this I first tried overriding `clear` attribute to have `none` value, which did not work well.  After some trial and error, I found that I can add `display: inline-block` attribute to those `<div>` elements as follows:
@@ -79,6 +81,40 @@ div {
 }
 ```
 {: file="_adsense.scss"}
+
+This seemed to work sometimes but was not reliable.  Some pages were still rendered with unwanted margins on the top of the injected ad elements, ruining the overall page's layout.
+
+#### Overriding `clear` Attribute of Injected Ads (Succeeded)
+
+As the process of Google AdSense's ads injection is dynamic and it is reasonable to assume that the process kicks in after the target html page is fully rendered, it is highly likely that the previous attempt using `.scss` ends up being useless in overriding the ads' style.  `.scss` can only do their work during a page's rendering process.
+
+The workaround I recently came across is to use `MutationObserver`.  By letting an instance of this object oversee the alteration of the rendered page by Google AdSense to add elements with `google-auto-placed` or `adsbygoogle` classes, I could trigger my custom js lines work to modify their `clear` attribute from `both` to `none` **after** they are injected (03-07-2025).
+
+```javascript
+const observer = new MutationObserver((mutationsList) => {
+  for (const mutation of mutationsList) {
+    if (mutation.type === 'childList') {
+      mutation.addedNodes.forEach((node) => {
+        if (
+          node.nodeType === 1 && // ELEMENT_NODE
+          (node.classList.contains('google-auto-placed') || node.classList.contains('adsbygoogle'))
+        ) {
+          // ✅ Your logic to run after ad is inserted
+          console.log('Ad inserted:', node);
+          node.style.clear = 'none'; // Example: remove AdSense float-clear style
+        }
+      });
+    }
+  }
+});
+
+// Start observing the whole document
+observer.observe(document.body, {
+  childList: true,
+  subtree: true
+});
+```
+{: file="asset/js/adsensestyler.js"}
 
 ## Thoughts
 
