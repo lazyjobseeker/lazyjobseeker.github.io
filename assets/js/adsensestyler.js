@@ -1,3 +1,4 @@
+/*
 const elems = document.querySelectorAll('.google-auto-placed');
 const elems2 = document.querySelectorAll('.adsbygoogle adsbygoogle-noablate');
 
@@ -13,6 +14,7 @@ elems2.forEach(elem => {
     elem.style.setProperty('clear', 'none');
     
     });
+*/
 
 const observer = new MutationObserver((mutationsList) => {
   for (const mutation of mutationsList) {
