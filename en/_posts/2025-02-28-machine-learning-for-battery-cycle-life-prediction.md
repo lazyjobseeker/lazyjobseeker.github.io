@@ -1,6 +1,6 @@
 ---
 title: Machine Learning for Battery Cycle Life Prediction
-category: programming
+category: machine-learning
 tags:
   - programming
   - battery

@@ -31,7 +31,7 @@ function drawChart() {
             pointBorderColor: 'rgba(66, 173, 255, 1)',
             backgroundColor: 'rgba(66, 173, 255, 0.5)',
             borderColor: 'rgba(66, 173, 255, 1)',
-            pointRadius: 1,
+            pointRadius: 1.5,
             cubicInterpolationMode: 'monotone',
             tension: 0.4,
             fill: true

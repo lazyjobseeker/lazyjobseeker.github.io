@@ -1,6 +1,6 @@
 ---
 title: 머신러닝 기반 배터리 수명 예측 논문 리뷰
-category: programming
+category: machine-learning
 tags:
   - programming
   - battery

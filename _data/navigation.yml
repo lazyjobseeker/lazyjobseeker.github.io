@@ -22,7 +22,7 @@ programming:
       - title: "JAVA"
 
 docs:
-  - title: "SANGHEON LEE"
+  - title: "ABOUT"
     children:
       - title: "Curriculum Vitae"
         url: /docs/curriculum-vitae/

@@ -16,15 +16,15 @@ minimal_mistakes_skin    : "default" # "default", "air", "aqua", "contrast", "da
 
 # Site Settings
 locale                   : "en-US"
-title                    : "A Sloth's Attic"
+title                    : "A Sloth's Overlook" # Attic
 title_separator          : "-"
 subtitle                 :
 display-title:
-  ko: "나무늘보의 다락방"
-  en: "A Sloth's Attic"
+  ko: "나무늘보의 관측소"
+  en: "A Sloth's Overlook"
 display-subtitle:
   ko: "읽고 쓰고 그리고 기억하기"
-  en: "I read, write and draw"
+  en: "Read Write Draw Archive"
 name                     : "Sangheon Lee"
 description              : "My little workspace."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"

@@ -1,6 +1,6 @@
 ---
 title: Getting Approved for Google AdSense and Useful Settings
-category: devlog
+category: programming
 tags:
   - google-adsense
 created_at: 2024-11-25 05:26:56 -05:00

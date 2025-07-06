@@ -1,10 +1,10 @@
 ---
-title: "Homeostasis"
+title: Homeostasis
 category: diary
 tags:
   - homeostasis
 created_at: 2025-02-18 08:47:45 -05:00
-last_modified_at: 2025-02-18 08:57:39 -05:00
+last_modified_at: 2025-07-05 10:09:23 -05:00
 excerpt: Keeping emotional and mental homeostasis
 published: true
 ---

@@ -1,5 +1,7 @@
 {%- for post in site.categories[include.taxonomy] -%}
-  {%- unless post.hidden -%}
-    {% include archive-single.html %}
-  {%- endunless -%}
+  {%- if page.lang == post.lang -%}
+    {%- unless post.hidden -%}
+      {% include archive-single.html %}
+    {%- endunless -%}
+  {%- endif -%}
 {%- endfor -%}

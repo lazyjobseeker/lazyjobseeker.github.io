@@ -1,10 +1,10 @@
 ---
 title: 구글 애드센스 승인 및 세팅 기록
-category: devlog
+category: programming
 tags:
   - google-adsense
 created_at: 2024-11-25 05:26:56 -05:00
-last_modified_at: 2025-07-03 11:04:51 -05:00
+last_modified_at: 2025-07-05 10:08:48 -05:00
 excerpt: 구글 애드센스 승인까지 필요했던 과정들과, 애드센스 승인 후 커스텀 및 자동 광고 세팅 과정을 정리합니다.
 published: true
 ---
