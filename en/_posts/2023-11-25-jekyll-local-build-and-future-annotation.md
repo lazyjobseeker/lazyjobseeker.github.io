@@ -6,9 +6,9 @@ tags:
   - jekyll
   - python
   - minimal-mistakes
-created_at: 2023-11-25 01:28:00 +09:00
-last_modified_at: 2024-06-21 01:01:59 +09:00
-excerpt: 1) How to preview Jekyll blog in local environment. 2) How to use __future__ module to provide type hinting for custom class.
+created_at: 2024-12-02 05:21:48 -05:00
+last_modified_at: 2025-07-08 04:40:09 -05:00
+excerpt: How to preview Jekyll blog in local environment and some history of related trouble-shooting
 ---
 
 ## How to Preview Jekyll Blog in Local
@@ -163,7 +163,13 @@ bundle exec jekyll serve --host 192.168.0.0 --incremental --livereload
 
 Using above command, for example, you can make your tablet to serve your website as local server and see how it looks from your smartphone.  If you have markdown editor and edit any content of a page, you can see your changes live-update on your smartphone.
 
-### References
+## Troubleshootings
+
+### Installation of `wdm`
+
+**Minimal Mistake**'s `gemfile` specifies its use of `wdm` gem.  You don't need to keep this as it does not apparently affect building your site on `github pages`.  I had problem in installing version `0.1.x` of `wdm` due to SSL issue and some unidentified error even after trying http rubygem repo to mitigate SSL check.  I am now using 0.2.0 version of `wdm` with no qualms.
+
+## References
 1. [https://tyami.github.io](https://tyami.github.io/blog/jekyll-local-server-start-batch/#%EB%A1%9C%EC%BB%AC-%EC%84%9C%EB%B2%84-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EC%97%90%EB%9F%AC)
 2. [https://ehdtnn.tistory.com/763](https://ehdtnn.tistory.com/763)
 3. [https://2sehi.github.io](https://2sehi.github.io/blog/56_Github-Blog/)

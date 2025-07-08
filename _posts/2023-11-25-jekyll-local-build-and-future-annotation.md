@@ -1,14 +1,14 @@
 ---
 revision: 1
-title: "Jekyll 사이트를 로컬에서 빌드하여 확인하기"
+title: Jekyll 사이트를 로컬에서 빌드하여 확인하기
 category: programming
 tags:
   - jekyll
   - python
   - minimal-mistakes
 created_at: 2024-12-02 05:21:48 -05:00
-last_modified_at: 2025-06-26 11:31:10 -05:00
-excerpt: "Jekyll 블로그를 로컬 PC에서 미리보기 하는 방법, python에서 작성한 클래스 내에서 해당 클래스에 대한 타입 힌팅(type hinting)을 사용하기 위해 __future__ 모듈을 사용하는 방법"
+last_modified_at: 2025-07-08 04:40:08 -05:00
+excerpt: Jekyll 블로그를 로컬 PC에서 미리보기 하는 방법 및 트러블슈팅 모음
 ---
 
 ## 로컬 PC에서 Jekyll 블로그 미리보기
@@ -130,7 +130,43 @@ git push origin master
 
 `--unpublished`: `published: false` 설정이 되어 있는 포스트들도 확인하고 싶을 때 사용합니다.
 
-### References
+만일 사이트를 빌드하고는 싶지만 (html 파일들을 생성하고는 싶지만) 로컬 서버를 돌려 접속 가능한 형태로 구동(serve)하고 싶지는 않은 경우라면 `bundle exec jekyll build`를 사용합니다.  이 경우 지킬 프로젝트의 루트 폴더에 있는 `_site` 디렉토리는 갱신되지만 로컬호스트 주소를 입력하더라도 로컬로 구동되는 웹사이트에 접속할 수는 없을 것입니다.
+
+### 로컬로 구동중인 웹사이트에 다른 디바이스에서 접속하기
+
+만일 PC 혹은 모바일에서 구동 중인 서버에 다른 디바이스에서 접속하고 싶다면, 아래와 같이 `--host` 옵션을 추가로 주어 `serve` 명령을 실행합니다.
+
+```bash
+bundle exec jekyll serve --host 0.0.0.0
+```
+
+이제 서버를 구동 중인 단말의 IP 주소를 알면 다른 디바이스의 웹 브라우저에 아래 주소를 입력하여 접속할 수 있습니다.  만일 웹사이트를 구동중인 서버 단말의 IP가 `192.168.000.000`라고 하면, 아래 주소로 접속하여 해당 단말이 구동중인 로컬컬 웹사이트에 접속할 수 있습니다.
+
+```bash
+192.168.000.000:4000
+```
+
+하지만 이 경우 서버를 구동 중인 단말과 서버에 접근하고자 하는 단말은 동일한 네트워크 (ex. 와이파이)를 공유해야 합니다.  서버 단말이 핫스팟을 제공중인 상태에서 외부 단말이 해당 핫스팟에 접속하는 등의 경우도 가능합니다.
+
+`--host`에 0.0.0.0을 넘겨서 발생할 수 있는 잠재적인 문제 - 예를 들어, 디폴트 페이지의 url은 이 경우 단말의 IP 주소가 아니라 `--host`에 넘겨 준 0.0.0.0이 될 것이고 이로 인해 웹사이트의 하이퍼링크들이 정상적으로 작동하지 않을 수 있습니다.  이 경우 `--host`에 단말의 IP 주소를 직접 넘겨줄 수 있습니다. 
+
+```bash
+bundle exec jekyll serve --host 192.168.0.0
+```
+
+`--incremental`, `--livereload` 등의 다른 파라미터는 `--host`와 호환하여 쓸 수 있습니다.
+
+```
+bundle exec jekyll serve --host 192.168.0.0 --incremental --livereload
+```
+
+## 트러블슈팅
+
+### `wdm` 설치 이슈
+
+일부 윈도우즈 컴퓨터에서 `wdm` gem을 설치하지 못 할 수 있습니다.  Minimal Mistakes 테마는 `gemfile`에 윈도우즈 환경인 경우 해당 `gem`을 사용하도록 명시하고 있습니다.  그런데 `wdm` 버전 `0.1.x` 설치 시에 SSL certificate 관련 문제가 있고 SSL 체크를 무시하도록 http://rubygem.org 를 소스로 사용하는 경우에도 `0.1.x` 버전의 설치는 불가능했습니다 (07/08/2025).  `0.2.0` 버전을 사용하더라도 빌드에 문제가 없어 현재는 버전을 바꾸어 사용 중입니다.
+
+## 참고문헌
 
 1. [https://tyami.github.io](https://tyami.github.io/blog/jekyll-local-server-start-batch/#%EB%A1%9C%EC%BB%AC-%EC%84%9C%EB%B2%84-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EC%97%90%EB%9F%AC)
 2. [https://ehdtnn.tistory.com/763](https://ehdtnn.tistory.com/763)
