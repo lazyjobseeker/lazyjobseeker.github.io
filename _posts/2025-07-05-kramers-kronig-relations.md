@@ -4,7 +4,7 @@ category: electrochemistry
 tags:
   - EIS
 created_at: 2025-07-05 11:36:58 -05:00
-last_modified_at: 2025-07-06 12:03:28 -05:00
+last_modified_at: 2025-07-08 06:52:44 -05:00
 excerpt: 크라머스-크로니히 관계식의 의미와 증명
 published: true
 ---
@@ -16,7 +16,7 @@ $$\text{Re }\mathcal{H}(\omega) = \displaystyle{\frac{1}{\pi}\mathcal{P}\int_{-\
 
 아래 애니메이션은 `manim`을 이용하여 작성한 것으로 후자의 증명 과정을 보여줍니다.
 
-{% include video id="1zF-ZUGuY2h7R6c3uCf007MsAQNemuKHi" provider="google-drive" %}
+{% include video id="zKD_MZPjT7Q" provider="youtube" %}
 
 이 버전의 증명은 $\mathcal{H}(\omega)$의 시간 도메인 시그널인 $H(t)$가 인과적(causal)이라는 조건에서 출발합니다.  인과성(causality)란 출력 신호가 존재하기 위해서는 반드시 입력 신호가 선행해야 한다는 것으로, 수학적으로는 $H(t)=0$ for $t < 0$과 같이 주어집니다.  그래프로 표현할 때는 특정 시점 $t=0$을 기준으로 그 이전에는 신호가 존재하지 않다가 ($t<0$) 해당 시점 이후로는 신호가 존재하는 형태로 그려집니다.
 

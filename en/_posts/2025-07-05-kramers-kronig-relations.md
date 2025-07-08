@@ -4,7 +4,7 @@ category: electrochemistry
 tags:
   - EIS
 created_at: 2025-07-05 11:36:58 -05:00
-last_modified_at: 2025-07-05 11:43:20 -05:00
+last_modified_at: 2025-07-08 06:52:36 -05:00
 excerpt: What is Kramers-Kronig (KK) Relations - theory and an animated pictorial proof
 published: true
 ---
@@ -18,7 +18,7 @@ There are two different versions of proof for KK relations.  The first and more 
 
 Roughly there are two different versions of proof for KK relations. One using contour integration of complex function is more readily found, but there is another approach which I find was easier to animate and therefore provides more visually engaging illustration.  
 
-{% include video id="1zF-ZUGuY2h7R6c3uCf007MsAQNemuKHi" provider="google-drive" %}
+{% include video id="zKD_MZPjT7Q" provider="youtube" %}
   
 This version of proof starts from time-domain representation of a causal response function H(t). Causality means that the cause (input signal) precedes the effect (output signal), whose mathematical condition is given by "H(t)=0 for t < 0".  
   
