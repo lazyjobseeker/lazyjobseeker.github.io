@@ -1,5 +1,5 @@
 ---
-revision: 1
+revision: 2
 title: Jekyll 사이트를 로컬에서 빌드하여 확인하기
 category: programming
 tags:
