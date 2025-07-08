@@ -4,7 +4,7 @@ category: electrochemistry
 tags:
   - EIS
 created_at: 2025-07-08 10:41:59 -05:00
-last_modified_at: 2025-07-08 10:42:27 -05:00
+last_modified_at: 2025-07-08 11:18:04 -05:00
 excerpt: What is the distribution of relaxation time (DRT) methods with an explanatory animation.
 published: true
 ---
@@ -19,5 +19,4 @@ Attached video is an illustrative demo for your reference, showing an example of
 {% include video id="17B4eJKMw3yuwu4Lw03BLQM12fp3Ehc9L" provider="google-drive" %}
 
 [^1]: [ciuccislab/pyDRTtools: An intuitive python GUI to compute the DRT](https://github.com/ciuccislab/pyDRTtools)
-
 [^2]: Y Zhang, Q Tang et. al., Nat. Commun. (2020); 10.1038/s41467-020-15235-7
