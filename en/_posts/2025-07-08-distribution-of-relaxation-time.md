@@ -16,7 +16,7 @@ While equivalent circuit model fitting gives you a predetermined finite number o
   
 Attached video is an illustrative demo for your reference, showing an example of cycle-dependent evolution of EIS spectra (measured at the end of CCCV charging and followed resting for each cycle) and their corresponding DRT analysis results.  DRT analysis was done with open-sourced software of pyDRTtools[^1], and I could find some public cycle retention and EIS data to conduct this analysis from Y Zhang, Q Tang et. al. (2020)[^2], where the authors publicized their data in public repository. The paper is not about DRT but shows great approach of using EIS for ML-powered battery degradation prediction so give it a look if you are interested - It is open access!
 
-{% include video id="17B4eJKMw3yuwu4Lw03BLQM12fp3Ehc9L" provider="google-drive" %}
+{% include video id="_whehd7xsAA" provider="youtube" %}
 
 [^1]: [ciuccislab/pyDRTtools: An intuitive python GUI to compute the DRT](https://github.com/ciuccislab/pyDRTtools)
 [^2]: Y Zhang, Q Tang et. al., Nat. Commun. (2020); 10.1038/s41467-020-15235-7
