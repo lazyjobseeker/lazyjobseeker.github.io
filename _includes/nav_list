@@ -31,6 +31,7 @@
           <li><span style="display:inline-block; width:7.5em"><b>TODAY</b></span><span id="gc_today"></span></li>
           <li><span style="display:inline-block; width:7.5em"><b>YESTERDAY</b></span><span id="gc_yesterday"></span></li>
           <li><span style="display:inline-block; width:7.5em"><b>TOTAL</b></span><span id="gc_total"></span></li>
+          <li><span id="utc-clock"></span></li>
         <ul>
       </li>
   </ul>
