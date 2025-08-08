@@ -4,10 +4,8 @@ category: programming
 tags:
   - jekyll
   - minimal-mistakes
-redirect_from:
-  - /redirect-me/
-created_at: 2024-04-29 08:57:26 +09:00
-last_modified_at: 2024-05-02 15:20:54 +09:00
+created_at: 2024-12-02 05:21:48 -05:00
+last_modified_at: 2025-08-08 10:34:18 -05:00
 excerpt: 지킬 블로그 설정 및 운영에 유용한 팁 모음.
 ---
 
@@ -113,7 +111,7 @@ redirect_from:
   - /redirect-me/
 ```
 
-`https://lazyjobseeker.github.io/redirect-me/`는 존재하는 파일이 아닙니다.  하지만 위와 같이 리디렉션을 적용하면, 위 주소로 접근을 시도했을 때 이 페이지로 돌아오게 됩니다.  주소창에 위 주소를 넣어 보거나 이 [**링크**](https://lazyjobseeker.github.io/redirect-me/)에서 확인해 볼 수 있습니다.
+`/redirect-me/`는 존재하는 경로가 아닙니다.  하지만 위와 같이 리디렉션을 적용하면, 위 주소로 접근을 시도했을 때 이 페이지로 돌아오게 됩니다.  주소창에 위 주소를 넣어 보는 방식으로 확인해 볼 수 있습니다.
 
 ## 수식 렌더링 및 그래프 그리기
 

@@ -4,10 +4,8 @@ category: programming
 tags:
   - jekyll
   - minimal-mistakes
-redirect_from:
-  - /en/redirect-me/
-created_at: 2024-04-29 20:21:22 +09:00
-last_modified_at: 2024-05-02 15:23:36 +09:00
+created_at: 2024-12-02 05:21:48 -05:00
+last_modified_at: 2025-08-08 10:34:26 -05:00
 excerpt: Tips for setting your Jekyll blog.
 ---
 
@@ -109,7 +107,7 @@ redirect_from:
   - /redirect-me/
 ```
 
-There is no rendered page for `https://lazyjobseeker.github.io/en/redirect-me/`, but it redirects to this page.  Try checking how this works by inserting above address in search bar or hitting this link [링크](https://lazyjobseeker.github.io/en/redirect-me/).
+There is no rendered page for `/redirect-me/`, but it redirects to this page.  Try checking how this works by inserting above address in search bar.
 
 ## Rendering Math Equations and Graphs
 

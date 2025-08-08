@@ -4,8 +4,8 @@ title: "블로그 포스팅 도구들"
 category: programming
 tags:
   - devlog
-created_at: 2023-05-07 11:17:13 +09:00
-last_modified_at: 2024-04-26 02:04:27 +09:00
+created_at: 2024-12-02 05:21:48 -05:00
+last_modified_at: 2025-08-08 10:31:50 -05:00
 excerpt: "모바일 환경에서 지킬 기반 깃허브 블로그 포스팅을 위해 사용하고 있는 프로그램들"
 ---
 
@@ -85,7 +85,7 @@ TypeError: Cannot read properties of null (reading 'slice')
 
 이런 오류가 발생하며 사용이 불가능했습니다.  두어 번 클론이 성공하는 경우도 있었지만, 글 작성 후 원격 저장소로 푸시할 때 똑같은 오류가 발생했고 몇 번의 시도 후 결국 포기했습니다.
 
-깃 관련 기능까지 완벽했다면 좋았겠지만, Termux 터미널에 Git과 Ruby를 설치하면 [모바일 단말에서도 Github 블로그를 자유롭게 관리](https://lazyjobseeker.github.io/programming/jekyll-based-github-blog-local-build-test-in-android-mobile-environment)할 수 있습니다.
+깃 관련 기능까지 완벽했다면 좋았겠지만, Termux 터미널에 Git과 Ruby를 설치하면 [모바일 단말에서도 Github 블로그를 자유롭게 관리](https://lazyjobseeker.github.io/posts/jekyll-based-github-blog-local-build-test-in-android-mobile-environment)할 수 있습니다.
 
 어차피 옵시디언은 마크다운을 다루는 데 특화되어 있고 HTML, CSS, JS 등을 수정하는 데 있어서는 다른 코드 에디터를 사용해야 하니 Git 기능이 완벽하지 않은 것이 아주 큰 흠이 되지는 않는 것 같습니다.
 
@@ -104,7 +104,7 @@ HTML이나 CSS, 자바스크립트 등 Jekyll 블로그를 구성하는 다른 �
 
 ### Termux 터미널
 
-모바일 단말에서도 `Termux`를 이용해 리눅스 터미널을 사용하고, Git과 Ruby, Jekyll을 설치하여 코드 수정 및 원격 푸시 작업을 할 수 있습니다.  환경 설정 과정은 [다른 포스트](https://lazyjobseeker.github.io/programming/jekyll-based-github-blog-local-build-test-in-android-mobile-environment)에서 자세히 다루었습니다.
+모바일 단말에서도 `Termux`를 이용해 리눅스 터미널을 사용하고, Git과 Ruby, Jekyll을 설치하여 코드 수정 및 원격 푸시 작업을 할 수 있습니다.  환경 설정 과정은 [다른 포스트](https://lazyjobseeker.github.io/posts/jekyll-based-github-blog-local-build-test-in-android-mobile-environment)에서 자세히 다루었습니다.
 
 ### 스펙 에디터 (Spck Editor) - 번외
 
