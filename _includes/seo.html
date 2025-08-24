@@ -51,7 +51,9 @@
 {% endif -%}
 {% endif -%}
 <meta property="og:type" content="{{ og_type }}">
-<meta property="og:locale" content="{{ site.locale | replace: "-", "_" | default: "en_US" }}">
+{% if page.lang == 'ko' -%}<meta property="og:locale" content="ko_KR">
+{% else -%}<meta property="og:locale" content="en_US">
+{% endif -%}
 <meta property="og:site_name" content="{{ site.title }}">
 <meta property="og:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
 <meta property="og:url" content="{{ canonical_url }}">
