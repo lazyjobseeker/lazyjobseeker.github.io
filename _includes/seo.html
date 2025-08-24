@@ -1,11 +1,4 @@
-
-<!-- seo.html START -->
-
-{% if site.url -%}
-  {%- assign seo_url = site.url | append: site.baseurl -%}
-{%- endif -%}
-{%- assign seo_url = seo_url | default: site.github.url -%}
-
+<!-- BEGIN _includes/seo.html -->
 {% assign title_separator = site.title_separator | default: '-' | replace: '|', '&#124;' -%}
 
 {%- if page.title -%}
@@ -108,21 +101,11 @@
 <link rel="canonical" href="{{ canonical_url }}">
 {% if paginator.previous_page -%}<link rel="prev" href="{{ paginator.previous_page_path | absolute_url }}">{% endif -%}
 {% if paginator.next_page -%}<link rel="next" href="{{ paginator.next_page_path | absolute_url }}">{% endif -%}
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    {% if site.social.type == "Organization" -%}
-      "@type": "Organization",
-      "url": {{ '/' | absolute_url | jsonify }}{% if site.og_image -%},
-      "logo": {{ site_og_image | jsonify }}{% endif -%}
-    {% else -%}
-      "@type": "Person",
-      "name": {{ site.social.name | default: site.name | jsonify }},
-      "url": {{ '/' | absolute_url |jsonify }}{% if site.social.links -%},
-      "sameAs": {{ site.social.links | jsonify }}{% endif -%}
-    {% endif -%}
-  }
-</script>
+
+{% if page.url == '/' %}
+  {% include schema.html %}
+{% endif %}
+
 {% if site.google_site_verification -%}
   <meta name="google-site-verification" content="{{ site.google_site_verification }}" />
 {% endif -%}
@@ -142,4 +125,4 @@
   <meta name="baidu-site-verification" content="{{ site.baidu_site_verification }}">
 {% endif -%}
 
-<!-- seo.html END -->
+<!-- END _includes/seo.html -->
