@@ -1,5 +1,5 @@
 
-<!-- multilang/get-lang-vairables START -->
+<!-- CALL _includes/multilang/get-lang-vairables -->
 {% if page.lang == 'ko' -%}
   {% assign display_title = site.display-title.ko -%}
   {% assign display_subtitle = site.display-subtitle.ko -%}
@@ -29,4 +29,3 @@
   {% endif -%}
   {% assign target_url_goatcounter = page.url | replace: '/en/', '/' -%}
 {% endif -%}
-<!-- multilang/get-lang-vairables END -->

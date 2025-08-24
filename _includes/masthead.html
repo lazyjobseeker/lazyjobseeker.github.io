@@ -1,34 +1,35 @@
-{% capture logo_path %}{{ site.logo }}{% endcapture %}
-{% include multilang/get-lang-variables %}
+<!-- START _includes/masthead -->
+{% capture logo_path -%}{{ site.logo }}{% endcapture -%}
+{% include multilang/get-lang-variables -%}
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        {% unless logo_path == empty %}
+        {% unless logo_path == empty -%}
           <a class="site-logo" href="{{ prefix | absolute_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: display_title }}"></a>
-        {% endunless %}
+        {% endunless -%}
         <a class="site-title" href="{{ prefix | absolute_url }}">
           {{ site.masthead_title | default: display_title }}
-          {% if site.display-subtitle %}<span class="site-subtitle">{{ display_subtitle }}</span>{% endif %}
+          {% if site.display-subtitle -%}<span class="site-subtitle">{{ display_subtitle }}</span>{% endif -%}
         </a>
         <ul class="visible-links">
-          {% if page.lang == 'en' %}
+          {% if page.lang == 'en' -%}
             <li class="masthead__menu-item">
               <a href="{{ target_url_ko }}" title="Page in Korean">KO</a>
             </li>
           {% endif %}
-          {% if page.lang == 'ko' %}
+          {% if page.lang == 'ko' -%}
             <li class="masthead__menu-item">
               <a href="{{ target_url_en }}" title="Page in English">EN</a>
             </li>
-          {% endif %}
+          {% endif -%}
           {%- for link in site.data.navigation.main -%}
             <li class="masthead__menu-item">
               <a href="{{ link.url | prepend: site.baseurl }}"{% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
             </li>
           {%- endfor -%}
         </ul>
-        {% if site.search == true %}
+        {% if site.search == true -%}
         <button class="search__toggle" type="button">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
           <i class="fas fa-search"></i>
@@ -43,3 +44,4 @@
     </div>
   </div>
 </div>
+<!-- END _includes/masthead -->

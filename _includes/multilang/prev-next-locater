@@ -1,5 +1,5 @@
 
-<!-- multilang/prev-next-locater START -->
+<!-- CALL _includes/multilang/prev-next-locater -->
 {% include multilang/get-lang-posts %}
 
 {% assign last_idx = lang_posts.size | minus: 1 %}
@@ -20,4 +20,3 @@
     {% break %}
   {%- endif -%}
 {%- endfor -%}
-<!-- multilang/prev-next-locater END -->

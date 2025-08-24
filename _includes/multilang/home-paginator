@@ -1,5 +1,4 @@
-<!-- multilang/home-paginator -->
-
+<!-- CALL _includes/multilang/home-paginator -->
 {% include multilang/get-lang-posts %}
 {% assign ppp = site.posts_per_page %}
 {% assign total_page_counter = -1 %}
