@@ -35,15 +35,47 @@ body {
   flex: 1 0 auto;
 }
 
+.container {
+  @include clearfix;
+
+  @include breakpoint($large) {
+    display: flex;
+  }
+
+  gap: 1rem;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.round-card {
+  @include clearfix;
+  clear: none;
+  padding: 0.5em;
+
+  &.col-4 {
+    float: left;
+    
+    @include breakpoint($large) {
+      max-width: calc(#{$right-sidebar-width-narrow})
+    }
+
+  }
+
+}
+
 .page {
   @include breakpoint($large) {
     float: right;
-    width: calc(100% - #{$right-sidebar-width-narrow});
+    // width: calc(100% - #{$right-sidebar-width-narrow});
     padding-right: $right-sidebar-width-narrow;
   }
 
   @include breakpoint($x-large) {
-    width: calc(100% - #{$right-sidebar-width});
+    // width: calc(100% - #{$right-sidebar-width});
     padding-right: $right-sidebar-width;
   }
 
@@ -122,6 +154,7 @@ body {
   
   p {
     line-height: 2em;
+    text-align: justify;
   }
 
 	h1, h2, h3, h4, h5, h6 {
@@ -575,7 +608,8 @@ body {
   margin-top: 1em;
   padding-top: 1em;
   border-top: 1px solid $border-color;
-
+  
+  /*
   @include breakpoint($large) {
     float: right;
     width: calc(100% - #{$right-sidebar-width-narrow});
@@ -584,6 +618,7 @@ body {
   @include breakpoint($x-large) {
     width: calc(100% - #{$right-sidebar-width});
   }
+  */
 
   a {
     color: inherit;

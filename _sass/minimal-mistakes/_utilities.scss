@@ -526,7 +526,7 @@ body:hover .visually-hidden button {
   ol,
   li,
   p {
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
     font-size: $type-size-6;
   }
 }
@@ -572,6 +572,9 @@ a.reversefootnote {
   height: 0;
   overflow: hidden;
   max-width: 100%;
+  border-radius: $video-border-radius;
+  border-width: 1px;
+  border-style: solid;
 
   iframe,
   object,

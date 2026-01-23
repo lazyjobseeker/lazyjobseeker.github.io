@@ -316,7 +316,7 @@ defaults:
       toc_sticky: true
       show_date: true
       layout: single
-      author_profile: false
+      author_profile: true
       read_time: true
       comments: # true
       share: true
@@ -327,6 +327,7 @@ defaults:
       random-teaser: # true
       translated: true
       comments: true
+      classes: wide
   # _drafts-ko
   - scope:
       path: "_drafts"
@@ -338,7 +339,7 @@ defaults:
       toc_sticky: true
       show_date: true
       layout: single
-      author_profile: false
+      author_profile: true
       read_time: true
       comments: # true
       share: true
@@ -348,6 +349,7 @@ defaults:
       permalink: /posts/:title/
       random-teaser: # true
       translated: true
+      classes: wide
   # _posts-en
   - scope:
       path: "en/_posts"
@@ -359,7 +361,7 @@ defaults:
       toc_sticky: true
       show_date: true
       layout: single
-      author_profile: false
+      author_profile: true
       read_time: true
       comments: # true
       share: true
@@ -370,6 +372,7 @@ defaults:
       random-teaser: # true
       translated: true
       comments: true
+      classes: wide
     # _drafts-en
   - scope:
       path: "en/_drafts"
@@ -381,7 +384,7 @@ defaults:
       toc_sticky: true
       show_date: true
       layout: single
-      author_profile: false
+      author_profile: true
       read_time: true
       comments: # true
       share: true
@@ -391,6 +394,7 @@ defaults:
       permalink: /en/posts/:title/
       random-teaser: # true
       translated: true
+      classes: wide
   # _docs-kr
   - scope:
       path: "_docs"

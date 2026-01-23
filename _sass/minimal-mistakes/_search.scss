@@ -94,6 +94,7 @@
   .archive__item {
     margin-bottom: 2em;
 
+    /* I don't know why this is necessary so commenting it out for now
     @include breakpoint($large) {
       width: 75%;
     }
@@ -101,6 +102,7 @@
     @include breakpoint($x-large) {
       width: 50%;
     }
+    */
   }
 
   .archive__item-title {

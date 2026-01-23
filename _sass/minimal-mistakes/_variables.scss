@@ -156,7 +156,7 @@ $small: 600px !default;
 $medium: 768px !default;
 $medium-wide: 900px !default;
 $large: 1024px !default;
-$x-large: 1280px !default;
+$x-large: 1300px !default;
 $max-width: $x-large !default;
 
 /*
@@ -172,6 +172,7 @@ $right-sidebar-width-wide: 260px !default; //280
    ========================================================================== */
 
 $border-radius: 4px !default;
+$video-border-radius: 22px !default;
 $box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125) !default;
 $nav-height: 2em !default;
 $nav-toggle-height: 2rem !default;
