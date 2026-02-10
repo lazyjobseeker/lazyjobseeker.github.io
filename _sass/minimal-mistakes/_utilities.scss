@@ -426,6 +426,12 @@ body:hover .visually-hidden button {
   }
 }
 
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
 /*
    Sticky, fixed to top content
    ========================================================================== */

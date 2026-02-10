@@ -37,18 +37,29 @@ body {
 
 .container {
   @include clearfix;
-
   @include breakpoint($large) {
-    display: flex;
+    height: 100%;
   }
-
   gap: 1rem;
 }
 
 .left-column {
-  display: flex;
-  flex-direction: column;
   gap: 1rem;
+
+  @include breakpoint($large) {
+    height: 100%;
+    float: left;
+    max-width: 260px;
+  }
+
+  &.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+
+  > .round-card.col-4:last-child {
+  position: sticky;
+}
 }
 
 .round-card {
@@ -58,11 +69,17 @@ body {
 
   &.col-4 {
     float: left;
-    
+    width: 100%;
+
     @include breakpoint($large) {
       max-width: calc(#{$right-sidebar-width-narrow})
     }
 
+  }
+
+  &.col-8 {
+    margin-top: 1em;
+    width: 100%;
   }
 
 }
@@ -70,12 +87,12 @@ body {
 .page {
   @include breakpoint($large) {
     float: right;
-    // width: calc(100% - #{$right-sidebar-width-narrow});
+    width: calc(100% - #{$right-sidebar-width-narrow} - 1em);
     padding-right: $right-sidebar-width-narrow;
   }
 
   @include breakpoint($x-large) {
-    // width: calc(100% - #{$right-sidebar-width});
+    width: calc(100% - #{$right-sidebar-width} - 1em);
     padding-right: $right-sidebar-width;
   }
 
@@ -608,17 +625,17 @@ body {
   margin-top: 1em;
   padding-top: 1em;
   border-top: 1px solid $border-color;
-  
-  /*
+
   @include breakpoint($large) {
     float: right;
-    width: calc(100% - #{$right-sidebar-width-narrow});
+    width: 100%;
+    // width: calc(100% - #{$right-sidebar-width-narrow});
   }
 
   @include breakpoint($x-large) {
-    width: calc(100% - #{$right-sidebar-width});
+    width: 100%;
+    // width: calc(100% - #{$right-sidebar-width});
   }
-  */
 
   a {
     color: inherit;

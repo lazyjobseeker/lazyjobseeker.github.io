@@ -18,19 +18,22 @@ layout: default
 
   <div class="container">
 
-    <div class="left-column">
+    <div class="left-column sticky">
+
+      {% if page.toc -%}
+      <nav class="toc no-select">
+        <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label | default: "On this page" }}</h4></header>
+        {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" skip_no_ids=true -%}
+      </nav>
+
+      {% include adsense/display-belowtoc.html -%}
+      
+      {% endif -%}
+
       <div class="round-card col-4">
         {% include sidebar.html -%}
       </div>
 
-      {% if page.toc -%}
-        <nav class="toc sticky">
-          <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label | default: "On this page" }}</h4></header>
-          {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" skip_no_ids=true -%}
-        </nav>
-        <br>
-        {% include adsense/display-belowtoc.html -%}
-      {% endif -%}
     </div>
 
     <div class="round-card col-8">
@@ -73,9 +76,7 @@ layout: default
         {% endif -%}
       </article>
     </div>
-
-  </div>
-
+</div>
   <div class="container">
     <div class="round-card">
       {% comment -%}<!-- only show related on a post page when `related: true` -->{% endcomment -%}
