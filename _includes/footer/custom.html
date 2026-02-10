@@ -4,4 +4,20 @@
 <script src='{{ site.url }}/assets/js/visitorstat.js'></script>
 <script src='{{ site.url }}/assets/js/adsensestyler.js'></script>
 <script src='{{ site.url }}/assets/js/realtimeclock.js'></script>
+
+<!-- toc folding / unfolding -->
+
+<script>
+const btn = document.querySelector('.toc > header');
+const menu = document.querySelector('.toc__menu');
+
+btn.addEventListener('click', function () {
+  if (menu.style.display === 'none') {
+    menu.style.display = 'block';
+  } else {
+    menu.style.display = 'none';
+  }
+});
+</script>
+
 <!-- end custom footer snippets -->

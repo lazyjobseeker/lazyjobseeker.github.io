@@ -512,6 +512,13 @@
   -webkit-box-shadow: $box-shadow;
   box-shadow: $box-shadow;
 
+  @include breakpoint($large) {
+    position: sticky;
+    top: 1em;
+    margin-top: 1.5em;
+    max-width: calc(#{$right-sidebar-width-narrow});
+  }
+
   .nav__title {
     color: #fff;
     font-size: $type-size-6;
