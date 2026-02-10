@@ -20,15 +20,17 @@ layout: default
 
     <div class="left-column sticky">
 
-      {% if page.toc -%}
-      <nav class="toc no-select">
-        <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label | default: "On this page" }}</h4></header>
-        {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" skip_no_ids=true -%}
-      </nav>
+      <div class="round-card col-4">
+        {% if page.toc -%}
+        <nav class="toc no-select">
+          <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label | default: "On this page" }}</h4></header>
+          {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" skip_no_ids=true -%}
+        </nav>
 
-      {% include adsense/display-belowtoc.html -%}
-      
-      {% endif -%}
+        {% include adsense/display-belowtoc.html -%}
+        
+        {% endif -%}
+      </div>
 
       <div class="round-card col-4">
         {% include sidebar.html -%}
