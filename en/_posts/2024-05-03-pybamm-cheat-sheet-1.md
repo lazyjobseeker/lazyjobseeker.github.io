@@ -1,12 +1,12 @@
 ---
-title: Battery Modeling with PyBaMM (1)
+title: "Battery Modeling with PyBaMM: Practical Tutorial with Mini Scripts"
 category: lithium-ion-battery
 tags:
   - battery
   - modelling
 created_at: 2024-05-03 14:37:54 +09:00
-last_modified_at: 2024-05-06 09:06:28 +09:00
-excerpt: How to use open-source battery modeling package PyBaMM
+last_modified_at: 2026-02-11 14:33:00 -05:00
+excerpt: A concise cheat-sheet for PyBaMM, an open-source python library for battery modeling.
 ---
 
 ## PyBaMM

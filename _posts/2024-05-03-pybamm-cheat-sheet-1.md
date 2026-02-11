@@ -1,12 +1,12 @@
 ---
-title: 파이밤(PyBaMM)으로 배터리 모델링하기 (1)
+title: 파이밤(PyBaMM)을 이용한 배터리 모델링 튜토리얼
 category: lithium-ion-battery
 tags:
   - battery
   - modelling
 created_at: 2024-05-03 14:36:07 +09:00
-last_modified_at: 2024-05-06 09:05:05 +09:00
-excerpt: 배터리 모델링 오픈소스 PyBaMM 소개 및 사용 방법 정리
+last_modified_at: 2026-02-11 14:33:00 -05:00
+excerpt: 배터리 모델링을 위한 오픈소스 python 라이브러리 PyBaMM 소개 및 사용 방법 정리.
 ---
 
 ## PyBaMM

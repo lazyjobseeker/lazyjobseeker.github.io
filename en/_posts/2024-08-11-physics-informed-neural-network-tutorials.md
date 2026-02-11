@@ -5,7 +5,7 @@ tags:
   - machine-learning
   - pytorch
 created_at: 2024-08-05 08:19:54 +09:00
-last_modified_at: 2024-08-20 05:16:57 +09:00
+last_modified_at: 2026-02-11 14:33:00 -05:00
 excerpt: A practical introduction to Physics-Informed Neural Network (PINN), covering the brief theory and an example implementation with visualization and tips written in PyTorch.
 ---
 

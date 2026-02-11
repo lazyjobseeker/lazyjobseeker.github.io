@@ -5,7 +5,7 @@ tags:
   - machine-learning
   - pytorch
 created_at: 2024-08-04 07:19:54 -05:00
-last_modified_at: 2024-11-24 10:08:55 -05:00
+last_modified_at: 2026-02-11 14:33:00 -05:00
 excerpt: 신경망 학습 과정에서 편미분방정식 형태로 주어지는 물리적 규제조건의 충족 여부를 손실함수 평가에 적용하여 학습 품질을 개선하는 물리정보신경망(PINN) 방법의 기본 원리를 PyTorch 예제 코드와 함께 설명합니다.
 ---
 
