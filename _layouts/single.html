@@ -20,7 +20,7 @@ layout: default
 
     <div class="left-column sticky">
 
-      <div class="round-card col-4">
+      <div class="round-card col-4 toc__wrapper">
         {% if page.toc -%}
         <nav class="toc no-select">
           <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label | default: "On this page" }}</h4></header>

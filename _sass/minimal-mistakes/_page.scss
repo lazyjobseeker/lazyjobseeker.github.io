@@ -65,11 +65,15 @@ body {
 .round-card {
   @include clearfix;
   clear: none;
-  padding: 0.5em;
 
   &.col-4 {
+    padding: 0.5em;
     float: left;
     width: 100%;
+
+    &.toc__wrapper {
+      padding: 0em;
+    }
 
     @include breakpoint($large) {
       max-width: calc(#{$right-sidebar-width-narrow})
@@ -78,6 +82,7 @@ body {
   }
 
   &.col-8 {
+    padding: 0.5em;
     margin-top: 1em;
     width: 100%;
   }
