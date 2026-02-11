@@ -1,16 +1,16 @@
 ---
-title: Butler-Volmer Equation
+title: "Butler–Volmer Equation: Derivation and Interactive Visualizations"
 category: electrochemistry
 tags:
   - butler-volmer
 created_at: 2024-03-05 11:43:24 +09:00
-last_modified_at: 2024-04-15 09:44:07 +09:00
-excerpt: Derivation of Butler-Volmer equation from Gibbs free energy-dependent expression of rate constants.
+last_modified_at: 2026-02-11 14:41:00 -05:00
+excerpt: "Explore the Butler–Volmer equation: derivation from Gibbs free energy-dependent rate constants with an interactive visualization."
 ---
 
 ## 1. Outline
 
-In terms of kinetics theory of electrochemical reactions, **Butler-Volmer Equation** is a relation describing the extent of reaction current when the potential of working electrode is increased or decreased.  In this post we will brief how to derive this equation for simple redox reaction.
+In terms of kinetics theory of electrochemical reactions, **Butler-Volmer Equation** is a relation describing the extent of reaction current when the potential of working electrode is increased or decreased.  In this post we will brief how to derive this equation for simple redox reaction.  An interactive JavaScript-based plot that visualizes the Butler–Volmer equation and electrode kinetics is included at the end of this post.
 
 ## 2. Rate Constant
 
