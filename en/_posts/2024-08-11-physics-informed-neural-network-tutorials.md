@@ -1,12 +1,12 @@
 ---
-title: Physics Informed Neural Network (PINN) - PyTorch Tutorial
+title: Physics Informed Neural Network (PINN) - A Practical Tutorial with an Example
 category: machine-learning
 tags:
   - machine-learning
   - pytorch
 created_at: 2024-08-05 08:19:54 +09:00
 last_modified_at: 2024-08-20 05:16:57 +09:00
-excerpt: Concepts of physics-informed neural network (PINN) and tutorial codes written and explained in python
+excerpt: A practical introduction to Physics-Informed Neural Network (PINN), covering the brief theory and an example implementation with visualization and tips written in PyTorch.
 ---
 
 **Physics-Informed Neural Network(PINN)** has been recently gathering a lot of attention in both of academia and industry. There are a myriad of tutorials available, so you could start developing your own version of Python codes to solve various machine-learning problems if you can find underlying physical equations given in the form of (a set of) differential equations.
