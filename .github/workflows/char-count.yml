@@ -20,7 +20,7 @@ jobs:
           python-version: "3.11"
 
       - name: Run character count
-        run: python scripts/count_chars.py
+        run: python dailycharcounter.py
 
       - name: Commit & push if changed
         run: |
