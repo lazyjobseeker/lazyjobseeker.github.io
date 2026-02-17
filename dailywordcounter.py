@@ -6,8 +6,8 @@ import re
 POST_DIR_KR = Path("_posts")
 POST_DIR_EN = Path("en/_posts")
 
-OUT_KR = Path("dailycharcounter_kr.json")
-OUT_EN = Path("dailycharcounter_en.json")
+OUT_KR = Path("dailywordcounter_kr.json")
+OUT_EN = Path("dailywordcounter_en.json")
 
 def remove_code_blocks(content):
     # Remove code blocks (```...```)
@@ -16,24 +16,24 @@ def remove_code_blocks(content):
     content = re.sub(r'`.*?`', '', content)
     return content
 
-def count_characters_in_file(file_path):
+def count_words_in_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
         # Remove YAML front matter
         content = re.sub(r'^---\n.*?\n---\n', '', content, flags=re.DOTALL)
         content = remove_code_blocks(content)
-        return len(content)
+        return len(re.findall(r"\b\w+\b", content))
     
-total_char_count_kr = 0
-total_char_count_en = 0
+total_word_count_kr = 0
+total_word_count_en = 0
 
 for post_file in POST_DIR_KR.glob("*.md"):
-    char_count = count_characters_in_file(post_file)
-    total_char_count_kr += char_count
+    word_count = count_words_in_file(post_file)
+    total_word_count_kr += word_count
 
 for post_file in POST_DIR_EN.glob("*.md"):
-    char_count = count_characters_in_file(post_file)
-    total_char_count_en += char_count
+    word_count = count_words_in_file(post_file)
+    total_word_count_en += word_count
 
 data_kr = {}
 if OUT_KR.exists():
@@ -47,8 +47,8 @@ if OUT_EN.exists():
 
 # Update the data with today's counts
 today = datetime.date.today().isoformat()
-data_kr[today] = total_char_count_kr
-data_en[today] = total_char_count_en
+data_kr[today] = total_word_count_kr
+data_en[today] = total_word_count_en
 
 # Write updated data back to files
 with open(OUT_KR, 'w', encoding='utf-8') as f:
