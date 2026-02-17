@@ -29,11 +29,17 @@ total_word_count_en = 0
 
 for post_file in POST_DIR_KR.glob("*.md"):
     word_count = count_words_in_file(post_file)
+    print(f"{post_file.name}: {word_count} words")
     total_word_count_kr += word_count
+
+print(f"Total Korean word count: {total_word_count_kr}")
 
 for post_file in POST_DIR_EN.glob("*.md"):
     word_count = count_words_in_file(post_file)
+    print(f"{post_file.name}: {word_count} words")
     total_word_count_en += word_count
+
+print(f"Total English word count: {total_word_count_en}")
 
 data_kr = {}
 if OUT_KR.exists():
