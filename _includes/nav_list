@@ -42,9 +42,13 @@
         </ul>
       </li>
       <li>
-        <!-- Word Count Chart -->
+        <!-- Word Count Chart KO -->
         <span class="nav__sub-title">WORDCOUNTS</span>
-        <div><canvas style="width:100%; min-height:100px; margin-bottom:0.3em" id="myWordCountChart"></canvas></div>
+        {% if page.lang == 'ko' -%}
+        <div><canvas style="width:100%; min-height:100px; margin-bottom:0.3em" id="myWordCountChart", data-json="/dailywordcounter_kr.json"></canvas></div>
+        {% elsif page.lang == 'en' -%}
+        <div><canvas style="width:100%; min-height:100px; margin-bottom:0.3em" id="myWordCountChart", data-json="/dailywordcounter_en.json"></canvas></div>
+        {% endif -%}
         <!-- Visitor Chart -->
         <ul style="font-size:0.8em;">
           <li style="display:flex;">

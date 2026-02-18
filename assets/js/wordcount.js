@@ -1,6 +1,8 @@
 // Word count statistics
 
-fetch("/dailywordcounter_kr.json")
+const jsonFile = document.getElementById("myWordCountChart").dataset.json;
+
+fetch(jsonFile)
   .then(res => res.json())
   .then(data => {
     const size = 29;
