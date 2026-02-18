@@ -22,20 +22,20 @@ function drawChart() {
     chart = new Chart(ctx, {
         type: 'line',
         data: {
-        labels: dates,
-        datasets: [{
-            label: 'PAGEVIEWS',
-            data: counts,
-            borderWidth: 2,
-            pointBackgroundColor: 'rgba(66, 173, 255, 1)',
-            pointBorderColor: 'rgba(66, 173, 255, 1)',
-            backgroundColor: 'rgba(66, 173, 255, 0.5)',
-            borderColor: 'rgba(66, 173, 255, 1)',
-            pointRadius: 1.5,
-            cubicInterpolationMode: 'monotone',
-            tension: 0.4,
-            fill: true
-        }]
+            labels: dates,
+            datasets: [{
+                label: 'PAGEVIEWS',
+                data: counts,
+                borderWidth: 2,
+                pointBackgroundColor: 'rgba(66, 173, 255, 1)',
+                pointBorderColor: 'rgba(66, 173, 255, 1)',
+                backgroundColor: 'rgba(66, 173, 255, 0.5)',
+                borderColor: 'rgba(66, 173, 255, 1)',
+                pointRadius: 1.5,
+                cubicInterpolationMode: 'monotone',
+                tension: 0.4,
+                fill: true
+            }]
         },
         options: {
             plugins: {

@@ -204,6 +204,7 @@ body:hover .visually-hidden button {
 /* social icons*/
 
 .social-icons {
+  
   .fas,
   .fab,
   .far,
@@ -262,10 +263,12 @@ body:hover .visually-hidden button {
     color: $lastfm-color;
   }
 
+  /*
   .fa-linkedin,
   .fa-linkedin-in {
     color: $linkedin-color;
   }
+  */
 
   .fa-mastodon,
   .fa-mastodon-square {
@@ -316,9 +319,11 @@ body:hover .visually-hidden button {
     color: $vine-color;
   }
 
+  /*
   .fa-youtube {
     color: $youtube-color;
   }
+  */
 
   .fa-xing,
   .fa-xing-square {

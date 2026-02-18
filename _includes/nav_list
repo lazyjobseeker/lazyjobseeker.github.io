@@ -24,15 +24,40 @@
     {% endfor -%}
     <!-- Site Stat Powered by GoatCounter -->
       <li>
-        <span class="nav__sub-title">PAGEVIEWS</span>
-        <div><canvas style="width:100%; min-height:120px; margin-bottom:0.3em" id="myChart"></canvas></div>
         <!-- Visitor Chart -->
-        <ul>
-          <li><span style="display:inline-block; width:7.5em"><b>TODAY</b></span><span id="gc_today"></span></li>
-          <li><span style="display:inline-block; width:7.5em"><b>YESTERDAY</b></span><span id="gc_yesterday"></span></li>
-          <li><span style="display:inline-block; width:7.5em"><b>TOTAL</b></span><span id="gc_total"></span></li>
-          <li><span id="utc-clock"></span></li>
-        <ul>
+        <span class="nav__sub-title">PAGEVIEWS</span>
+        <div><canvas style="width:100%; min-height:100px; margin-bottom:0.3em" id="myChart"></canvas></div>
+
+        <ul style="font-size:0.8em;">
+          <li style="display:flex;">
+            <span style="display:flex; width:32%; justify-content: left;"><b>TODAY</b></span>
+            <span style="display:flex; width:32%; justify-content: left;"><b>YESTERDAY</b></span>
+            <span style="display:flex; width:32%; justify-content: left;"><b>TOTAL</b></span>
+          </li>
+          <li style="display:flex;">
+            <span style="display:flex; width:32%; justify-content: left;" id="gc_today"></span>
+            <span style="display:flex; width:32%; justify-content: left;" id="gc_yesterday"></span>
+            <span style="display:flex; width:32%; justify-content: left;" id="gc_total"></span>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <!-- Word Count Chart -->
+        <span class="nav__sub-title">WORDCOUNTS</span>
+        <div><canvas style="width:100%; min-height:100px; margin-bottom:0.3em" id="myWordCountChart"></canvas></div>
+        <!-- Visitor Chart -->
+        <ul style="font-size:0.8em;">
+          <li style="display:flex;">
+            <span style="display:flex; width:32%; justify-content: left;"><b>TODAY</b></span>
+            <span style="display:flex; width:32%; justify-content: left;"><b>YESTERDAY</b></span>
+            <span style="display:flex; width:32%; justify-content: left;"><b>TOTAL</b></span>
+          </li>
+          <li style="display:flex;">
+            <span style="display:flex; width:32%; justify-content: left;" id="wc_today"></span>
+            <span style="display:flex; width:32%; justify-content: left;" id="wc_yesterday"></span>
+            <span style="display:flex; width:32%; justify-content: left;" id="wc_total"></span>
+          </li>
+        </ul>
       </li>
   </ul>
 </nav>

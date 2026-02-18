@@ -256,17 +256,19 @@
   cursor: default;
 
   &.is--visible {
-    display: block;
+    display: flex;
   }
 
   @include breakpoint($large) {
-    display: block;
+    display: flex;
     position: relative;
     margin: 0;
     padding: 0;
     border: 0;
     background: transparent;
     box-shadow: none;
+    align-items: center;
+    justify-content: center;
   }
 
   &:before {
@@ -310,8 +312,30 @@
 
   li {
     white-space: nowrap;
+    display: flex;
+    background: #eeeeee;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.4), 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    margin: 0.1em;
+    padding: 0.2em 0.3em 0.2em 0.3em;
+    max-width: 28px;
+    max-height: 28px;
+    min-width: 28px;
+    min-height: 28px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+    &:hover {
+      background:#3d4144;
+
+      i::before {
+        color:#f1f0ec;
+      }
+    }
   }
 
+  /*
   a {
     display: block;
     margin-bottom: 5px;
@@ -326,6 +350,7 @@
       text-decoration: underline;
     }
   }
+  */
 }
 
 /*
