@@ -2,7 +2,7 @@ name: Daily Blog Word Count
 
 on:
   schedule:
-    - cron: "0 0 * * *"   # 매일 UTC 00:00
+    - cron: "0 */2 * * *"   # UTC 매 2 시간 00:00
   workflow_dispatch:     # 수동 실행 버튼
 
 jobs:
