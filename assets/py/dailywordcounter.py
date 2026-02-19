@@ -6,8 +6,8 @@ import re
 POST_DIR_KR = Path("_posts")
 POST_DIR_EN = Path("en/_posts")
 
-OUT_KR = Path("../json/dailywordcounter_kr.json")
-OUT_EN = Path("../json/dailywordcounter_en.json")
+OUT_KR = Path("assets/json/dailywordcounter_kr.json")
+OUT_EN = Path("assets/json/dailywordcounter_en.json")
 
 def remove_code_blocks(content):
     # Remove code blocks (```...```)
