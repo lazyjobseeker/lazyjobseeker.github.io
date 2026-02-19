@@ -28,6 +28,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/json/gcdailypageviews.json
+          git add assets/json/gcdailypageviews.json assets/json/gctotalpageviews.json
           git commit -m "chore: update daily pageviews" || exit 0
           git push
