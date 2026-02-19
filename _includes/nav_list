@@ -26,7 +26,7 @@
       <li>
         <!-- Visitor Chart -->
         <span class="nav__sub-title">PAGEVIEWS</span>
-        <div><canvas style="width:100%; min-height:100px; margin-bottom:0.3em" id="myPageviewCountChart" data-json="../assets/json/gcdailypageviews.json"></canvas></div>
+        <div><canvas style="width:100%; min-height:100px; margin-bottom:0.3em" id="myPageviewCountChart" data-json="https://lazyjobseeker.github.io/assets/json/gcdailypageviews.json"></canvas></div>
 
         <ul style="font-size:0.8em;">
           <li style="display:flex;">
@@ -45,9 +45,9 @@
         <!-- Word Count Chart KO -->
         <span class="nav__sub-title">WORDCOUNTS</span>
         {% if page.lang == 'ko' -%}
-        <div><canvas style="width:100%; min-height:100px; margin-bottom:0.3em" id="myWordCountChart" data-json="../assets/json/dailywordcounter_kr.json"></canvas></div>
+        <div><canvas style="width:100%; min-height:100px; margin-bottom:0.3em" id="myWordCountChart" data-json="https://lazyjobseeker.github.io/assets/json/dailywordcounter_kr.json"></canvas></div>
         {% elsif page.lang == 'en' -%}
-        <div><canvas style="width:100%; min-height:100px; margin-bottom:0.3em" id="myWordCountChart" data-json="../assets/json/dailywordcounter_en.json"></canvas></div>
+        <div><canvas style="width:100%; min-height:100px; margin-bottom:0.3em" id="myWordCountChart" data-json="https://lazyjobseeker.github.io/assets/json/dailywordcounter_en.json"></canvas></div>
         {% endif -%}
         <!-- Visitor Chart -->
         <ul style="font-size:0.8em;">
