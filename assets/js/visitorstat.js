@@ -38,7 +38,8 @@ fetch(jsonFile_pv)
       },
       options: {
         plugins: {
-          legend: { display: false }
+          legend: { display: false },
+          title: { display: true, text: '👀 PAGEVIEWS', align: 'start'}
         },
         scales: {
           x: {

@@ -33,7 +33,8 @@ fetch(jsonFile_wc)
       },
       options: {
         plugins: {
-          legend: { display: false }
+          legend: { display: false},
+          title: { display: true, text: '✏️ WORDCOUNT GROWTH', align: 'start'}
         },
         scales: {
           x: {
