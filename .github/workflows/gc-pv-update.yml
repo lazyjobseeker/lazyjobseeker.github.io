@@ -1,7 +1,7 @@
 name: Hourly Update of Pageviews
 on:
   schedule:
-    - cron: "0 * * * *"   # 매일 UTC 00:00
+    - cron: "0 * * * *"   # 매 시간
   workflow_dispatch:     # 수동 실행 버튼
 
 jobs:
