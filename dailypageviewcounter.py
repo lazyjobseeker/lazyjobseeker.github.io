@@ -17,6 +17,13 @@ def fetch_pageviews():
         print(f"Failed to fetch pageviews: {response.status_code}")
         return {}
 
-print("Fetching pageviews...")
-pageviews = fetch_pageviews()
-print(pageviews)
+today = dt.date.today().isoformat()
+data = {}
+if PAGEVIEW_FILE.exists():
+    with open(PAGEVIEW_FILE, 'r', encoding='utf-8') as f:
+        data = json.loads(PAGEVIEW_FILE.read_text(encoding='utf-8'))
+
+data[today] = fetch_pageviews()
+
+with open(PAGEVIEW_FILE, 'w', encoding='utf-8') as f:
+    json.dump(data, f, ensure_ascii=False, indent=2)

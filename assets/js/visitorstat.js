@@ -8,6 +8,8 @@ var rqsts = [];
 var subtrrqsts = [];
 var remainingUpdates = size*2;
 
+const jsonFile = document.getElementById("myPageviewCountChart").dataset.json;
+
 for (step = 0; step < size; step++) {
     counts[step] = 0;
 }
@@ -18,7 +20,7 @@ function updateTodayYesterday() {
 }
 
 function drawChart() {
-    const ctx = document.getElementById('myChart');
+    const ctx = document.getElementById('myPageviewCountChart');
     chart = new Chart(ctx, {
         type: 'line',
         data: {

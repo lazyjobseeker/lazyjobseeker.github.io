@@ -26,7 +26,7 @@
       <li>
         <!-- Visitor Chart -->
         <span class="nav__sub-title">PAGEVIEWS</span>
-        <div><canvas style="width:100%; min-height:100px; margin-bottom:0.3em" id="myChart"></canvas></div>
+        <div><canvas style="width:100%; min-height:100px; margin-bottom:0.3em" id="myPageviewCountChart" data-json="/gcdailypageviews.json"></canvas></div>
 
         <ul style="font-size:0.8em;">
           <li style="display:flex;">
