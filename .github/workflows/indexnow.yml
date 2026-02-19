@@ -25,4 +25,4 @@ jobs:
         run: pip install requests
 
       - name: Run IndexNow Notify
-        run: python assets/py/index0now.py
+        run: python assets/py/indexnow.py
