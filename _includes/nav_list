@@ -43,7 +43,7 @@
       </li>
       <li>
         <!-- Word Count Chart KO -->
-        <span class="nav__sub-title">WORDCOUNTS</span>
+        <span class="nav__sub-title">WORDCOUNT GROWTH</span>
         {% if page.lang == 'ko' -%}
         <div><canvas style="width:100%; min-height:100px; margin-bottom:0.3em" id="myWordCountChart" data-json="https://lazyjobseeker.github.io/assets/json/dailywordcounter_kr.json"></canvas></div>
         {% elsif page.lang == 'en' -%}
