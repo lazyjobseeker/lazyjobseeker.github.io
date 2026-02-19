@@ -1,5 +1,4 @@
 // Word count statistics
-
 const jsonFile_wc = document.getElementById("myWordCountChart").dataset.json;
 
 fetch(jsonFile_wc)
