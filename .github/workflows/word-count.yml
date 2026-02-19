@@ -20,7 +20,7 @@ jobs:
           python-version: "3.11"
 
       - name: Run word count
-        run: python dailywordcounter.py
+        run: python assets/py/dailywordcounter.py
 
       - name: Commit & push if changed
         run: |
