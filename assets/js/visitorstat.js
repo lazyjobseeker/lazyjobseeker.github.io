@@ -1,6 +1,6 @@
 // Visitor Statistics
 const jsonFile_pv = document.getElementById("myPageviewCountChart").dataset.json;
-const jsonFile_totalpv = "assets/json/gctotalpageviews.json";
+const jsonFile_totalpv = "https://lazyjobseeker.github.io/assets/json/gctotalpageviews.json";
 
 fetch(jsonFile_totalpv)
   .then(res => res.json())
