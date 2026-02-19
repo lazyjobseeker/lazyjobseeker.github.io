@@ -3,8 +3,8 @@ import json
 import requests
 import datetime as dt
 
-PAGEVIEW_FILE = Path("gcdailypageviews.json")
-PAGEVIEW_TOTAL_FILE = Path("gctotalpageviews.json")
+PAGEVIEW_FILE = Path("../json/gcdailypageviews.json")
+PAGEVIEW_TOTAL_FILE = Path("../json/gctotalpageviews.json")
 
 def fetch_pageviews_daily():
     # Replace with your actual API endpoint and parameters

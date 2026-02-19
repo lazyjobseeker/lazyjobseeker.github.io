@@ -2,8 +2,8 @@ name: Daily Blog Word Count
 
 on:
   schedule:
-    - cron: "0 */2 * * *"   # UTC 매 2 시간 00:00
-  workflow_dispatch:     # 수동 실행 버튼
+    - cron: "0 */2 * * *"
+  workflow_dispatch:
 
 jobs:
   update:
@@ -26,6 +26,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add dailywordcounter_kr.json dailywordcounter_en.json
+          git add assets/json/dailywordcounter_kr.json assets/json/dailywordcounter_en.json
           git commit -m "chore: update daily word count" || exit 0
           git push
