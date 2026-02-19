@@ -47,7 +47,7 @@
         {% if page.lang == 'ko' -%}
         <div><canvas style="width:100%; min-height:100px; margin-bottom:0.3em" id="myWordCountChart" data-json="../assets/json/dailywordcounter_kr.json"></canvas></div>
         {% elsif page.lang == 'en' -%}
-        <div><canvas style="width:100%; min-height:100px; margin-bottom:0.3em" id="myWordCountChart" data-json="assets/json/dailywordcounter_en.json"></canvas></div>
+        <div><canvas style="width:100%; min-height:100px; margin-bottom:0.3em" id="myWordCountChart" data-json="../assets/json/dailywordcounter_en.json"></canvas></div>
         {% endif -%}
         <!-- Visitor Chart -->
         <ul style="font-size:0.8em;">
