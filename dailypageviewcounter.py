@@ -46,7 +46,7 @@ if PAGEVIEW_TOTAL_FILE.exists():
     with open(PAGEVIEW_TOTAL_FILE, 'r', encoding='utf-8') as f:
         total_data = json.loads(PAGEVIEW_TOTAL_FILE.read_text(encoding='utf-8'))
 
-total_data["TOTAL"] = int(fetch_pageviews_total().get("count", 0))
+total_data["TOTAL"] = int(fetch_pageviews_total().get("count", 0).replace("\u202f", ""))
 
 with open(PAGEVIEW_TOTAL_FILE, 'w', encoding='utf-8') as f:
     json.dump(total_data, f, ensure_ascii=False, indent=2)
