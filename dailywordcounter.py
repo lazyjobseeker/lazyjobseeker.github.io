@@ -53,8 +53,21 @@ if OUT_EN.exists():
 
 # Update the data with today's counts
 today = datetime.date.today().isoformat()
-data_kr[today] = total_word_count_kr
-data_en[today] = total_word_count_en
+
+filtered_kr = {
+    date: value
+    for date, value in data_kr.items()
+    if date < today
+}
+
+filtered_en = {
+    date: value
+    for date, value in data_en.items()
+    if date < today
+}
+
+data_kr[today] = total_word_count_kr - sum(filtered_kr.values())
+data_en[today] = total_word_count_en - sum(filtered_en.values())
 
 # Write updated data back to files
 with open(OUT_KR, 'w', encoding='utf-8') as f:
