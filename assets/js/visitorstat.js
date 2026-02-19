@@ -5,14 +5,33 @@ fetch(jsonFile_pv)
   .then(res => res.json())
   .then(data => {
     const size = 29;
-    const total = Object.values(data).reduce((acc, val) => acc + val, 0);
     const entries = Object.entries(data).slice(-size);
     const labels = entries.map(e => e[0]);
     const values = entries.map(e => e[1]);
 
-    document.querySelector('#gc_today').innerText = values[size-1].toLocaleString();
+    var today_rqst = new XMLHttpRequest();
+    const today = new Date();
+    const tomorrow = new Date();
+    tomorrow.setDate(today.getDate() + 1);
+    const todayisostring = today.toISOString();
+    const tomorrowisostring = tomorrow.toISOString();
+
+    today_rqst.open('GET', basejson + '?start=' + todayisostring.slice(0, 10) + '&end=' + tomorrowisostring.slice(0, 10));
+    today_rqst.addEventListener('load', function() {
+        values[size-1] = parseInt(JSON.parse(this.responseText).count.replace(/\s/g, ""));
+        document.querySelector('#gc_today').innerText = values[size-1].toLocaleString();
+    });
+    today_rqst.send();
+
+    var total_rqst = new XMLHttpRequest();
+    total_rqst.open('GET', basejson);
+    total_rqst.addEventListener('load', function() {
+        total_cnt = parseInt(JSON.parse(this.responseText).count.replace(/\s/g, ""));
+        console.log(total_cnt);
+        document.querySelector('#gc_total').innerText = total_cnt.toLocaleString();
+    });
+    total_rqst.send();
     document.querySelector('#gc_yesterday').innerText = values[size-2].toLocaleString();
-    document.querySelector('#gc_total').innerText = total.toLocaleString();
 
     new Chart(document.getElementById("myPageviewCountChart"), {
       type: "line",
