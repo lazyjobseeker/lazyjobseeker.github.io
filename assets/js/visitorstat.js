@@ -1,7 +1,7 @@
 // Visitor Statistics
 const jsonFile_pv = document.getElementById("myPageviewCountChart").dataset.json;
 
-fetch(jsonFile)
+fetch(jsonFile_pv)
   .then(res => res.json())
   .then(data => {
     const size = 29;
