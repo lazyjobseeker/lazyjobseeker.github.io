@@ -183,8 +183,6 @@ exclude:
   - assets/js/plugins
   - assets/js/_main.js
   - assets/js/vendor
-  - assets/py # This folder is not needed to trigger a build.
-  - assets/json # This folder is not needed to trigger a build.
   - Capfile
   - CHANGELOG
   - config
