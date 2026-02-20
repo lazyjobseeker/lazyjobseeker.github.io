@@ -27,5 +27,5 @@
     {% assign target_url_ko = nil -%}
     {% assign target_url_en = page.url -%}
   {% endif -%}
-  {% assign target_url_goatcounter = page.url -%}
+  {% assign target_url_goatcounter = page.url | replace: '/en/', '/' -%}
 {% endif -%}
