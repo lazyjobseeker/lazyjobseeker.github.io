@@ -20,7 +20,7 @@ Lin-KK 검정은 임의의 전기화학임피던스(EIS) 스펙트럼이 [크라
 $$Z(\omega) = R_0 + \sum_{i=1}^M \frac{R_i}{1+j\omega\tau_i} \tag{\text{Lin-KK}}$$
 
 
-$$Z(\omega) = R_0 + \int_{0}^{\infty} \frac{g(\tau)}{1+j\omega\tau_i} d\tau \tag{DRT}$$
+$$Z(\omega) = R_0 + \int_{0}^{\infty} \frac{g(\tau)}{1+j\omega\tau} d\tau \tag{DRT}$$
 
 Lin-KK 검정을 기술할 때 우변 맨 끝에 리만적분에 필요한 0으로 수렴하는 $\Delta\tau$항이 곱해져 있지 않다는 아주 큰 차이가 있지만 (...) 어쨌든 그런 생각이 들 수 있습니다.
 

@@ -17,6 +17,13 @@ The Lin-KK test is a method for rapidly determining whether an arbitrary electro
 
 However, considering the concept of the [distribution of relaxation times (DRT)](https://lazyjobseeker.github.io/en/posts/distribution-of-relaxation-time/), the principle of the Lin-KK test appears somewhat like a series version (with a finite number of terms) of the integral equation solved in DRT analysis.
 
+
+$$Z(\omega) = R_0 + \sum_{i=1}^M \frac{R_i}{1+j\omega\tau_i} \tag{\text{Lin-KK}}$$
+
+
+$$Z(\omega) = R_0 + \int_{0}^{\infty} \frac{g(\tau)}{1+j\omega\tau} d\tau \tag{DRT}$$
+
+
 Lin-KK test expressions do not include the $\Delta\tau$ term that converges to zero at the end of the integral as required for the Riemann integral - a significant difference -but the analogy can still be made.
 
 If we ignore this difference, one might think:

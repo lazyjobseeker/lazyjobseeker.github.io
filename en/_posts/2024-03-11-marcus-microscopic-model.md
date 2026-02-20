@@ -5,7 +5,7 @@ category: electrochemistry
 tags:
   - electrochemistry
 created_at: 2024-12-02 05:21:48 -05:00
-last_modified_at: 2025-06-26 11:32:50 -05:00
+last_modified_at: 2026-02-20 02:58:09 -05:00
 excerpt: The concept of Marcus microscopic model for isoenergetic, radiationless and configuration-preserving electron transfer is detailed.
 ---
 
@@ -104,3 +104,7 @@ In initial state, activation energy of forward-reaction ($\Delta G^\ddagger_{f}$
 {% include jsxgraph.html graphName="240314-marcus-1" jxgNo=1 width=300 height=300 caption="Change of $\Delta G^\ddagger_f$ by increasing free energy of $O$"%}
 
 However, at some point of pulling up the slider $\Delta G^\ddagger_{f}$ starts to increase again.  This shows that, when we try to increase or decrease the potential of working electrode to control a reaction rate constant, we cannot limitlessly increase the reaction rate but it inevitably reaches *peak* and starts to decline again.  Such a region, where increasing potential rather starts to deter a given reaction, is called **Marcus inverted region**.
+
+Below animation was created using `manim` and visualizes the same phenomenon in a video:
+
+{% include video id="YnSxPL_2wUs" provider="youtube" %}
