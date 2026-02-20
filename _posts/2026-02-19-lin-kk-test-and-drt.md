@@ -4,7 +4,7 @@ category: electrochemistry
 tags:
   - electrochemistry
 created_at: 2026-02-19 01:52:55 -05:00
-last_modified_at: 2026-02-19 02:45:59 -05:00
+last_modified_at: 2026-02-20 03:00:32 -05:00
 excerpt: 임피던스 측정결과의 크라머스-크로니히(KK) 관계 만족 여부를 판정하기 위해 사용하는 Lin-KK 검정법과 이완시간분포(DRT) 분석의 유사점과 차이점을 살펴봅니다.
 published: true
 ---

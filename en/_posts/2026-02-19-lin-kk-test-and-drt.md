@@ -4,7 +4,7 @@ category: electrochemistry
 tags:
   - electrochemistry
 created_at: 2026-02-19 01:52:55 -05:00
-last_modified_at: 2026-02-19 02:46:35 -05:00
+last_modified_at: 2026-02-20 03:00:29 -05:00
 excerpt: Examining the similarities and differences between the Lin-KK test, used to assess whether impedance measurement results satisfy the Kramers–Kronig (KK) relations, and the relaxation time distribution (DRT) analysis.
 published: true
 ---
