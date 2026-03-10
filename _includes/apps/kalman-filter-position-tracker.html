@@ -8,6 +8,7 @@
     font-family:sans-serif;
 }
 </style>
+
 <div id="kf-app">
     <style>
     #Qinput{width:15%;}
@@ -18,9 +19,13 @@
              height:20px;
              border-radius:50%;
              pointer-events:none;}
-    #raw{background:#ff4081;} /* True */
-    #kf{background:#00ffea;}  /* KF */
-    #coords{position:absolute;top:10px;left:10px;color:#fff;font-size:16px;}
+    #raw{background:#ff4081;}
+    #kf{background:#00ffea;}
+    #coords{position:absolute;
+            top:10px;
+            left:10px;
+            color:#fff;
+            font-size:16px;}
     #controls{display:block;
               position:absolute;
               top:50px; left:10px;
@@ -43,32 +48,32 @@
         font-size:12px;
     }
     #kf-app {
-    position: relative;
-    width: 100%;
-    height: 400px;   /* 블로그 안에서 보일 기본 높이 */
-    overflow: hidden;
-    border:1px solid #444;
-    border-radius:20px;
-    touch-action: none;
+        position: relative;
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+        border:1px solid #444;
+        border-radius:20px;
+        touch-action: none;
     }
-
     #kf-app.fullscreen {
         position: fixed;
         top:0;
         left:0;
-        width:100vw;
-        height:100vh;
-        z-index:9999;
+        width:100%;
+        height:100%;
+        z-index:147483647;
         background:#222;
         border-radius:0px;
         touch-action: none;
+        inset:0;
+        isolation:isolate;
     }
     canvas{
         position:relative;
         top:0;
         left:0;}
     </style>
-
 
     <canvas id="traj"></canvas>
     <div id="raw"></div>
@@ -96,7 +101,9 @@
     // --- Kalman Filter State ---
     let x=[0,0,0,0]; // [px,py,vx,vy]
     let P=[[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]];
+    
     const dt=0.016;
+
     let Qval=parseFloat(document.getElementById('Qinput').value);
     let Rval=parseFloat(document.getElementById('Rinput').value);
     let MEval=parseFloat(document.getElementById('MeasErrInput').value);
@@ -153,6 +160,11 @@
     function resizeCanvas(){
         canvas.width = app.clientWidth;
         canvas.height = app.clientHeight;
+        if(params.get("fullscreen") === "1"){
+            document.body.style.overflow = "hidden";
+        }else{
+            document.body.style.overflow = "";
+        }
     }
 
     const MAX_TRAJ = 2000;
@@ -248,8 +260,17 @@
         }
     });
 
+    const originalParent = app.parentNode;
+    const originalNext = app.nextSibling;
+    
     btn.addEventListener("click", () => {
-        app.classList.toggle("fullscreen");
+        const fs = app.classList.toggle("fullscreen");
+        if (fs) {
+            document.body.appendChild(app);
+        } else {
+            originalParent.insertBefore(app, originalNext);
+        }
+        resizeCanvas();
     });
 
     if(params.get("fullscreen") === "1"){
@@ -259,10 +280,9 @@
 
     window.addEventListener("resize", resizeCanvas);
     window.addEventListener("load", resizeCanvas);
-    btn.addEventListener("click", resizeCanvas);
     window.addEventListener("load", () => {
-        resizeCanvas();      // canvas 크기 맞추기
-        placeDotsCenter();   // 중앙 배치
+        resizeCanvas();
+        placeDotsCenter();
     });
     </script>
     
