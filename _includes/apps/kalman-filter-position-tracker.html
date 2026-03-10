@@ -10,10 +10,14 @@
 </style>
 <div id="kf-app">
     <style>
-    #Qinput{width:10%;}
-    #Rinput{width:10%;}
-    #MeasErrInput{width:10%;}
-    #raw,#kf{position:absolute;width:20px;height:20px;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;}
+    #Qinput{width:15%;}
+    #Rinput{width:15%;}
+    #MeasErrInput{width:15%;}
+    #raw,#kf{position:absolute;
+             width:20px;
+             height:20px;
+             border-radius:50%;
+             pointer-events:none;}
     #raw{background:#ff4081;} /* True */
     #kf{background:#00ffea;}  /* KF */
     #coords{position:absolute;top:10px;left:10px;color:#fff;font-size:16px;}
@@ -21,6 +25,7 @@
               position:absolute;
               top:50px; left:10px;
               color:#ffffff !important;
+              width:100%;
               font-size:14px;}
     #toggleFullscreen {
         position:absolute;
@@ -150,6 +155,26 @@
         canvas.height = app.clientHeight;
     }
 
+    const MAX_TRAJ = 2000;
+
+    function pushLimited(arr, value){
+        arr.push(value);
+        if(arr.length > MAX_TRAJ){
+            arr.shift();
+        }
+    }
+
+    function placeDotsCenter(){
+
+        const startX = app.clientWidth / 2;
+        const startY = app.clientHeight / 2;
+        const r = 10;
+        rawEl.style.left = `${startX - r}px`;
+        rawEl.style.top  = `${startY - r}px`;
+        kfEl.style.left = `${startX - r}px`;
+        kfEl.style.top  = `${startY - r}px`;
+
+    }
 
     // --- Draw Trajectories ---
     function drawTrajectories(){
@@ -182,13 +207,6 @@
         MEval=parseFloat(e.target.value);
     });
 
-    const rect = app.getBoundingClientRect();
-    const startX = rect.width / 2;
-    const startY = rect.height / 2;
-    
-    rawEl.style.transform = `translate(${startX}px,${startY}px)`;
-    kfEl.style.transform  = `translate(${startX}px,${startY}px)`;
-
     // --- Mouse Event ---
     app.addEventListener('pointermove', e=>{
 
@@ -196,10 +214,8 @@
         const trueX = e.clientX - rect.left;
         const trueY = e.clientY - rect.top;
 
-        const rawRect = rawEl.getBoundingClientRect();
-        const rawCenterX = trueX - rawRect.width / 2;
-        const rawCenterY = trueY - rawRect.height / 2;
-        rawEl.style.transform=`translate(${rawCenterX}px,${rawCenterY}px)`;
+        rawEl.style.left = `${trueX - 10}px`;
+        rawEl.style.top  = `${trueY - 10}px`;
 
         // Measurement noise
         const measX=trueX + (Math.random()-0.5)*MEval;
@@ -207,16 +223,14 @@
 
         kf_predict();
         kf_update([measX,measY]);
-        const kfRect = kfEl.getBoundingClientRect();
-        const kfCenterX = x[0] - kfRect.width / 2;
-        const kfCenterY = x[1] - kfRect.height / 2;
-        kfEl.style.transform=`translate(${kfCenterX}px,${kfCenterY}px)`;
+        kfEl.style.left = `${x[0] - 10}px`;
+        kfEl.style.top  = `${x[1] - 10}px`;
 
         coordsEl.textContent=`True:(${trueX.toFixed(1)},${trueY.toFixed(1)}) | Measured:(${measX.toFixed(1)},${measY.toFixed(1)}) | KF:(${x[0].toFixed(1)},${x[1].toFixed(1)})`;
 
-        trajTrue.push([trueX,trueY]);
-        trajMeasured.push([measX,measY]);
-        trajKF.push([x[0],x[1]]);
+        pushLimited(trajTrue,[trueX,trueY]);
+        pushLimited(trajMeasured,[measX,measY]);
+        pushLimited(trajKF,[x[0],x[1]]);
         drawTrajectories();
     });
 
@@ -245,8 +259,11 @@
 
     window.addEventListener("resize", resizeCanvas);
     window.addEventListener("load", resizeCanvas);
-    btn.addEventListener("click", resizeCanvas); 
-    resizeCanvas();  // 초기 로드 시 한 번 실행
+    btn.addEventListener("click", resizeCanvas);
+    window.addEventListener("load", () => {
+        resizeCanvas();      // canvas 크기 맞추기
+        placeDotsCenter();   // 중앙 배치
+    });
     </script>
     
 </div>
