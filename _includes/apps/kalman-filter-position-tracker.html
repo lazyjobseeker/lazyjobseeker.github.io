@@ -10,6 +10,9 @@
 </style>
 <div id="kf-app">
     <style>
+    #Qinput{width:10%;}
+    #Rinput{width:10%;}
+    #MeasErrInput{width:10%;}
     #raw,#kf{position:absolute;width:20px;height:20px;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;}
     #raw{background:#ff4081;} /* True */
     #kf{background:#00ffea;}  /* KF */
@@ -69,7 +72,7 @@
     <div id="controls">
         <label>Q:</label><input type="number" id="Qinput" value="0.001" step="0.001">
         <label>R:</label><input type="number" id="Rinput" value="0.05" step="1">
-        <label>Meas. Error:</label><input type="number" id="MeasErrInput" value="5" step="1">
+        <label>Meas. Error:</label><input type="number" id="MeasErrInput" value="30" step="1">
     </div>
     <button id="toggleFullscreen">Toggle Fullscreen</button>
     <button id="resetBtn">Reset (or hit Del)</button>
