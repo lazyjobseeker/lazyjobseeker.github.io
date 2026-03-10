@@ -1,0 +1,247 @@
+<style>
+#kf-app {
+    position: relative;
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+    background:#222;
+    font-family:sans-serif;
+}
+</style>
+<div id="kf-app">
+    <style>
+    #raw,#kf{position:absolute;width:20px;height:20px;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;}
+    #raw{background:#ff4081;} /* True */
+    #kf{background:#00ffea;}  /* KF */
+    #coords{position:absolute;top:10px;left:10px;color:#fff;font-size:16px;}
+    #controls{display:block;
+              position:absolute;
+              top:50px; left:10px;
+              color:#fff;
+              font-size:14px;}
+    #toggleFullscreen {
+        position:absolute;
+        bottom:10px;
+        left:10px;
+        z-index:1001;
+        padding:6px 10px;
+        font-size:12px;}
+    #resetBtn {
+        position:absolute;
+        top:10px;
+        right:10px;
+        z-index:1000;
+        padding:6px 10px;
+        font-size:12px;
+    }
+    #kf-app {
+    position: relative;
+    width: 100%;
+    height: 400px;   /* 블로그 안에서 보일 기본 높이 */
+    overflow: hidden;
+    border:1px solid #444;
+    border-radius:20px;
+    }
+
+    #kf-app.fullscreen {
+        position: fixed;
+        top:0;
+        left:0;
+        width:100vw;
+        height:100vh;
+        z-index:9999;
+        background:#222;
+        border-radius:0px;
+    }
+    canvas{
+        position:absolute;
+        top:0;
+        left:0;}
+    </style>
+
+
+    <canvas id="traj"></canvas>
+    <div id="raw"></div>
+    <div id="kf"></div>
+    <div id="coords">True:(0,0)|Measured:(0,0)|KF:(0,0)</div>
+    <div id="controls">
+        <label>Q:</label><input type="number" id="Qinput" value="0.001" step="0.001">
+        <label>R:</label><input type="number" id="Rinput" value="0.05" step="1">
+        <label>Meas. Error:</label><input type="number" id="MeasErrInput" value="5" step="1">
+    </div>
+    <button id="toggleFullscreen">Toggle Fullscreen</button>
+    <button id="resetBtn">Reset (or hit Del)</button>
+
+    <script>
+    // --- Canvas setup ---
+    const canvas=document.getElementById('traj');
+    const ctx=canvas.getContext('2d');
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+    const params = new URLSearchParams(window.location.search);
+
+    const app = document.getElementById("kf-app");
+    const btn = document.getElementById("toggleFullscreen");
+
+    // --- Kalman Filter State ---
+    let x=[0,0,0,0]; // [px,py,vx,vy]
+    let P=[[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]];
+    const dt=0.016;
+    let Qval=parseFloat(document.getElementById('Qinput').value);
+    let Rval=parseFloat(document.getElementById('Rinput').value);
+    let MEval=parseFloat(document.getElementById('MeasErrInput').value);
+    const Qmat=[[Qval,0,0,0],[0,Qval,0,0],[0,0,Qval/10,0],[0,0,0,Qval/10]];
+    const Rmat = [[Rval, 0], [0, Rval]]
+
+    // --- DOM Elements ---
+    const rawEl=document.getElementById('raw');
+    const kfEl=document.getElementById('kf');
+    const coordsEl=document.getElementById('coords');
+
+    // --- Trajectories ---
+    let trajTrue=[], trajMeasured=[], trajKF=[];
+
+    // --- Linear Algebra Helpers ---
+    function transpose(A){return A[0].map((_,i)=>A.map(row=>row[i]));}
+    function matMul(A,B){return A.map(row=> B[0].map((_,j)=> row.reduce((sum,elm,i)=>sum+elm*B[i][j],0)));}
+    function multiplyMatVec(A,v){return A.map(row=> row.reduce((sum,elm,i)=>sum+elm*v[i],0));}
+    function addMat(A,B){return A.map((row,i)=> row.map((v,j)=>v+B[i][j]));}
+    function subMat(A,B){return A.map((row,i)=> row.map((v,j)=>v-B[i][j]));}
+    function inverse2x2(M){const det=M[0][0]*M[1][1]-M[0][1]*M[1][0]; return [[M[1][1]/det,-M[0][1]/det],[-M[1][0]/det,M[0][0]/det]];}
+
+    // --- KF Functions ---
+    function kf_predict(){
+        const F=[[1,0,dt,0],[0,1,0,dt],[0,0,1,0],[0,0,0,1]];
+        x=multiplyMatVec(F,x);
+        P=addMat(matMul(F,matMul(P,transpose(F))),Qmat);
+    }
+
+    function kf_update(z){
+        const H=[[1,0,0,0],[0,1,0,0]];
+        const y=[z[0]-x[0], z[1]-x[1]]; // innovation
+        const innovation_mag=Math.sqrt(y[0]*y[0]+y[1]*y[1]);
+        const speed=Math.sqrt(x[2]*x[2]+x[3]*x[3]); // predicted velocity magnitude
+
+        // Velocity-adaptive R scaling
+        // 빠른 움직임 → K 감소(조금 lag 허용) / 느린 움직임 → K 증가
+        const vel_factor = 1;
+        const innovation_factor = 1;
+        // const vel_factor=Math.min(3, 1 + speed/50); // 속도가 높으면 R 증가 → KF gain 감소
+        // const innovation_factor=Math.min(3,1 + innovation_mag/50); // 큰 innovation → gain 증가
+        const R_scale=vel_factor * innovation_factor;
+
+        const R=[[Rmat[0][0]*R_scale,0],[0,Rmat[1][1]*R_scale]];
+
+        const S=addMat(matMul(H,matMul(P,transpose(H))),R);
+        const K=matMul(P,matMul(transpose(H),inverse2x2(S)));
+        x=x.map((v,i)=> v + K[i][0]*y[0] + K[i][1]*y[1]);
+        const KH=matMul(K,H);
+        const I=[[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]];
+        P=matMul(subMat(I,KH),P);
+    }
+
+    function resizeCanvas(){
+        canvas.width = app.clientWidth;
+        canvas.height = app.clientHeight;
+    }
+
+
+    // --- Draw Trajectories ---
+    function drawTrajectories(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+
+        // True
+        ctx.strokeStyle='#ff4081'; ctx.lineWidth=2; ctx.beginPath();
+        trajTrue.forEach((p,i)=>{if(i===0)ctx.moveTo(p[0],p[1]);else ctx.lineTo(p[0],p[1]);});
+        ctx.stroke();
+
+        // Measured
+        ctx.strokeStyle='rgba(255,255,0,0.5)'; ctx.lineWidth=2; ctx.beginPath();
+        trajMeasured.forEach((p,i)=>{if(i===0)ctx.moveTo(p[0],p[1]);else ctx.lineTo(p[0],p[1]);});
+        ctx.stroke();
+
+        // KF
+        ctx.strokeStyle='#00ffea'; ctx.lineWidth=2; ctx.beginPath();
+        trajKF.forEach((p,i)=>{if(i===0)ctx.moveTo(p[0],p[1]);else ctx.lineTo(p[0],p[1]);});
+        ctx.stroke();
+    }
+
+    // Update Q/R from input
+    document.getElementById('Qinput').addEventListener('input', e=>{
+        Qval=parseFloat(e.target.value);
+    });
+    document.getElementById('Rinput').addEventListener('input', e=>{
+        Rval=parseFloat(e.target.value);
+    });
+    document.getElementById('MeasErrInput').addEventListener('input', e=>{
+        MEval=parseFloat(e.target.value);
+    });
+
+    const rect = app.getBoundingClientRect();
+    const startX = rect.width / 2;
+    const startY = rect.height / 2;
+    
+    rawEl.style.transform = `translate(${startX}px,${startY}px)`;
+    kfEl.style.transform  = `translate(${startX}px,${startY}px)`;
+
+    // --- Mouse Event ---
+    app.addEventListener('pointermove', e=>{
+
+        const rect = app.getBoundingClientRect();
+        const trueX = e.clientX - rect.left;
+        const trueY = e.clientY - rect.top;
+
+        const rawRect = rawEl.getBoundingClientRect();
+        const rawCenterX = trueX - rawRect.width / 2;
+        const rawCenterY = trueY - rawRect.height / 2;
+        rawEl.style.transform=`translate(${rawCenterX}px,${rawCenterY}px)`;
+
+        // Measurement noise
+        const measX=trueX + (Math.random()-0.5)*MEval;
+        const measY=trueY + (Math.random()-0.5)*MEval;
+
+        kf_predict();
+        kf_update([measX,measY]);
+        const kfRect = kfEl.getBoundingClientRect();
+        const kfCenterX = x[0] - kfRect.width / 2;
+        const kfCenterY = x[1] - kfRect.height / 2;
+        kfEl.style.transform=`translate(${kfCenterX}px,${kfCenterY}px)`;
+
+        coordsEl.textContent=`True:(${trueX.toFixed(1)},${trueY.toFixed(1)}) | Measured:(${measX.toFixed(1)},${measY.toFixed(1)}) | KF:(${x[0].toFixed(1)},${x[1].toFixed(1)})`;
+
+        trajTrue.push([trueX,trueY]);
+        trajMeasured.push([measX,measY]);
+        trajKF.push([x[0],x[1]]);
+        drawTrajectories();
+    });
+
+    // --- Reset ---
+    function resetTrajectories(){
+        trajTrue = [];
+        trajMeasured = [];
+        trajKF = [];
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+    }
+    document.getElementById("resetBtn").addEventListener("click", resetTrajectories);
+    document.addEventListener('keydown', e=>{
+        if(e.key==="Delete"){
+            resetTrajectories();
+        }
+    });
+
+    btn.addEventListener("click", () => {
+        app.classList.toggle("fullscreen");
+    });
+
+    if(params.get("fullscreen") === "1"){
+        app.classList.add("fullscreen");
+        resizeCanvas();
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    window.addEventListener("load", resizeCanvas);
+    btn.addEventListener("click", resizeCanvas); 
+    resizeCanvas();  // 초기 로드 시 한 번 실행
+    </script>
+    
+</div>
