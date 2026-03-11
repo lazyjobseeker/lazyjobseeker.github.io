@@ -69,10 +69,14 @@
         inset:0;
         isolation:isolate;
     }
+    .input{
+        color:#ffffff;
+    }
     canvas{
         position:relative;
         top:0;
-        left:0;}
+        left:0;
+    }
     </style>
 
     <canvas id="traj"></canvas>
@@ -80,9 +84,9 @@
     <div id="kf"></div>
     <div id="coords">True:(0,0)|Measured:(0,0)|KF:(0,0)</div>
     <div id="controls">
-        <label>Q:</label><input type="number" id="Qinput" value="0.001" step="0.001">
-        <label>R:</label><input type="number" id="Rinput" value="0.05" step="1">
-        <label>Meas. Error:</label><input type="number" id="MeasErrInput" value="30" step="1">
+        <label class="input">Q:</label><input type="number" id="Qinput" value="0.001" step="0.001">
+        <label class="input">R:</label><input type="number" id="Rinput" value="0.05" step="1">
+        <label class="input">Meas. Error:</label><input type="number" id="MeasErrInput" value="30" step="1">
     </div>
     <button id="toggleFullscreen">Toggle Fullscreen</button>
     <button id="resetBtn">Reset (or hit Del)</button>
@@ -101,7 +105,7 @@
     // --- Kalman Filter State ---
     let x=[0,0,0,0]; // [px,py,vx,vy]
     let P=[[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]];
-    
+
     const dt=0.016;
 
     let Qval=parseFloat(document.getElementById('Qinput').value);
@@ -271,11 +275,13 @@
             originalParent.insertBefore(app, originalNext);
         }
         resizeCanvas();
+        drawTrajectories();
     });
 
     if(params.get("fullscreen") === "1"){
         app.classList.add("fullscreen");
         resizeCanvas();
+        drawTrajectories();
     }
 
     window.addEventListener("resize", resizeCanvas);
