@@ -4,7 +4,7 @@ category: programming
 tags:
   - algorithm
 created_at: 2026-03-09 03:07:08 -05:00
-last_modified_at: 2026-03-11 12:22:12 -05:00
+last_modified_at: 2026-03-11 12:26:18 -05:00
 excerpt: Kalman filter - interactive example
 published: true
 ---
@@ -76,8 +76,10 @@ Using this, we finally update our state estimate and all other entities having $
 
 We now update our **a priori** estimate $x_{k \mid k-1}$ into **a posteriori state estimate** $x_{k \mid k}$ and covariance matrix $P_{k \mid k-1}$:
 
-$$x_{k \mid k} = x_{k \mid k-1} + K_ky_k \tag{7}$$
-$$P_{k \mid k} = \left(I-K_kH_k\right)P_{k \mid k-1} \tag{8}$$
+$$x_{k \mid k} = x_{k \mid k-1} + K_k y_k \tag{7}$$
+
+
+$$P_{k \mid k} = \left( I - K_k H_k \right) P_{k \mid k-1} \tag{8}$$
 
 ## Statements to Further Drill
 
