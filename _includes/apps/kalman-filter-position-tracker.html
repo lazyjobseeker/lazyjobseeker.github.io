@@ -288,13 +288,14 @@
         drawTrajectories();
     });
 
+    if(params.get("fullscreen") === "1"){
+        const fs = app.classList.add("fullscreen");
+        document.body.appendChild(app);
+        document.body.style.overflow = "hidden";
+    }
+
     window.addEventListener("resize", resizeCanvas);
     window.addEventListener("load", () => {
-        if(params.get("fullscreen") === "1"){
-            const fs = app.classList.add("fullscreen");
-            document.body.appendChild(app);
-            document.body.style.overflow = "hidden";
-        }
         resizeCanvas();
         placeDotsCenter();
     });
