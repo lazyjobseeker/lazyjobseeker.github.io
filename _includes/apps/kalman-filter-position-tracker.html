@@ -87,7 +87,7 @@
     <div id="controls">
         <label class="input">Q:</label><input type="number" id="Qinput" value="0.001" step="0.001">
         <label class="input">R:</label><input type="number" id="Rinput" value="0.05" step="1">
-        <label class="input">Meas. Error:</label><input type="number" id="MeasErrInput" value="30" step="1">
+        <!-- <label class="input">Meas. Error:</label><input type="number" id="MeasErrInput" value="30" step="1"> -->
     </div>
     <button id="toggleFullscreen">Toggle Fullscreen</button>
     <button id="resetBtn">Reset (or hit Del)</button>
@@ -107,11 +107,12 @@
     let x=[0,0,0,0]; // [px,py,vx,vy]
     let P=[[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]];
 
-    const dt=0.016;
+    const dt=0.16;
 
     let Qval=parseFloat(document.getElementById('Qinput').value);
     let Rval=parseFloat(document.getElementById('Rinput').value);
-    let MEval=parseFloat(document.getElementById('MeasErrInput').value);
+    // let MEval=parseFloat(document.getElementById('MeasErrInput').value);
+    let std = Math.sqrt(Rval); 
     const Qmat=[[Qval,0,0,0],[0,Qval,0,0],[0,0,Qval/10,0],[0,0,0,Qval/10]];
     const Rmat = [[Rval, 0], [0, Rval]]
 
@@ -130,6 +131,14 @@
     function addMat(A,B){return A.map((row,i)=> row.map((v,j)=>v+B[i][j]));}
     function subMat(A,B){return A.map((row,i)=> row.map((v,j)=>v-B[i][j]));}
     function inverse2x2(M){const det=M[0][0]*M[1][1]-M[0][1]*M[1][0]; return [[M[1][1]/det,-M[0][1]/det],[-M[1][0]/det,M[0][0]/det]];}
+
+    function randn_bm(mean=0, std=1) {
+        let u = 0, v = 0;
+        while(u === 0) u = Math.random(); // 0 방지
+        while(v === 0) v = Math.random();
+        let z = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+        return z * std + mean;
+    }
 
     // --- KF Functions ---
     function kf_predict(){
@@ -219,10 +228,13 @@
     });
     document.getElementById('Rinput').addEventListener('input', e=>{
         Rval=parseFloat(e.target.value);
+        std=Math.sqrt(Rval)
     });
+    /*
     document.getElementById('MeasErrInput').addEventListener('input', e=>{
         MEval=parseFloat(e.target.value);
     });
+    */
 
     // --- Mouse Event ---
     app.addEventListener('pointermove', e=>{
@@ -235,8 +247,8 @@
         rawEl.style.top  = `${trueY - 10}px`;
 
         // Measurement noise
-        const measX=trueX + (Math.random()-0.5)*MEval;
-        const measY=trueY + (Math.random()-0.5)*MEval;
+        const measX = trueX + randn_bm(0, std);
+        const measY = trueY + randn_bm(0, std);
 
         kf_predict();
         kf_update([measX,measY]);
