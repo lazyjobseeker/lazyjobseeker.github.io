@@ -4,7 +4,7 @@ category: programming
 tags:
   - algorithm
 created_at: 2026-03-08 03:07:08 -05:00
-last_modified_at: 2026-03-11 11:46:16 -05:00
+last_modified_at: 2026-03-12 01:40:18 -05:00
 excerpt: A step-by-step guide to understand the concept of Kalman filter with an interative cursor tracker app implementing it.
 published: true
 ---
@@ -18,11 +18,11 @@ Before walking into detailed formulation, let's try below interactive app - mous
 
 **Red** trajectory is the ground-truth trace which you draw by hovering your mouse cursor or dragging your finger over the canvas. The position of this dot is the state variable the Kalman filter attempts to accurately estimate.
 
-**Yellow** trajectory is drawn by adding random error to the true trajectory you are drawing, and you can modify the **Meas. Error** input. In practical situation, due to the accuracy limit of sensors/detectors, yellow trajectory is going to be what we can acquire from the system.  
+**Yellow** trajectory is drawn by adding errors to the true trajectory you are drawing, and you can modify it with the input $R$. In practical situation, due to the accuracy limit of sensors/detectors, yellow trajectory is going to be what we can acquire.  
 
 **Cyan** trajectory is the trace of estimates calculated using Kalman filter.
 
-Let's skip what does the $Q$ and $R$ means here - walk through the rest of this post, get back to above interactive canvas again.  Then modify the values there and see how does the Kalman filter works differently - and see it is the way you understand and expect.
+Let's skip the exact meaning of $Q$ and $R$ for now - walk through the rest of this post, get back to above interactive canvas again.  Then modify the values there and see how does the Kalman filter works differently - and see it is the way you understand and expect.
 
 ## Kalman Filter
 
