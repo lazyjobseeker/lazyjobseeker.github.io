@@ -292,12 +292,8 @@
     });
 
     if(params.get("fullscreen") === "1"){
-        const fs = app.classList.toggle("fullscreen");
-        if (fs) {
-            document.body.appendChild(app);
-        } else {
-            originalParent.insertBefore(app, originalNext);
-        }
+        const fs = app.classList.add("fullscreen");
+        document.body.appendChild(app);
         resizeCanvas();
         drawTrajectories();
     }
