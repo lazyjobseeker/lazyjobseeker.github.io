@@ -174,11 +174,6 @@
     function resizeCanvas(){
         canvas.width = app.clientWidth;
         canvas.height = app.clientHeight;
-        if(params.get("fullscreen") === "1"){
-            document.body.style.overflow = "hidden";
-        }else{
-            document.body.style.overflow = "";
-        }
     }
 
     const MAX_TRAJ = 2000;
@@ -284,23 +279,22 @@
         const fs = app.classList.toggle("fullscreen");
         if (fs) {
             document.body.appendChild(app);
+            document.body.style.overflow = "hidden";
         } else {
             originalParent.insertBefore(app, originalNext);
+            document.body.style.overflow = "";
         }
         resizeCanvas();
         drawTrajectories();
     });
 
-    if(params.get("fullscreen") === "1"){
-        const fs = app.classList.add("fullscreen");
-        document.body.appendChild(app);
-        resizeCanvas();
-        drawTrajectories();
-    }
-
     window.addEventListener("resize", resizeCanvas);
-    window.addEventListener("load", resizeCanvas);
     window.addEventListener("load", () => {
+        if(params.get("fullscreen") === "1"){
+            const fs = app.classList.add("fullscreen");
+            document.body.appendChild(app);
+            document.body.style.overflow = "hidden";
+        }
         resizeCanvas();
         placeDotsCenter();
     });
