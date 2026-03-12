@@ -4,7 +4,7 @@ category: programming
 tags:
   - algorithm
 created_at: 2026-03-08 03:07:08 -05:00
-last_modified_at: 2026-03-11 11:33:02 -05:00
+last_modified_at: 2026-03-11 11:46:23 -05:00
 excerpt: 선형 상태공간계의 상태 추정에 사용되는 칼만 필터 알고리즘에 대한 단계별 설명 및 인터랙티브 웹앱 예제.
 published: true
 ---
@@ -84,6 +84,8 @@ $$K_k = P_{k \mid k-1}{H_k^T}S_k^{-1} \tag{6}$$
 이제 사전(a priori) 추정에 의해 얻었던 상태변수($x_{k \mid k-1}$)와 이 상태변수의 공분산($P_{k \mid k-1}$) 을 관측값에 의해 보정된 사후 (a posteriori)추정값으로 다음과 같이 업데이트할 수 있습니다.
 
 $$x_{k \mid k} = x_{k \mid k-1} + K_k y_k \tag{7}$$
+
+
 $$P_{k \mid k} = \left( I - K_k H_k \right) P_{k \mid k-1} \tag{8}$$
 
 ## 기타

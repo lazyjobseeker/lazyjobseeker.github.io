@@ -3,8 +3,8 @@ title: "Understanding the Kalman Filter: An Interactive Example and Step-by-Step
 category: programming
 tags:
   - algorithm
-created_at: 2026-03-09 04:07:08 +09:00
-last_modified_at: 2026-03-11 02:43:14 +09:00
+created_at: 2026-03-08 03:07:08 -05:00
+last_modified_at: 2026-03-11 11:46:16 -05:00
 excerpt: A step-by-step guide to understand the concept of Kalman filter with an interative cursor tracker app implementing it.
 published: true
 ---
@@ -85,6 +85,8 @@ Using this, we finally update our state estimate and all other entities having $
 We now update our **a priori** estimate $x_{k \mid k-1}$ into **a posteriori state estimate** $x_{k \mid k}$ and covariance matrix $P_{k \mid k-1}$:
 
 $$x_{k \mid k} = x_{k \mid k-1} + K_k y_k \tag{7}$$
+
+
 $$P_{k \mid k} = \left( I - K_k H_k \right) P_{k \mid k-1} \tag{8}$$
 
 ## Supporting
