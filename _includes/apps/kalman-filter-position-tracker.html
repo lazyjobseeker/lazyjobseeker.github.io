@@ -101,7 +101,7 @@
     const params = new URLSearchParams(window.location.search);
 
     const app = document.getElementById("kf-app");
-    const btn = document.getElementById("toggleFullscreen");
+    const fsbtn = document.getElementById("toggleFullscreen");
 
     // --- Kalman Filter State ---
     let x=[0,0,0,0]; // [px,py,vx,vy]
@@ -280,7 +280,7 @@
     const originalParent = app.parentNode;
     const originalNext = app.nextSibling;
     
-    btn.addEventListener("click", () => {
+    fsbtn.addEventListener("click", () => {
         const fs = app.classList.toggle("fullscreen");
         if (fs) {
             document.body.appendChild(app);
@@ -292,7 +292,12 @@
     });
 
     if(params.get("fullscreen") === "1"){
-        app.classList.add("fullscreen");
+        const fs = app.classList.toggle("fullscreen");
+        if (fs) {
+            document.body.appendChild(app);
+        } else {
+            originalParent.insertBefore(app, originalNext);
+        }
         resizeCanvas();
         drawTrajectories();
     }
