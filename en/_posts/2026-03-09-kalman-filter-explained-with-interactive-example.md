@@ -85,11 +85,9 @@ Using this, we finally update our state estimate and all other entities having $
 We now update our **a priori** estimate $x_{k \mid k-1}$ into **a posteriori state estimate** $x_{k \mid k}$ and covariance matrix $P_{k \mid k-1}$:
 
 $$x_{k \mid k} = x_{k \mid k-1} + K_k y_k \tag{7}$$
-
-
 $$P_{k \mid k} = \left( I - K_k H_k \right) P_{k \mid k-1} \tag{8}$$
 
-## Statements to Further Drill
+## Supporting
 
 - Kalman filter is effectively a low-pass filter.
 - If noise covariance $R$ increases, Kalman gain $K$ reduces. It makes the posterior state estimate depends more on the model-driven estimate than sensor measurement. Increasing $P$ works the opposite way.
