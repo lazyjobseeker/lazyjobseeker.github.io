@@ -5,7 +5,7 @@ tags:
   - algorithm
 created_at: 2026-03-17 01:46:56 -05:00
 last_modified_at: 2026-03-17 03:47:19 -05:00
-excerpt: A comprehensive guide to lithium-ion battery cathode materials, covering major chemistries such as LFP, NCM, and LCO, along with their properties and degradation mechanisms.
+excerpt: LFP, NCM, LCO 등 리튬이차전지용 양극소재의 조성, 특성, 열화기전 정리.
 published: true
 ---
 리튬이온전지용 양극소재는 배터리 셀의 성능, 사이클 특성, 안정성을 결정하는 데 중요한 역할을 합니다.  이 포스트는 양극소재의 종류, 특성, 열화 메커니즘을 정리하며, 최신 논문을 지속적으로 검토하여 정기적으로 업데이트할 예정입니다.
