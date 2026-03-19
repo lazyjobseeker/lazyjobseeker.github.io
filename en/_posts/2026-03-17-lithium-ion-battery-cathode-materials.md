@@ -2,9 +2,9 @@
 title: "Lithium-Ion Battery Cathodes: Materials, Properties, and Degradation Behavior"
 category: lithium-ion-battery
 tags:
-  - algorithm
+  - battery
 created_at: 2026-03-17 01:46:56 -05:00
-last_modified_at: 2026-03-17 03:45:58 -05:00
+last_modified_at: 2026-03-18 11:48:08 -05:00
 excerpt: A comprehensive guide to lithium-ion battery cathode materials, covering major chemistries such as LFP, NCM, and LCO, along with their properties and degradation mechanisms.
 published: true
 ---

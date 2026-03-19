@@ -2,9 +2,9 @@
 title: 리튬이차전지 양극 - 소재, 특성 및 열화기전
 category: lithium-ion-battery
 tags:
-  - algorithm
+  - battery
 created_at: 2026-03-17 01:46:56 -05:00
-last_modified_at: 2026-03-17 03:47:19 -05:00
+last_modified_at: 2026-03-18 10:38:56 -05:00
 excerpt: LFP, NCM, LCO 등 리튬이차전지용 양극소재의 조성, 특성, 열화기전 정리.
 published: true
 ---
