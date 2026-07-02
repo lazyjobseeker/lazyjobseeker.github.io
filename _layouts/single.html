@@ -71,7 +71,7 @@ layout: default
           </footer>
           {% if page.share %}{% include social-share.html -%}{% endif -%}
           {% include multilang/prev-next-locater -%}
-          {% include post_pagination.html -%}
+          {%- if page.nopaginator -%}{%- else -%}{% include post_pagination.html -%}{%- endif -%}
           {% include adsense/inarticle-belowpaginator.html -%}
         </div>
 

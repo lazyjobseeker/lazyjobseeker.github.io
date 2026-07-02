@@ -26,9 +26,11 @@ docs:
     children:
       - title: "Curriculum Vitae"
         url: /docs/curriculum-vitae/
-  - title: "Collections"
+  - title: "BLOG"
     children:
       - title: "Posts by Categories"
         url: /posts-by-categories/
       - title: "Posts by Tags"
         url: /posts-by-tags/
+      - title: "Thoughts"
+        url: /thoughts/

@@ -25,7 +25,7 @@
     <!-- Site Stat Powered by GoatCounter -->
       <li>
         <!-- Visitor Chart -->
-        <span class="nav__sub-title">BLOG STATISTICS</span>
+        <span class="nav__sub-title">STATISTICS</span>
         <div><canvas style="width:100%; min-height:120px; margin-bottom:0.3em" id="myPageviewCountChart" data-json="https://lazyjobseeker.github.io/assets/json/gcdailypageviews.json"></canvas></div>
 
         <ul style="font-size:0.8em;">

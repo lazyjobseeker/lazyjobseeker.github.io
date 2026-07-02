@@ -302,6 +302,7 @@ collections:
   - career
   - publications
   - patents
+  - thoughts
 
 # Defaults
 defaults:
