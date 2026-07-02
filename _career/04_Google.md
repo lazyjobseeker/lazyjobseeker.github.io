@@ -1,7 +1,7 @@
 ---
-affiliation: "Google"
+affiliation: "Google (Incoming)"
 history:
-  - position: "(Incoming) Senior Power System Architect"
+  - position: "Senior Power System Architect"
     department: "Hardware Platform Architecture"
     started: "July. 2026"
     ended: "Current"
