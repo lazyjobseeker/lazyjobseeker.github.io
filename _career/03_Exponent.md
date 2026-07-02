@@ -1,5 +1,5 @@
 ---
-affiliation: "Exponent Inc."
+affiliation: "Exponent"
 history:
   - position: "Associate"
     department: "Materials Science & Electrochemistry Practice"

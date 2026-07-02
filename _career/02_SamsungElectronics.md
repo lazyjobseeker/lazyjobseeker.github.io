@@ -1,5 +1,5 @@
 ---
-affiliation: "Samsung Electronics Co. Ltd."
+affiliation: "Samsung Electronics"
 history:
   - position: "Staff Engineer"
     department: "Design Solution Group, Global Technology Research (GTR)"
