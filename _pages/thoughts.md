@@ -5,7 +5,7 @@ sidebar:
   nav: "docs"
 author_profile: true
 translated: true
-title: Thoughts
+title: 생각들
 permalink: /thoughts/
 read_time: false
 toc: false
@@ -18,17 +18,17 @@ nopaginator: true
 
 {% for item in items %}
 
-#### {{ item.title.ko -}}
+#### {{ item.title.ko }}
 
-{% assign ko = item.content
+{%- assign ko = item.content
   | split: '<!-- lang:ko -->'
   | last
   | split: '<!-- /lang:ko -->'
-  | first %}
+  | first -%}
 
-{{ ko }}
+{{ ko | markdownify }}
 
-<br>
 Tags: {% for tag in item.tags -%}<code>{{ tag }}</code>{%- endfor %}
+<br>
 
 {% endfor %}

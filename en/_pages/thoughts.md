@@ -20,15 +20,15 @@ nopaginator: true
 
 #### {{ item.title.en }}
 
-{% assign en = item.content
+{%- assign en = item.content
   | split: '<!-- lang:en -->'
   | last
   | split: '<!-- /lang:en -->'
-  | first %}
+  | first -%}
 
-{{ en }}
+{{ en | markdownify }}
 
-<br>
 Tags: {% for tag in item.tags -%}<code>{{ tag }}</code>{%- endfor %}
+<br>
 
 {% endfor %}
