@@ -20,14 +20,15 @@ nopaginator: true
 
 #### {{ item.title.ko -}}
 
-{%- assign ko = item.content
+{% assign ko = item.content
   | split: '<!-- lang:ko -->'
   | last
   | split: '<!-- /lang:ko -->'
-  | first -%}
+  | first %}
 
-{{- ko }}
+{{ ko }}
 
-Tags: {% for tag in item.tags -%}```{{tag}}```{%- endfor %}
+<br>
+Tags: {% for tag in item.tags -%}<code>{{ tag }}</code>{%- endfor %}
 
 {% endfor %}

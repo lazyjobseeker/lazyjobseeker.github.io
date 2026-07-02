@@ -26,8 +26,9 @@ nopaginator: true
   | split: '<!-- /lang:en -->'
   | first %}
 
-{{- en }}
+{{ en }}
 
-Tags: {% for tag in item.tags -%}```{{tag}}```{%- endfor %}
+<br>
+Tags: {% for tag in item.tags -%}<code>{{ tag }}</code>{%- endfor %}
 
 {% endfor %}
