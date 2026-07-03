@@ -3,8 +3,8 @@ affiliation: "Seoul National University"
 history:
   - position: "Doctor of Philosophy (Ph.D.)"
     department: "Department of Materials Science and Engineering"
-    started: "Mar. 2013"
-    ended: "Feb. 2019"
+    started: "MAR 2013"
+    ended: "FEB 2019"
     jobs:
       - title: "NA"
     site: "Seoul, Republic of Korea"

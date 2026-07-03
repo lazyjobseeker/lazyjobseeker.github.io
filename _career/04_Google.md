@@ -3,7 +3,7 @@ affiliation: "Google (Incoming)"
 history:
   - position: "Senior Power System Architect"
     department: "Hardware Platform Architecture"
-    started: "July. 2026"
+    started: "JUL 2026"
     ended: "Current"
     jobs:
       - title: "Power system architecture at Google"
