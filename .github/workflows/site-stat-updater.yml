@@ -1,7 +1,7 @@
 name: Hourly Update of Pageviews & Wordcounts
 on:
   schedule:
-    - cron: "0 * * * *"   # 매 시간
+    - cron: "13 * * * *"   # 매 시간 13분
   workflow_dispatch:     # 수동 실행 버튼
 
 jobs:
