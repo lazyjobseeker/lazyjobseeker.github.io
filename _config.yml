@@ -112,9 +112,10 @@ analytics:
 author:
   name             : "Sangheon Lee"
   avatar           : # "/assets/images/logo.png"
+  home: "/docs/curriculum-vitae"
   bio              :
-    ko: "재빠른 나무늘보 🦥 - 일하는 것처럼 보인다면 착각입니다."
-    en: "A quick sloth 🦥 - If you see me working, you are mistaken."
+    ko: "재빠른 나무늘보 🦥"
+    en: "A quick sloth 🦥"
   location         : "Greater Boston, US" # "Republic of Korea"
   links:
     - label: "Email"

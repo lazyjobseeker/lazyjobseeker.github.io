@@ -12,20 +12,8 @@ main:
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
-
-programming:
-  - title: "Coding Test"
-    children:
-      - title: "SW Expert Academy"
-        url: /docs/curriculum-vitae/
-      - title: "C++"
-      - title: "JAVA"
-
+  
 docs:
-  - title: "ABOUT"
-    children:
-      - title: "Curriculum Vitae"
-        url: /docs/curriculum-vitae/
   - title: "BLOG"
     children:
       - title: "Posts by Categories"
