@@ -1,7 +1,7 @@
 ---
 affiliation: "Google"
 history:
-  - position: "Senior Electrical Engineer, Power System Architect"
+  - position: "Power System Architect"
     department: "Platform Power Architecture"
     started: "JUL 2026"
     ended: "Current"
