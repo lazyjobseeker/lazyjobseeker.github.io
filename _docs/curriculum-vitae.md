@@ -1,7 +1,7 @@
 ---
 lang: ko
 translated: true
-title: Sangheon (Tyler) Lee, Ph.D.
+title: Sangheon Lee, Ph.D.
 classes: wide
 category: Sangheon Lee
 last_modified_at: 2024-03-26 14:38:41 +09:00
