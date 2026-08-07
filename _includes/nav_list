@@ -31,12 +31,12 @@
         <ul style="font-size:0.8em;">
           <li style="display:flex;">
             <span style="display:flex; width:32%; justify-content: left;"><b>TODAY</b></span>
-            <span style="display:flex; width:32%; justify-content: left;"><b>YDAY</b></span>
+            <span style="display:flex; width:36%; justify-content: left;"><b>YESTERDAY</b></span>
             <span style="display:flex; width:32%; justify-content: left;"><b>TOTAL</b></span>
           </li>
           <li style="display:flex;">
             <span style="display:flex; width:32%; justify-content: left;" id="gc_today"></span>
-            <span style="display:flex; width:32%; justify-content: left;" id="gc_yesterday"></span>
+            <span style="display:flex; width:36%; justify-content: left;" id="gc_yesterday"></span>
             <span style="display:flex; width:32%; justify-content: left;" id="gc_total"></span>
           </li>
         </ul>
@@ -50,12 +50,12 @@
         <ul style="font-size:0.8em;">
           <li style="display:flex;">
             <span style="display:flex; width:32%; justify-content: left;"><b>TODAY</b></span>
-            <span style="display:flex; width:32%; justify-content: left;"><b>YESTERDAY</b></span>
+            <span style="display:flex; width:36%; justify-content: left;"><b>YESTERDAY</b></span>
             <span style="display:flex; width:32%; justify-content: left;"><b>TOTAL</b></span>
           </li>
           <li style="display:flex;">
             <span style="display:flex; width:32%; justify-content: left;" id="wc_today"></span>
-            <span style="display:flex; width:32%; justify-content: left;" id="wc_yesterday"></span>
+            <span style="display:flex; width:36%; justify-content: left;" id="wc_yesterday"></span>
             <span style="display:flex; width:32%; justify-content: left;" id="wc_total"></span>
           </li>
         </ul>
