@@ -16,12 +16,17 @@
   //   transform: translate3d(0, 0, 0);
   // }
 
+  border-radius: $clifford-border-radius;
+
   @include breakpoint($large) {
     float: left;
-    width: calc(#{$right-sidebar-width-narrow} - 1em);
+    width: calc(#{$right-sidebar-width-narrow});
     opacity: 0.75;
     -webkit-transition: opacity 0.2s ease-in-out;
     transition: opacity 0.2s ease-in-out;
+    background: white;
+    box-shadow: 0px 0px 20px rgba(57,79,122,0.1);
+    padding: 1em;
 
     &:hover {
       opacity: 1;
@@ -38,7 +43,7 @@
   }
 
   @include breakpoint($x-large) {
-    width: calc(#{$right-sidebar-width} - 1em);
+    width: calc(#{$right-sidebar-width});
   }
 
   > * {
@@ -180,6 +185,7 @@
 .sidebar .author__name {
   font-family: $sans-serif;
   font-size: $type-size-5;
+  text-align: center;
 }
 
 .author__bio {
@@ -188,6 +194,7 @@
   @include breakpoint($large) {
     margin-top: 10px;
     margin-bottom: 20px;
+    text-align: center;
   }
 }
 

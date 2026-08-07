@@ -17,17 +17,21 @@ layout: default
 <div id="main" role="main">
 
   <div class="container">
+    <div class="round-card col-12">
+       <img src="https://images.unsplash.com/photo-1586810724476-c294fb7ac01b?q=80&w=1036&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+    </div>
+  </div>
 
+  <div class="container">
     <div class="left-column sticky">
-
+      {% if page.toc -%}
       <div class="round-card col-4 toc__wrapper">
-        {% if page.toc -%}
         <nav class="toc no-select">
           <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label | default: "On this page" }}</h4></header>
           {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" skip_no_ids=true -%}
         </nav>
-        {% endif -%}
       </div>
+      {% endif -%}
 
       <div class="round-card col-4">
         {% if page.toc -%}
@@ -80,11 +84,12 @@ layout: default
         {% endif -%}
       </article>
     </div>
-</div>
-  <div class="container">
-    <div class="round-card">
-      {% comment -%}<!-- only show related on a post page when `related: true` -->{% endcomment -%}
-      {% if page.id and page.related and site.related_posts.size > 0 -%}
+  </div>
+
+  {% comment -%}<!-- only show related on a post page when `related: true` -->{% endcomment -%}
+  {% if page.id and page.related and site.related_posts.size > 0 -%}
+    <div class="container footer">
+      <div class="round-card">
         <div class="page__related">
           <h2 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h2>
           <div class="grid__wrapper">
@@ -94,10 +99,13 @@ layout: default
               {% include archive-single.html type="grid" -%}
             {% endfor -%}
           </div>
-          {% include adsense/multiflex-belowrelatedposts.html -%}
         </div>
       {% comment -%}<!-- otherwise show recent posts if no related when `related: true` -->{% endcomment -%}
-      {% elsif page.id and page.related -%}
+      </div>
+    </div>
+  {% elsif page.id and page.related -%}
+    <div class="container footer">
+      <div class="round-card">
         <div class="page__related">
           <h2 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h2>
           <div class="grid__wrapper">
@@ -109,9 +117,9 @@ layout: default
               {% include archive-single.html type="grid" -%}
             {% endfor -%}
           </div>
-          {% include adsense/multiflex-belowrelatedposts.html -%}
         </div>
-      {% endif -%}
+      </div>
     </div>
-  </div>
+  {% endif -%}
+  {% include adsense/multiflex-belowrelatedposts.html -%}
 </div>

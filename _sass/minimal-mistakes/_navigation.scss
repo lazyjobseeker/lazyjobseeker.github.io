@@ -177,7 +177,6 @@
   -ms-flex-align: center;
   align-items: center;
   min-height: $nav-height;
-  background: $background-color;
 
   a {
     display: block;
@@ -515,7 +514,6 @@
   @include breakpoint($large) {
     position: sticky;
     top: 1em;
-    margin-top: 1.5em;
     max-width: calc(#{$right-sidebar-width-narrow});
   }
 
