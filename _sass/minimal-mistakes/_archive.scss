@@ -3,17 +3,17 @@
    ========================================================================== */
 
 .archive {
-  margin-top: 1em;
-  margin-bottom: 2em;
+  margin-top: 0em;
+  margin-bottom: 1em;
 
   @include breakpoint($large) {
     float: right;
-    width: calc(100% - #{$right-sidebar-width-narrow} - 1em);
+    width: 100%;
     padding-right: $right-sidebar-width-narrow;
   }
 
   @include breakpoint($x-large) {
-    width: calc(100% - #{$right-sidebar-width} - 1em);
+    width: 100%;
     padding-right: $right-sidebar-width;
   }
 }
