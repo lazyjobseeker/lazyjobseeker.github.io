@@ -5,11 +5,12 @@ title:
 tags:
   - study
 created_at: 2026-09-01 11:26:22 -07:00
-last_modified_at: 2026-09-02 01:15:18 -07:00
+last_modified_at: 2026-09-02 01:19:15 -07:00
 ---
 
 <!-- lang:ko -->
 **Discovery Learning Predicts Battery Cycle Life from Minimal Experiments**
+
 DOI: 10.1038/s41586-025-09951-7
 
 Learner - Interpreter - Oracle
@@ -31,6 +32,7 @@ Learner는 처음에는 멍청하기 때문에 입력벡터 도메인에서 아�
 
 <!-- lang:en -->
 **Discovery Learning Predicts Battery Cycle Life from Minimal Experiments**
+
 DOI: 10.1038/s41586-025-09951-7
 
 The **Learner** is a Gaussian process regression model. Its goal is to take operating-condition parameters, such as charging rate and temperature, as inputs and estimate the number of cycles it takes for the SOH to reach 90%.
